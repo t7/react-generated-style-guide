@@ -1,0 +1,35 @@
+{
+  "name": "t7-front-porch-2015",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack",
+    "start": "webpack-dev-server --hot",
+    "clean": "rm -rf build",
+    "build": "npm run clean && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mundizzle/front-porch-2015.git"
+  },
+  "author": "mundizzle, nathansmith",
+  "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "babel-core": "^5.8.3",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.15.5",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "node-libs-browser": "^0.5.2",
+    "postcss-loader": "^0.5.1",
+    "raw-loader": "^0.5.1",
+    "react": "^0.13.3",
+    "react-to-html-webpack-plugin": "^2.1.0",
+    "semistandard": "^6.1.2",
+    "snazzy": "^1.0.1",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.9.0"
+  }
+}
