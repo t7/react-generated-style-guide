@@ -17,6 +17,9 @@ body {
   min-height: 100%;
 }
 
-div {
+/*
+  TODO: Why isn't this coming through?
+*/
+body {
   background: red;
 }
