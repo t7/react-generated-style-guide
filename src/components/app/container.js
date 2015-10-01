@@ -36,17 +36,23 @@ export default class App extends Component {
     }
   }
 
+  headerCallback (e) {
+    // TODO.
+    console.log('headerCallback')
+    console.log(e)
+  }
+
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
-    console.log('Component Mounted: "/containers/app"')
+    console.log('Component Mounted: "/components/app/container"')
   }
 
   // Render method.
   render () {
     return (
       <div className='t7-app'>
-        <Header header={that.state.header} />
+        <Header header={that.state.header} callback={that.headerCallback} />
         <Main main={that.state.main} />
         <Sidebar sidebar={that.state.sidebar} />
         <Footer footer={that.state.footer} year={that.state.year} />

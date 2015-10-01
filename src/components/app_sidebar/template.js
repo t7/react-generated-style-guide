@@ -18,7 +18,7 @@ export default class Sidebar extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
-    console.log('Component Mounted: "/components/sidebar"')
+    console.log('Component Mounted: "/components/app_sidebar/template"')
   }
 
   // Render method.

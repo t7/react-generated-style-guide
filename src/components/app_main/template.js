@@ -18,14 +18,16 @@ export default class Main extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
-    console.log('Component Mounted: "/components/main"')
+    console.log('Component Mounted: "/components/app_main/template"')
   }
 
   // Render method.
   render () {
     return (
       <main className='t7-app__main' role='main'>
-        {that.props.main}
+        <p>
+          {that.props.main}
+        </p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

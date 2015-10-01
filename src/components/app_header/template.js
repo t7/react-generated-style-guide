@@ -18,7 +18,7 @@ export default class Header extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
-    console.log('Component Mounted: "/components/header"')
+    console.log('Component Mounted: "/components/app_header/template"')
   }
 
   // Stop event.
@@ -31,6 +31,10 @@ export default class Header extends Component {
   linkClick (e) {
     that.stop(e)
     that.linkClickHandler(e.target.href)
+
+    if (typeof that.props.callback === 'function') {
+      that.props.callback(e)
+    }
   }
 
   linkClickHandler (link) {

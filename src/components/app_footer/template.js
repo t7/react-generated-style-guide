@@ -18,7 +18,7 @@ export default class Footer extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
-    console.log('Component Mounted: "/components/footer"')
+    console.log('Component Mounted: "/components/app_footer/template"')
   }
 
   // Render method.
