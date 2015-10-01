@@ -1,9 +1,6 @@
-
 // Dependencies.
 import React from 'react'
 import { Component } from 'react'
-
-require('./style.css')
 
 // Shared scope
 var that
@@ -21,12 +18,13 @@ export default class Footer extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
+    console.log('Component Mounted: "/components/footer"')
   }
 
   // Render method.
   render () {
     return (
-      <footer className='t7-footer' role='contentinfo'>
+      <footer className='t7-app__footer' role='contentinfo'>
         &copy;
         {' '}
         {that.props.footer}

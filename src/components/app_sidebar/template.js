@@ -2,8 +2,6 @@
 import React from 'react'
 import { Component } from 'react'
 
-require('./style.css')
-
 // Shared scope
 var that
 
@@ -20,12 +18,13 @@ export default class Sidebar extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
+    console.log('Component Mounted: "/components/sidebar"')
   }
 
   // Render method.
   render () {
     return (
-      <aside className='t7-sidebar'>
+      <aside className='t7-app__sidebar'>
         {that.props.sidebar}
       </aside>
     )

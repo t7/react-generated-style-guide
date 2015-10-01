@@ -1,6 +1,17 @@
+// Dependencies.
 import React from 'react'
-import App from './containers/app'
+import { Router, Route } from 'react-router'
+import App from './components/app/container'
 
-var el = document.getElementById('app')
+const el = document.getElementById('app')
 
-React.render(<App />, el)
+const template = (
+<Router>
+  <Route path='/' component={App}>
+    // TODO: Change this to a "404".
+    <Route path='*' component={App} />
+  </Route>
+</Router>
+)
+
+React.render(template, el)

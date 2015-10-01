@@ -3,10 +3,10 @@ import React from 'react'
 import { Component } from 'react'
 
 // UI components.
-import Header from '../components/header'
-import Sidebar from '../components/sidebar'
-import Main from '../components/main'
-import Footer from '../components/footer'
+import Header from '../app_header/template'
+import Sidebar from '../app_sidebar/template'
+import Main from '../app_main/template'
+import Footer from '../app_footer/template'
 
 // Shared scope
 var that
@@ -39,15 +39,16 @@ export default class App extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
+    console.log('Component Mounted: "/containers/app"')
   }
 
   // Render method.
   render () {
     return (
-      <div className='t7-app-wrapper'>
+      <div className='t7-app'>
         <Header header={that.state.header} />
-        <Sidebar sidebar={that.state.sidebar} />
         <Main main={that.state.main} />
+        <Sidebar sidebar={that.state.sidebar} />
         <Footer footer={that.state.footer} year={that.state.year} />
       </div>
     )

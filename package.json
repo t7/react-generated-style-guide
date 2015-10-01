@@ -24,6 +24,7 @@
     "postcss-loader": "^0.5.1",
     "raw-loader": "^0.5.1",
     "react": "^0.13.3",
+    "react-router": "^1.0.0-rc1",
     "react-to-html-webpack-plugin": "^2.1.0",
     "semistandard": "^6.1.2",
     "snazzy": "^1.0.1",

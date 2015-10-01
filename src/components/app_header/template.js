@@ -2,8 +2,6 @@
 import React from 'react'
 import { Component } from 'react'
 
-require('./style.css')
-
 // Shared scope
 var that
 
@@ -20,6 +18,7 @@ export default class Header extends Component {
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
+    console.log('Component Mounted: "/components/header"')
   }
 
   // Stop event.
@@ -31,28 +30,19 @@ export default class Header extends Component {
   // Example event.
   linkClick (e) {
     that.stop(e)
+    that.linkClickHandler(e.target.href)
+  }
 
+  linkClickHandler (link) {
     // TODO.
-    window.alert('This link is... ' + e.target.href)
+    window.alert('This link is... ' + link)
   }
 
   // Render method.
   render () {
-    // TODO.
-    console.log('called... render')
-
-    /*
-      TODO:
-
-      `*.props` made available via constructor/super.
-    */
-    console.log(that.props)
-
     return (
-      <header className='t7-header' role='banner'>
-        <span>
-          {that.props.header}
-        </span>
+      <header className='t7-app__header' role='banner'>
+        {that.props.header}
         {' '}
         &mdash;
         {' '}

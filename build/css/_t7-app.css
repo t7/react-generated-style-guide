@@ -1,0 +1,74 @@
+/*
+Layout.
+================================================================================
+*/
+
+.t7-app,
+.t7-app__header,
+.t7-app__main,
+.t7-app__sidebar,
+.t7-app__footer {
+  position: absolute;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+
+.t7-app {
+  overflow: hidden;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.t7-app__header {
+  background: red;
+
+  height: 50px;
+
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.t7-app__main {
+  background: yellow;
+
+  overflow-x: auto;
+  overflow-y: scroll;
+
+  top: 50px;
+  left: 200px;
+  right: 0;
+  bottom: 30px;
+}
+
+.t7-app__sidebar {
+  background: green;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  width: 200px;
+
+  top: 50px;
+  left: 0;
+  bottom: 30px;
+}
+
+.t7-app__footer {
+  background: orange;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  height: 30px;
+  line-height: 30px;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
