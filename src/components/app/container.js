@@ -8,6 +8,9 @@ import Sidebar from '../app_sidebar/template'
 import Main from '../app_main/template'
 import Footer from '../app_footer/template'
 
+// CSS.
+import style from '../../css/_t7-app.css'
+
 // Shared scope
 var that
 
@@ -51,7 +54,7 @@ export default class App extends Component {
   // Render method.
   render () {
     return (
-      <div className='t7-app'>
+      <div className={style['t7-app']}>
         <Header header={that.state.header} callback={that.headerCallback} />
         <Main main={that.state.main} />
         <Sidebar sidebar={that.state.sidebar} />

@@ -2,6 +2,9 @@
 import React from 'react'
 import { Component } from 'react'
 
+// CSS.
+import style from '../../css/_t7-app.css'
+
 // Shared scope
 var that
 
@@ -24,7 +27,7 @@ export default class Footer extends Component {
   // Render method.
   render () {
     return (
-      <footer className='t7-app__footer' role='contentinfo'>
+      <footer className={style['t7-app__footer']} role='contentinfo'>
         &copy;
         {' '}
         {that.props.footer}

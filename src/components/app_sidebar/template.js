@@ -2,6 +2,9 @@
 import React from 'react'
 import { Component } from 'react'
 
+// CSS.
+import style from '../../css/_t7-app.css'
+
 // Shared scope
 var that
 
@@ -24,7 +27,7 @@ export default class Sidebar extends Component {
   // Render method.
   render () {
     return (
-      <aside className='t7-app__sidebar'>
+      <aside className={style['t7-app__sidebar']}>
         {that.props.sidebar}
       </aside>
     )

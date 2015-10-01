@@ -3,6 +3,10 @@ import React from 'react'
 import { Router, Route } from 'react-router'
 import App from './components/app/container'
 
+// Un-scoped CSS.
+require('./css/reset.css')
+require('./css/global.css')
+
 const el = document.getElementById('app')
 
 const template = (

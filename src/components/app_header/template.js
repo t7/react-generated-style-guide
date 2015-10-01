@@ -2,6 +2,9 @@
 import React from 'react'
 import { Component } from 'react'
 
+// CSS.
+import style from '../../css/_t7-app.css'
+
 // Shared scope
 var that
 
@@ -45,7 +48,7 @@ export default class Header extends Component {
   // Render method.
   render () {
     return (
-      <header className='t7-app__header' role='banner'>
+      <header className={style['t7-app__header']} role='banner'>
         {that.props.header}
         {' '}
         &mdash;
