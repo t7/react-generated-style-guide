@@ -44,7 +44,7 @@ export default class App extends Component {
   // Render method.
   render () {
     return (
-      <div>
+      <div className='t7-app-wrapper'>
         <Header header={that.state.header} />
         <Sidebar sidebar={that.state.sidebar} />
         <Main main={that.state.main} />
