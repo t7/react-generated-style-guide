@@ -6,7 +6,7 @@ import { Component } from 'react'
 import style from '../../css/_t7-app.css'
 
 // Event cancel.
-import utils from '../../utils/utils'
+import utils from '../../utils'
 
 // Define class.
 export default class Header extends Component {
