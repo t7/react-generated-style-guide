@@ -5,55 +5,38 @@ import { Component } from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
-// Shared scope
-var that
+// Event cancel.
+import utils from '../../utils/utils'
 
 // Define class.
 export default class Header extends Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Alias to `this`.
-    that = this
   }
 
   // Automatically called after `render`.
   componentDidMount () {
     // TODO.
-    console.log('Component Mounted: "/components/app_header/template"')
-  }
-
-  // Stop event.
-  stop (e) {
-    e.preventDefault()
-    e.stopPropagation()
   }
 
   // Example event.
   linkClick (e) {
-    that.stop(e)
-    that.linkClickHandler(e.target.href)
+    utils.stop(e)
 
-    if (typeof that.props.callback === 'function') {
-      that.props.callback(e)
-    }
-  }
-
-  linkClickHandler (link) {
     // TODO.
-    window.alert('This link is... ' + link)
+    window.alert('This link is... ' + e.target.href)
   }
 
   // Render method.
   render () {
     return (
       <header className={style['t7-app__header']} role='banner'>
-        {that.props.header}
+        {this.props.header}
         {' '}
         &mdash;
         {' '}
-        <a href='http://google.com/' onClick={that.linkClick}>
+        <a href='http://google.com/' onClick={this.linkClick}>
           Click Me!
         </a>
       </header>

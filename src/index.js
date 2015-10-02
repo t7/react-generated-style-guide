@@ -4,18 +4,27 @@ import { Router, Route } from 'react-router'
 import App from './components/app/container'
 
 // Un-scoped CSS.
-require('./css/reset.css')
-require('./css/global.css')
+import './css/reset.css'
+import './css/global.css'
 
-const el = document.getElementById('app')
+// Page titles.
+const titles = {
+  'foo': 'Foobar',
+  'etc': 'Etc.',
+  '404': 'Page Not Found'
+}
 
+// Routes template.
 const template = (
 <Router>
-  <Route path='/' component={App}>
-    // TODO: Change this to a "404".
-    <Route path='*' component={App} />
+  <Route path='/' component={App} titles={titles}>
+    // "404" page.
+    <Route path='*' />
   </Route>
 </Router>
 )
+
+// Insertion point.
+const el = document.getElementById('app')
 
 React.render(template, el)

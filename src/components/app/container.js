@@ -11,26 +11,20 @@ import Footer from '../app_footer/template'
 // CSS.
 import style from '../../css/_t7-app.css'
 
-// Shared scope
-var that
-
 // Define class.
 export default class App extends Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
 
-    // Alias to `this`.
-    that = this
-
     // Call the kickoff method.
-    that.kickoff()
+    this.kickoff()
   }
 
   kickoff () {
     var year = new Date().getFullYear()
 
-    that.state = {
+    this.state = {
       header: 'Header Here',
       sidebar: 'Sidebar Here',
       main: 'Main Here',
@@ -39,26 +33,40 @@ export default class App extends Component {
     }
   }
 
-  headerCallback (e) {
-    // TODO.
-    console.log('headerCallback')
-    console.log(e)
-  }
-
   // Automatically called after `render`.
   componentDidMount () {
-    // TODO.
-    console.log('Component Mounted: "/components/app/container"')
+    // Fallback site title.
+    const suffix = 'T7 Interactive Style Guide'
+
+    // Get object hash of potential titles.
+    const titles = this.props.route.titles
+
+    // Grab pathname from `props.location`.
+    const pathname = this.props.location.pathname.split('/')[1]
+
+    // Used in conditional.
+    var title
+
+    // Does a title exist?
+    if (titles[pathname]) {
+      title = titles[pathname] + ' | ' + suffix
+    }
+    else {
+      title = suffix
+    }
+
+    // Set title.
+    document.title = title
   }
 
   // Render method.
   render () {
     return (
       <div className={style['t7-app']}>
-        <Header header={that.state.header} callback={that.headerCallback} />
-        <Main main={that.state.main} />
-        <Sidebar sidebar={that.state.sidebar} />
-        <Footer footer={that.state.footer} year={that.state.year} />
+        <Header header={this.state.header} callback={this.headerCallback} />
+        <Main main={this.state.main} />
+        <Sidebar sidebar={this.state.sidebar} />
+        <Footer footer={this.state.footer} year={this.state.year} />
       </div>
     )
   }
