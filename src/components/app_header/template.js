@@ -5,7 +5,7 @@ import { Component } from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
-// Event cancel.
+// Utility methods.
 import utils from '../../utils'
 
 // Define class.
@@ -22,6 +22,7 @@ export default class Header extends Component {
 
   // Example event.
   linkClick (e) {
+    // Stop link from being followed.
     utils.stop(e)
 
     // TODO.
