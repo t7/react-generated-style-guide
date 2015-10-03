@@ -1,6 +1,5 @@
 // Dependencies.
 import React from 'react'
-import { Component } from 'react'
 
 // UI components.
 import Header from '../app_header/template'
@@ -12,7 +11,7 @@ import Footer from '../app_footer/template'
 import style from '../../css/_t7-app.css'
 
 // Define class.
-export default class App extends Component {
+export default class App extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)

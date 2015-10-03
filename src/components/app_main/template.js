@@ -1,12 +1,11 @@
 // Dependencies.
 import React from 'react'
-import { Component } from 'react'
 
 // CSS.
 import style from '../../css/_t7-app.css'
 
 // Define class.
-export default class Main extends Component {
+export default class Main extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
