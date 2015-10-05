@@ -36,6 +36,7 @@ Header.
 */
 
 .t7-app__header {
+  background: #fff;
   border-bottom: 1px solid #ccc;
 
   padding-left: 20px;
@@ -51,13 +52,18 @@ Header.
   right: 0;
 }
 
+.t7-app__header select {
+  position: relative;
+  top: -3px;
+}
+
 .t7-app__header__title {
   font-size: 15px;
   color: #666;
 }
 
 .t7-app__header__logo {
-  background: url("../images/t7-logo.svg");
+  background: url("../images/t7-app__header__logo.svg");
   background-size: 100% 100%;
 
   /* Hide text. */
@@ -87,6 +93,7 @@ Sidebar.
 */
 
 .t7-app__sidebar {
+  background: #fff;
   border-right: 1px solid #ccc;
 
   padding-top: 20px;
@@ -109,6 +116,8 @@ Main content area.
 */
 
 .t7-app__main {
+  background: #fff;
+
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;

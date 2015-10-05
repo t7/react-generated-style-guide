@@ -5,7 +5,7 @@ import React from 'react'
 import style from '../../css/_t7-app.css'
 
 // Define class.
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -24,6 +24,12 @@ export default class Sidebar extends React.Component {
       </aside>
     )
   }
-
-// END: export.
 }
+
+// Validation.
+Sidebar.propTypes = {
+  sidebar: React.PropTypes.string
+}
+
+// Export.
+export default Sidebar

@@ -1,4 +1,89 @@
 /*
+Form element "reset."
+================================================================================
+*/
+
+/*
+  Don't make edits to this style block,
+  as it is simply intended to "undo" the
+  default look and feel. Instead, make
+  specific edits to "shared styles."
+*/
+
+.t7-form__button,
+.t7-form__input,
+.t7-form__select,
+.t7-form__textarea {
+  /* Undo Firefox defaults. */
+  -moz-appearance: none;
+
+  /* Undo WebKit defaults. */
+  -webkit-appearance: none;
+
+  /* Adjust background display */
+  background-clip: padding-box;
+
+  /* Remove rounded corners */
+  border-radius: 0;
+
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.t7-form__input:ms-clear,
+.t7-form__input:ms-reveal,
+.t7-form__select:-ms-expand {
+  display: none;
+}
+
+.t7-form__input:-webkit-search-decoration {
+  display: none;
+}
+
+.t7-form__input:-webkit-outer-spin-button,
+.t7-form__input:-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* For Firefox */
+@-moz-document url-prefix() {
+  .t7-form__button:invalid,
+  .t7-form__input:invalid,
+  .t7-form__select:invalid,
+  .t7-form__textarea:invalid {
+    /*
+      Suppress red glow that Firefox
+      adds to form fields by default,
+      even when user is still typing.
+    */
+    box-shadow: none;
+  }
+
+  .t7-form__button:-moz-focus-inner,
+  .t7-form__input:-moz-focus-inner,
+  .t7-form__select:-moz-focus-inner,
+  .t7-form__textarea:-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  .t7-form__select {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+}
+
+.t7-form__button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: auto;
+}
+
+/*
 Shared styles.
 ================================================================================
 */
@@ -6,8 +91,17 @@ Shared styles.
 .t7-form__input,
 .t7-form__select,
 .t7-form__textarea {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #999;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.t7-form__input,
+.t7-form__select {
+  display: inline-block;
+  height: 25px;
+  vertical-align: middle;
 }
 
 /*
@@ -25,7 +119,7 @@ Text area.
 */
 
 .t7-form__textarea {
-
+  display: block;
 }
 
 /*
@@ -33,6 +127,41 @@ Select drop-down.
 ================================================================================
 */
 
-.t7-form__select {
+/*@media (-webkit-min-device-pixel-ratio: 0) {*/
+  .t7-form__select {
+    background-image: url("../images/t7-form__select.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 130%;
 
+    padding-right: 30px;
+  }
+/*}*/
+
+
+/*
+Button.
+================================================================================
+*/
+
+.t7-form__button {
+
+}
+
+/*
+Disabled state.
+================================================================================
+*/
+
+.t7-form__button[disabled],
+.t7-form__input[disabled],
+.t7-form__select[disabled],
+.t7-form__textarea[disabled] {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  cursor: default;
+
+  opacity: 0.25;
 }

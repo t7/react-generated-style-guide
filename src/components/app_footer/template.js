@@ -5,7 +5,7 @@ import React from 'react'
 import style from '../../css/_t7-app.css'
 
 // Define class.
-export default class Footer extends React.Component {
+class Footer extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -28,6 +28,13 @@ export default class Footer extends React.Component {
       </footer>
     )
   }
-
-// END: export.
 }
+
+// Validation.
+Footer.propTypes = {
+  footer: React.PropTypes.string,
+  year: React.PropTypes.number
+}
+
+// Export.
+export default Footer

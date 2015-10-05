@@ -4,8 +4,11 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
+// Select drop-down.
+import Select from '../form_select/template'
+
 // Define class.
-export default class Main extends React.Component {
+class Main extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -25,6 +28,9 @@ export default class Main extends React.Component {
         </h1>
         <hr />
         <p>
+          <Select />
+        </p>
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -35,6 +41,12 @@ export default class Main extends React.Component {
       </main>
     )
   }
-
-// END: export.
 }
+
+// Validation.
+Main.propTypes = {
+  main: React.PropTypes.string
+}
+
+// Export.
+export default Main
