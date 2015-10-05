@@ -24,7 +24,7 @@ export default class App extends React.Component {
     var year = new Date().getFullYear()
 
     this.state = {
-      header: 'Header Here',
+      header: 'Interactive Style Guide',
       sidebar: 'Sidebar Here',
       main: 'Main Here',
       footer: 'TandemSeven',

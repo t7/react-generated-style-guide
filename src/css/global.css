@@ -4,6 +4,9 @@ Basic HTML
 */
 
 body {
+  background: #fff;
+  color: #333;
+
   font: 13px/1.5 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
 }
 
@@ -13,8 +16,7 @@ code {
 }
 
 hr {
-  border: 0 solid #ccc;
-  border-top-width: 1px;
+  border-top: 1px solid #ccc;
   clear: both;
   height: 0;
 }

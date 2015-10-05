@@ -7,8 +7,11 @@ import style from '../../css/_t7-app.css'
 // Utility methods.
 import utils from '../../utils'
 
+// Select drop-down.
+import Select from '../form_select/template'
+
 // Define class.
-export default class Header extends React.Component {
+class Header extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -19,29 +22,63 @@ export default class Header extends React.Component {
     // TODO.
   }
 
-  // Example event.
-  linkClick (e) {
-    // Stop link from being followed.
+  onChange (e, value) {
     utils.stop(e)
 
     // TODO.
-    window.alert('This link is... ' + e.target.href)
+    console.log(e, value)
   }
 
   // Render method.
   render () {
+    // Config for <select>.
+    const options = [
+      {
+        value: '',
+        name: 'Contents...'
+      },
+      {
+        value: 'intro',
+        name: '- Intro'
+      },
+      {
+        value: 'branding',
+        name: '- Branding'
+      },
+      {
+        value: 'patterns',
+        name: '- Patterns'
+      },
+      {
+        value: 'templates',
+        name: '- Templates'
+      },
+      {
+        value: 'requirements',
+        name: '- Requirements'
+      }
+    ]
+
     return (
       <header className={style['t7-app__header']} role='banner'>
-        {this.props.header}
+        <b className={style['t7-app__header__title']}>
+          {this.props.header}
+        </b>
         {' '}
-        &mdash;
+        <Select options={options} onChange={this.onChange} />
         {' '}
-        <a href='http://google.com/' onClick={this.linkClick}>
-          Click Me!
-        </a>
+        <span className={style['t7-app__header__logo']}>
+          TandemSeven
+        </span>
       </header>
     )
   }
-
-// END: export.
 }
+
+// Validation.
+Header.propTypes = {
+  header: React.PropTypes.string
+}
+
+// Export.
+export default Header
