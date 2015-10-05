@@ -47,7 +47,7 @@ Form element "reset."
   -webkit-appearance: none;
 }
 
-/* For Firefox */
+/* For Firefox. */
 @-moz-document url-prefix() {
   .t7-form__button:invalid,
   .t7-form__input:invalid,
@@ -127,7 +127,8 @@ Select drop-down.
 ================================================================================
 */
 
-/*@media (-webkit-min-device-pixel-ratio: 0) {*/
+/* For WebKit. */
+@media (-webkit-min-device-pixel-ratio: 0) {
   .t7-form__select {
     background-image: url("../images/t7-form__select.png");
     background-repeat: no-repeat;
@@ -136,8 +137,20 @@ Select drop-down.
 
     padding-right: 30px;
   }
-/*}*/
+}
 
+/* For Firefox. */
+@-moz-document url-prefix() {
+  .t7-form__select {
+    background-image: url("../images/t7-form__select.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 130%;
+
+    padding-left: 1px;
+    padding-right: 27px;
+  }
+}
 
 /*
 Button.
