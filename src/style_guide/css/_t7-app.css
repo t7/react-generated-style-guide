@@ -53,8 +53,9 @@ Header.
 }
 
 .t7-app__header select {
+  vertical-align: top;
   position: relative;
-  top: -3px;
+  top: 12px;
 }
 
 .t7-app__header__title {
