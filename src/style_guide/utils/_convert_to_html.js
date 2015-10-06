@@ -5,13 +5,12 @@
 */
 export default function (value) {
   value = value.trim()
+  value = value.replace(/>/g, '&gt;')
+  value = value.replace(/</g, '&lt;')
   value = value.replace(/\n+\s+\n+/g, '\n\n')
   value = value.replace(/\n\n+/g, '\n\n')
   value = value.replace(/\n/g, '<br>')
   value = value.replace(/\s+/g, ' ')
-
-  // Remove bullets.
-  value = value.replace(/&#8226\s+/g, '')
 
   return value
 }
