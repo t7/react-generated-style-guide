@@ -71,6 +71,8 @@ class Main extends React.Component {
 
         <Textdiv placeholder='Contenteditable Div' />
 
+        <Textdiv placeholder='Contenteditable Div (Disabled)' disabled />
+
         <hr />
 
         <p>

@@ -30,6 +30,7 @@ Form element "reset."
   outline: 0;
   padding: 0;
 
+  font-size: 13px;
   vertical-align: middle;
 }
 
@@ -69,11 +70,6 @@ Form element "reset."
     border: 0;
     padding: 0;
   }
-
-  .t7-form__select {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
-  }
 }
 
 .t7-form__input::-webkit-input-placeholder,
@@ -90,7 +86,7 @@ Form element "reset."
 .t7-form__input,
 .t7-form__select,
 .t7-form__textarea {
-  line-height: inherit;
+  line-height: 1.5;
 }
 
 .t7-form__button {
@@ -114,7 +110,7 @@ Shared styles.
   background-color: #fff;
   border: 1px solid #999;
   border-radius: 3px;
-  line-height: inherit;
+  color: #000;
   padding: 2px 5px;
 }
 
