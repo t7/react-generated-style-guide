@@ -226,9 +226,14 @@ Button.
   margin-left: 10px;
 }
 
+.t7-form__button--small {
+  composes: t7-form__button;
+  font-size: 11px;
+}
+
 .t7-form__button--big {
   composes: t7-form__button;
-  font-size: 140%;
+  font-size: 20px;
 }
 
 /*

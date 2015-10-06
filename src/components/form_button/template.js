@@ -43,7 +43,9 @@ class Button extends React.Component {
     // Default class.
     var className = 't7-form__button'
 
-    if (size === 'big') {
+    if (size === 'small') {
+      className = 't7-form__button--small'
+    } else if (size === 'big') {
       className = 't7-form__button--big'
     }
 

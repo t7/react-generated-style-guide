@@ -94,6 +94,12 @@ class Main extends React.Component {
         <hr />
 
         <p>
+          <Button size='small' />
+          <Button size='small' text='Cancel' />
+          <Button size='small' text='Disabled' disabled />
+        </p>
+
+        <p>
           <Button />
           <Button text='Cancel' />
           <Button text='Disabled' disabled />
