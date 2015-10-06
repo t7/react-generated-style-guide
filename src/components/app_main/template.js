@@ -17,6 +17,8 @@ import Radio from '../form_radio/template'
 import RadioList from '../form_radio/template_list'
 import RadioListInline from '../form_radio/template_list_inline'
 import Select from '../form_select/template'
+import Textarea from '../form_textarea/template'
+import Textdiv from '../form_textdiv/template'
 
 // Define class.
 class Main extends React.Component {
@@ -63,6 +65,12 @@ class Main extends React.Component {
           <Input id='_example_text_input' />
         </p>
 
+        <p>
+          <Textarea placeholder='Textarea' />
+        </p>
+
+        <Textdiv placeholder='Contenteditable Div' />
+
         <hr />
 
         <p>
@@ -89,6 +97,12 @@ class Main extends React.Component {
           <Button />
           <Button text='Cancel' />
           <Button text='Disabled' disabled />
+        </p>
+
+        <p>
+          <Button size='big' />
+          <Button size='big' text='Cancel' />
+          <Button size='big' text='Disabled' disabled />
         </p>
 
       </main>

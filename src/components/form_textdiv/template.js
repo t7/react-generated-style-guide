@@ -24,6 +24,18 @@ class Textarea extends React.Component {
     document.body.setAttribute('spellcheck', false)
   }
 
+  onBlur (e) {
+    utils.convert_content_editable(e)
+  }
+
+  onFocus (e) {
+    utils.convert_content_focus(e)
+  }
+
+  onKeyUp (e) {
+    utils.convert_content_editable(e)
+  }
+
   onChange (e) {
     const onChange = that.props.onChange
 
@@ -38,23 +50,38 @@ class Textarea extends React.Component {
     onChange(e, value)
   }
 
+  onPaste (e) {
+    utils.convert_on_paste(e)
+  }
+
   // Render method.
   render () {
     const disabled = this.props.disabled
     const id = this.props.id
     const placeholder = this.props.placeholder
-    const type = this.props.type
-    const value = this.props.value
+
+    var value = this.props.value
+
+    if (!value && placeholder) {
+      value = placeholder
+    }
+
+    value = utils.convert_to_html(value)
 
     return (
-      <textarea
+      <div
         className={style['t7-form__textarea']}
+        contentEditable={!disabled}
+        dangerouslySetInnerHTML={{__html: value}}
         disabled={disabled}
         id={id}
-        defaultValue={value}
         placeholder={placeholder}
+        onBlur={this.onBlur}
         onChange={this.onChange}
-      />
+        onFocus={this.onFocus}
+        onKeyUp={this.onKeyUp}
+        onPaste={this.onPaste}
+      ></div>
     )
   }
 }

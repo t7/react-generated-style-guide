@@ -30,21 +30,21 @@ Form element "reset."
   outline: 0;
   padding: 0;
 
-  line-height: 1;
+  vertical-align: middle;
 }
 
-.t7-form__input:ms-clear,
-.t7-form__input:ms-reveal,
-.t7-form__select:-ms-expand {
+.t7-form__input::ms-clear,
+.t7-form__input::ms-reveal,
+.t7-form__select::-ms-expand {
   display: none;
 }
 
-.t7-form__input:-webkit-search-decoration {
+.t7-form__input::-webkit-search-decoration {
   display: none;
 }
 
-.t7-form__input:-webkit-outer-spin-button,
-.t7-form__input:-webkit-inner-spin-button {
+.t7-form__input::-webkit-outer-spin-button,
+.t7-form__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
@@ -62,10 +62,10 @@ Form element "reset."
     box-shadow: none;
   }
 
-  .t7-form__button:-moz-focus-inner,
-  .t7-form__input:-moz-focus-inner,
-  .t7-form__select:-moz-focus-inner,
-  .t7-form__textarea:-moz-focus-inner {
+  .t7-form__button::-moz-focus-inner,
+  .t7-form__input::-moz-focus-inner,
+  .t7-form__select::-moz-focus-inner,
+  .t7-form__textarea::-moz-focus-inner {
     border: 0;
     padding: 0;
   }
@@ -76,12 +76,31 @@ Form element "reset."
   }
 }
 
+.t7-form__input::-webkit-input-placeholder,
+.t7-form__textarea::-webkit-input-placeholder {
+  color: inherit;
+}
+
+.t7-form__input::-moz-placeholder,
+.t7-form__textarea::-moz-placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+.t7-form__input,
+.t7-form__select,
+.t7-form__textarea {
+  line-height: inherit;
+}
+
 .t7-form__button {
   cursor: pointer;
   display: inline-block;
+  line-height: 1;
   text-align: center;
   text-decoration: none;
   width: auto;
+  white-space: nowrap;
 }
 
 /*
@@ -94,6 +113,7 @@ Shared styles.
 .t7-form__textarea {
   background-color: #fff;
   border: 1px solid #999;
+  line-height: inherit;
   padding: 2px 5px;
 }
 
@@ -101,7 +121,6 @@ Shared styles.
 .t7-form__select {
   display: inline-block;
   height: 25px;
-  vertical-align: middle;
 }
 
 .t7-form__input:focus,
@@ -133,8 +152,16 @@ Text area.
 
 .t7-form__textarea {
   display: block;
-  resize: vertical;
   width: 100%;
+  min-height: 63px;
+}
+
+div.t7-form__textarea {
+  margin-bottom: 20px;
+}
+
+textarea.t7-form__textarea {
+  resize: vertical;
 }
 
 /*
@@ -197,6 +224,11 @@ Button.
 
 .t7-form__button + .t7-form__button {
   margin-left: 10px;
+}
+
+.t7-form__button--big {
+  composes: t7-form__button;
+  font-size: 140%;
 }
 
 /*

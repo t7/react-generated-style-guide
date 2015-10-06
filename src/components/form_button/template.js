@@ -37,11 +37,19 @@ class Button extends React.Component {
   render () {
     const disabled = this.props.disabled
     const text = this.props.text
+    const size = this.props.size
     const type = this.props.type
+
+    // Default class.
+    var className = 't7-form__button'
+
+    if (size === 'big') {
+      className = 't7-form__button--big'
+    }
 
     return (
       <button
-        className={style['t7-form__button']}
+        className={style[className]}
         disabled={disabled}
         type={type}
         onClick={this.onClick}
@@ -54,6 +62,7 @@ class Button extends React.Component {
 Button.propTypes = {
   disabled: React.PropTypes.bool,
   text: React.PropTypes.string,
+  size: React.PropTypes.string,
   type: React.PropTypes.string,
 
   // Events.
@@ -64,6 +73,7 @@ Button.propTypes = {
 Button.defaultProps = {
   disabled: false,
   text: 'Button Text',
+  size: '',
   type: 'button',
 
   // Events.
