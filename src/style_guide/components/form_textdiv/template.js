@@ -11,7 +11,7 @@ import utils from '../../utils'
 var that
 
 // Define class.
-class Textarea extends React.Component {
+class Textdiv extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -58,7 +58,10 @@ class Textarea extends React.Component {
   render () {
     const disabled = this.props.disabled
     const id = this.props.id
-    const placeholder = this.props.placeholder
+
+    var placeholder = this.props.placeholder
+    placeholder = placeholder.replace(/>/g, '&gt;')
+    placeholder = placeholder.replace(/</g, '&lt;')
 
     var value = this.props.value
 
@@ -87,7 +90,7 @@ class Textarea extends React.Component {
 }
 
 // Validation.
-Textarea.propTypes = {
+Textdiv.propTypes = {
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   placeholder: React.PropTypes.string,
@@ -98,7 +101,7 @@ Textarea.propTypes = {
 }
 
 // Prop defaults.
-Textarea.defaultProps = {
+Textdiv.defaultProps = {
   disabled: false,
   id: utils.unique(),
   placeholder: '',
@@ -111,4 +114,4 @@ Textarea.defaultProps = {
 }
 
 // Export.
-export default Textarea
+export default Textdiv
