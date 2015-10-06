@@ -34,11 +34,12 @@ class RadioList extends React.Component {
     return (
       <ul className={style[className]}>
         {
-          options.map(({checked, id, label, value, onChange}) => {
+          options.map(({checked, disabled, id, label, value, onChange}) => {
             return (
               <li key={id}>
                 <Radio
                   checked={checked}
+                  disabled={disabled}
                   id={id}
                   label={label}
                   name={name}

@@ -40,6 +40,7 @@ class Radio extends React.Component {
   // Render method.
   render () {
     const checked = this.props.checked
+    const disabled = this.props.disabled
     const id = this.props.id
     const label = this.props.label
     const name = this.props.name
@@ -49,13 +50,12 @@ class Radio extends React.Component {
       <label htmlFor={id}>
         <input
           className={style['t7-form__radio']}
+          disabled={disabled}
           id={id}
           type='radio'
           value={value}
           defaultChecked={checked}
           name={name}
-
-          // Events.
           onChange={this.onChange}
         />
         {label}
@@ -67,6 +67,7 @@ class Radio extends React.Component {
 // Validation.
 Radio.propTypes = {
   checked: React.PropTypes.bool,
+  disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   label: React.PropTypes.string,
   name: React.PropTypes.string,
@@ -79,6 +80,7 @@ Radio.propTypes = {
 // Prop defaults.
 Radio.defaultProps = {
   checked: false,
+  disabled: false,
   id: utils.unique(),
   label: 'Individual radio label',
   name: utils.unique(),

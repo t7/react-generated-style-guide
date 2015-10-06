@@ -32,12 +32,13 @@ class CheckboxList extends React.Component {
     return (
       <ul className={style[className]}>
         {
-          options.map(({id, checked, value, label, onChange}) => {
+          options.map(({checked, disabled, id, label, value, onChange}) => {
             return (
               <li key={id}>
                 <Checkbox
-                  id={id}
                   checked={checked}
+                  disabled={disabled}
+                  id={id}
                   label={label}
                   onChange={onChange}
                 />

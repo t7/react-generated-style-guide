@@ -58,8 +58,9 @@ RadioListInline.defaultProps = {
       }
     },
     {
+      disabled: true,
       id: utils.unique(),
-      label: 'Radio list inline - label 03',
+      label: '(Radio disabled)',
 
       // Events.
       onChange: function (e, value, checked) {

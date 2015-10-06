@@ -8,15 +8,14 @@ import style from '../../css/_t7-app.css'
 import utils from '../../utils'
 
 // UI components.
+import Button from '../form_button/template'
 import Checkbox from '../form_checkbox/template'
 import CheckboxList from '../form_checkbox/template_list'
 import CheckboxListInline from '../form_checkbox/template_list_inline'
-
+import Input from '../form_input/template'
 import Radio from '../form_radio/template'
 import RadioList from '../form_radio/template_list'
 import RadioListInline from '../form_radio/template_list_inline'
-
-import Input from '../form_input/template'
 import Select from '../form_select/template'
 
 // Define class.
@@ -83,6 +82,13 @@ class Main extends React.Component {
         <RadioList />
 
         <RadioListInline />
+
+        <hr />
+
+        <p>
+          <Button />
+          <Button text='Cancel' />
+        </p>
 
       </main>
     )

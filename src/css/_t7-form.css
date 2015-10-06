@@ -23,14 +23,14 @@ Form element "reset."
   /* Adjust background display */
   background-clip: padding-box;
 
-  /* Remove rounded corners */
-  border-radius: 0;
-
   background: none;
   border: 0;
+  border-radius: 0;
   margin: 0;
   outline: 0;
   padding: 0;
+
+  line-height: 1;
 }
 
 .t7-form__input:ms-clear,
@@ -123,7 +123,7 @@ Text input.
 */
 
 .t7-form__input {
-
+  /* TODO. */
 }
 
 /*
@@ -133,6 +133,8 @@ Text area.
 
 .t7-form__textarea {
   display: block;
+  resize: vertical;
+  width: 100%;
 }
 
 /*
@@ -182,7 +184,19 @@ Button.
 */
 
 .t7-form__button {
+  background: #369;
+  border-radius: 3px;
+  color: #fff;
+  padding: 7px 10px;
+}
 
+.t7-form__button:active {
+  position: relative;
+  top: 1px;
+}
+
+.t7-form__button + .t7-form__button {
+  margin-left: 10px;
 }
 
 /*
@@ -213,5 +227,5 @@ Disabled state.
   user-select: none;
   cursor: default;
 
-  opacity: 0.25;
+  opacity: 0.5;
 }

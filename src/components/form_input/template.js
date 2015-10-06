@@ -38,6 +38,7 @@ class Input extends React.Component {
 
   // Render method.
   render () {
+    const disabled = this.props.disabled
     const id = this.props.id
     const placeholder = this.props.placeholder
     const type = this.props.type
@@ -46,12 +47,11 @@ class Input extends React.Component {
     return (
       <input
         className={style['t7-form__input']}
+        disabled={disabled}
         id={id}
         type={type}
         defaultValue={value}
         placeholder={placeholder}
-
-        // Events.
         onChange={this.onChange}
       />
     )
@@ -60,6 +60,7 @@ class Input extends React.Component {
 
 // Validation.
 Input.propTypes = {
+  disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   type: React.PropTypes.string,
@@ -71,6 +72,7 @@ Input.propTypes = {
 
 // Prop defaults.
 Input.defaultProps = {
+  disabled: false,
   id: utils.unique(),
   placeholder: '',
   type: 'text',

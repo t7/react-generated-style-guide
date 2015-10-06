@@ -38,6 +38,7 @@ class Select extends React.Component {
 
   // Render method.
   render () {
+    const disabled = this.props.disabled
     const id = this.props.id
     const options = this.props.options
     const value = this.props.value
@@ -45,10 +46,9 @@ class Select extends React.Component {
     return (
       <select
         className={style['t7-form__select']}
+        disabled={disabled}
         id={id}
         defaultValue={value}
-
-        // Events.
         onChange={this.onChange}
       >
         {
@@ -63,6 +63,7 @@ class Select extends React.Component {
 
 // Validation.
 Select.propTypes = {
+  disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   options: React.PropTypes.array,
   value: React.PropTypes.string,
@@ -73,8 +74,9 @@ Select.propTypes = {
 
 // Prop defaults.
 Select.defaultProps = {
-  value: '',
+  disabled: false,
   id: utils.unique(),
+  value: '',
 
   options: [
     {

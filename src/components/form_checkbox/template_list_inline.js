@@ -50,8 +50,9 @@ CheckboxListInline.defaultProps = {
       }
     },
     {
+      disabled: true,
       id: utils.unique(),
-      label: 'Checkbox list inline - label 03',
+      label: '(Checkbox disabled)',
       onChange: function (e, value, checked) {
         utils.log(e, value, checked)
       }

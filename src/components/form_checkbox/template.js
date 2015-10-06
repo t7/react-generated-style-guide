@@ -40,6 +40,7 @@ class Checkbox extends React.Component {
   // Render method.
   render () {
     const checked = this.props.checked
+    const disabled = this.props.disabled
     const id = this.props.id
     const label = this.props.label
     const value = this.props.value
@@ -48,12 +49,11 @@ class Checkbox extends React.Component {
       <label htmlFor={id}>
         <input
           className={style['t7-form__checkbox']}
+          disabled={disabled}
           defaultChecked={checked}
           id={id}
           type='checkbox'
           value={value}
-
-          // Events.
           onChange={this.onChange}
         />
         {label}
@@ -65,6 +65,7 @@ class Checkbox extends React.Component {
 // Validation.
 Checkbox.propTypes = {
   checked: React.PropTypes.bool,
+  disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   value: React.PropTypes.string,
   label: React.PropTypes.string,
@@ -76,6 +77,7 @@ Checkbox.propTypes = {
 // Prop defaults.
 Checkbox.defaultProps = {
   checked: false,
+  disabled: false,
   id: utils.unique(),
   label: 'Individual checkbox label',
   value: 'value',
