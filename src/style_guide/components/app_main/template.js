@@ -69,9 +69,9 @@ class Main extends React.Component {
           <Textarea placeholder='Textarea' />
         </p>
 
-        <Textdiv placeholder='Contenteditable Div' />
+        <Textdiv placeholder='Content editable <div>' />
 
-        <Textdiv placeholder='Contenteditable Div (Disabled)' disabled />
+        <Textdiv placeholder='Content editable <div> (Disabled)' disabled />
 
         <hr />
 
