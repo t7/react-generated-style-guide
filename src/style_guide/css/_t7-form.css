@@ -20,7 +20,7 @@ Form element "reset."
   /* Undo WebKit defaults. */
   -webkit-appearance: none;
 
-  /* Adjust background display */
+  /* Adjust background display. */
   background-clip: padding-box;
 
   background: none;
@@ -113,6 +113,7 @@ Shared styles.
 .t7-form__textarea {
   background-color: #fff;
   border: 1px solid #999;
+  border-radius: 3px;
   line-height: inherit;
   padding: 2px 5px;
 }
@@ -198,26 +199,20 @@ Select drop-down.
   }
 }
 
-/* Undo styling for multiple. */
-.t7-form__select[size],
-.t7-form__select[multiple] {
-  background-image: none;
-  padding-left: 5px;
-}
-
 /*
 Button.
 ================================================================================
 */
 
 .t7-form__button {
-  background: #369;
+  background: #69c;
   border-radius: 3px;
   color: #fff;
   padding: 7px 10px;
 }
 
 .t7-form__button:active {
+  background: #369;
   position: relative;
   top: 1px;
 }

@@ -36,6 +36,10 @@ class Textarea extends React.Component {
     utils.convert_content_editable(e)
   }
 
+  onPaste (e) {
+    utils.convert_on_paste(e)
+  }
+
   onChange (e) {
     const onChange = that.props.onChange
 
@@ -48,10 +52,6 @@ class Textarea extends React.Component {
     const value = utils.trim(el.value)
 
     onChange(e, value)
-  }
-
-  onPaste (e) {
-    utils.convert_on_paste(e)
   }
 
   // Render method.
