@@ -17,6 +17,7 @@ import Radio from '../form_radio/template'
 import RadioList from '../form_radio/template_list'
 import RadioListInline from '../form_radio/template_list_inline'
 import Select from '../form_select/template'
+import DataTable from '../table_data/template'
 import Textarea from '../form_textarea/template'
 import Textdiv from '../form_textdiv/template'
 
@@ -30,10 +31,6 @@ class Main extends React.Component {
   // Automatically called after `render`.
   componentDidMount () {
     utils.log('Component Mounted: "/app_main/template"')
-  }
-
-  onChange (e, value, checked) {
-
   }
 
   // Render method.
@@ -51,7 +48,7 @@ class Main extends React.Component {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
-        <hr />
+        <DataTable />
 
         <p>
           <Select />

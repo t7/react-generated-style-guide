@@ -62,13 +62,7 @@ class Header extends React.Component {
         <b className={style['t7-app__header__title']}>
           {this.props.header}
         </b>
-
-        {' '}
-        &nbsp;
-        {' '}
-
         <Select options={options} onChange={this.onChange} />
-
         <span className={style['t7-app__header__logo']}>
           TandemSeven
         </span>
