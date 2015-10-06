@@ -35,11 +35,13 @@ class Button extends React.Component {
 
   // Render method.
   render () {
+    const disabled = this.props.disabled
     const text = this.props.text
 
     return (
       <button
         className={style['t7-form__button']}
+        disabled={disabled}
         onClick={this.onClick}
       >{text}</button>
     )
@@ -48,6 +50,7 @@ class Button extends React.Component {
 
 // Validation.
 Button.propTypes = {
+  disabled: React.PropTypes.bool,
   text: React.PropTypes.string,
 
   // Events.
@@ -56,6 +59,7 @@ Button.propTypes = {
 
 // Prop defaults.
 Button.defaultProps = {
+  disabled: false,
   text: 'Button Text',
 
   // Events.

@@ -88,6 +88,7 @@ class Main extends React.Component {
         <p>
           <Button />
           <Button text='Cancel' />
+          <Button text='Disabled' disabled />
         </p>
 
       </main>
