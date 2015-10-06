@@ -7,7 +7,7 @@ import style from '../../css/_t7-app.css'
 // Utility methods.
 import utils from '../../utils'
 
-// Select drop-down.
+// UI components.
 import Select from '../form_select/template'
 
 // Define class.
@@ -19,14 +19,12 @@ class Header extends React.Component {
 
   // Automatically called after `render`.
   componentDidMount () {
-    // TODO.
+    utils.log('Component Mounted: "/app_header/template"')
   }
 
   onChange (e, value) {
-    utils.stop(e)
-
     // TODO.
-    console.log(e, value)
+    utils.log(e, value)
   }
 
   // Render method.

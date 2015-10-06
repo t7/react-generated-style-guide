@@ -5,9 +5,10 @@ export default function (x) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
   }
 
-  // Used in loop.
+  // Used later.
   var arr
   var i
+  var value
 
   // Is it an array?
   var isArray = typeof x === 'object' && x.length
@@ -24,10 +25,12 @@ export default function (x) {
     arr = arr.reverse()
     arr = arr.join('|')
 
-    return new RegExp(arr, 'g')
+    value = new RegExp(arr, 'g')
+  } else {
+    // Assume individual string.
+    value = new RegExp(esc(x), 'g')
   }
-  // Assume individual string.
-  else {
-    return new RegExp(esc(x), 'g')
-  }
+
+  // Expose value.
+  return value
 }

@@ -29,6 +29,7 @@ Form element "reset."
   background: none;
   border: 0;
   margin: 0;
+  outline: 0;
   padding: 0;
 }
 
@@ -93,8 +94,7 @@ Shared styles.
 .t7-form__textarea {
   background-color: #fff;
   border: 1px solid #999;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 2px 5px;
 }
 
 .t7-form__input,
@@ -102,6 +102,19 @@ Shared styles.
   display: inline-block;
   height: 25px;
   vertical-align: middle;
+}
+
+.t7-form__input:focus,
+.t7-form__select:focus,
+.t7-form__textarea:focus {
+  border-color: #39f;
+  box-shadow: #39f 0 0 2px 0;
+}
+
+br + .t7-form__input,
+br + .t7-form__select,
+br + .t7-form__textarea {
+  margin-top: 2px;
 }
 
 /*
@@ -129,7 +142,9 @@ Select drop-down.
 
 /* For WebKit. */
 @media (-webkit-min-device-pixel-ratio: 0) {
-  .t7-form__select {
+  .t7-form__select,
+  .t7-form__select[size="0"],
+  .t7-form__select[size="1"] {
     background-image: url("../images/t7-form__select.png");
     background-repeat: no-repeat;
     background-position: right center;
@@ -141,7 +156,9 @@ Select drop-down.
 
 /* For Firefox. */
 @-moz-document url-prefix() {
-  .t7-form__select {
+  .t7-form__select,
+  .t7-form__select[size="0"],
+  .t7-form__select[size="1"] {
     background-image: url("../images/t7-form__select.png");
     background-repeat: no-repeat;
     background-position: right center;
@@ -150,6 +167,13 @@ Select drop-down.
     padding-left: 1px;
     padding-right: 27px;
   }
+}
+
+/* Undo styling for multiple. */
+.t7-form__select[size],
+.t7-form__select[multiple] {
+  background-image: none;
+  padding-left: 5px;
 }
 
 /*
@@ -162,10 +186,23 @@ Button.
 }
 
 /*
+Checkbox & Radio.
+================================================================================
+*/
+
+.t7-form__radio,
+.t7-form__checkbox {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+/*
 Disabled state.
 ================================================================================
 */
 
+.t7-form__checkbox[disabled],
+.t7-form__radio[disabled],
 .t7-form__button[disabled],
 .t7-form__input[disabled],
 .t7-form__select[disabled],

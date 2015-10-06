@@ -4,6 +4,9 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-form.css'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Shared scope
 var that
 
@@ -27,7 +30,8 @@ class Select extends React.Component {
       return
     }
 
-    const value = e.target.value
+    const el = e.target
+    const value = utils.trim(el.value)
 
     onChange(e, value)
   }
@@ -36,11 +40,15 @@ class Select extends React.Component {
   render () {
     const id = this.props.id
     const options = this.props.options
+    const value = this.props.value
 
     return (
       <select
         className={style['t7-form__select']}
         id={id}
+        defaultValue={value}
+
+        // Events.
         onChange={this.onChange}
       >
         {
@@ -55,20 +63,24 @@ class Select extends React.Component {
 
 // Validation.
 Select.propTypes = {
-  onChange: React.PropTypes.func,
   id: React.PropTypes.string,
-  options: React.PropTypes.array
+  options: React.PropTypes.array,
+  value: React.PropTypes.string,
+
+  // Events.
+  onChange: React.PropTypes.func
 }
 
 // Prop defaults.
 Select.defaultProps = {
-  id: Math.random().toString(),
-
-  callback: function (e, value) {
-    console.log(e, value)
-  },
+  value: '',
+  id: utils.unique(),
 
   options: [
+    {
+      value: '',
+      name: 'Select...'
+    },
     {
       value: '1',
       name: 'Uno'
@@ -81,7 +93,12 @@ Select.defaultProps = {
       value: '3',
       name: 'Tres'
     }
-  ]
+  ],
+
+  // Events.
+  onChange: function (e, value) {
+    utils.log(e, value)
+  }
 }
 
 // Export.

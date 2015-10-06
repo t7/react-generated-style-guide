@@ -10,8 +10,11 @@ import Footer from '../app_footer/template'
 // CSS.
 import style from '../../css/_t7-app.css'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Define class.
-export default class App extends React.Component {
+class App extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -34,6 +37,8 @@ export default class App extends React.Component {
 
   // Automatically called after `render`.
   componentDidMount () {
+    utils.log('Component Mounted: "/app/container"')
+
     // Fallback site title.
     const suffix = 'T7 Interactive Style Guide'
 
@@ -49,8 +54,7 @@ export default class App extends React.Component {
     // Does a title exist?
     if (titles[pathname]) {
       title = titles[pathname] + ' | ' + suffix
-    }
-    else {
+    } else {
       title = suffix
     }
 
@@ -69,6 +73,13 @@ export default class App extends React.Component {
       </div>
     )
   }
-
-// END: export.
 }
+
+// Validation.
+App.propTypes = {
+  location: React.PropTypes.object,
+  route: React.PropTypes.object
+}
+
+// Export.
+export default App

@@ -4,6 +4,9 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Define class.
 class Footer extends React.Component {
   constructor (props) {
@@ -13,7 +16,7 @@ class Footer extends React.Component {
 
   // Automatically called after `render`.
   componentDidMount () {
-    // TODO.
+    utils.log('Component Mounted: "/app_footer/template"')
   }
 
   // Render method.
