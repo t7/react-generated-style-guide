@@ -21,7 +21,7 @@ class Image extends React.Component {
     const isPercentHeight = !!(height.match('%') && numericHeight)
 
     // Used for % placeholder image.
-    const text = '?text=Placeholder+Image'
+    const text = '?text=PLACEHOLDER'
 
     // Check for mixed types.
     const mixedTypes =
