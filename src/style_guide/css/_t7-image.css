@@ -13,10 +13,12 @@ Image figure.
   border-radius: 3px;
   margin-bottom: 5px;
   width: 100%;
+  height: auto;
 }
 
 .t7-figure figcaption {
   background: #eee;
   border-radius: 3px;
   padding: 2px 5px;
+  width: 100%;
 }

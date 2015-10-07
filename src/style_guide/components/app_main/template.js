@@ -58,24 +58,28 @@ class Main extends React.Component {
           <Image width='728' height='90' />
         </p>
 
+        <p>
+          <Image width='100%' height='25%' />
+        </p>
+
         <div className='grid-container'>
 
           <div className='grid-33 tablet-grid-33'>
-            <ImageFigure
-              caption='Pluto - NASA photo'
-              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg' />
+            <ImageFigure width='1030' height='713' />
           </div>
 
           <div className='grid-33 tablet-grid-33'>
             <ImageFigure
               caption='Pluto - NASA photo'
-              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg' />
+              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg'
+            />
           </div>
 
           <div className='grid-33 tablet-grid-33'>
             <ImageFigure
               caption='Pluto - NASA photo'
-              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg' />
+              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg'
+            />
           </div>
 
         </div>

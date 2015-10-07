@@ -47,8 +47,8 @@ ImageFigure.defaultProps = {
   alt: '',
   caption: 'Image Caption Here',
   src: '',
-  width: '',
-  height: ''
+  width: '1000',
+  height: '700'
 }
 
 // Export.
