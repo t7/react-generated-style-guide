@@ -31,6 +31,17 @@ Outer app shell.
 }
 
 /*
+  Adjust offset for Unsemantic grid.
+*/
+.t7-app div[class*="grid-container"] {
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+}
+
+/*
 Header.
 ================================================================================
 */
@@ -132,14 +143,6 @@ Main content area.
   left: 200px;
   right: 0;
   bottom: 30px;
-}
-
-.t7-app__main > div[class*="grid-container"] {
-  margin-left: -10px;
-  margin-right: -10px;
-  padding-left: 0;
-  padding-right: 0;
-  max-width: none;
 }
 
 /*
