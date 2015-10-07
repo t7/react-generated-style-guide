@@ -60,14 +60,10 @@ class Main extends React.Component {
           <Image width='728' height='90' />
         </p>
 
-        <p>
-          <Image width='100%' height='25%' />
-        </p>
-
         <GridContainer>
 
           <Grid desktop='33' tablet='33'>
-            <ImageFigure width='1041' height='720' />
+            <ImageFigure width='100%' height='69.1642651%' />
           </Grid>
 
           <Grid desktop='33' tablet='33'>
