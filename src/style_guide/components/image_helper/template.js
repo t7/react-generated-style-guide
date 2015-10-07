@@ -91,9 +91,6 @@ class Image extends React.Component {
         src = 'http://placehold.it/' + height + 'x' + height
         img = <img src={src} alt={alt} />
 
-        // TODO.
-        console.log(3)
-
       // Dummy value fallback.
       } else {
         src = 'http://placehold.it/' + 200 + 'x' + 150
