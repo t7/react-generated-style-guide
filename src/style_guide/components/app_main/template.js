@@ -12,6 +12,8 @@ import Button from '../form_button/template'
 import Checkbox from '../form_checkbox/template'
 import CheckboxList from '../form_checkbox/template_list'
 import CheckboxListInline from '../form_checkbox/template_list_inline'
+import Grid from '../grid_layout/grid_unit'
+import GridContainer from '../grid_layout/grid_container'
 import Image from '../image_helper/template'
 import ImageFigure from '../image_helper/template_figure'
 import Input from '../form_input/template'
@@ -62,27 +64,27 @@ class Main extends React.Component {
           <Image width='100%' height='25%' />
         </p>
 
-        <div className='grid-container'>
+        <GridContainer>
 
-          <div className='grid-33 tablet-grid-33'>
-            <ImageFigure width='1030' height='713' />
-          </div>
+          <Grid desktop='33' tablet='33'>
+            <ImageFigure width='1041' height='720' />
+          </Grid>
 
-          <div className='grid-33 tablet-grid-33'>
+          <Grid desktop='33' tablet='33'>
             <ImageFigure
               caption='Pluto - NASA photo'
               src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg'
             />
-          </div>
+          </Grid>
 
-          <div className='grid-33 tablet-grid-33'>
+          <Grid desktop='33' tablet='33'>
             <ImageFigure
               caption='Pluto - NASA photo'
               src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg'
             />
-          </div>
+          </Grid>
 
-        </div>
+        </GridContainer>
 
         <DataTable />
 
