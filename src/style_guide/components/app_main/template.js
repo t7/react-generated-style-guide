@@ -12,6 +12,8 @@ import Button from '../form_button/template'
 import Checkbox from '../form_checkbox/template'
 import CheckboxList from '../form_checkbox/template_list'
 import CheckboxListInline from '../form_checkbox/template_list_inline'
+import Image from '../image_helper/template'
+import ImageFigure from '../image_helper/template_figure'
 import Input from '../form_input/template'
 import Radio from '../form_radio/template'
 import RadioList from '../form_radio/template_list'
@@ -47,6 +49,36 @@ class Main extends React.Component {
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
+
+        <p>
+          <Image />
+        </p>
+
+        <p>
+          <Image width='728' height='90' />
+        </p>
+
+        <div className='grid-container'>
+
+          <div className='grid-33 tablet-grid-33'>
+            <ImageFigure
+              caption='Pluto - NASA photo'
+              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg' />
+          </div>
+
+          <div className='grid-33 tablet-grid-33'>
+            <ImageFigure
+              caption='Pluto - NASA photo'
+              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg' />
+          </div>
+
+          <div className='grid-33 tablet-grid-33'>
+            <ImageFigure
+              caption='Pluto - NASA photo'
+              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg' />
+          </div>
+
+        </div>
 
         <DataTable />
 

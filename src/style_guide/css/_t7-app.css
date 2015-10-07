@@ -134,6 +134,14 @@ Main content area.
   bottom: 30px;
 }
 
+.t7-app__main > div[class*="grid-container"] {
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+}
+
 /*
 Footer.
 ================================================================================

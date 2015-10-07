@@ -1,0 +1,22 @@
+/*
+Image figure.
+================================================================================
+*/
+
+.t7-figure {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.t7-figure img {
+  border-radius: 3px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.t7-figure figcaption {
+  background: #eee;
+  border-radius: 3px;
+  padding: 2px 5px;
+}
