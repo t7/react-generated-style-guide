@@ -10,6 +10,7 @@ import exists from './_exists'
 import log from './_log'
 import placeholder from './_placeholder'
 import regex from './_regex'
+import save from './_save'
 import stop from './_stop'
 import today from './_today'
 import trim from './_trim'
@@ -28,6 +29,7 @@ export default {
   log: log,
   placeholder: placeholder,
   regex: regex,
+  save: save,
   stop: stop,
   today: today,
   trim: trim,
