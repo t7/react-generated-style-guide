@@ -34,7 +34,7 @@ class DataTableHeader extends React.Component {
   // Render method.
   render () {
     const index = this.props.index
-    const value = this.props.value
+    const label = this.props.label
     const sortable = this.props.sortable
     const sort_direction = this.props.sort_direction
     const onClick = sortable ? this.props.onClick : null
@@ -52,7 +52,7 @@ class DataTableHeader extends React.Component {
         className={className}
         onClick={onClick}
       >
-        {value}
+        {label}
       </th>
     )
   }
@@ -61,10 +61,10 @@ class DataTableHeader extends React.Component {
 // Validation.
 DataTableHeader.propTypes = {
   index: React.PropTypes.number,
+  label: React.PropTypes.string,
   sort: React.PropTypes.bool,
   sort_direction: React.PropTypes.string,
   sortable: React.PropTypes.bool,
-  value: React.PropTypes.node,
   onClick: React.PropTypes.func
 }
 

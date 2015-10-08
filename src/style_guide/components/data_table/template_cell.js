@@ -5,6 +5,9 @@ import { FormattedDate, FormattedNumber } from 'react-intl'
 // CSS.
 import style from '../../css/_t7-data-table.css'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Define class.
 class DataTableCell extends React.Component {
   constructor (props) {
@@ -14,8 +17,9 @@ class DataTableCell extends React.Component {
 
   // Render method.
   render () {
-    const key = this.props.key
-    const type = this.props.type
+    const columns = this.props.columns
+    const index = this.props.index
+    const type = columns[index].type
 
     const isCurrency = type === 'currency'
     const isDate = type === 'date'
@@ -63,7 +67,7 @@ class DataTableCell extends React.Component {
     if (isCurrency && isNegative) {
       // Wrap in parenthesis.
       td = (
-        <td key={key} className={className}>
+        <td key={index} className={className}>
           ({value})
         </td>
       )
@@ -71,7 +75,7 @@ class DataTableCell extends React.Component {
     // Otherwise, leave value as-is.
     } else {
       td = (
-        <td key={key} className={className}>
+        <td key={index} className={className}>
           {value}
         </td>
       )
@@ -84,9 +88,10 @@ class DataTableCell extends React.Component {
 
 // Validation.
 DataTableCell.propTypes = {
-  key: React.PropTypes.string,
+  columns: React.PropTypes.array,
+  index: React.PropTypes.number,
   type: React.PropTypes.string,
-  value: React.PropTypes.node
+  value: utils.alphanumeric
 }
 
 // Export.

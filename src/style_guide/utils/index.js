@@ -1,4 +1,5 @@
 // Dependencies.
+import alphanumeric from './_alphanumeric'
 import buildFakeData from './_buildFakeData'
 import convert_content_editable from './_convert_content_editable'
 import convert_content_focus from './_convert_content_focus'
@@ -16,6 +17,7 @@ import unique from './_unique'
 
 // Export object.
 export default {
+  alphanumeric: alphanumeric,
   buildFakeData: buildFakeData,
   convert_content_editable: convert_content_editable,
   convert_content_focus: convert_content_focus,

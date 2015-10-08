@@ -37,51 +37,37 @@ export default function (count, balance) {
       : 'Revenue'
 
     return [
-      {
-        type: 'date',
-        value: utils.today(-i)
-      },
-      {
-        type: 'string',
-        value: description
-      },
-      {
-        type: 'string',
-        value: category
-      },
-      {
-        type: 'currency',
-        value: amount
-      },
-      {
-        type: 'currency',
-        value: balance += amount
-      }
+      utils.today(-i),
+      description,
+      category,
+      amount,
+      balance += amount
     ]
   }
 
   // Columns.
   const columns = [
     {
-      value: 'Date',
-      sortable: true,
-      sort: true,
-      sort_direction: 'desc'
-    },
-    {
-      value: 'Description',
+      label: 'Date',
+      type: 'date',
       sortable: true
     },
     {
-      value: 'Category',
+      label: 'Description',
       sortable: true
     },
     {
-      value: 'Amount',
+      label: 'Category',
       sortable: true
     },
     {
-      value: 'Balance'
+      label: 'Amount',
+      type: 'currency',
+      sortable: true
+    },
+    {
+      label: 'Balance',
+      type: 'currency'
     }
   ]
 

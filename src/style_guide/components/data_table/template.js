@@ -29,54 +29,27 @@ class DataTable extends React.Component {
     this.state = {}
     this.state.columns = this.props.columns
     this.state.data = this.props.data
-
-    // Pre-sort the data.
-    this.preSort()
-  }
-
-  // This is called before `render`.
-  preSort () {
-    this.state.columns.forEach(function (column, index) {
-      var direction = column.sort_direction
-
-      if (!direction) {
-        direction = 'desc'
-      }
-
-      if (column.sort) {
-        that.tableSort(index, direction)
-      }
-    })
   }
 
   // Sort table data.
   tableSort (index, direction) {
     index = parseFloat(index)
 
-    const notSortable = !this.state.columns[index].sortable
-
-    // Exit, if not sortable.
-    if (notSortable) {
-      return
-    }
-
     // Loop through columns.
     this.state.columns.forEach(function (column, i) {
       // Correct column?
       if (i === index) {
-        column.sort = true
         column.sort_direction = direction
 
       // Do cleanup.
       } else {
-        delete column.sort
         delete column.sort_direction
       }
     })
 
     // Loop through data.
     this.state.data = _.sortBy(this.state.data, function (arr) {
-      return arr[index].value
+      return arr[index]
     })
 
     if (direction === 'desc') {
@@ -92,10 +65,10 @@ class DataTable extends React.Component {
     var direction = el.getAttribute('data-sort-direction')
 
     // Reverse.
-    if (direction === 'desc') {
-      direction = 'asc'
-    } else {
+    if (direction === 'asc') {
       direction = 'desc'
+    } else {
+      direction = 'asc'
     }
 
     // Sort the data.
@@ -115,12 +88,12 @@ class DataTable extends React.Component {
         <thead>
           <tr>
             {
-              columns.map(function ({value, sort, sort_direction, sortable}, i) {
+              columns.map(function ({label, sort, sort_direction, sortable}, i) {
                 return (
                   <DataTableHeader
                     key={i}
                     index={i}
-                    value={value}
+                    label={label}
                     sort={sort}
                     sort_direction={sort_direction}
                     sortable={sortable}
@@ -135,7 +108,7 @@ class DataTable extends React.Component {
           {
             data.map(function (data, i) {
               return (
-                <DataTableRow key={i} data={data} />
+                <DataTableRow key={i} columns={columns} data={data} />
               )
             })
           }
@@ -152,7 +125,7 @@ DataTable.propTypes = {
 }
 
 // Defaults.
-DataTable.defaultProps = utils.buildFakeData(20)
+DataTable.defaultProps = utils.buildFakeData()
 
 // Export.
 export default DataTable

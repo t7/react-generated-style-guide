@@ -1,3 +1,4 @@
+// Dependencies.
 import React from 'react'
 
 // UI components.
@@ -12,14 +13,15 @@ class DataTableRow extends React.Component {
 
   // Render method.
   render () {
+    const columns = this.props.columns
     const data = this.props.data
 
     return (
       <tr>
         {
-          data.map(function ({type, value}, i) {
+          data.map(function (value, i) {
             return (
-              <DataTableCell key={i} type={type} value={value} />
+              <DataTableCell key={i} index={i} columns={columns} value={value} />
             )
           })
         }
@@ -30,6 +32,7 @@ class DataTableRow extends React.Component {
 
 // Validation.
 DataTableRow.propTypes = {
+  columns: React.PropTypes.array,
   data: React.PropTypes.array
 }
 
