@@ -5,7 +5,7 @@ import React from 'react'
 import style from './grid.css'
 
 // Define class.
-class Grid extends React.Component {
+class GridContainer extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -21,9 +21,9 @@ class Grid extends React.Component {
 }
 
 // Validation.
-Grid.propTypes = {
+GridContainer.propTypes = {
   children: React.PropTypes.node
 }
 
 // Export.
-export default Grid
+export default GridContainer
