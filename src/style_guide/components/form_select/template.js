@@ -52,7 +52,7 @@ class Select extends React.Component {
         onChange={this.onChange}
       >
         {
-          options.map(({value, name}) => {
+          options.map(function ({value, name}) {
             return <option key={value} value={value}>{name}</option>
           })
         }

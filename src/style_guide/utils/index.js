@@ -1,4 +1,5 @@
 // Dependencies.
+import buildFakeData from './_buildFakeData'
 import convert_content_editable from './_convert_content_editable'
 import convert_content_focus from './_convert_content_focus'
 import convert_on_paste from './_convert_on_paste'
@@ -9,11 +10,13 @@ import log from './_log'
 import placeholder from './_placeholder'
 import regex from './_regex'
 import stop from './_stop'
+import today from './_today'
 import trim from './_trim'
 import unique from './_unique'
 
 // Export object.
 export default {
+  buildFakeData: buildFakeData,
   convert_content_editable: convert_content_editable,
   convert_content_focus: convert_content_focus,
   convert_on_paste: convert_on_paste,
@@ -24,6 +27,7 @@ export default {
   placeholder: placeholder,
   regex: regex,
   stop: stop,
+  today: today,
   trim: trim,
   unique: unique
 }

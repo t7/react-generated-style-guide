@@ -32,9 +32,6 @@ export default function (e) {
   } else {
     // Other browsers.
     value = e.clipboardData.getData('text/plain')
-
-    // TODO.
-    console.log(value)
   }
 
   // No value?

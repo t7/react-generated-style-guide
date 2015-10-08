@@ -48,7 +48,7 @@ Header.
 
 .t7-app__header {
   background: #f6f6f6;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 
   padding-left: 20px;
 
@@ -108,7 +108,7 @@ Sidebar.
 
 .t7-app__sidebar {
   background: #fff;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #ddd;
 
   padding-top: 20px;
   padding-left: 20px;

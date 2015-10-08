@@ -1,0 +1,95 @@
+/*
+Data table.
+================================================================================
+*/
+
+.t7-data-table {
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+/*
+Header and cells.
+================================================================================
+*/
+
+.t7-data-table__th,
+.t7-data-table__td {
+  padding: 5px;
+}
+
+.t7-data-table__th + .t7-data-table__th,
+.t7-data-table__td + .t7-data-table__td {
+  border-left: 1px solid #ddd;
+}
+
+/*
+Headers
+================================================================================
+*/
+
+.t7-data-table__th {
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  cursor: default;
+  white-space: nowrap;
+
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.t7-data-table__th--sortable {
+  composes: t7-data-table__th;
+  cursor: pointer;
+}
+
+.t7-data-table__th--sortable:hover {
+  background: #ffe;
+}
+
+.t7-data-table__th--sortable:before {
+  content: "";
+
+  background-image: url("../images/t7-data-table__th--sortable.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: baseline;
+
+  width: 7px;
+  height: 11px;
+
+  position: relative;
+  top: 1px;
+}
+
+.t7-data-table__th--sortable[data-sort-direction="asc"]:before {
+  background-image: url("../images/t7-data-table__th--sortable[asc].png");
+}
+
+.t7-data-table__th--sortable[data-sort-direction="desc"]:before {
+  background-image: url("../images/t7-data-table__th--sortable[desc].png");
+}
+
+/*
+Cells.
+================================================================================
+*/
+
+.t7-data-table tbody tr:nth-child(even) .t7-data-table__td {
+  background: #f6f9fc;
+}
+
+.t7-data-table__td--currency {
+  composes: t7-data-table__td;
+  text-align: right;
+}
+
+.t7-data-table__td--negative {
+  composes: t7-data-table__td--currency;
+  color: #c33;
+}

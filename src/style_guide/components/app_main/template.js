@@ -21,7 +21,7 @@ import Radio from '../form_radio/template'
 import RadioList from '../form_radio/template_list'
 import RadioListInline from '../form_radio/template_list_inline'
 import Select from '../form_select/template'
-import DataTable from '../table_data/template'
+import DataTable from '../data_table/template'
 import Textarea from '../form_textarea/template'
 import Textdiv from '../form_textdiv/template'
 
