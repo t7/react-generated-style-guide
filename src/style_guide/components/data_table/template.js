@@ -34,7 +34,7 @@ class DataTable extends React.Component {
     this.preSort()
   }
 
-  // Pre-sort the data.
+  // This is called before `render`.
   preSort () {
     this.state.columns.forEach(function (column, index) {
       var direction = column.sort_direction
@@ -49,6 +49,7 @@ class DataTable extends React.Component {
     })
   }
 
+  // Sort table data.
   tableSort (index, direction) {
     index = parseFloat(index)
 
@@ -83,6 +84,7 @@ class DataTable extends React.Component {
     }
   }
 
+  // Handle column header clicks.
   onClick (e) {
     const el = e.target
     const index = el.getAttribute('data-index')
