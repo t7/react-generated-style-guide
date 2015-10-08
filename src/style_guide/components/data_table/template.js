@@ -18,11 +18,26 @@ class DataTable extends React.Component {
     // Pass `props` into scope.
     super(props)
 
-    // Apply to `state`, because we
-    // don't want to mutate `props`.
-    this.state = {}
-    this.state.sortIndex = this.props.sortIndex
-    this.state.sortDirection = this.props.sortDirection
+    // Get default state.
+    this.defaultState()
+  }
+
+  // Apply to `state`, because we
+  // don't want to mutate `props`.
+  defaultState () {
+    const state = {
+      sortIndex: this.props.sortIndex,
+      sortDirection: this.props.sortDirection
+    }
+
+    // If state exists, reset it.
+    if (typeof this.state === 'object') {
+      this.setState(state)
+
+    // Otherwise, create state.
+    } else {
+      this.state = state
+    }
   }
 
   // Sort table data.
@@ -45,18 +60,18 @@ class DataTable extends React.Component {
   }
 
   // Handle column header clicks.
-  handleClick (e, index, sortDirection) {
+  handleClick (e, index, direction) {
     // Reverse.
-    if (sortDirection === 'asc') {
-      this.state.sortDirection = 'desc'
+    if (direction === 'asc') {
+      direction = 'desc'
     } else {
-      this.state.sortDirection = 'asc'
+      direction = 'asc'
     }
 
-    this.state.sortIndex = index
-
-    // Re-render the table.
-    this.forceUpdate()
+    this.setState({
+      sortDirection: direction,
+      sortIndex: index
+    })
   }
 
   // Render method.
