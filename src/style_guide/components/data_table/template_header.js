@@ -16,6 +16,7 @@ class DataTableHeader extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Alias to parent class.
     that = this
   }
 

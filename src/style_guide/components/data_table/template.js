@@ -21,14 +21,33 @@ class DataTable extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Alias to parent class.
     that = this
 
     this.state = {}
     this.state.columns = this.props.columns
     this.state.data = this.props.data
+
+    // Pre-sort the data.
+    this.preSort()
   }
 
-  tableSort (index) {
+  // Pre-sort the data.
+  preSort () {
+    this.state.columns.forEach(function (column, index) {
+      var direction = column.sort_direction
+
+      if (!direction) {
+        direction = 'desc'
+      }
+
+      if (column.sort) {
+        that.tableSort(index, direction)
+      }
+    })
+  }
+
+  tableSort (index, direction) {
     index = parseFloat(index)
 
     const notSortable = !this.state.columns[index].sortable
@@ -38,25 +57,12 @@ class DataTable extends React.Component {
       return
     }
 
-    var sortDirection = 'desc'
-
     // Loop through columns.
     this.state.columns.forEach(function (column, i) {
       // Correct column?
       if (i === index) {
         column.sort = true
-
-        // Check sort direction.
-        if (column.sort_direction === 'desc') {
-          // Reverse sort direction.
-          sortDirection = 'asc'
-
-        // Apply sort direction.
-        } else {
-          sortDirection = 'desc'
-        }
-
-        column.sort_direction = sortDirection
+        column.sort_direction = direction
 
       // Do cleanup.
       } else {
@@ -70,18 +76,29 @@ class DataTable extends React.Component {
       return arr[index].value
     })
 
-    if (sortDirection === 'desc') {
+    if (direction === 'desc') {
       this.state.data.reverse()
     }
-
-    // Re-render the table.
-    this.forceUpdate()
   }
 
   onClick (e) {
-    const index = e.target.getAttribute('data-index')
+    const el = e.target
+    const index = el.getAttribute('data-index')
 
-    that.tableSort(index)
+    var direction = el.getAttribute('data-sort-direction')
+
+    // Reverse.
+    if (direction === 'desc') {
+      direction = 'asc'
+    } else {
+      direction = 'desc'
+    }
+
+    // Sort the data.
+    that.tableSort(index, direction)
+
+    // Re-render the table.
+    that.forceUpdate()
   }
 
   // Render method.
@@ -131,7 +148,7 @@ DataTable.propTypes = {
 }
 
 // Defaults.
-DataTable.defaultProps = utils.buildFakeData()
+DataTable.defaultProps = utils.buildFakeData(20)
 
 // Export.
 export default DataTable

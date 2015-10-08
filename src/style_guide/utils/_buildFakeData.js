@@ -65,9 +65,9 @@ export default function (count, balance) {
   const columns = [
     {
       value: 'Date',
+      sortable: true,
       sort: true,
-      sort_direction: 'desc',
-      sortable: true
+      sort_direction: 'desc'
     },
     {
       value: 'Description',

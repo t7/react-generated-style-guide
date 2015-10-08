@@ -15,12 +15,13 @@ class Textdiv extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
+
+    // Alias to parent class.
+    that = this
   }
 
   // Automatically called after `render`.
   componentDidMount () {
-    that = this
-
     document.body.setAttribute('spellcheck', false)
   }
 

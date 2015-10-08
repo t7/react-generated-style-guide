@@ -15,10 +15,8 @@ class Select extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-  }
 
-  // Automatically called after `render`.
-  componentDidMount () {
+    // Alias to parent class.
     that = this
   }
 
