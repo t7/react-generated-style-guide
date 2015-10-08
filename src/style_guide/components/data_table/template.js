@@ -12,76 +12,64 @@ import utils from '../../utils'
 import DataTableRow from './template_row'
 import DataTableHeader from './template_header'
 
-// Shared scope.
-var that
-
 // Define class.
 class DataTable extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
 
-    // Alias to parent class.
-    that = this
-
     // Apply to `state`, because we
     // don't want to mutate `props`.
     this.state = {}
-    this.state.columns = this.props.columns
-    this.state.data = this.props.data
+    this.state.sortIndex = this.props.sortIndex
+    this.state.sortDirection = this.props.sortDirection
   }
 
   // Sort table data.
-  tableSort (index, direction) {
-    index = parseFloat(index)
-
-    // Loop through columns.
-    this.state.columns.forEach(function (column, i) {
-      // Correct column?
-      if (i === index) {
-        column.sort_direction = direction
-
-      // Do cleanup.
-      } else {
-        delete column.sort_direction
-      }
-    })
+  tableSort (index) {
+    // Ensure index exists.
+    if (!utils.exists(index)) {
+      return this.props.data
+    }
 
     // Loop through data.
-    this.state.data = _.sortBy(this.state.data, function (arr) {
+    var data = _.sortBy(this.props.data, function (arr) {
       return arr[index]
     })
 
-    if (direction === 'desc') {
-      this.state.data.reverse()
+    if (this.state.sortDirection === 'desc') {
+      data.reverse()
     }
+
+    return data
   }
 
   // Handle column header clicks.
-  onClick (e) {
-    const el = e.target
-    const index = el.getAttribute('data-index')
-
-    var direction = el.getAttribute('data-sort-direction')
-
+  handleClick (e, index, sortDirection) {
     // Reverse.
-    if (direction === 'asc') {
-      direction = 'desc'
+    if (sortDirection === 'asc') {
+      this.state.sortDirection = 'desc'
     } else {
-      direction = 'asc'
+      this.state.sortDirection = 'asc'
     }
 
-    // Sort the data.
-    that.tableSort(index, direction)
+    this.state.sortIndex = index
 
     // Re-render the table.
-    that.forceUpdate()
+    this.forceUpdate()
   }
 
   // Render method.
   render () {
-    const columns = this.state.columns
-    const data = this.state.data
+    const columns = this.props.columns
+    const handleClick = this.handleClick.bind(this)
+
+    // Read from state.
+    const sortIndex = this.state.sortIndex
+    const sortDirection = this.state.sortDirection
+
+    // Sort the data.
+    const data = this.tableSort(this.state.sortIndex)
 
     return (
       <table className={style['t7-data-table']}>
@@ -95,9 +83,10 @@ class DataTable extends React.Component {
                     index={i}
                     label={label}
                     sort={sort}
-                    sort_direction={sort_direction}
+                    sortIndex={sortIndex}
+                    sortDirection={sortDirection}
                     sortable={sortable}
-                    onClick={that.onClick}
+                    handleClick={handleClick}
                   />
                 )
               })
@@ -120,6 +109,8 @@ class DataTable extends React.Component {
 
 // Validation.
 DataTable.propTypes = {
+  sortIndex: React.PropTypes.number,
+  sortDirection: React.PropTypes.string,
   columns: React.PropTypes.array,
   data: React.PropTypes.array
 }

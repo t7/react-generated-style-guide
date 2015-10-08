@@ -7,28 +7,23 @@ import style from '../../css/_t7-data-table.css'
 // Utility methods.
 import utils from '../../utils'
 
-// Shared scope.
-var that
-
 // Define class.
 class DataTableHeader extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Alias to parent class.
-    that = this
   }
 
-  onClick (e) {
-    const onClick = that.props.onClick
+  handleClick (e) {
+    const index = this.props.index
+    const sortDirection = this.props.sortDirection
+    const handleClick = this.props.handleClick
 
-    // Exit, if no callback.
-    if (typeof onClick !== 'function') {
+    if (typeof handleClick !== 'function') {
       return
     }
 
-    onClick(e)
+    handleClick(e, index, sortDirection)
   }
 
   // Render method.
@@ -36,8 +31,14 @@ class DataTableHeader extends React.Component {
     const index = this.props.index
     const label = this.props.label
     const sortable = this.props.sortable
-    const sort_direction = this.props.sort_direction
-    const onClick = sortable ? this.props.onClick : null
+    const sortIndex = this.props.sortIndex
+    const handleClick = sortable ? this.handleClick.bind(this) : null
+
+    var sortDirection = this.props.sortDirection
+
+    if (index !== sortIndex) {
+      sortDirection = ''
+    }
 
     var className = style['t7-data-table__th']
 
@@ -47,10 +48,9 @@ class DataTableHeader extends React.Component {
 
     return (
       <th
-        data-index={index}
-        data-sort-direction={sort_direction}
+        data-sort-direction={sortDirection}
         className={className}
-        onClick={onClick}
+        onClick={handleClick}
       >
         {label}
       </th>
@@ -63,15 +63,16 @@ DataTableHeader.propTypes = {
   index: React.PropTypes.number,
   label: React.PropTypes.string,
   sort: React.PropTypes.bool,
-  sort_direction: React.PropTypes.string,
+  sortIndex: React.PropTypes.number,
+  sortDirection: React.PropTypes.string,
   sortable: React.PropTypes.bool,
-  onClick: React.PropTypes.func
+  handleClick: React.PropTypes.func
 }
 
 // Defaults.
 DataTableHeader.defaultProps = {
-  onClick: function (e) {
-    utils.log(e)
+  handleClick: function (e, index, sortDirection) {
+    utils.log(e, index, sortDirection)
   }
 }
 

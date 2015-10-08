@@ -22,11 +22,6 @@ class Header extends React.Component {
     utils.log('Component Mounted: "/app_header/template"')
   }
 
-  onChange (e, value) {
-    // TODO.
-    utils.log(e, value)
-  }
-
   // Render method.
   render () {
     // Config for <select>.
@@ -62,7 +57,7 @@ class Header extends React.Component {
         <b className={style['t7-app__header__title']}>
           {this.props.header}
         </b>
-        <Select options={options} onChange={this.onChange} />
+        <Select options={options} />
         <span className={style['t7-app__header__logo']}>
           TandemSeven
         </span>

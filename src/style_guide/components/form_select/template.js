@@ -7,31 +7,25 @@ import style from '../../css/_t7-form.css'
 // Utility methods.
 import utils from '../../utils'
 
-// Shared scope
-var that
-
 // Define class.
 class Select extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Alias to parent class.
-    that = this
   }
 
-  onChange (e) {
-    const onChange = that.props.onChange
+  handleChange (e) {
+    const handleChange = this.props.handleChange
 
     // Exit, if no callback.
-    if (typeof onChange !== 'function') {
+    if (typeof handleChange !== 'function') {
       return
     }
 
     const el = e.target
     const value = utils.trim(el.value)
 
-    onChange(e, value)
+    handleChange(e, value)
   }
 
   // Render method.
@@ -40,6 +34,7 @@ class Select extends React.Component {
     const id = this.props.id
     const options = this.props.options
     const value = this.props.value
+    const handleChange = this.handleChange.bind(this)
 
     return (
       <select
@@ -47,7 +42,7 @@ class Select extends React.Component {
         disabled={disabled}
         id={id}
         defaultValue={value}
-        onChange={this.onChange}
+        onChange={handleChange}
       >
         {
           options.map(function ({value, name}) {
@@ -67,7 +62,7 @@ Select.propTypes = {
   value: React.PropTypes.string,
 
   // Events.
-  onChange: React.PropTypes.func
+  handleChange: React.PropTypes.func
 }
 
 // Prop defaults.
@@ -96,7 +91,7 @@ Select.defaultProps = {
   ],
 
   // Events.
-  onChange: function (e, value) {
+  handleChange: function (e, value) {
     utils.log(e, value)
   }
 }

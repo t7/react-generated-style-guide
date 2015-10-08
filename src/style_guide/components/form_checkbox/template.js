@@ -7,24 +7,18 @@ import style from '../../css/_t7-form.css'
 // Utility methods.
 import utils from '../../utils'
 
-// Shared scope
-var that
-
 // Define class.
 class Checkbox extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Alias to parent class.
-    that = this
   }
 
-  onChange (e) {
-    const onChange = that.props.onChange
+  handleChange (e) {
+    const handleChange = this.props.handleChange
 
     // Exit, if no callback.
-    if (typeof onChange !== 'function') {
+    if (typeof handleChange !== 'function') {
       return
     }
 
@@ -32,7 +26,7 @@ class Checkbox extends React.Component {
     const checked = el.checked
     const value = utils.trim(el.value)
 
-    onChange(e, value, checked)
+    handleChange(e, value, checked)
   }
 
   // Render method.
@@ -42,6 +36,7 @@ class Checkbox extends React.Component {
     const id = this.props.id
     const label = this.props.label
     const value = this.props.value
+    const handleChange = this.handleChange.bind(this)
 
     return (
       <label htmlFor={id}>
@@ -52,7 +47,7 @@ class Checkbox extends React.Component {
           id={id}
           type='checkbox'
           value={value}
-          onChange={this.onChange}
+          onChange={handleChange}
         />
         {label}
       </label>
@@ -69,7 +64,7 @@ Checkbox.propTypes = {
   label: React.PropTypes.string,
 
   // Events.
-  onChange: React.PropTypes.func
+  handleChange: React.PropTypes.func
 }
 
 // Prop defaults.
@@ -81,7 +76,7 @@ Checkbox.defaultProps = {
   value: 'value',
 
   // Events.
-  onChange: function (e, value, checked) {
+  handleChange: function (e, value, checked) {
     utils.log(e, value, checked)
   }
 }

@@ -7,31 +7,25 @@ import style from '../../css/_t7-form.css'
 // Utility methods.
 import utils from '../../utils'
 
-// Shared scope
-var that
-
 // Define class.
 class Input extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Alias to parent class.
-    that = this
   }
 
-  onChange (e) {
-    const onChange = that.props.onChange
+  handleChange (e) {
+    const handleChange = this.props.handleChange
 
     // Exit, if no callback.
-    if (typeof onChange !== 'function') {
+    if (typeof handleChange !== 'function') {
       return
     }
 
     const el = e.target
     const value = utils.trim(el.value)
 
-    onChange(e, value)
+    handleChange(e, value)
   }
 
   // Render method.
@@ -41,6 +35,7 @@ class Input extends React.Component {
     const placeholder = this.props.placeholder
     const type = this.props.type
     const value = this.props.value
+    const handleChange = this.handleChange.bind(this)
 
     return (
       <input
@@ -50,7 +45,7 @@ class Input extends React.Component {
         type={type}
         defaultValue={value}
         placeholder={placeholder}
-        onChange={this.onChange}
+        onChange={handleChange}
       />
     )
   }
@@ -65,7 +60,7 @@ Input.propTypes = {
   value: React.PropTypes.string,
 
   // Events.
-  onChange: React.PropTypes.func
+  handleChange: React.PropTypes.func
 }
 
 // Prop defaults.
@@ -77,7 +72,7 @@ Input.defaultProps = {
   value: '',
 
   // Events.
-  onChange: function (e, value) {
+  handleChange: function (e, value) {
     utils.log(e, value)
   }
 }

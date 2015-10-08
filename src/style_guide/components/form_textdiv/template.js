@@ -7,17 +7,11 @@ import style from '../../css/_t7-form.css'
 // Utility methods.
 import utils from '../../utils'
 
-// Shared scope
-var that
-
 // Define class.
 class Textdiv extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Alias to parent class.
-    that = this
   }
 
   // Automatically called after `render`.
@@ -25,40 +19,47 @@ class Textdiv extends React.Component {
     document.body.setAttribute('spellcheck', false)
   }
 
-  onBlur (e) {
+  handleBlur (e) {
     utils.convert_content_editable(e)
   }
 
-  onFocus (e) {
+  handleFocus (e) {
     utils.convert_content_focus(e)
   }
 
-  onKeyUp (e) {
+  handleKeyUp (e) {
     utils.convert_content_editable(e)
   }
 
-  onPaste (e) {
+  handlePaste (e) {
     utils.convert_on_paste(e)
   }
 
-  onChange (e) {
-    const onChange = that.props.onChange
+  handleInput (e) {
+    const handleInput = this.props.handleInput
 
     // Exit, if no callback.
-    if (typeof onChange !== 'function') {
+    if (typeof handleInput !== 'function') {
       return
     }
 
     const el = e.target
-    const value = utils.trim(el.value)
 
-    onChange(e, value)
+    var value = utils.trim(el.innerHTML)
+    value = utils.convert_to_text(value)
+
+    handleInput(e, value)
   }
 
   // Render method.
   render () {
     const disabled = this.props.disabled
     const id = this.props.id
+    const handleBlur = this.handleBlur.bind(this)
+    const handleInput = this.handleInput.bind(this)
+    const handleFocus = this.handleFocus.bind(this)
+    const handleKeyUp = this.handleKeyUp.bind(this)
+    const handlePaste = this.handlePaste.bind(this)
 
     var placeholder = this.props.placeholder
     placeholder = placeholder.replace(/>/g, '&gt;')
@@ -80,11 +81,11 @@ class Textdiv extends React.Component {
         disabled={disabled}
         id={id}
         placeholder={placeholder}
-        onBlur={this.onBlur}
-        onChange={this.onChange}
-        onFocus={this.onFocus}
-        onKeyUp={this.onKeyUp}
-        onPaste={this.onPaste}
+        onBlur={handleBlur}
+        onInput={handleInput}
+        onFocus={handleFocus}
+        onKeyUp={handleKeyUp}
+        onPaste={handlePaste}
       ></div>
     )
   }
@@ -98,7 +99,7 @@ Textdiv.propTypes = {
   value: React.PropTypes.string,
 
   // Events.
-  onChange: React.PropTypes.func
+  handleInput: React.PropTypes.func
 }
 
 // Prop defaults.
@@ -109,7 +110,7 @@ Textdiv.defaultProps = {
   value: '',
 
   // Events.
-  onChange: function (e, value) {
+  handleInput: function (e, value) {
     utils.log(e, value)
   }
 }

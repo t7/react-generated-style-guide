@@ -83,6 +83,8 @@ export default function (count, balance) {
 
   // Expose object.
   return {
+    sortIndex: 0,
+    sortDirection: 'desc',
     columns: columns,
     data: data
   }
