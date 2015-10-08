@@ -24,6 +24,8 @@ class DataTable extends React.Component {
     // Alias to parent class.
     that = this
 
+    // Apply to `state`, because we
+    // don't want to mutate `props`.
     this.state = {}
     this.state.columns = this.props.columns
     this.state.data = this.props.data
