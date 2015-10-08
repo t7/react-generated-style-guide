@@ -62,7 +62,6 @@ class DataTableHeader extends React.Component {
 DataTableHeader.propTypes = {
   index: React.PropTypes.number,
   label: React.PropTypes.string,
-  sort: React.PropTypes.bool,
   sortIndex: React.PropTypes.number,
   sortDirection: React.PropTypes.string,
   sortable: React.PropTypes.bool,

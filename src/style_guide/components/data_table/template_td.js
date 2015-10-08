@@ -17,9 +17,8 @@ class DataTableCell extends React.Component {
 
   // Render method.
   render () {
-    const columns = this.props.columns
     const index = this.props.index
-    const type = columns[index].type
+    const type = this.props.type
 
     const isCurrency = type === 'currency'
     const isDate = type === 'date'
@@ -88,7 +87,6 @@ class DataTableCell extends React.Component {
 
 // Validation.
 DataTableCell.propTypes = {
-  columns: React.PropTypes.array,
   index: React.PropTypes.number,
   type: React.PropTypes.string,
   value: utils.alphanumeric

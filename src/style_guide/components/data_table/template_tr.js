@@ -21,7 +21,7 @@ class DataTableRow extends React.Component {
         {
           data.map(function (value, i) {
             return (
-              <DataTableCell key={i} index={i} columns={columns} value={value} />
+              <DataTableCell key={i} index={i} type={columns[i].type} value={value} />
             )
           })
         }
