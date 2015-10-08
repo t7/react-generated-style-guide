@@ -9,8 +9,8 @@ import style from '../../css/_t7-data-table.css'
 import utils from '../../utils'
 
 // UI components.
-import DataTableRow from './template_row'
-import DataTableHeader from './template_header'
+import DataTableRow from './template_tr'
+import DataTableHeader from './template_th'
 
 // Define class.
 class DataTable extends React.Component {

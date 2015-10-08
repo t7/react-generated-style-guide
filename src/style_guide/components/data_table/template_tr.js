@@ -2,7 +2,7 @@
 import React from 'react'
 
 // UI components.
-import DataTableCell from './template_cell'
+import DataTableCell from './template_td'
 
 // Define class.
 class DataTableRow extends React.Component {
