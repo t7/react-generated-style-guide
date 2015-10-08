@@ -18,7 +18,6 @@ export default function (count, balance) {
 
     var num = Math.random()
     num = num * 1000
-    num = num.toFixed(2)
     num = num * modifier
 
     return num
