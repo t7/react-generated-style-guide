@@ -1,14 +1,14 @@
 // Dependencies.
 import React from 'react'
 
-// UI components.
+// CSS.
+import style from '../../css/_t7-app.css'
+
+// UI Components.
 import Header from '../app_header/template'
 import Sidebar from '../app_sidebar/template'
 import Main from '../app_main/template'
 import Footer from '../app_footer/template'
-
-// CSS.
-import style from '../../css/_t7-app.css'
 
 // Define class.
 class App extends React.Component {

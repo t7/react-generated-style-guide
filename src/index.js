@@ -1,11 +1,16 @@
 // Dependencies.
 import React from 'react'
 import { Router, Route } from 'react-router'
-import App from './style_guide/components/app/container'
 
 // Un-scoped CSS.
 import './style_guide/css/reset.css'
 import './style_guide/css/global.css'
+
+// UI Components.
+import App from './style_guide/components/app/container'
+
+// Pages.
+// import PageFoo from './style_guide/components/pages/container_foo'
 
 // Page titles.
 const titles = {
