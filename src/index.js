@@ -9,8 +9,9 @@ import './style_guide/css/global.css'
 
 // Page titles.
 const titles = {
-  'foo': 'Foobar',
-  'etc': 'Etc.',
+  'foo': 'FOO',
+  'bar': 'BAR',
+  'baz': 'BAZ',
   '404': 'Page Not Found'
 }
 

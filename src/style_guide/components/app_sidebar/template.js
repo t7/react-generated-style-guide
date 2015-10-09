@@ -1,5 +1,6 @@
 // Dependencies.
 import React from 'react'
+import { Link } from 'react-router'
 
 // CSS.
 import style from '../../css/_t7-app.css'
@@ -14,9 +15,19 @@ class Sidebar extends React.Component {
   // Render method.
   render () {
     return (
-      <aside className={style['t7-app__sidebar']}>
-        Sidebar Here
-      </aside>
+      <nav className={style['t7-app__sidebar']}>
+        <ul>
+          <li>
+            <Link to='/foo'>Foo</Link>
+          </li>
+          <li>
+            <Link to='/bar'>Bar</Link>
+          </li>
+          <li>
+            <Link to='/baz'>Baz</Link>
+          </li>
+        </ul>
+      </nav>
     )
   }
 }

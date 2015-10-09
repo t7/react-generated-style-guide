@@ -15,13 +15,10 @@ class App extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Set the page title.
-    this.setTitle()
   }
 
-  // Called from constructor.
-  setTitle () {
+  // Called within `render`.
+  setPageTitle () {
     // Fallback site title.
     const suffix = 'T7 Interactive Style Guide'
 
@@ -34,11 +31,18 @@ class App extends React.Component {
     // Used in conditional.
     var title
 
-    // Does a title exist?
-    if (titles[pathname]) {
-      title = titles[pathname] + ' | ' + suffix
+    // Is there a pathname?
+    if (pathname) {
+      // Does a title exist?
+      if (titles[pathname]) {
+        title = titles[pathname] + ' | ' + suffix
 
-    // If not, use suffix only.
+      // If no title exists, 404.
+      } else {
+        title = titles['404'] + ' | ' + suffix
+      }
+
+    // If no path name.
     } else {
       title = suffix
     }
@@ -49,6 +53,9 @@ class App extends React.Component {
 
   // Render method.
   render () {
+    // Set page title.
+    this.setPageTitle()
+
     return (
       <div className={style['t7-app']}>
         <Header />
