@@ -34,10 +34,10 @@ class DataTableHeader extends React.Component {
     const sortIndex = this.props.sortIndex
     const handleClick = sortable ? this.handleClick.bind(this) : null
 
-    var sortDirection = this.props.sortDirection
+    var sortDirection
 
-    if (index !== sortIndex) {
-      sortDirection = ''
+    if (index === sortIndex) {
+      sortDirection = this.props.sortDirection
     }
 
     var className = style['t7-data-table__th']
