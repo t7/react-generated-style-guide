@@ -26,7 +26,7 @@ class App extends React.Component {
     utils.title(this.props)
 
     // Grab pathname from `props.location`.
-    const path = this.props.location.pathname.split('/')[1]
+    const path = this.props.location.pathname
 
     return (
       <div className={style['t7-app']}>

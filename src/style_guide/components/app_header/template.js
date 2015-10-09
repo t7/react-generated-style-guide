@@ -26,7 +26,7 @@ class Header extends React.Component {
 
   // Render method.
   render () {
-    const path = this.props.path
+    const path = this.props.path.split('/')[1] || '/'
     const handleChange = this.handleChange.bind(this)
 
     // Config for <select>.
@@ -36,7 +36,7 @@ class Header extends React.Component {
         name: 'Contents...'
       },
       {
-        value: 'intro',
+        value: '/',
         name: '- Intro'
       },
       {
