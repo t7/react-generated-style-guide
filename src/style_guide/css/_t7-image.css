@@ -5,19 +5,21 @@ Image figure.
 
 .t7-figure {
   border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 5px;
+  border-radius: 4px;
+  padding: 2px;
 }
 
 .t7-figure img {
-  border-radius: 3px;
-  margin-bottom: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-bottom: 2px;
   width: 100%;
   height: auto;
 }
 
 .t7-figure figcaption {
-  background: #eee;
-  border-radius: 3px;
+  background: #f6f6f6;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   padding: 2px 5px;
 }
