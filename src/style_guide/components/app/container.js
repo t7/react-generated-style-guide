@@ -10,35 +10,18 @@ import Footer from '../app_footer/template'
 // CSS.
 import style from '../../css/_t7-app.css'
 
-// Utility methods.
-import utils from '../../utils'
-
 // Define class.
 class App extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
 
-    // Call the kickoff method.
-    this.kickoff()
+    // Set the page title.
+    this.setTitle()
   }
 
-  kickoff () {
-    var year = new Date().getFullYear()
-
-    this.state = {
-      header: 'Interactive Style Guide',
-      sidebar: 'Sidebar Here',
-      main: 'Main Here',
-      footer: 'TandemSeven',
-      year: year
-    }
-  }
-
-  // Automatically called after `render`.
-  componentDidMount () {
-    utils.log('Component Mounted: "/app/container"')
-
+  // Called from constructor.
+  setTitle () {
     // Fallback site title.
     const suffix = 'T7 Interactive Style Guide'
 
@@ -54,6 +37,8 @@ class App extends React.Component {
     // Does a title exist?
     if (titles[pathname]) {
       title = titles[pathname] + ' | ' + suffix
+
+    // If not, use suffix only.
     } else {
       title = suffix
     }
@@ -66,10 +51,10 @@ class App extends React.Component {
   render () {
     return (
       <div className={style['t7-app']}>
-        <Header header={this.state.header} callback={this.headerCallback} />
-        <Main main={this.state.main} />
-        <Sidebar sidebar={this.state.sidebar} />
-        <Footer footer={this.state.footer} year={this.state.year} />
+        <Header />
+        <Main />
+        <Sidebar />
+        <Footer />
       </div>
     )
   }

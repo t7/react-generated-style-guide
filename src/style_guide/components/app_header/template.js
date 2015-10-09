@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
-// Utility methods.
-import utils from '../../utils'
-
 // UI components.
 import Select from '../form_select/template'
 
@@ -15,11 +12,6 @@ class Header extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-  }
-
-  // Automatically called after `render`.
-  componentDidMount () {
-    utils.log('Component Mounted: "/app_header/template"')
   }
 
   // Render method.
@@ -55,7 +47,7 @@ class Header extends React.Component {
     return (
       <header className={style['t7-app__header']} role='banner'>
         <b className={style['t7-app__header__title']}>
-          {this.props.header}
+          Interactive Style Guide
         </b>
         <Select options={options} />
         <span className={style['t7-app__header__logo']}>

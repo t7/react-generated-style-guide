@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
-// Utility methods.
-import utils from '../../utils'
-
 // UI components.
 import Button from '../form_button/template'
 import Checkbox from '../form_checkbox/template'
@@ -32,18 +29,13 @@ class Main extends React.Component {
     super(props)
   }
 
-  // Automatically called after `render`.
-  componentDidMount () {
-    utils.log('Component Mounted: "/app_main/template"')
-  }
-
   // Render method.
   render () {
     return (
-      <main className={style['t7-app__main']} role='main'>
+      <main id='main' className={style['t7-app__main']} role='main'>
 
         <h1>
-          {this.props.main}
+          Foobar Title Here
         </h1>
 
         <hr />
@@ -147,11 +139,6 @@ class Main extends React.Component {
       </main>
     )
   }
-}
-
-// Validation.
-Main.propTypes = {
-  main: React.PropTypes.string
 }
 
 // Export.
