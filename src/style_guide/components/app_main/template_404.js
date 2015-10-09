@@ -19,7 +19,7 @@ class Main extends React.Component {
     return (
       <main className={style['t7-app__main']} role='main'>
 
-        <Markdown file='page_404' />
+        <Markdown file='doc_404' />
 
       </main>
     )
