@@ -32,7 +32,7 @@ class Main extends React.Component {
   // Render method.
   render () {
     return (
-      <main id='main' className={style['t7-app__main']} role='main'>
+      <main className={style['t7-app__main']} role='main'>
 
         <h1>
           Foobar Title Here

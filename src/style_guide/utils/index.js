@@ -12,6 +12,7 @@ import placeholder from './_placeholder'
 import regex from './_regex'
 import save from './_save'
 import stop from './_stop'
+import title from './_title'
 import today from './_today'
 import trim from './_trim'
 import unique from './_unique'
@@ -31,6 +32,7 @@ export default {
   regex: regex,
   save: save,
   stop: stop,
+  title: title,
   today: today,
   trim: trim,
   unique: unique

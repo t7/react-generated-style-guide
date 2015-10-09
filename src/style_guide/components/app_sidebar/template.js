@@ -18,13 +18,22 @@ class Sidebar extends React.Component {
       <nav className={style['t7-app__sidebar']}>
         <ul>
           <li>
-            <Link to='/foo'>Foo</Link>
+            <Link to='/foobar'>Foobar - Catch All</Link>
           </li>
           <li>
-            <Link to='/bar'>Bar</Link>
+            <Link to='/'>Intro</Link>
           </li>
           <li>
-            <Link to='/baz'>Baz</Link>
+            <Link to='/branding'>Branding</Link>
+          </li>
+          <li>
+            <Link to='/patterns'>Patterns</Link>
+          </li>
+          <li>
+            <Link to='/requirements'>Requirements</Link>
+          </li>
+          <li>
+            <Link to='/templates'>Templates</Link>
           </li>
         </ul>
       </nav>
