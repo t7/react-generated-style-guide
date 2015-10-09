@@ -23,7 +23,7 @@ class Main extends React.Component {
         <hr />
 
         <p>
-          Sorry, but that page wasn't found.
+          Sorry, but that page does not exist.
         </p>
 
       </main>

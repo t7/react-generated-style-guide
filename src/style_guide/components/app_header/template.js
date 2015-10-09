@@ -4,6 +4,9 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
+// Utility methods.
+import utils from '../../utils'
+
 // UI components.
 import Select from '../form_select/template'
 
@@ -14,8 +17,18 @@ class Header extends React.Component {
     super(props)
   }
 
+  // Trigger when `<select>` changes.
+  handleChange (e) {
+    const path = e.target.value
+
+    utils.navigate(path)
+  }
+
   // Render method.
   render () {
+    const path = this.props.path
+    const handleChange = this.handleChange.bind(this)
+
     // Config for <select>.
     const options = [
       {
@@ -49,7 +62,7 @@ class Header extends React.Component {
         <b className={style['t7-app__header__title']}>
           Interactive Style Guide
         </b>
-        <Select options={options} />
+        <Select value={path} options={options} handleChange={handleChange} />
         <span className={style['t7-app__header__logo']}>
           TandemSeven
         </span>
@@ -60,7 +73,7 @@ class Header extends React.Component {
 
 // Validation.
 Header.propTypes = {
-  header: React.PropTypes.string
+  path: React.PropTypes.string
 }
 
 // Export.

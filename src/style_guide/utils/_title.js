@@ -7,16 +7,16 @@ export default function (props) {
   const titles = props.route.titles
 
   // Grab pathname from `props.location`.
-  const pathname = props.location.pathname.split('/')[1]
+  const path = props.location.pathname.split('/')[1]
 
   // Used in conditional.
   var title
 
   // Is there a pathname?
-  if (pathname) {
+  if (path) {
     // Does a title exist?
-    if (titles[pathname]) {
-      title = titles[pathname] + ' | ' + suffix
+    if (titles[path]) {
+      title = titles[path] + ' | ' + suffix
 
     // If no title exists, 404.
     } else {

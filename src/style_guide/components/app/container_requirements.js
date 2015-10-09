@@ -25,9 +25,12 @@ class App extends React.Component {
     // Set page title.
     utils.title(this.props)
 
+    // Grab pathname from `props.location`.
+    const path = this.props.location.pathname.split('/')[1]
+
     return (
       <div className={style['t7-app']}>
-        <Header />
+        <Header path={path} />
         <Main />
         <Sidebar />
         <Footer />
