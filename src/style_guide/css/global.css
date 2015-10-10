@@ -24,6 +24,11 @@ img {
   max-width: 100%;
 }
 
+br + img,
+br + figure {
+  margin-top: 5px;
+}
+
 a {
   cursor: pointer;
 }

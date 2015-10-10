@@ -37,10 +37,14 @@ class Main extends React.Component {
       <main className={style['t7-app__main']} role='main'>
 
         <h1>
-          Foobar Title Here
+          Example UI Elements
         </h1>
 
         <hr />
+
+        <h2>
+          Tabs
+        </h2>
 
         <Tabs selected={0}>
           <TabPanel label='Foo'>
@@ -69,55 +73,99 @@ class Main extends React.Component {
           </TabPanel>
         </Tabs>
 
+        <hr />
+
+        <h2>
+          Images
+        </h2>
+
         <p>
+          <code>&lt;Image /&gt;</code>
+          <br />
           <Image />
         </p>
 
         <p>
+          <code>&lt;Image width='728' height='90' /&gt;</code>
+          <br />
           <Image width='728' height='90' />
         </p>
+
+        <hr />
+
+        <h2>
+          Figures
+        </h2>
 
         <GridContainer>
 
           <Grid desktop='33' tablet='33'>
+            <code>
+              &lt;ImageFigure
+                <br />
+                &nbsp;&nbsp;width='100%'
+                <br />
+                &nbsp;&nbsp;height='69.1642651%'
+                <br />
+              /&gt;
+            </code>
+            <br />
             <ImageFigure width='100%' height='69.1642651%' />
           </Grid>
 
           <Grid desktop='33' tablet='33'>
+            <code>
+              &lt;ImageFigure
+                <br />
+                &nbsp;&nbsp;caption='Pluto'
+                <br />
+                &nbsp;&nbsp;src='pluto.jpg'
+                <br />
+              /&gt;
+            </code>
+            <br />
             <ImageFigure
-              caption='Pluto - NASA photo'
+              caption='Pluto'
               src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg'
             />
           </Grid>
 
           <Grid desktop='33' tablet='33'>
+            <code>
+              &lt;ImageFigure
+                <br />
+                &nbsp;&nbsp;caption='Pluto'
+                <br />
+                &nbsp;&nbsp;src='pluto.jpg'
+                <br />
+              /&gt;
+            </code>
+            <br />
             <ImageFigure
-              caption='Pluto - NASA photo'
+              caption='Pluto'
               src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg'
             />
           </Grid>
 
         </GridContainer>
 
+        <hr />
+
+        <h2>
+          Data Table
+        </h2>
+
         <DataTable />
 
         <hr />
 
-        <p>
-          <label htmlFor='_example_select_width_auto'>
-            <code>&lt;Select width='auto' /&gt;</code>
-          </label>
-          <br />
-          <Select id='_example_select_width_auto' width='auto' />
-        </p>
+        <h2>
+          Form Elements
+        </h2>
 
-        <p>
-          <label htmlFor='_example_select'>
-            <code>&lt;Select /&gt;</code>
-          </label>
-          <br />
-          <Select id='_example_select' />
-        </p>
+        <h3>
+          Text Input
+        </h3>
 
         <p>
           <label htmlFor='_example_input_width_auto'>
@@ -135,6 +183,30 @@ class Main extends React.Component {
           <Input id='_example_input' />
         </p>
 
+        <h3>
+          Select Input
+        </h3>
+
+        <p>
+          <label htmlFor='_example_select_width_auto'>
+            <code>&lt;Select width='auto' /&gt;</code>
+          </label>
+          <br />
+          <Select id='_example_select_width_auto' width='auto' />
+        </p>
+
+        <p>
+          <label htmlFor='_example_select'>
+            <code>&lt;Select /&gt;</code>
+          </label>
+          <br />
+          <Select id='_example_select' />
+        </p>
+
+        <h3>
+          Textarea
+        </h3>
+
         <p>
           <label htmlFor='_example_textarea'>
             <code>&lt;Textarea /&gt;</code>
@@ -142,6 +214,10 @@ class Main extends React.Component {
           <br />
           <Textarea id='_example_textarea' placeholder='Textarea' />
         </p>
+
+        <h3>
+          Editable <code>&lt;div&gt;</code>
+        </h3>
 
         <code>&lt;Textdiv /&gt;</code>
         <br />
@@ -151,7 +227,9 @@ class Main extends React.Component {
         <br />
         <Textdiv placeholder='Content editable <div> (Disabled)' disabled />
 
-        <hr />
+        <h3>
+          Checkbox
+        </h3>
 
         <p>
           <Checkbox />
@@ -161,7 +239,9 @@ class Main extends React.Component {
 
         <CheckboxListInline />
 
-        <hr />
+        <h3>
+          Radio
+        </h3>
 
         <p>
           <Radio />
@@ -171,7 +251,9 @@ class Main extends React.Component {
 
         <RadioListInline />
 
-        <hr />
+        <h3>
+          Buttons
+        </h3>
 
         <p>
           <Button size='small' />
