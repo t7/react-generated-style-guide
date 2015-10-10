@@ -20,8 +20,15 @@ class Image extends React.Component {
     const isPercentWidth = !!(width.match('%') && numericWidth)
     const isPercentHeight = !!(height.match('%') && numericHeight)
 
-    // Used for % placeholder image.
-    const text = '?text=PLACEHOLDER'
+    // Used for placeholders.
+    var text = ''
+    var textPercent = '?text=PLACEHOLDER'
+
+    // Is there alt text?
+    if (alt) {
+      text = '?text=' + alt
+      textPercent = text
+    }
 
     // Check for mixed types.
     const mixedTypes =
@@ -69,7 +76,7 @@ class Image extends React.Component {
         let X = 1000 * (numericWidth / 100)
         let Y = X * (numericHeight / numericWidth)
 
-        src = 'http://placehold.it/' + X + 'x' + Y + text
+        src = 'http://placehold.it/' + X + 'x' + Y + textPercent
         img = <img src={src} alt={alt} width={width} height={height} />
 
       // Mixed types?
@@ -78,22 +85,22 @@ class Image extends React.Component {
 
       // Pixel width, pixel height?
       } else if (numericWidth && numericHeight) {
-        src = 'http://placehold.it/' + width + 'x' + height
+        src = 'http://placehold.it/' + width + 'x' + height + text
         img = <img src={src} alt={alt} />
 
       // Only pixel width?
       } else if (!isPercentWidth && numericWidth) {
-        src = 'http://placehold.it/' + width + 'x' + width
+        src = 'http://placehold.it/' + width + 'x' + width + text
         img = <img src={src} alt={alt} />
 
       // Only pixel height?
       } else if (!isPercentHeight && numericHeight) {
-        src = 'http://placehold.it/' + height + 'x' + height
+        src = 'http://placehold.it/' + height + 'x' + height + text
         img = <img src={src} alt={alt} />
 
       // Dummy value fallback.
       } else {
-        src = 'http://placehold.it/' + 200 + 'x' + 100
+        src = 'http://placehold.it/' + 200 + 'x' + 100 + text
         img = <img src={src} alt={alt} />
       }
     }

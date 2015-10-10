@@ -91,6 +91,12 @@ class Main extends React.Component {
           <Image width='728' height='90' />
         </p>
 
+        <p>
+          <code>&lt;Image width='100%' height='10%' alt='Alt Text Here' /&gt;</code>
+          <br />
+          <Image width='100%' height='10%' alt='Alt Text Here' />
+        </p>
+
         <hr />
 
         <h2>
@@ -117,17 +123,14 @@ class Main extends React.Component {
             <code>
               &lt;ImageFigure
                 <br />
-                &nbsp;&nbsp;caption='Pluto'
+                &nbsp;&nbsp;width='1041'
                 <br />
-                &nbsp;&nbsp;src='pluto.jpg'
+                &nbsp;&nbsp;height='720'
                 <br />
               /&gt;
             </code>
             <br />
-            <ImageFigure
-              caption='Pluto'
-              src='http://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg'
-            />
+            <ImageFigure width='1041' height='720' />
           </Grid>
 
           <Grid desktop='33' tablet='33'>
