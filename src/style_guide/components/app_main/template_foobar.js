@@ -9,6 +9,7 @@ import Button from '../form_button/template'
 import Checkbox from '../form_checkbox/template'
 import CheckboxList from '../form_checkbox/template_list'
 import CheckboxListInline from '../form_checkbox/template_list_inline'
+import Code from '../markdown/container_code'
 import Grid from '../grid_layout/grid_unit'
 import GridContainer from '../grid_layout/grid_container'
 import Image from '../image_helper/template'
@@ -45,6 +46,8 @@ class Main extends React.Component {
         <h2>
           Tabs
         </h2>
+
+        <Code file='code_tabs' />
 
         <Tabs selected={0}>
           <TabPanel label='Foo'>

@@ -5,7 +5,7 @@ import React from 'react'
 import utils from '../../utils'
 
 // Define class.
-class Markdown extends React.Component {
+class Code extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -17,11 +17,13 @@ class Markdown extends React.Component {
       <div
         dangerouslySetInnerHTML={
           utils.markdown(
+            '```\n' +
             require(
-              'raw!../../docs/' +
+              'raw!../../docs_code/' +
               this.props.file.split('.')[0] +
               '.txt'
-            )
+            ) +
+            '\n```'
           )
         }
       />
@@ -30,9 +32,9 @@ class Markdown extends React.Component {
 }
 
 // Validation.
-Markdown.propTypes = {
+Code.propTypes = {
   file: React.PropTypes.string
 }
 
 // Export.
-export default Markdown
+export default Code
