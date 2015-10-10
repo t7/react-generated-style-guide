@@ -7,11 +7,6 @@ class TabPanel extends React.Component {
     // Pass `props` into scope.
     super(props)
   }
-
-  // Render method.
-  render () {
-    return this.props.children
-  }
 }
 
 TabPanel.propTypes = {
