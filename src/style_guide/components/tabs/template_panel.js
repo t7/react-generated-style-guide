@@ -9,6 +9,7 @@ class TabPanel extends React.Component {
   }
 }
 
+// Validation.
 TabPanel.propTypes = {
   children: React.PropTypes.node,
   label: React.PropTypes.string

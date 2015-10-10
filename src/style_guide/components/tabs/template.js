@@ -116,6 +116,7 @@ class Tabs extends React.Component {
     // Click event.
     const handleClick = this.handleClick.bind(this)
 
+    // On/Off class names.
     const panelOff = style['t7-tabs__panel']
     const panelOn = style['t7-tabs__panel--selected']
 
