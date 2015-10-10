@@ -20,7 +20,7 @@ import RadioListInline from '../form_radio/template_list_inline'
 import Select from '../form_select/template'
 import DataTable from '../data_table/template'
 import Tabs from '../tabs/template'
-import TabPanel from '../tabs/template'
+import TabPanel from '../tabs/template_panel'
 import Textarea from '../form_textarea/template'
 import Textdiv from '../form_textdiv/template'
 
