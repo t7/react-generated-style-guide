@@ -31,29 +31,29 @@
   // Markup output...
   //=================
 
-  <div class="t7-tab-group">
-    <ul class="t7-tab-list">
-      <li class="t7-tab--selected">
+  <div class="t7-tabs">
+    <ul class="t7-tabs__list">
+      <li class="t7-tabs__item--selected">
         <a>Foo</a>
       </li>
-      <li class="t7-tab">
+      <li class="t7-tabs__item">
         <a>Bar</a>
       </li>
-      <li class="t7-tab">
+      <li class="t7-tabs__item">
         <a>Baz</a>
       </li>
     </ul>
-    <div class="t7-tab-panel--selected">
+    <div class="t7-tabs__panel--selected">
       <p>
         Tab content for "Foo"
       </p>
     </div>
-    <div class="t7-tab-panel">
+    <div class="t7-tabs__panel">
       <p>
         Tab content for "Bar"
       </p>
     </div>
-    <div class="t7-tab-panel">
+    <div class="t7-tabs__panel">
       <p>
         Tab content for "Baz"
       </p>
@@ -116,12 +116,12 @@ class Tabs extends React.Component {
     // Click event.
     const handleClick = this.handleClick.bind(this)
 
-    const panelOff = style['t7-tab-panel']
-    const panelOn = style['t7-tab-panel--selected']
+    const panelOff = style['t7-tabs__panel']
+    const panelOn = style['t7-tabs__panel--selected']
 
     return (
-      <div className={style['t7-tab-group']}>
-        <ul className={style['t7-tab-list']}>
+      <div className={style['t7-tabs']}>
+        <ul className={style['t7-tabs__list']}>
           {
             children.map(function (panel, i) {
               return (

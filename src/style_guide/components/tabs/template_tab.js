@@ -31,10 +31,10 @@ class Tab extends React.Component {
     const label = this.props.label
     const selected = this.props.selected
 
-    var className = style['t7-tab']
+    var className = style['t7-tabs__item']
 
     if (selected === index) {
-      className = style['t7-tab--selected']
+      className = style['t7-tabs__item--selected']
     }
 
     return (

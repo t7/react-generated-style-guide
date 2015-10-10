@@ -3,7 +3,7 @@ Tabs group.
 ================================================================================
 */
 
-.t7-tab-group {
+.t7-tabs {
   overflow: hidden;
   margin-bottom: 20px;
 }
@@ -13,13 +13,13 @@ Tab list.
 ================================================================================
 */
 
-.t7-tab,
-.t7-tab-list {
+.t7-tabs__item,
+.t7-tabs__list {
   list-style: none;
   margin: 0;
 }
 
-.t7-tab-list {
+.t7-tabs__list {
   font-size: 0;
   margin-bottom: -1px;
   padding-left: 15px;
@@ -29,17 +29,17 @@ Tab list.
   z-index: 1;
 }
 
-.t7-tab {
+.t7-tabs__item {
   display: inline-block;
   font-size: 13px;
   margin-left: 5px;
 }
 
-.t7-tab--selected {
-  composes: t7-tab;
+.t7-tabs__item--selected {
+  composes: t7-tabs__item;
 }
 
-.t7-tab a {
+.t7-tabs__item a {
   background: #f6f6f6;
   border: 1px solid #ddd;
   border-top-left-radius: 3px;
@@ -48,11 +48,11 @@ Tab list.
   padding: 5px 10px;
 }
 
-.t7-tab a:hover {
+.t7-tabs__item a:hover {
   background: #ffd;
 }
 
-.t7-tab--selected a {
+.t7-tabs__item--selected a {
   background: #fff;
   border-bottom-color: #fff;
 }
@@ -62,11 +62,11 @@ Tab panel.
 ================================================================================
 */
 
-.t7-tab-panel {
+.t7-tabs__panel {
   display: none;
 }
 
-.t7-tab-panel--selected {
+.t7-tabs__panel--selected {
   display: block;
 
   border: 1px solid #ddd;
