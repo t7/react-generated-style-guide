@@ -8,6 +8,16 @@ Data table.
   width: 100%;
 }
 
+.t7-data-table__wrapper {
+  margin-bottom: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.t7-data-table__wrapper table {
+  margin-bottom: 0;
+}
+
 /*
 Header and cells.
 ================================================================================

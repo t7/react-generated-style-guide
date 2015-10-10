@@ -161,6 +161,8 @@ class Main extends React.Component {
           Data Table
         </h2>
 
+        <Code file='code_data_table' />
+
         <DataTable />
 
         <hr />

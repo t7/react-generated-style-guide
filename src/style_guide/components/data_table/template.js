@@ -87,37 +87,39 @@ class DataTable extends React.Component {
     const data = this.tableSort(this.state.sortIndex)
 
     return (
-      <table className={style['t7-data-table']}>
-        <thead>
-          <tr>
+      <div className={style['t7-data-table__wrapper']}>
+        <table className={style['t7-data-table']}>
+          <thead>
+            <tr>
+              {
+                columns.map(function ({label, sort, sort_direction, sortable}, i) {
+                  return (
+                    <DataTableHeader
+                      key={i}
+                      index={i}
+                      label={label}
+                      sort={sort}
+                      sortIndex={sortIndex}
+                      sortDirection={sortDirection}
+                      sortable={sortable}
+                      handleClick={handleClick}
+                    />
+                  )
+                })
+              }
+            </tr>
+          </thead>
+          <tbody>
             {
-              columns.map(function ({label, sort, sort_direction, sortable}, i) {
+              data.map(function (data, i) {
                 return (
-                  <DataTableHeader
-                    key={i}
-                    index={i}
-                    label={label}
-                    sort={sort}
-                    sortIndex={sortIndex}
-                    sortDirection={sortDirection}
-                    sortable={sortable}
-                    handleClick={handleClick}
-                  />
+                  <DataTableRow key={i} columns={columns} data={data} />
                 )
               })
             }
-          </tr>
-        </thead>
-        <tbody>
-          {
-            data.map(function (data, i) {
-              return (
-                <DataTableRow key={i} columns={columns} data={data} />
-              )
-            })
-          }
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     )
   }
 }
