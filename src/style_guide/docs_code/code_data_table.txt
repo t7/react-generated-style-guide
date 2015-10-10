@@ -6,5 +6,5 @@
   columns={columns}
 
   /* Array of arrays. */
-  columns={data}
+  data={data}
 />
