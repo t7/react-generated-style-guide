@@ -34,11 +34,19 @@ class Select extends React.Component {
     const id = this.props.id
     const options = this.props.options
     const value = this.props.value
+    const width = this.props.width
+
     const handleChange = this.handleChange.bind(this)
+
+    var className = style['t7-form__select']
+
+    if (width === 'auto') {
+      className = style['t7-form__select--width-auto']
+    }
 
     return (
       <select
-        className={style['t7-form__select']}
+        className={className}
         disabled={disabled}
         id={id}
         defaultValue={value}
@@ -60,6 +68,7 @@ Select.propTypes = {
   id: React.PropTypes.string,
   options: React.PropTypes.array,
   value: React.PropTypes.string,
+  width: React.PropTypes.string,
 
   // Events.
   handleChange: React.PropTypes.func

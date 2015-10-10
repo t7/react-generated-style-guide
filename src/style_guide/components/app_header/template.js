@@ -62,7 +62,7 @@ class Header extends React.Component {
         <b className={style['t7-app__header__title']}>
           Interactive Style Guide
         </b>
-        <Select value={path} options={options} handleChange={handleChange} />
+        <Select value={path} options={options} handleChange={handleChange} width='auto' />
         <span className={style['t7-app__header__logo']}>
           TandemSeven
         </span>

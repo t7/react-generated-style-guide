@@ -112,6 +112,7 @@ Shared styles.
   border-radius: 3px;
   color: #000;
   padding: 2px 5px;
+  width: 100%;
 }
 
 .t7-form__input,
@@ -133,6 +134,16 @@ br + .t7-form__textarea {
   margin-top: 2px;
 }
 
+.t7-form__input--width-auto {
+  composes: t7-form__input;
+  width: auto;
+}
+
+.t7-form__select--width-auto {
+  composes: t7-form__select;
+  width: auto;
+}
+
 /*
 Text input.
 ================================================================================
@@ -149,7 +160,6 @@ Text area.
 
 .t7-form__textarea {
   display: block;
-  width: 100%;
   min-height: 63px;
 }
 

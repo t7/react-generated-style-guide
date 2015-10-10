@@ -101,24 +101,54 @@ class Main extends React.Component {
 
         <DataTable />
 
-        <p>
-          <Select />
-        </p>
+        <hr />
 
         <p>
-          <label htmlFor='_example_text_input'>
-            Text input label
+          <label htmlFor='_example_select_width_auto'>
+            <code>&lt;Select width='auto' /&gt;</code>
           </label>
           <br />
-          <Input id='_example_text_input' />
+          <Select id='_example_select_width_auto' width='auto' />
         </p>
 
         <p>
-          <Textarea placeholder='Textarea' />
+          <label htmlFor='_example_select'>
+            <code>&lt;Select /&gt;</code>
+          </label>
+          <br />
+          <Select id='_example_select' />
         </p>
 
+        <p>
+          <label htmlFor='_example_input_width_auto'>
+            <code>&lt;Input width='auto' /&gt;</code>
+          </label>
+          <br />
+          <Input id='_example_input_width_auto' width='auto' />
+        </p>
+
+        <p>
+          <label htmlFor='_example_input'>
+            <code>&lt;Input /&gt;</code>
+          </label>
+          <br />
+          <Input id='_example_input' />
+        </p>
+
+        <p>
+          <label htmlFor='_example_textarea'>
+            <code>&lt;Textarea /&gt;</code>
+          </label>
+          <br />
+          <Textarea id='_example_textarea' placeholder='Textarea' />
+        </p>
+
+        <code>&lt;Textdiv /&gt;</code>
+        <br />
         <Textdiv placeholder='Content editable <div>' />
 
+        <code>&lt;Textdiv disabled /&gt;</code>
+        <br />
         <Textdiv placeholder='Content editable <div> (Disabled)' disabled />
 
         <hr />

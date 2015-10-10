@@ -35,11 +35,19 @@ class Input extends React.Component {
     const placeholder = this.props.placeholder
     const type = this.props.type
     const value = this.props.value
+    const width = this.props.width
+
     const handleChange = this.handleChange.bind(this)
+
+    var className = style['t7-form__input']
+
+    if (width === 'auto') {
+      className = style['t7-form__input--width-auto']
+    }
 
     return (
       <input
-        className={style['t7-form__input']}
+        className={className}
         disabled={disabled}
         id={id}
         type={type}
@@ -58,6 +66,7 @@ Input.propTypes = {
   placeholder: React.PropTypes.string,
   type: React.PropTypes.string,
   value: React.PropTypes.string,
+  width: React.PropTypes.string,
 
   // Events.
   handleChange: React.PropTypes.func
