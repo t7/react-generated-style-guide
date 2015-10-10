@@ -38,10 +38,8 @@ class Tab extends React.Component {
     }
 
     return (
-      <li key={index} className={className}>
-        <a onClick={handleClick}>
-          {label}
-        </a>
+      <li key={index} className={className} onClick={handleClick}>
+        {label}
       </li>
     )
   }

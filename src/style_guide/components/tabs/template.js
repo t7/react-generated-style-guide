@@ -34,13 +34,13 @@
   <div class="t7-tabs">
     <ul class="t7-tabs__list">
       <li class="t7-tabs__item--selected">
-        <a>Foo</a>
+        Foo
       </li>
       <li class="t7-tabs__item">
-        <a>Bar</a>
+        Bar
       </li>
       <li class="t7-tabs__item">
-        <a>Baz</a>
+        Baz
       </li>
     </ul>
     <div class="t7-tabs__panel--selected">

@@ -30,31 +30,25 @@ Tab list.
 }
 
 .t7-tabs__item {
-  display: inline-block;
-  font-size: 13px;
-  margin-left: 5px;
-}
-
-.t7-tabs__item--selected {
-  composes: t7-tabs__item;
-}
-
-.t7-tabs__item a {
   background: #f6f6f6;
   border: 1px solid #ddd;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  display: block;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  margin-left: 5px;
   padding: 5px 10px;
 }
 
-.t7-tabs__item a:hover {
+.t7-tabs__item:hover {
   background: #ffd;
 }
 
-.t7-tabs__item--selected a {
+.t7-tabs__item--selected {
   background: #fff;
   border-bottom-color: #fff;
+  composes: t7-tabs__item;
 }
 
 /*
