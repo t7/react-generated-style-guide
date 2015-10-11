@@ -46,8 +46,7 @@ Tab list.
   outline: 0;
 }
 
-.t7-tabs__item:hover,
-.t7-tabs__item:focus {
+.t7-tabs__item:hover {
   background: #ffd;
 }
 

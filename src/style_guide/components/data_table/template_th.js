@@ -31,13 +31,18 @@ class DataTableHeader extends React.Component {
     const index = this.props.index
     const label = this.props.label
     const sortable = this.props.sortable
+    const sortDirection = this.props.sortDirection
     const sortIndex = this.props.sortIndex
     const handleClick = sortable ? this.handleClick.bind(this) : null
 
-    var sortDirection
+    var ariaSort
 
     if (index === sortIndex) {
-      sortDirection = this.props.sortDirection
+      if (sortDirection === 'desc') {
+        ariaSort = 'descending'
+      } else if (sortDirection === 'asc') {
+        ariaSort = 'ascending'
+      }
     }
 
     var className = style['t7-data-table__th']
@@ -48,9 +53,14 @@ class DataTableHeader extends React.Component {
 
     return (
       <th
-        data-sort-direction={sortDirection}
+        aria-sort={ariaSort}
         className={className}
+        role='columnheader'
+        scope='col'
+        tabIndex={sortable ? 0 : null}
+
         onClick={handleClick}
+        onKeyDown={handleClick}
       >
         {label}
       </th>

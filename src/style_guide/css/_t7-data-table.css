@@ -59,6 +59,11 @@ Headers
   background: #ffe;
 }
 
+.t7-data-table__th--sortable:focus {
+  border: 1px solid #39f;
+  outline: 0;
+}
+
 .t7-data-table__th--sortable:before {
   content: "";
 
@@ -77,11 +82,11 @@ Headers
   top: 1px;
 }
 
-.t7-data-table__th--sortable[data-sort-direction="asc"]:before {
+.t7-data-table__th--sortable[aria-sort="ascending"]:before {
   background-image: url("../images/t7-data-table__th--sortable[asc].png");
 }
 
-.t7-data-table__th--sortable[data-sort-direction="desc"]:before {
+.t7-data-table__th--sortable[aria-sort="descending"]:before {
   background-image: url("../images/t7-data-table__th--sortable[desc].png");
 }
 
