@@ -1,33 +1,8 @@
-// node built ins
-var fs = require('fs');
+import React from 'react'
+import ReactDOMServer from 'react-dom/server';
 
-// 3rd party deps
-var glob = require('glob')
-var React = require('react')
+function render(Component){
+  return ReactDOMServer.renderToStaticMarkup(<Component />)
+}
 
-var babel = require("babel-core")
-
-var paths = glob.sync('src/style_guide/components/*')
-
-var patternsJSON = paths.filter(function(path){
-
-  if(fs.lstatSync(path).isDirectory()){
-
-    if(path === 'src/style_guide/components/form_button'){
-
-      var _path = process.cwd()+'/'+path+'/template.js'
-
-      var Button = babel.transformFileSync(_path);
-
-      var html = React.renderToString(React.createElement(Button))
-
-      console.log(html)
-
-    }
-
-  }
-
-});
-
-//console.log(patternsJSON)
-
+export default render
