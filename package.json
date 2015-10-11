@@ -6,9 +6,9 @@
   "scripts": {
     "test": "webpack",
     "start": "webpack-dev-server --hot",
-    "clean": "rm -rf build",
-    "build": "npm run clean && webpack",
-    "build:style_guide": "node ./style_guide"
+    "prebuild": "rm -rf build",
+    "build": "webpack",
+    "isg": "node ./style_guide"
   },
   "repository": {
     "type": "git",
