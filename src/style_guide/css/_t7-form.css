@@ -131,20 +131,29 @@ Shared styles.
   box-shadow: #39f 0 0 2px 0;
 }
 
+.t7-form__input--width-auto {
+  composes: t7-form__input;
+}
+
+.t7-form__select--width-auto {
+  composes: t7-form__select;
+}
+
+.t7-form__input--width-auto,
+.t7-form__select--width-auto {
+  width: auto;
+}
+
 br + .t7-form__input,
 br + .t7-form__select,
 br + .t7-form__textarea {
   margin-top: 5px;
 }
 
-.t7-form__input--width-auto {
-  composes: t7-form__input;
-  width: auto;
-}
-
-.t7-form__select--width-auto {
-  composes: t7-form__select;
-  width: auto;
+*[class*="t7-form__"] + .t7-form__button,
+*[class*="t7-form__"] + .t7-form__input,
+*[class*="t7-form__"] + .t7-form__select {
+  margin-left: 10px;
 }
 
 /*
@@ -217,22 +226,31 @@ Button.
   background: #69c;
   border-radius: 3px;
   color: #fff;
-  padding: 7px 10px;
-}
 
-.t7-form__button + .t7-form__button {
-  margin-left: 10px;
+  line-height: 25px;
+  height: 25px;
+
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .t7-form__button--small {
   composes: t7-form__button;
   font-size: 11px;
-  padding: 5px 7px;
+
+  line-height: 20px;
+  height: 20px;
+
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 .t7-form__button--big {
   composes: t7-form__button;
   font-size: 20px;
+
+  line-height: 35px;
+  height: 35px;
 }
 
 .t7-form__button:not([disabled]):active {

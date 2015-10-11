@@ -63,17 +63,18 @@ Header.
   right: 0;
 }
 
+.t7-app__header button,
+.t7-app__header input,
 .t7-app__header select {
-  margin-left: 20px;
+  margin-top: 12px;
   vertical-align: top;
-
-  position: relative;
-  top: 12px;
 }
 
 .t7-app__header__title {
+  display: inline-block;
   font-size: 15px;
   color: #666;
+  margin-right: 20px;
 }
 
 .t7-app__header__logo {
