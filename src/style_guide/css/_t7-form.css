@@ -112,6 +112,7 @@ Shared styles.
   border-radius: 3px;
   color: #000;
   padding: 2px 5px;
+  width: 100%;
 }
 
 .t7-form__input,
@@ -120,9 +121,12 @@ Shared styles.
   height: 25px;
 }
 
-.t7-form__input:focus,
-.t7-form__select:focus,
-.t7-form__textarea:focus {
+.t7-form__input:not([disabled]):active,
+.t7-form__select:not([disabled]):active,
+.t7-form__textarea:not([disabled]):active,
+.t7-form__input:not([disabled]):focus,
+.t7-form__select:not([disabled]):focus,
+.t7-form__textarea:not([disabled]):focus {
   border-color: #39f;
   box-shadow: #39f 0 0 2px 0;
 }
@@ -130,7 +134,17 @@ Shared styles.
 br + .t7-form__input,
 br + .t7-form__select,
 br + .t7-form__textarea {
-  margin-top: 2px;
+  margin-top: 5px;
+}
+
+.t7-form__input--width-auto {
+  composes: t7-form__input;
+  width: auto;
+}
+
+.t7-form__select--width-auto {
+  composes: t7-form__select;
+  width: auto;
 }
 
 /*
@@ -149,7 +163,6 @@ Text area.
 
 .t7-form__textarea {
   display: block;
-  width: 100%;
   min-height: 63px;
 }
 
@@ -207,12 +220,6 @@ Button.
   padding: 7px 10px;
 }
 
-.t7-form__button:active {
-  background: #369;
-  position: relative;
-  top: 1px;
-}
-
 .t7-form__button + .t7-form__button {
   margin-left: 10px;
 }
@@ -226,6 +233,16 @@ Button.
 .t7-form__button--big {
   composes: t7-form__button;
   font-size: 20px;
+}
+
+.t7-form__button:not([disabled]):active {
+  background: #369;
+  position: relative;
+  top: 1px;
+}
+
+.t7-form__button:not([disabled]):focus {
+  box-shadow: #fff 0 0 0 1px, #39f 0 0 1px 2px;
 }
 
 /*
@@ -254,7 +271,7 @@ Disabled state.
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
-  cursor: default;
+  cursor: not-allowed;
 
   opacity: 0.5;
 }

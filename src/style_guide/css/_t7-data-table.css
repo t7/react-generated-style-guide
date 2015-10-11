@@ -8,6 +8,16 @@ Data table.
   width: 100%;
 }
 
+.t7-data-table__wrapper {
+  margin-bottom: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.t7-data-table__wrapper table {
+  margin-bottom: 0;
+}
+
 /*
 Header and cells.
 ================================================================================
@@ -29,7 +39,7 @@ Headers
 */
 
 .t7-data-table__th {
-  background: #f9f9f9;
+  background: #f6f6f6;
   border-bottom: 1px solid #ddd;
   cursor: default;
   white-space: nowrap;

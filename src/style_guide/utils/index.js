@@ -8,6 +8,7 @@ import convert_to_html from './_convert_to_html'
 import convert_to_text from './_convert_to_text'
 import exists from './_exists'
 import log from './_log'
+import markdown from './_markdown'
 import navigate from './_navigate'
 import placeholder from './_placeholder'
 import regex from './_regex'
@@ -29,6 +30,7 @@ export default {
   convert_to_text: convert_to_text,
   exists: exists,
   log: log,
+  markdown: markdown,
   navigate: navigate,
   placeholder: placeholder,
   regex: regex,

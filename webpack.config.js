@@ -18,11 +18,13 @@ module.exports = {
 
   module: {
     loaders: [
+      // JavaScript.
       {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       },
+      // CSS.
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract(
@@ -30,10 +32,12 @@ module.exports = {
           'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
         )
       },
+      // SVG.
       {
         test: /\.svg$/,
         loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
       },
+      // Images.
       {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=8192&name=[name]_[sha512:hash:base64:7].[ext]'

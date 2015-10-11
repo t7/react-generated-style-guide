@@ -4,6 +4,9 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
+// UI Components.
+import Markdown from '../markdown/container'
+
 // Define class.
 class Main extends React.Component {
   constructor (props) {
@@ -16,15 +19,7 @@ class Main extends React.Component {
     return (
       <main className={style['t7-app__main']} role='main'>
 
-        <h1>
-          Branding
-        </h1>
-
-        <hr />
-
-        <p>
-          "Branding" content here, yo.
-        </p>
+        <Markdown file='doc_branding' />
 
       </main>
     )
