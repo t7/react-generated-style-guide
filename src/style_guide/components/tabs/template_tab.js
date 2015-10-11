@@ -43,8 +43,8 @@ class Tab extends React.Component {
         role='tab'
         tabIndex='0'
 
-        onKeyDown={handleClick}
         onClick={handleClick}
+        onKeyDown={handleClick}
       >
         {label}
       </li>

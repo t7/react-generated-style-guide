@@ -66,7 +66,7 @@ class DataTableCell extends React.Component {
     if (isCurrency && isNegative) {
       // Wrap in parenthesis.
       td = (
-        <td key={index} className={className}>
+        <td key={index} className={className} role='gridcell'>
           ({value})
         </td>
       )
@@ -74,7 +74,7 @@ class DataTableCell extends React.Component {
     // Otherwise, leave value as-is.
     } else {
       td = (
-        <td key={index} className={className}>
+        <td key={index} className={className} role='gridcell'>
           {value}
         </td>
       )

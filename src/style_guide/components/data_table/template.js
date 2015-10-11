@@ -61,6 +61,14 @@ class DataTable extends React.Component {
 
   // Handle column header clicks.
   handleClick (e, index, direction) {
+    const keyPress = e.keyCode
+    const keyEnter = keyPress === 13
+
+    // Exit, if not "Enter" key.
+    if (keyPress && !keyEnter) {
+      return
+    }
+
     // Reverse.
     if (direction === 'asc') {
       direction = 'desc'
@@ -88,8 +96,8 @@ class DataTable extends React.Component {
 
     return (
       <div className={style['t7-data-table__wrapper']}>
-        <table className={style['t7-data-table']}>
-          <thead>
+        <table className={style['t7-data-table']} role='grid'>
+          <thead role='rowgroup'>
             <tr>
               {
                 columns.map(function ({label, sort, sort_direction, sortable}, i) {
@@ -109,7 +117,7 @@ class DataTable extends React.Component {
               }
             </tr>
           </thead>
-          <tbody>
+          <tbody role='rowgroup'>
             {
               data.map(function (data, i) {
                 return (

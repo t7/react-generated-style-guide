@@ -17,7 +17,7 @@ class DataTableRow extends React.Component {
     const data = this.props.data
 
     return (
-      <tr>
+      <tr role='row'>
         {
           data.map(function (value, i) {
             return (
