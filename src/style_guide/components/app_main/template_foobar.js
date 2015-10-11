@@ -220,7 +220,22 @@ class Main extends React.Component {
             <code>&lt;Textarea /&gt;</code>
           </label>
           <br />
-          <Textarea id='_example_textarea' placeholder='Textarea' />
+          <Textarea
+            id='_example_textarea'
+            placeholder='Textarea'
+          />
+        </p>
+
+        <p>
+          <label htmlFor='_example_textarea'>
+            <code>&lt;Textarea /&gt;</code>
+          </label>
+          <br />
+          <Textarea
+            id='_example_textarea_disabled'
+            placeholder='Textarea  (Disabled)'
+            disabled
+          />
         </p>
 
         <h3>
