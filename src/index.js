@@ -1,5 +1,6 @@
 // Dependencies.
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Router, Route } from 'react-router'
 
 // Un-scoped CSS.
@@ -41,4 +42,4 @@ const template = (
 // Insertion point.
 const el = document.getElementById('app')
 
-React.render(template, el)
+ReactDOM.render(template, el)
