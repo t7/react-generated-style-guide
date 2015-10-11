@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import style from '../../css/_t7-tabs.css'
-
 // Define class.
 class Tab extends React.Component {
   constructor (props) {
@@ -25,20 +22,30 @@ class Tab extends React.Component {
 
   // Render method.
   render () {
+    const ariaControls = this.props.ariaControls
+    const ariaExpanded = this.props.ariaExpanded
+    const ariaSelected = this.props.ariaSelected
+
+    const className = this.props.className
+    const id = this.props.id
+    const label = this.props.label
+
     const handleClick = this.handleClick.bind(this)
 
-    const index = this.props.index
-    const label = this.props.label
-    const selected = this.props.selected
-
-    var className = style['t7-tabs__item']
-
-    if (selected === index) {
-      className = style['t7-tabs__item--selected']
-    }
-
     return (
-      <li key={index} className={className} onClick={handleClick}>
+      <li
+        aria-controls={ariaControls}
+        aria-expanded={ariaExpanded}
+        aria-selected={ariaSelected}
+        className={className}
+        id={id}
+        key={id}
+        role='tab'
+        tabIndex='0'
+
+        onKeyDown={handleClick}
+        onClick={handleClick}
+      >
         {label}
       </li>
     )
@@ -47,10 +54,16 @@ class Tab extends React.Component {
 
 // Validation.
 Tab.propTypes = {
-  handleClick: React.PropTypes.func,
+  ariaControls: React.PropTypes.string,
+  ariaExpanded: React.PropTypes.bool,
+  ariaSelected: React.PropTypes.bool,
+
+  className: React.PropTypes.string,
+  id: React.PropTypes.string,
   index: React.PropTypes.number,
   label: React.PropTypes.string,
-  selected: React.PropTypes.number
+
+  handleClick: React.PropTypes.func
 }
 
 // Defaults.

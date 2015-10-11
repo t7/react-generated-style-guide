@@ -121,6 +121,9 @@ Shared styles.
   height: 25px;
 }
 
+.t7-form__input:active,
+.t7-form__select:active,
+.t7-form__textarea:active,
 .t7-form__input:focus,
 .t7-form__select:focus,
 .t7-form__textarea:focus {
