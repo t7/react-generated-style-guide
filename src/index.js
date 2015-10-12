@@ -30,19 +30,19 @@ const titles = {
 const template = (
 <Router>
 
-  <Route path='/' component={Intro} titles={titles} />
+<Route titles={titles} path='/' component={Intro} />
 
-  <Route path='/branding' component={Branding} titles={titles} />
+<Route titles={titles} path='/branding' component={Branding} />
 
-  <Route path='/patterns' component={Patterns} titles={titles} />
+<Route titles={titles} path='/patterns' component={Patterns} />
 
-  <Route path='/requirements' component={Requirements} titles={titles} />
+<Route titles={titles} path='/requirements' component={Requirements} />
 
-  <Route path='/templates' component={Templates} titles={titles} />
+<Route titles={titles} path='/templates' component={Templates} />
 
-  <Route path='/foobar' component={Foobar} titles={titles} />
+<Route titles={titles} path='/foobar' component={Foobar} />
 
-  <Route path='*' component={NotFound} titles={titles} />
+<Route titles={titles} path='*' component={NotFound} />
 
 </Router>
 )
