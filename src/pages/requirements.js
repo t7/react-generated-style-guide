@@ -18,15 +18,15 @@ class Page extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
-
-    // Set page title.
-    utils.title(this.props)
   }
 
   // Render method.
   render () {
     return (
-      <App path={this.props.location.pathname}>
+      <App
+        path={this.props.location.pathname}
+        titles={this.props.route.titles}
+      >
 
         <Sidebar>
           <ul>

@@ -1,16 +1,10 @@
 // Set the page `<title>`.
-export default function (props) {
-  // TODO.
-  return
-
+export default function (path, titles) {
   // Fallback site title.
   const suffix = 'T7 Interactive Style Guide'
 
-  // Get object hash of potential titles.
-  const titles = props.route.titles
-
   // Grab pathname from `props.location`.
-  const path = props.location.pathname.split('/')[1]
+  path = path.split('/')[1]
 
   // Used in conditional.
   var title

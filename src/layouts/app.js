@@ -20,11 +20,12 @@ class App extends React.Component {
 
   // Render method.
   render () {
-    // Set page title.
-    utils.title(this.props)
-
     // Grab the URL "/#path".
     const path = this.props.path
+    const titles = this.props.titles
+
+    // Set page title.
+    utils.title(path, titles)
 
     return (
       <div className={style['t7-app']}>
@@ -41,7 +42,8 @@ class App extends React.Component {
 // Validation.
 App.propTypes = {
   children: React.PropTypes.node,
-  path: React.PropTypes.string
+  path: React.PropTypes.string,
+  titles: React.PropTypes.object
 }
 
 // Export.
