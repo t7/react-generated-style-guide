@@ -167,3 +167,37 @@ Footer.
   right: 0;
   bottom: 0;
 }
+
+/*
+Adjust for mobile.
+================================================================================
+*/
+
+@media (max-width: 767px) {
+  .t7-app,
+  .t7-app__header,
+  .t7-app__main,
+  .t7-app__footer {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+  }
+
+  .t7-app__header__title,
+  .t7-app__sidebar {
+    display: none;
+  }
+
+  .t7-app__header__logo {
+    width: 120px;
+    height: 15px;
+    margin-top: -7.5px;
+  }
+
+  .t7-app__main {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}

@@ -30,6 +30,7 @@ class Select extends React.Component {
 
   // Render method.
   render () {
+    const ariaControls = this.props.ariaControls
     const disabled = this.props.disabled
     const id = this.props.id
     const options = this.props.options
@@ -46,10 +47,11 @@ class Select extends React.Component {
 
     return (
       <select
+        aria-controls={ariaControls}
         className={className}
         disabled={disabled}
         id={id}
-        defaultValue={value}
+        value={value}
         onChange={handleChange}
       >
         {
@@ -64,6 +66,7 @@ class Select extends React.Component {
 
 // Validation.
 Select.propTypes = {
+  ariaControls: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   options: React.PropTypes.array,

@@ -19,6 +19,38 @@ Data table.
 }
 
 /*
+Pagination.
+================================================================================
+*/
+
+.t7-data-table__pagination {
+  padding: 5px;
+  line-height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.t7-data-table__pagination--hidden {
+  display: none;
+}
+
+.t7-data-table__pagination + .t7-data-table,
+.t7-data-table + .t7-data-table__pagination {
+  margin-top: 5px;
+}
+
+.t7-data-table__pagination__label {
+  color: #999;
+  float: right;
+}
+
+@media (max-width: 480px) {
+  .t7-data-table__pagination__label {
+    display: none;
+  }
+}
+
+/*
 Header and cells.
 ================================================================================
 */

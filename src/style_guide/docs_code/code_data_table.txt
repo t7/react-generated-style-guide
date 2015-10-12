@@ -1,10 +1,12 @@
 <DataTable
-  sortIndex={0}
-  sortDirection='desc'
-
   /* Array of objects. */
   columns={columns}
 
   /* Array of arrays. */
   data={data}
+
+  id='...'
+  pageSize={20}
+  sortIndex={0}
+  sortDirection='desc'
 />

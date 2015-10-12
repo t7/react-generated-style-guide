@@ -6,11 +6,13 @@ import _ from 'lodash'
 import style from '../../css/_t7-data-table.css'
 
 // Utility methods.
+import fake from '../../fake'
 import utils from '../../utils'
 
 // UI components.
 import DataTableRow from './template_tr'
 import DataTableHeader from './template_th'
+import DataTablePagination from './template_pagination'
 
 // Define class.
 class DataTable extends React.Component {
@@ -26,6 +28,7 @@ class DataTable extends React.Component {
   // don't want to mutate `props`.
   defaultState () {
     const state = {
+      pageCurrent: this.props.pageCurrent,
       sortIndex: this.props.sortIndex,
       sortDirection: this.props.sortDirection
     }
@@ -56,11 +59,20 @@ class DataTable extends React.Component {
       data.reverse()
     }
 
+    const pageCurrent = this.state.pageCurrent
+    const pageSize = this.props.pageSize
+    const start = pageCurrent * pageSize
+    const end = start + pageSize
+
+    if (pageSize) {
+      data = data.slice(start, end)
+    }
+
     return data
   }
 
-  // Handle column header clicks.
-  handleClick (e, index, direction) {
+  // Handle column header sort.
+  handleSort (e, index, direction) {
     const keyPress = e.keyCode
     const keyEnter = keyPress === 13
 
@@ -82,22 +94,51 @@ class DataTable extends React.Component {
     })
   }
 
+  // Handle table pagination.
+  handlePagination (e, page) {
+    this.setState({
+      pageCurrent: page
+    })
+  }
+
   // Render method.
   render () {
+    const id = this.props.id
     const columns = this.props.columns
-    const handleClick = this.handleClick.bind(this)
 
     // Read from state.
     const sortIndex = this.state.sortIndex
     const sortDirection = this.state.sortDirection
 
+    // Pagination sizing.
+    const pageCurrent = this.state.pageCurrent
+    const pageTotal = Math.ceil(this.props.data.length / this.props.pageSize)
+
     // Sort the data.
     const data = this.tableSort(this.state.sortIndex)
 
+    // Events.
+    const handleSort = this.handleSort.bind(this)
+    const handlePagination = this.handlePagination.bind(this)
+
     return (
       <div className={style['t7-data-table__wrapper']}>
-        <table className={style['t7-data-table']} role='grid'>
+
+        <DataTablePagination
+          pageCurrent={pageCurrent}
+          pageTotal={pageTotal}
+          tableId={id}
+          handlePagination={handlePagination}
+        />
+
+        <table
+          id={id}
+          className={style['t7-data-table']}
+          role='grid'
+        >
+
           <thead role='rowgroup'>
+
             <tr>
               {
                 columns.map(function ({label, sort, sort_direction, sortable}, i) {
@@ -110,13 +151,14 @@ class DataTable extends React.Component {
                       sortIndex={sortIndex}
                       sortDirection={sortDirection}
                       sortable={sortable}
-                      handleClick={handleClick}
+                      handleSort={handleSort}
                     />
                   )
                 })
               }
             </tr>
           </thead>
+
           <tbody role='rowgroup'>
             {
               data.map(function (data, i) {
@@ -126,7 +168,9 @@ class DataTable extends React.Component {
               })
             }
           </tbody>
+
         </table>
+
       </div>
     )
   }
@@ -134,14 +178,26 @@ class DataTable extends React.Component {
 
 // Validation.
 DataTable.propTypes = {
-  sortIndex: React.PropTypes.number,
-  sortDirection: React.PropTypes.string,
   columns: React.PropTypes.array,
-  data: React.PropTypes.array
+  data: React.PropTypes.array,
+  id: React.PropTypes.string,
+  pageCurrent: React.PropTypes.number,
+  pageSize: React.PropTypes.number,
+  sortIndex: React.PropTypes.number,
+  sortDirection: React.PropTypes.string
 }
 
 // Defaults.
-DataTable.defaultProps = utils.buildFakeData()
+DataTable.defaultProps = {
+  columns: fake.dataTableCols(),
+  data: fake.dataTableRows(250),
+
+  id: utils.unique(),
+  pageCurrent: 0,
+  pageSize: 20,
+  sortIndex: 0,
+  sortDirection: 'desc'
+}
 
 // Export.
 export default DataTable

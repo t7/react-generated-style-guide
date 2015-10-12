@@ -14,16 +14,16 @@ class DataTableHeader extends React.Component {
     super(props)
   }
 
-  handleClick (e) {
+  handleSort (e) {
     const index = this.props.index
     const sortDirection = this.props.sortDirection
-    const handleClick = this.props.handleClick
+    const handleSort = this.props.handleSort
 
-    if (typeof handleClick !== 'function') {
+    if (typeof handleSort !== 'function') {
       return
     }
 
-    handleClick(e, index, sortDirection)
+    handleSort(e, index, sortDirection)
   }
 
   // Render method.
@@ -33,7 +33,7 @@ class DataTableHeader extends React.Component {
     const sortable = this.props.sortable
     const sortDirection = this.props.sortDirection
     const sortIndex = this.props.sortIndex
-    const handleClick = sortable ? this.handleClick.bind(this) : null
+    const handleSort = sortable ? this.handleSort.bind(this) : null
 
     var ariaSort
 
@@ -59,8 +59,8 @@ class DataTableHeader extends React.Component {
         scope='col'
         tabIndex={sortable ? 0 : null}
 
-        onClick={handleClick}
-        onKeyDown={handleClick}
+        onClick={handleSort}
+        onKeyDown={handleSort}
       >
         {label}
       </th>
@@ -75,12 +75,12 @@ DataTableHeader.propTypes = {
   sortIndex: React.PropTypes.number,
   sortDirection: React.PropTypes.string,
   sortable: React.PropTypes.bool,
-  handleClick: React.PropTypes.func
+  handleSort: React.PropTypes.func
 }
 
 // Defaults.
 DataTableHeader.defaultProps = {
-  handleClick: function (e, index, sortDirection) {
+  handleSort: function (e, index, sortDirection) {
     utils.log(e, index, sortDirection)
   }
 }

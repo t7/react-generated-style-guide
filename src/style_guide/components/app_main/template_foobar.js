@@ -44,6 +44,16 @@ class Main extends React.Component {
         <hr />
 
         <h2>
+          Data Table
+        </h2>
+
+        <Code file='code_data_table' />
+
+        <DataTable />
+
+        <hr />
+
+        <h2>
           Tabs
         </h2>
 
@@ -154,16 +164,6 @@ class Main extends React.Component {
           </Grid>
 
         </GridContainer>
-
-        <hr />
-
-        <h2>
-          Data Table
-        </h2>
-
-        <Code file='code_data_table' />
-
-        <DataTable />
 
         <hr />
 
