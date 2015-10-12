@@ -28,6 +28,28 @@ class DataTablePagination extends React.Component {
 
     page = parseFloat(page)
     handlePagination(e, page)
+    this.focusOtherButton(e)
+  }
+
+  focusOtherButton (e) {
+    var timer = function () {
+      clearTimeout(timer)
+
+      const el = e.target
+      const tag = el.tagName.toLowerCase()
+      const isButton = tag === 'button'
+      const isDisabled = isButton && el.disabled
+
+      // Is this button now disabled?
+      if (isDisabled) {
+        el
+        .parentNode
+        .querySelectorAll('button:not([disabled])')[0]
+        .focus()
+      }
+    }
+
+    setTimeout(timer, 16)
   }
 
   // Render method.
