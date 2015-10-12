@@ -17,11 +17,11 @@ var render = function () {
       var html = ReactDOMServer.renderToStaticMarkup(React.createElement(component))
       console.log(html)
 
-      if(bottles[index++]) {
+      if (bottles[index++]) {
         render()
       }
 
-  })
+    })
 
 }
 
