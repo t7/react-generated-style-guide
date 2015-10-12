@@ -8,7 +8,9 @@
     "start": "webpack-dev-server --hot",
     "prebuild": "rm -rf build",
     "build": "webpack",
-    "isg": "node ./style_guide"
+    "build_index": "node ./lib/build_index",
+    "build_patterns": "node ./style_guide/pages/patterns",
+    "build_style_guide": "node ./style_guide"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "marked": "^0.3.5",
     "node-libs-browser": "^0.5.2",
     "postcss-loader": "^0.5.1",
+    "pretty": "^1.0.0",
     "raw-loader": "^0.5.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
