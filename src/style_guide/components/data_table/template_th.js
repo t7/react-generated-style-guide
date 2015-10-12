@@ -70,11 +70,16 @@ class DataTableHeader extends React.Component {
 
 // Validation.
 DataTableHeader.propTypes = {
-  index: React.PropTypes.number,
-  label: React.PropTypes.string,
+  // Required.
+  label: React.PropTypes.string.isRequired,
+  index: React.PropTypes.number.isRequired,
+
+  // Optional.
   sortIndex: React.PropTypes.number,
   sortDirection: React.PropTypes.string,
   sortable: React.PropTypes.bool,
+
+  // Events.
   handleSort: React.PropTypes.func
 }
 

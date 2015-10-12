@@ -6,7 +6,6 @@ import _ from 'lodash'
 import style from '../../css/_t7-data-table.css'
 
 // Utility methods.
-import fake from '../../fake'
 import utils from '../../utils'
 
 // UI components.
@@ -19,6 +18,13 @@ class DataTable extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
+
+    // Ensure columns exist.
+    const columns = this.props.columns
+
+    if (!columns || !columns.length) {
+      throw new Error('No columns were passed to `<DataTable />`.')
+    }
 
     // Get default state.
     this.defaultState()
@@ -121,6 +127,27 @@ class DataTable extends React.Component {
     const handleSort = this.handleSort.bind(this)
     const handlePagination = this.handlePagination.bind(this)
 
+    // Used in loop.
+    var rows = []
+
+    // Populate table rows.
+    data.map(function (data, i) {
+      rows.push(
+        <DataTableRow key={i} columns={columns} data={data} />
+      )
+    })
+
+    // Empty rows?
+    if (!rows.length) {
+      rows.push(
+        <tr role='row'>
+          <td className={style['t7-data-table__td']} colSpan={columns.length}>
+            No data to display.
+          </td>
+        </tr>
+      )
+    }
+
     return (
       <div className={style['t7-data-table__wrapper']}>
 
@@ -138,19 +165,17 @@ class DataTable extends React.Component {
         >
 
           <thead role='rowgroup'>
-
             <tr>
               {
-                columns.map(function ({label, sort, sort_direction, sortable}, i) {
+                columns.map(function ({label, sort_direction, sortable}, i) {
                   return (
                     <DataTableHeader
                       key={i}
                       index={i}
                       label={label}
-                      sort={sort}
-                      sortIndex={sortIndex}
-                      sortDirection={sortDirection}
-                      sortable={sortable}
+                      sortIndex={data.length ? sortIndex : false}
+                      sortDirection={data.length ? sortDirection : false}
+                      sortable={data.length ? sortable : false}
                       handleSort={handleSort}
                     />
                   )
@@ -160,13 +185,7 @@ class DataTable extends React.Component {
           </thead>
 
           <tbody role='rowgroup'>
-            {
-              data.map(function (data, i) {
-                return (
-                  <DataTableRow key={i} columns={columns} data={data} />
-                )
-              })
-            }
+            {rows}
           </tbody>
 
         </table>
@@ -178,8 +197,11 @@ class DataTable extends React.Component {
 
 // Validation.
 DataTable.propTypes = {
-  columns: React.PropTypes.array,
-  data: React.PropTypes.array,
+  // Required.
+  columns: React.PropTypes.array.isRequired,
+  data: React.PropTypes.array.isRequired,
+
+  // Optional.
   id: React.PropTypes.string,
   pageCurrent: React.PropTypes.number,
   pageSize: React.PropTypes.number,
@@ -189,9 +211,6 @@ DataTable.propTypes = {
 
 // Defaults.
 DataTable.defaultProps = {
-  columns: fake.dataTableCols(),
-  data: fake.dataTableRows(250),
-
   id: utils.unique(),
   pageCurrent: 0,
   pageSize: 20,

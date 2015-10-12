@@ -4,6 +4,9 @@ import React from 'react'
 // CSS.
 import style from '../../css/_t7-app.css'
 
+// Fake data.
+import fake from '../../fake'
+
 // UI components.
 import Button from '../form_button/template'
 import Checkbox from '../form_checkbox/template'
@@ -49,7 +52,27 @@ class Main extends React.Component {
 
         <Code file='code_data_table' />
 
-        <DataTable />
+        <p>
+          <b>
+            Empty data&hellip;
+          </b>
+        </p>
+
+        <DataTable
+          columns={fake.dataTableCols()}
+          data={[]}
+        />
+
+        <p>
+          <b>
+            Dummy data&hellip;
+          </b>
+        </p>
+
+        <DataTable
+          columns={fake.dataTableCols()}
+          data={fake.dataTableRows(250)}
+        />
 
         <hr />
 
