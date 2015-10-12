@@ -44,7 +44,7 @@ class DataTablePagination extends React.Component {
       if (isDisabled) {
         el
         .parentNode
-        .querySelectorAll('button:not([disabled])')[0]
+        .querySelector('button:not([disabled])')
         .focus()
       }
     }

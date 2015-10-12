@@ -5,7 +5,7 @@ import React from 'react'
 import utils from '../../utils'
 
 // UI components.
-import CheckboxList from './template_list'
+import CheckboxList from '../form_checkbox_list/template'
 
 // Define class.
 class CheckboxListInline extends React.Component {

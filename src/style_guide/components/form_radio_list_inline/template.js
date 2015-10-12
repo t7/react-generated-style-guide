@@ -5,7 +5,7 @@ import React from 'react'
 import utils from '../../utils'
 
 // UI components.
-import RadioList from './template_list'
+import RadioList from '../form_radio_list/template'
 
 // Define class.
 class RadioListInline extends React.Component {

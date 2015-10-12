@@ -2,7 +2,7 @@
 import React from 'react'
 
 // UI components.
-import Image from './template'
+import Image from '../image/template'
 
 // CSS.
 import style from '../../css/_t7-image.css'

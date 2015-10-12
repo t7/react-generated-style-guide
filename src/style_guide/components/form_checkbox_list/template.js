@@ -8,10 +8,10 @@ import style from '../../css/_t7-list.css'
 import utils from '../../utils'
 
 // UI components.
-import Radio from './template'
+import Checkbox from '../form_checkbox/template'
 
 // Define class.
-class RadioList extends React.Component {
+class CheckboxList extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -20,7 +20,6 @@ class RadioList extends React.Component {
   // Render method.
   render () {
     const inline = this.props.inline
-    const name = this.props.name
     const options = this.props.options
 
     // Used in conditional.
@@ -36,12 +35,11 @@ class RadioList extends React.Component {
           options.map(function ({checked, disabled, id, label, value, onChange}) {
             return (
               <li key={id}>
-                <Radio
+                <Checkbox
                   checked={checked}
                   disabled={disabled}
                   id={id}
                   label={label}
-                  name={name}
                   onChange={onChange}
                 />
               </li>
@@ -54,21 +52,18 @@ class RadioList extends React.Component {
 }
 
 // Validation.
-RadioList.propTypes = {
+CheckboxList.propTypes = {
   inline: React.PropTypes.bool,
-  name: React.PropTypes.string,
   options: React.PropTypes.array
 }
 
 // Prop defaults.
-RadioList.defaultProps = {
+CheckboxList.defaultProps = {
   inline: false,
-  name: utils.unique(),
   options: [
     {
-      checked: true,
       id: utils.unique(),
-      label: 'Radio list - label 01',
+      label: 'Checkbox list - label 01',
 
       // Events.
       onChange: function (e, value, checked) {
@@ -77,7 +72,7 @@ RadioList.defaultProps = {
     },
     {
       id: utils.unique(),
-      label: 'Radio list - label 02',
+      label: 'Checkbox list - label 02',
 
       // Events.
       onChange: function (e, value, checked) {
@@ -86,7 +81,7 @@ RadioList.defaultProps = {
     },
     {
       id: utils.unique(),
-      label: 'Radio list - label 03',
+      label: 'Checkbox list - label 03',
 
       // Events.
       onChange: function (e, value, checked) {
@@ -97,4 +92,4 @@ RadioList.defaultProps = {
 }
 
 // Export.
-export default RadioList
+export default CheckboxList

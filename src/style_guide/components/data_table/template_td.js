@@ -53,7 +53,7 @@ class DataTableCell extends React.Component {
         <FormattedDate
           value={value}
           day='numeric'
-          month='numeric'
+          month='long'
           year='numeric'
         />
       )
@@ -62,7 +62,15 @@ class DataTableCell extends React.Component {
     // Used in conditional.
     var td
 
-    // If value is negative.
+    /*
+      NOTE: Handling negative values this way, rather than
+      a simple string concatenation, because the result of
+      `<FormattedNumber />` is an object. So, we can't do:
+
+        value = '(' + value + ')'
+
+      Because the output would be "([Object object])".
+    */
     if (isCurrency && isNegative) {
       // Wrap in parenthesis.
       td = (
