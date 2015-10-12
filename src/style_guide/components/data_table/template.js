@@ -34,7 +34,7 @@ class DataTable extends React.Component {
   // don't want to mutate `props`.
   defaultState () {
     const state = {
-      pageCurrent: this.props.pageCurrent,
+      pageCurrent: 0,
       sortIndex: this.props.sortIndex,
       sortDirection: this.props.sortDirection
     }
@@ -204,7 +204,6 @@ DataTable.propTypes = {
 
   // Optional.
   id: React.PropTypes.string,
-  pageCurrent: React.PropTypes.number,
   pageSize: React.PropTypes.number,
   sortIndex: React.PropTypes.number,
   sortDirection: React.PropTypes.string
@@ -213,7 +212,6 @@ DataTable.propTypes = {
 // Defaults.
 DataTable.defaultProps = {
   id: utils.unique(),
-  pageCurrent: 0,
   pageSize: 20,
   sortIndex: 0,
   sortDirection: 'desc'
