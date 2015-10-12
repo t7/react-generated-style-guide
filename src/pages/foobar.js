@@ -89,10 +89,7 @@ class Page extends React.Component {
             </b>
           </p>
 
-          <DataTable
-            columns={fake.dataTableCols()}
-            data={[]}
-          />
+          <DataTable data={[]} />
 
           <p>
             <b>
@@ -100,10 +97,7 @@ class Page extends React.Component {
             </b>
           </p>
 
-          <DataTable
-            columns={fake.dataTableCols()}
-            data={fake.dataTableRows(250)}
-          />
+          <DataTable data={fake.dataTableRows(250)} />
 
           <hr />
 
@@ -112,6 +106,8 @@ class Page extends React.Component {
           </h2>
 
           <Code file='code_tabs' />
+
+          <Tabs selected={0} />
 
           <Tabs selected={0}>
             <TabPanel label='Foo'>

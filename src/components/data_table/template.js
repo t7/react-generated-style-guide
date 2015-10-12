@@ -6,6 +6,7 @@ import _ from 'lodash'
 import style from '../../css/_t7-data-table.css'
 
 // Utility methods.
+import fake from '../../fake'
 import utils from '../../utils'
 
 // UI components.
@@ -214,7 +215,11 @@ DataTable.defaultProps = {
   id: utils.unique(),
   pageSize: 20,
   sortIndex: 0,
-  sortDirection: 'desc'
+  sortDirection: 'desc',
+
+  // Fake data.
+  columns: fake.dataTableCols(),
+  data: fake.dataTableRows()
 }
 
 // Export.

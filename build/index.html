@@ -1,13 +1,41 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="./style.css" />
-    <title></title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="./index.js"></script>
-  </body>
+<head>
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+/>
+<link rel="stylesheet" href="./style.css" />
+<title></title>
+</head>
+<body>
+<div id="app"></div>
+<script>
+(function(window) {
+  'use strict';
+
+  // Polyfill `Intl` for Safari.
+  if (typeof window.Intl !== 'object') {
+    window.document.write(
+      [
+        '<',
+        'script',
+        ' ',
+        'src="',
+        'https://',
+        'cdn.polyfill.io',
+        '/v1/polyfill.min.js',
+        '?features=Intl.~locale.en',
+        '"',
+        '></',
+        'script',
+        '>'
+      ].join('')
+    );
+  }
+})(this);
+</script>
+<script src="./index.js"></script>
+</body>
 </html>

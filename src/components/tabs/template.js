@@ -102,10 +102,12 @@ import React from 'react'
 import style from '../../css/_t7-tabs.css'
 
 // Utility methods.
+import fake from '../../fake'
 import utils from '../../utils'
 
 // UI Components.
 import Tab from './template_tab'
+import TabPanel from './template_panel'
 
 // Define class.
 class Tabs extends React.Component {
@@ -242,6 +244,7 @@ Tabs.propTypes = {
 
 // Defaults.
 Tabs.defaultProps = {
+  children: fake.tabs(),
   guid: utils.unique(),
   selected: 0
 }
