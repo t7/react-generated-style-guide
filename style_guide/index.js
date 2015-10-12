@@ -1,16 +1,29 @@
+var fs = require('fs-extra')
+var glob = require('glob')
+
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
+var webpackRequire = require('webpack-require')
+var webpackConfig = require('../webpack.config.js')
 
-require('webpack-require')(
-  require('../webpack.config.js'),
-  require.resolve('../src/style_guide/components/form_button/template.js'),
-  function(err, factory, stats, fs) {
+var bottles = glob.sync('./src/style_guide/components/*/template.js')
+var index = 0
 
-    if (err) console.error(err);
+var render = function () {
 
-    var html = ReactDOMServer.renderToStaticMarkup(React.createElement(factory()))
+  webpackRequire(webpackConfig, require.resolve('.' + bottles[index]), function (err, factory, stats, fs) {
+      if (err) console.error(err)
+      var component = factory()
+      var html = ReactDOMServer.renderToStaticMarkup(React.createElement(component))
+      console.log(html)
 
-    console.log(html)
+      if(bottles[index++]) {
+        render()
+      }
 
-  }
-);
+  })
+
+}
+
+render()
+
