@@ -140,7 +140,7 @@ class DataTable extends React.Component {
     // Empty rows?
     if (!rows.length) {
       rows.push(
-        <tr role='row'>
+        <tr role='row' key={'table_data_empty_' + id}>
           <td className={style['t7-data-table__td']} colSpan={columns.length}>
             No data to display.
           </td>
@@ -148,6 +148,7 @@ class DataTable extends React.Component {
       )
     }
 
+    // Put all the UI together.
     return (
       <div className={style['t7-data-table__wrapper']}>
 
@@ -173,9 +174,9 @@ class DataTable extends React.Component {
                       key={i}
                       index={i}
                       label={label}
-                      sortIndex={data.length ? sortIndex : false}
-                      sortDirection={data.length ? sortDirection : false}
-                      sortable={data.length ? sortable : false}
+                      sortIndex={data.length ? sortIndex : null}
+                      sortDirection={data.length ? sortDirection : null}
+                      sortable={data.length ? sortable : null}
                       handleSort={handleSort}
                     />
                   )

@@ -53,7 +53,7 @@ class DataTableCell extends React.Component {
         <FormattedDate
           value={value}
           day='numeric'
-          month='long'
+          month='numeric'
           year='numeric'
         />
       )
