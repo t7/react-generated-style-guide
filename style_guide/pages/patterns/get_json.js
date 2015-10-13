@@ -42,7 +42,7 @@ var getPatternsJSON = function (callback) {
 
       var patternJSON = {
         path: path,
-        id: path.replace(/\//g, '_'),
+        id: path.replace(/\//g, '_').replace('._source_components_', '').replace('.js', ''),
         name: path.replace('/template.js', '').split('/').pop().replace(/_/g, ' '),
         url: path.replace('./src', '').replace('template.js', 'index.html'),
         markup: pretty(markup),

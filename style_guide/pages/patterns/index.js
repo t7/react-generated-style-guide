@@ -44,7 +44,7 @@ function renderPatterns () {
   var patternsMarkup = ReactDOMServer.renderToStaticMarkup(pelement)
 
   var shellement = React.createElement(Shell, {
-    path: '/style_guide/',
+    root: '/style_guide/',
     style: 'style.css',
     script: 'index.js',
     markup: patternsMarkup
@@ -60,7 +60,7 @@ function bundle () {
     return pattern.path
   })
 
-  webpackConfig.entry = entries
+  webpackConfig.entry = './style_guide/bundle.js'
 
   webpackConfig.output = {
     filename: 'index.js',

@@ -16,7 +16,7 @@ class Page extends React.Component {
       return (
         <div>
           <h3>{pattern.name}</h3>
-          <div dangerouslySetInnerHTML={{__html: pattern.string}}></div>
+          <div id={pattern.id}></div>
           <pre><code>{pattern.markup}</code></pre>
         </div>
       )
