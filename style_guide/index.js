@@ -1,50 +1,68 @@
+// Dependencies.
+var fsExtra = require('fs-extra')
 var glob = require('glob')
 var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
-var webpackRequire = require('webpack-require')
 var webpackConfig = require('../webpack.config.js')
+var webpackRequire = require('webpack-require')
 
+// Get the patterns.
 var patterns = glob.sync('./source/components/*/template.js')
+
+// Used to iterate patterns array.
+var count = patterns.length - 1
 var index = 0
 
-var render = function () {
-  if (
-    patterns[index] === './source/components/shell/template.js' ||
-    patterns[index] === './source/components/app_header/template.js' ||
-    patterns[index] === './source/components/data_table/template.js' ||
-    patterns[index] === './source/components/tabs/template.js'
-  ) {
+// Defined later.
+var Shell
+
+function getNextPattern () {
+  // Check if another path exists.
+  if (index !== count) {
     index++
-    if (patterns[index]) {
-      render()
-    }
-  } else {
-    webpackRequire(webpackConfig, require.resolve('.' + patterns[index]), function (err, factory, stats, fs) {
-      if (err) console.error(err)
-
-      var outputPath = patterns[index]
-        .replace('./source/components/', './build/style_guide/patterns/')
-        .replace('/template.js', '/index.html')
-
-      var component = factory()
-      var componentHTML = ReactDOMServer.renderToStaticMarkup(React.createElement(component))
-
-      var html = ReactDOMServer.renderToStaticMarkup(React.createElement(Shell, {componentHTML: componentHTML}))
-      require('fs-extra').outputFileSync(outputPath, pretty('<!doctype html>' + html))
-
-      index++
-
-      if (patterns[index]) {
-        render()
-      }
-    })
+    render()
   }
 }
 
-var Shell
-webpackRequire(webpackConfig, require.resolve('../source/components/shell/template.js'), function (err, factory, stats, fs) {
-  if (err) console.error(err)
+// Render component.
+function render () {
+  if (!patterns[index] || patterns[index].match('shell')) {
+    getNextPattern()
+    return
+  }
+
+  webpackRequire(webpackConfig, require.resolve('.' + patterns[index]), function (err, factory) {
+    if (err) {
+      console.error(err)
+    }
+
+    var component = factory()
+    var element = React.createElement(component)
+    var markup = ReactDOMServer.renderToStaticMarkup(element)
+
+    var path = patterns[index]
+    path = path.replace('./source/components/', './build/patterns/')
+    path = path.replace('/template.js', '.html')
+
+    var html = React.createElement(Shell, {markup: markup})
+    html = ReactDOMServer.renderToStaticMarkup(html)
+    html = '<!doctype html>' + html
+    html = pretty(html)
+
+    fsExtra.outputFileSync(path, html)
+
+    // Continue.
+    getNextPattern()
+  })
+}
+
+// Define the page shell.
+webpackRequire(webpackConfig, require.resolve('../source/components/shell/template.js'), function (err, factory) {
+  if (err) {
+    console.error(err)
+  }
+
   Shell = factory()
   render()
 })

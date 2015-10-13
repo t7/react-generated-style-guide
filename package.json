@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "webpack",
-    "start": "webpack-dev-server --hot",
+    "start": "node ./lib/build_index && webpack-dev-server --hot",
     "prebuild": "rm -rf build",
     "build": "webpack",
     "build_index": "node ./lib/build_index",

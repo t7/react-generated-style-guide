@@ -2,11 +2,13 @@ import React from 'react'
 
 class Shell extends React.Component {
   constructor (props) {
+    // Pass `props` into scope.
     super(props)
   }
+
+  // Render method.
   render () {
     return (
-
       <html lang='en'>
       <head>
       <meta charSet='utf-8' />
@@ -18,12 +20,11 @@ class Shell extends React.Component {
       <title></title>
       </head>
       <body>
-        <div id='app' dangerouslySetInnerHTML={{__html: this.props.componentHTML}} />
+        <div id='app' dangerouslySetInnerHTML={{__html: this.props.markup}} />
         <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
         <script src='./index.js'></script>
       </body>
       </html>
-
     )
   }
 }
@@ -31,7 +32,7 @@ class Shell extends React.Component {
 // Validation.
 Shell.propTypes = {
   children: React.PropTypes.node,
-  componentHTML: React.PropTypes.string
+  markup: React.PropTypes.string
 }
 
 export default Shell

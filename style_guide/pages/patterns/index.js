@@ -54,7 +54,7 @@ function getShell(){
 
 function renderPatterns(){
 
-  var html = ReactDOMServer.renderToStaticMarkup(React.createElement(factory(), {componentHTML: 'patterns yo'}))
+  var html = ReactDOMServer.renderToStaticMarkup(React.createElement(factory(), {markup: ''}))
   require('fs-extra').outputFileSync('./build/style_guide/patterns/index.html', pretty('<!doctype html>' + html))
 
 }
