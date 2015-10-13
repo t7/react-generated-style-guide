@@ -41,6 +41,7 @@ var getPatternsJSON = function (callback) {
       var string = ReactDOMServer.renderToString(React.createElement(pattern))
 
       var patternJSON = {
+        path: path,
         id: path.replace(/\//g, '_'),
         name: path.replace('/template.js', '').split('/').pop().replace(/_/g, ' '),
         url: path.replace('./src', '').replace('template.js', 'index.html'),
