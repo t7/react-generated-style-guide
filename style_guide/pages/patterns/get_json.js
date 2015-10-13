@@ -22,10 +22,7 @@ var getPatternsJSON = function (callback) {
     _callback = callback
   }
   if (
-    patterns[index] === './source/components/shell/template.js' ||
-    patterns[index] === './source/components/app_header/template.js' ||
-    patterns[index] === './source/components/data_table/template.js' ||
-    patterns[index] === './source/components/tabs/template.js'
+    patterns[index] === './source/components/shell/template.js'
   ) {
     index++
     if (patterns[index]) {
@@ -40,13 +37,15 @@ var getPatternsJSON = function (callback) {
       var path = patterns[index]
 
       var pattern = factory()
-      var patternHTML = ReactDOMServer.renderToStaticMarkup(React.createElement(pattern))
+      var markup = ReactDOMServer.renderToStaticMarkup(React.createElement(pattern))
+      var string = ReactDOMServer.renderToString(React.createElement(pattern))
 
       var patternJSON = {
         id: path.replace(/\//g, '_'),
         name: path.replace('/template.js', '').split('/').pop().replace(/_/g, ' '),
         url: path.replace('./src', '').replace('template.js', 'index.html'),
-        patternHTML: pretty(patternHTML)
+        markup: pretty(markup),
+        string: string
       }
 
       patternsJSON.push(patternJSON)

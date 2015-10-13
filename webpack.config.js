@@ -3,7 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
   entry: [
     'webpack/hot/only-dev-server',
-    './style_guide/start.js'
+    './source/index.js'
   ],
 
   output: {

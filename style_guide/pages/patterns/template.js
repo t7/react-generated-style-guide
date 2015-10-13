@@ -1,14 +1,6 @@
 // Dependencies.
 import React from 'react'
-import { Link } from 'react-router'
 
-// Layout Components.
-import App from '../../layouts/app'
-import Main from '../../layouts/app_main'
-import Sidebar from '../../layouts/app_sidebar'
-
-// Style guide components.
-import Markdown from '../../components/markdown/text'
 
 // Define class.
 class Page extends React.Component {
@@ -19,49 +11,25 @@ class Page extends React.Component {
 
   // Render method.
   render () {
+
+    var patterns = this.props.json.map(function(pattern){
+      return (
+        <div>
+          <h3>{pattern.name}</h3>
+          <div dangerouslySetInnerHTML={{__html: pattern.string}}></div>
+          <pre><code>{pattern.markup}</code></pre>
+        </div>
+      )
+    })
+
     return (
-      <App
-        path={this.props.location.pathname}
-        titles={this.props.route.titles}
-      >
-
-        <Sidebar>
-          <ul>
-            <li>
-              <Link to='/foobar'>Foobar - Catch All</Link>
-            </li>
-            <li>
-              <Link to='/'>Intro</Link>
-            </li>
-            <li>
-              <Link to='/branding'>Branding</Link>
-            </li>
-            <li>
-              <Link to='/patterns'>Patterns</Link>
-            </li>
-            <li>
-              <Link to='/requirements'>Requirements</Link>
-            </li>
-            <li>
-              <Link to='/templates'>Templates</Link>
-            </li>
-          </ul>
-
-        </Sidebar>
-
-        <Main>
-          <Markdown file='doc_patterns' />
-        </Main>
-
-      </App>
+      <div>{patterns}</div>
     )
   }
 }
 
 // Validation.
 Page.propTypes = {
-  location: React.PropTypes.object,
-  route: React.PropTypes.object
 }
 
 // Export.

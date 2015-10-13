@@ -9,14 +9,15 @@
 
   "scripts": {
     "test": "webpack",
-    "start": "npm run build_index && webpack-dev-server --hot",
+    "prestart": "npm run build_index",
+    "start": "webpack-dev-server --hot",
 
-    "prebuild": "rm -rf build",
     "build": "webpack",
+    "postbuild": "npm run build_index",
 
     "build_index": "node ./lib/build_index",
-    "build_patterns": "node ./lib/build_patterns",
-    "build_style_guide": "npm run build && npm run build_index && npm run build_patterns"
+
+    "build_style_guide": "node ./style_guide"
   },
 
   "repository": {
