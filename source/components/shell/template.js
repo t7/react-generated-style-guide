@@ -18,7 +18,8 @@ class Shell extends React.Component {
       <title></title>
       </head>
       <body>
-        <div id='app' dangerouslySetInnerHTML={{__html:this.props.componentHTML}} />
+        <div id='app' dangerouslySetInnerHTML={{__html: this.props.componentHTML}} />
+        <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
         <script src='./index.js'></script>
       </body>
       </html>
@@ -27,8 +28,10 @@ class Shell extends React.Component {
   }
 }
 
-Shell.defaultProps = {
-  children: React.PropTypes.node
+// Validation.
+Shell.propTypes = {
+  children: React.PropTypes.node,
+  componentHTML: React.PropTypes.string
 }
 
 export default Shell
