@@ -2,13 +2,13 @@
 import React from 'react'
 
 // CSS.
-import style from '../css/_t7-app.css'
+import style from './t7-app.css'
 
 // Utility methods.
 import utils from '../utils'
 
 // UI components.
-import Select from '../components/form_select/template'
+import Select from '../../source/components/form_select/template'
 
 // Define class.
 class Header extends React.Component {

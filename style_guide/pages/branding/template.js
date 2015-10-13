@@ -46,11 +46,10 @@ class Page extends React.Component {
               <Link to='/templates'>Templates</Link>
             </li>
           </ul>
-
         </Sidebar>
 
         <Main>
-          <Markdown file='doc_patterns' />
+          <Markdown file='doc_branding' />
         </Main>
 
       </App>

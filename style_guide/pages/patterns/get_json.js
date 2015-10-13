@@ -5,7 +5,7 @@ var webpackRequire = require('webpack-require')
 var glob = require('glob')
 
 var webpackConfig = require('../../../webpack.config.js')
-var patterns = glob.sync('./src/components/*/template.js')
+var patterns = glob.sync('./source/components/*/template.js')
 var index = 0
 var patternsJSON = []
 
@@ -16,10 +16,10 @@ var getPatternsJSON = function (callback) {
     _callback = callback
   }
   if (
-    patterns[index] === './src/components/shell/template.js' ||
-    patterns[index] === './src/components/app_header/template.js' ||
-    patterns[index] === './src/components/data_table/template.js' ||
-    patterns[index] === './src/components/tabs/template.js'
+    patterns[index] === './source/components/shell/template.js' ||
+    patterns[index] === './source/components/app_header/template.js' ||
+    patterns[index] === './source/components/data_table/template.js' ||
+    patterns[index] === './source/components/tabs/template.js'
   ) {
     index++
     if (patterns[index]) {

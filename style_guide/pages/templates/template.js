@@ -7,7 +7,7 @@ import App from '../../layouts/app'
 import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
-// Style guide components.
+// UI Components.
 import Markdown from '../../components/markdown/text'
 
 // Define class.
@@ -46,11 +46,10 @@ class Page extends React.Component {
               <Link to='/templates'>Templates</Link>
             </li>
           </ul>
-
         </Sidebar>
 
         <Main>
-          <Markdown file='doc_patterns' />
+          <Markdown file='doc_templates' />
         </Main>
 
       </App>

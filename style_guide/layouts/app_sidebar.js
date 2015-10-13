@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../css/_t7-app.css'
+import style from './t7-app.css'
 
 // Define class.
 class Sidebar extends React.Component {

@@ -50,7 +50,7 @@ class Page extends React.Component {
         </Sidebar>
 
         <Main>
-          <Markdown file='doc_patterns' />
+          <Markdown file='doc_intro' />
         </Main>
 
       </App>

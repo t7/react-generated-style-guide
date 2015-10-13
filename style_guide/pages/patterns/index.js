@@ -4,7 +4,7 @@ var webpackRequire = require('webpack-require')
 var webpackConfig = require('../../../webpack.config.js')
 var getJSON = require('./get_json')
 
-var shellPath = require.resolve('../../../src/components/shell/template.js')
+var shellPath = require.resolve('../../../source/components/shell/template.js')
 var patternsTemplatePath = require.resolve('./template.js')
 var patternsContainerPath = require.resolve('./container.js')
 var PatternsTemplate
