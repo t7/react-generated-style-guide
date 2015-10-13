@@ -1,3 +1,9 @@
+/*
+  NOTE: This file is a work-in-progress.
+
+  It probably doesn't yet work correctly.
+*/
+
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var webpackRequire = require('webpack-require')
