@@ -1,6 +1,7 @@
 // Dependencies.
 var fse = require('fs-extra')
 
+var styleGuideConfig = require('../../../style_guide.config.js')
 var brandingTemplatePath = require.resolve('./template.js')
 var pretty = require('pretty')
 var React = require('react')
@@ -36,7 +37,7 @@ function getShellTemplate () {
 }
 
 function renderBranding () {
-  var brandingElement = React.createElement(BrandingTemplate)
+  var brandingElement = React.createElement(BrandingTemplate, {config: styleGuideConfig})
 
   var brandingMarkup = ReactDOMServer.renderToStaticMarkup(brandingElement)
 
