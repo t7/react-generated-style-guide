@@ -8,11 +8,34 @@ Miscellaneous styles used for the style guide itself.
   of a `<div>` type heading, which has
   an ID that is used as an anchor jump.
 */
-.t7-example__wrapper {
-  margin-top: -10px;
-  padding-top: 10px;
+
+.t7-section {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+
+  margin-bottom: 20px;
+
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  overflow: hidden;
 }
 
-.t7-example {
+.t7-section__header {
+  background: #f6f6f6;
+  font-weight: bold;
+
+  margin-top: -20px;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-bottom: 20px;
+
+  padding: 10px 20px;
+
+  text-transform: capitalize;
+}
+
+.t7-section__example {
   margin-bottom: 20px;
 }

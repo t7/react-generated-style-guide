@@ -125,6 +125,38 @@ Sidebar.
   bottom: 30px;
 }
 
+.t7-app__sidebar ul,
+.t7-app__sidebar li {
+  margin: 0;
+  list-style: none;
+}
+
+.t7-app__sidebar ul {
+  margin-top: -20px;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.t7-app__sidebar a {
+  border-bottom: 1px solid #ddd;
+  display: block;
+  color: #333;
+  padding: 10px 20px;
+
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.t7-app__sidebar a:hover {
+  background: #ffd;
+  border-right: 5px solid #ddd;
+  padding-left: 25px;
+  padding-right: 15px;
+}
+
 /*
 Main content area.
 ================================================================================

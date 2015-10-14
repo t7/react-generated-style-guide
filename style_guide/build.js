@@ -5,7 +5,7 @@ var pages = [
   './pages/intro/build.js',
   './pages/patterns/build.js',
   './pages/requirements/build.js',
-  './pages/templates/build.js'
+  './pages/screens/build.js'
 ]
 
 pages.forEach(function (path) {

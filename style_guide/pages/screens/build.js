@@ -1,7 +1,7 @@
 // Dependencies.
 var fse = require('fs-extra')
 
-var templatesTemplatePath = require.resolve('./template.js')
+var screensTemplatePath = require.resolve('./template.js')
 var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
@@ -10,17 +10,17 @@ var webpackRequire = require('webpack-require')
 var webpackConfig = require('../../../webpack.config.js')
 
 // Defined later.
-var TemplatesTemplate
+var ScreensTemplate
 var ShellTemplate
 
-function getTemplatesTemplate () {
-  webpackRequire(webpackConfig, templatesTemplatePath, function (error, factory) {
+function getScreensTemplate () {
+  webpackRequire(webpackConfig, screensTemplatePath, function (error, factory) {
     if (error) {
       console.error(error)
     }
 
-    TemplatesTemplate = factory()
-    renderTemplates()
+    ScreensTemplate = factory()
+    renderScreens()
   })
 }
 
@@ -31,24 +31,24 @@ function getShellTemplate () {
     }
 
     ShellTemplate = factory()
-    getTemplatesTemplate()
+    getScreensTemplate()
   })
 }
 
-function renderTemplates () {
-  var templatesElement = React.createElement(TemplatesTemplate)
+function renderScreens () {
+  var screensElement = React.createElement(ScreensTemplate)
 
-  var templatesMarkup = ReactDOMServer.renderToStaticMarkup(templatesElement)
+  var screensMarkup = ReactDOMServer.renderToStaticMarkup(screensElement)
 
   var shellElement = React.createElement(ShellTemplate, {
-    markup: templatesMarkup
+    markup: screensMarkup
   })
 
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
   html = pretty(html)
 
-  fse.outputFileSync('./build/style_guide/templates/index.html', html)
+  fse.outputFileSync('./build/style_guide/screens/index.html', html)
 }
 
 module.exports = function () {

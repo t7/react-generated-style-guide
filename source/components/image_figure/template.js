@@ -48,7 +48,7 @@ ImageFigure.defaultProps = {
   caption: 'Image Caption Here',
   src: '',
   width: '1000',
-  height: '700'
+  height: '300'
 }
 
 // Export.

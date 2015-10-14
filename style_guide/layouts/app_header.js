@@ -46,12 +46,12 @@ class Header extends React.Component {
         name: '- Patterns'
       },
       {
-        value: 'templates',
-        name: '- Templates'
-      },
-      {
         value: 'requirements',
         name: '- Requirements'
+      },
+      {
+        value: 'screens',
+        name: '- Screens'
       }
     ]
 
