@@ -42,4 +42,11 @@ Shell.propTypes = {
   markup: React.PropTypes.string
 }
 
+Shell.defaultProps = {
+  root: '/style_guide/',
+  style: 'style.css',
+  script: '',
+  markup: ''
+}
+
 export default Shell

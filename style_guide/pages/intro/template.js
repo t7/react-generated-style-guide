@@ -7,9 +7,6 @@ import App from '../../layouts/app'
 import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
-// Style guide components.
-import Markdown from '../../components/markdown/text'
-
 // Define class.
 class Page extends React.Component {
   constructor (props) {
@@ -20,10 +17,7 @@ class Page extends React.Component {
   // Render method.
   render () {
     return (
-      <App
-        path={this.props.location.pathname}
-        titles={this.props.route.titles}
-      >
+      <App>
 
         <Sidebar>
           <ul>
@@ -49,9 +43,7 @@ class Page extends React.Component {
 
         </Sidebar>
 
-        <Main>
-          <Markdown file='doc_intro' />
-        </Main>
+        <Main/>
 
       </App>
     )
@@ -59,10 +51,7 @@ class Page extends React.Component {
 }
 
 // Validation.
-Page.propTypes = {
-  location: React.PropTypes.object,
-  route: React.PropTypes.object
-}
+Page.propTypes = {}
 
 // Export.
 export default Page
