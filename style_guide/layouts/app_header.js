@@ -4,8 +4,6 @@ import React from 'react'
 // CSS.
 import style from './t7-app.css'
 
-// Utility methods.
-import utils from '../utils'
 
 // UI components.
 import Select from '../../source/components/form_select/template'
@@ -22,7 +20,6 @@ class Header extends React.Component {
     const path = e.target.value
 
     // TODO: Make this change to static pages.
-    utils.navigate(path)
   }
 
   // Render method.
