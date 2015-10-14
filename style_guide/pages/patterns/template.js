@@ -19,28 +19,21 @@ class Page extends React.Component {
     const sidebar = []
 
     this.props.data.map(function (item, i) {
-      const id = item.id
-      const anchor = '_' + id
-      const href = '#_' + id
-      const markup = item.markup
-      const name = item.name
-
-      // Build main markup.
       main.push(
-        <div id={anchor} key={anchor}>
+        <div id={item.id} key={'main_' + i}>
           <h3>
-            {name}
+            {item.name}
           </h3>
-          <div data-component={id}></div>
-          <pre><code>{markup}</code></pre>
+          <div data-component></div>
+          <pre><code>{item.markup}</code></pre>
         </div>
       )
 
       // Build sidebar markup.
       sidebar.push(
-        <li key={i}>
-          <a href={href}>
-            {name}
+        <li key={'sidebar_' + i}>
+          <a href={'#' + item.id}>
+            {item.name}
           </a>
         </li>
       )

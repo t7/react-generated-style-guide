@@ -17,7 +17,7 @@
 
     "build_index": "node ./lib/build_index",
 
-    "build_style_guide": "node ./style_guide"
+    "build_style_guide": "node ./style_guide/build.js"
   },
 
   "repository": {

@@ -1,6 +1,5 @@
 // Dependencies.
 var glob = require('glob')
-var components = glob.sync('./source/components/*/template.js')
 var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
@@ -8,6 +7,7 @@ var webpackConfig = require('../../../webpack.config.js')
 var webpackRequire = require('webpack-require')
 
 // Used later.
+var components = glob.sync('./source/components/*/template.js')
 var index = 0
 var data = []
 var _callback

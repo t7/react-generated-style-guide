@@ -1,5 +1,5 @@
 // Dependencies.
-var fsExtra = require('fs-extra')
+var fse = require('fs-extra')
 var getData = require('./get_data')
 var patternsTemplatePath = require.resolve('./template.js')
 var pretty = require('pretty')
@@ -55,15 +55,26 @@ function renderPatterns () {
   html = '<!doctype html>' + html
   html = pretty(html)
 
-  fsExtra.outputFileSync('./build/style_guide/patterns/index.html', html)
+  fse.outputFileSync('./build/style_guide/patterns/index.html', html)
 }
 
-function generateBundle (data) {
-  data = JSON.stringify(data)
+function generateBundle () {
+  var imports = patternsData.map(function (pattern) {
+    var path = pattern.path
+    var componentName = path.replace('/template.js', '').split('/').pop()
+    var componentPath = '.' + path
+    var selector = '#' + componentName + ' [data-component]'
+    return `
+import ${componentName} from '${componentPath}'
+ReactDOM.render(React.createElement(${componentName}), document.querySelector('${selector}'))
+`
+  }).join('')
 
-  fsExtra.outputFileSync('./style_guide/json/patterns.json', data)
+  var bundle = fse.readFileSync('./style_guide/bundle.js', 'utf8')
+  var tempBundlePath = './style_guide/temp_bundle.js'
+  fse.outputFileSync(tempBundlePath, bundle.replace('***', imports))
 
-  webpackConfig.entry = './style_guide/bundle.js'
+  webpackConfig.entry = tempBundlePath
 
   webpackConfig.output = {
     filename: 'index.js',
@@ -74,6 +85,7 @@ function generateBundle (data) {
     if (error) {
       console.error(error)
     }
+    fse.removeSync(tempBundlePath)
   })
 }
 
@@ -81,6 +93,6 @@ module.exports = function () {
   getData(function (data) {
     patternsData = data
     getShellTemplate()
-    generateBundle(data)
+    generateBundle()
   })
 }
