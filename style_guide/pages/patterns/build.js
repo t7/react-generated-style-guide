@@ -62,15 +62,18 @@ function generateBundle () {
     var componentName = path.replace('/template.js', '').split('/').pop()
     var componentPath = '.' + path
     var selector = '#' + componentName + ' [data-component]'
+
     return `
-import ${componentName} from '${componentPath}'
-ReactDOM.render(React.createElement(${componentName}), document.querySelector('${selector}'))
-`
+      import ${componentName} from '${componentPath}'
+      ReactDOM.render(React.createElement(${componentName}), document.querySelector('${selector}'))
+    `
   }).join('')
 
   var bundle = fse.readFileSync('./style_guide/bundle.js', 'utf8')
   var tempBundlePath = './style_guide/temp_bundle.js'
-  fse.outputFileSync(tempBundlePath, bundle.replace('***', imports))
+  var tempBundleFile = bundle.replace(/\/\*\s+{_DYNAMIC_INSERTION_POINT_}\s+\*\//gi, imports)
+
+  fse.outputFileSync(tempBundlePath, tempBundleFile)
 
   webpackConfig.entry = tempBundlePath
 
@@ -83,6 +86,7 @@ ReactDOM.render(React.createElement(${componentName}), document.querySelector('$
     if (error) {
       console.error(error)
     }
+
     fse.removeSync(tempBundlePath)
   })
 }

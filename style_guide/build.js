@@ -1,11 +1,14 @@
-var branding = require('./pages/branding/build.js')
-branding()
+// Require (and run) each "build.js" file.
 
-var intro = require('./pages/intro/build.js')
-intro()
+var pages = [
+  './pages/branding/build.js',
+  './pages/intro/build.js',
+  './pages/patterns/build.js',
+  './pages/requirements/build.js',
+  './pages/templates/build.js'
+]
 
-var requirements = require('./pages/requirements/build.js')
-requirements()
-
-var templates = require('./pages/templates/build.js')
-templates()
+pages.forEach(function (path) {
+  var build = require(path)
+  build()
+})

@@ -19,21 +19,26 @@ class Page extends React.Component {
     const sidebar = []
 
     this.props.data.map(function (item, i) {
+      const id = item.id
+      const href = '#' + id
+      const markup = item.markup
+      const name = item.name
+
       main.push(
-        <div id={item.id} key={'main_' + i}>
+        <div id={id} key={i}>
           <h3>
-            {item.name}
+            {name}
           </h3>
           <div data-component></div>
-          <pre><code>{item.markup}</code></pre>
+          <pre><code>{markup}</code></pre>
         </div>
       )
 
       // Build sidebar markup.
       sidebar.push(
-        <li key={'sidebar_' + i}>
-          <a href={'#' + item.id}>
-            {item.name}
+        <li key={i}>
+          <a href={href}>
+            {name}
           </a>
         </li>
       )
@@ -49,6 +54,10 @@ class Page extends React.Component {
         </Sidebar>
 
         <Main>
+          <h1>
+            Patterns
+          </h1>
+
           {main}
         </Main>
 

@@ -37,7 +37,7 @@ import utils from '../utils'
 
 export default function (count, balance) {
   // Number of rows to generate.
-  count = count || 40
+  count = count || 60
 
   // Starting balance.
   balance = balance || 20000
