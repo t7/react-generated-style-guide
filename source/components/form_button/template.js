@@ -31,25 +31,76 @@ class Button extends React.Component {
   render () {
     const ariaControls = this.props.ariaControls
     const disabled = this.props.disabled
-    const text = this.props.text
+    const mode = this.props.mode
     const size = this.props.size
+    const text = this.props.text
     const title = this.props.title
     const type = this.props.type
+
+    // Events.
     const handleClick = this.handleClick.bind(this)
 
     // Default class.
-    var className = 't7-form__button'
+    var className = [
+      style['t7-form__button']
+    ]
 
+    /*
+      ============
+      BUTTON SIZE.
+      ============
+    */
+
+    // Small button size.
     if (size === 'small') {
-      className = 't7-form__button--small'
+      className.push(
+        style['t7-form__button--small']
+      )
+
+    // Big button size.
     } else if (size === 'big') {
-      className = 't7-form__button--big'
+      className.push(
+        style['t7-form__button--big']
+      )
     }
+
+    /*
+      ============
+      BUTTON MODE.
+      ============
+    */
+
+    // Default button mode.
+    if (mode === 'default') {
+      className.push(
+        style['t7-form__button--default']
+      )
+
+    // Primary button mode.
+    } else if (mode === 'primary') {
+      className.push(
+        style['t7-form__button--primary']
+      )
+
+    // Positive button mode.
+    } else if (mode === 'positive') {
+      className.push(
+        style['t7-form__button--positive']
+      )
+
+    // Negative button mode.
+    } else if (mode === 'negative') {
+      className.push(
+        style['t7-form__button--negative']
+      )
+    }
+
+    className = className.join(' ')
 
     return (
       <button
         aria-controls={ariaControls}
-        className={style[className]}
+        className={className}
         disabled={disabled}
         title={title}
         type={type}
@@ -64,6 +115,7 @@ Button.propTypes = {
   ariaControls: React.PropTypes.string,
   buttonData: React.PropTypes.node,
   disabled: React.PropTypes.bool,
+  mode: React.PropTypes.string,
   text: React.PropTypes.string,
   size: React.PropTypes.string,
   title: React.PropTypes.string,
@@ -75,7 +127,9 @@ Button.propTypes = {
 
 // Prop defaults.
 Button.defaultProps = {
+  buttonData: 'Button Data',
   disabled: false,
+  mode: 'default',
   text: 'Button Text',
   type: 'button',
 

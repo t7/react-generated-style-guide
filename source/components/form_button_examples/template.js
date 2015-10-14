@@ -2,8 +2,7 @@
 import React from 'react'
 
 // UI Components.
-import Button from '../../components/form_button/template'
-import DataTable from '../../components/data_table/template'
+import Button from '../form_button/template'
 
 // CSS.
 import style from '../../css/t7-list.css'

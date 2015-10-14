@@ -223,9 +223,8 @@ Button.
 */
 
 .t7-form__button {
-  background: #69c;
-  border-radius: 3px;
   color: #fff;
+  border-radius: 3px;
 
   line-height: 25px;
   height: 25px;
@@ -234,8 +233,21 @@ Button.
   padding-right: 10px;
 }
 
+.t7-form__button:not([disabled]):active {
+  position: relative;
+  top: 1px;
+}
+
+.t7-form__button:not([disabled]):focus {
+  box-shadow: #fff 0 0 0 1px, #39f 0 0 1px 2px;
+}
+
+/*
+Button sizes.
+================================================================================
+*/
+
 .t7-form__button--small {
-  composes: t7-form__button;
   font-size: 11px;
 
   line-height: 20px;
@@ -246,21 +258,47 @@ Button.
 }
 
 .t7-form__button--big {
-  composes: t7-form__button;
   font-size: 20px;
 
   line-height: 35px;
   height: 35px;
 }
 
-.t7-form__button:not([disabled]):active {
-  background: #369;
-  position: relative;
-  top: 1px;
+/*
+Button mode.
+================================================================================
+*/
+
+.t7-form__button--default {
+  background: #999;
 }
 
-.t7-form__button:not([disabled]):focus {
-  box-shadow: #fff 0 0 0 1px, #39f 0 0 1px 2px;
+.t7-form__button--default:not([disabled]):active {
+  background: #666;
+}
+
+.t7-form__button--primary {
+  background: #69c;
+}
+
+.t7-form__button--primary:not([disabled]):active {
+  background: #369;
+}
+
+.t7-form__button--positive {
+  background: #693;
+}
+
+.t7-form__button--positive:not([disabled]):active {
+  background: #360;
+}
+
+.t7-form__button--negative {
+  background: #c66;
+}
+
+.t7-form__button--negative:not([disabled]):active {
+  background: #933;
 }
 
 /*
