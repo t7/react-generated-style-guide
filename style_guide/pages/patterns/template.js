@@ -7,7 +7,7 @@ import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
 // CSS.
-import style from '../../layouts/t7-misc.css'
+import style from '../../layouts/t7-section.css'
 
 // Define class.
 class Page extends React.Component {

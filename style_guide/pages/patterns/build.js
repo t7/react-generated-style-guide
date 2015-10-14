@@ -87,7 +87,7 @@ function generateBundle () {
       console.error(error)
     }
 
-  // fse.removeSync(tempBundlePath)
+    fse.removeSync(tempBundlePath)
   })
 }
 

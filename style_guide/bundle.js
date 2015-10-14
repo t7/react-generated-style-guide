@@ -9,7 +9,7 @@ import '../source/css/t7-form.css'
 
 // Style guide CSS.
 import './layouts/t7-app.css'
-import './layouts/t7-misc.css'
+import './layouts/t7-section.css'
 
 /*
 {_DYNAMIC_INSERTION_POINT_}
