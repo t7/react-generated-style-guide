@@ -61,7 +61,7 @@ function generateBundle () {
     var path = pattern.path
     var componentName = path.replace('/template.js', '').split('/').pop()
     var componentPath = '.' + path
-    var selector = '#' + componentName + ' [data-component]'
+    var selector = '[data-component="' + componentName + '"]'
 
     return `
       import ${componentName} from '${componentPath}'

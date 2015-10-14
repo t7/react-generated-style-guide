@@ -6,6 +6,9 @@ import App from '../../layouts/app'
 import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
+// CSS.
+import style from '../../layouts/t7-misc.css'
+
 // Define class.
 class Page extends React.Component {
   constructor (props) {
@@ -25,11 +28,11 @@ class Page extends React.Component {
       const name = item.name
 
       main.push(
-        <div id={id} key={i}>
+        <div id={id} key={i} className={style['t7-example__wrapper']}>
           <h3>
             {name}
           </h3>
-          <div data-component></div>
+          <div className={style['t7-example']} data-component={id}></div>
           <pre><code>{markup}</code></pre>
         </div>
       )

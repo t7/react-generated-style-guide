@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/_t7-form.css'
+import style from '../../css/t7-form.css'
 
 // Utility methods.
 import utils from '../../utils'

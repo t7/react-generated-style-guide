@@ -1,0 +1,18 @@
+/*
+Miscellaneous styles used for the style guide itself.
+================================================================================
+*/
+
+/*
+  Used to give more padding to the top
+  of a `<div>` type heading, which has
+  an ID that is used as an anchor jump.
+*/
+.t7-example__wrapper {
+  margin-top: -10px;
+  padding-top: 10px;
+}
+
+.t7-example {
+  margin-bottom: 20px;
+}

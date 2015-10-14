@@ -5,7 +5,7 @@ import React from 'react'
 import Image from '../image/template'
 
 // CSS.
-import style from '../../css/_t7-image.css'
+import style from '../../css/t7-image.css'
 
 // Define class.
 class ImageFigure extends React.Component {
