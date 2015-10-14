@@ -1,6 +1,6 @@
 module.exports = {
-  clientName: 'Advisor.Fidelity.com',
-  projectName: 'Interactive Style Guide',
+  clientName: 'ACME Corp.',
+  projectName: 'Skunk Works',
   colors: {
     primary: '#FFF',
     secondary: '#7A8C98',
