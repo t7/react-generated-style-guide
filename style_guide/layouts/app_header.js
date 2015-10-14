@@ -2,11 +2,10 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-app.css'
-
+import style from './isg-app.css'
 
 // UI components.
-import Select from '../../source/components/form_select/template'
+import Select from '../components/form_select/template'
 
 // Define class.
 class Header extends React.Component {
@@ -17,9 +16,8 @@ class Header extends React.Component {
 
   // Trigger when `<select>` changes.
   handleChange (e) {
-    const path = e.target.value
-
     // TODO: Make this change to static pages.
+    // const path = e.target.value
   }
 
   // Render method.
@@ -56,12 +54,12 @@ class Header extends React.Component {
     ]
 
     return (
-      <header className={style['t7-app__header']} role='banner'>
-        <b className={style['t7-app__header__title']}>
+      <header className={style['isg-app__header']} role='banner'>
+        <b className={style['isg-app__header__title']}>
           Interactive Style Guide
         </b>
         <Select value={path} options={options} handleChange={handleChange} width='auto' />
-        <span className={style['t7-app__header__logo']}>
+        <span className={style['isg-app__header__logo']}>
           TandemSeven
         </span>
       </header>
@@ -72,6 +70,11 @@ class Header extends React.Component {
 // Validation.
 Header.propTypes = {
   path: React.PropTypes.string
+}
+
+// Defaults.
+Header.defaultProps = {
+  path: ''
 }
 
 // Export.

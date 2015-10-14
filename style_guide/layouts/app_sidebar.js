@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-app.css'
+import style from './isg-app.css'
 
 // Define class.
 class Sidebar extends React.Component {
@@ -14,7 +14,7 @@ class Sidebar extends React.Component {
   // Render method.
   render () {
     return (
-      <nav className={style['t7-app__sidebar']}>
+      <nav className={style['isg-app__sidebar']}>
         {this.props.children}
       </nav>
     )

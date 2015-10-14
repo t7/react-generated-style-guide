@@ -20,14 +20,19 @@ const titles = {
 // Routes template.
 const template = (
 <Router>
-  <Route
-         titles={titles}
-         path='/'
-         component={Dashboard} />
-  <Route
-         titles={titles}
-         path='*'
-         component={NotFound} />
+
+<Route
+path='/'
+component={Dashboard}
+titles={titles}
+/>
+
+<Route
+path='*'
+component={NotFound}
+titles={titles}
+/>
+
 </Router>
 )
 

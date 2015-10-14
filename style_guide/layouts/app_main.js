@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-app.css'
+import style from './isg-app.css'
 
 // Define class.
 class Main extends React.Component {
@@ -14,7 +14,7 @@ class Main extends React.Component {
   // Render method.
   render () {
     return (
-      <main role='main' className={style['t7-app__main']}>
+      <main role='main' className={style['isg-app__main']}>
         {this.props.children}
       </main>
     )

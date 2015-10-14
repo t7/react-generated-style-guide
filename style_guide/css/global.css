@@ -1,0 +1,122 @@
+/*
+Basic HTML
+================================================================================
+*/
+
+body {
+  background: #fff;
+  color: #333;
+
+  font-family: "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+hr {
+  border-top: 1px solid #ddd;
+  clear: both;
+  height: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+/*
+Images.
+================================================================================
+*/
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+br + img,
+br + figure {
+  margin-top: 5px;
+}
+
+/*
+Code blocks.
+================================================================================
+*/
+
+pre,
+code {
+  font-family: "DejaVu Sans Mono", Menlo, Consolas, monospace;
+}
+
+pre {
+  background: #f6f6f6;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+/*
+Headings
+================================================================================
+*/
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 23px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+h4 {
+  font-size: 19px;
+}
+
+h5 {
+  font-size: 17px;
+}
+
+h6 {
+  font-size: 15px;
+}
+
+/*
+Spacing
+================================================================================
+*/
+
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: disc;
+}
+
+li {
+  margin-left: 30px;
+}
+
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset,
+figure {
+  margin-bottom: 20px;
+}

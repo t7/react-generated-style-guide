@@ -3,12 +3,12 @@ Shared layout styling.
 ================================================================================
 */
 
-.t7-app,
-.t7-app__header,
-.t7-app__header__logo,
-.t7-app__main,
-.t7-app__sidebar,
-.t7-app__footer {
+.isg-app,
+.isg-app__header,
+.isg-app__header__logo,
+.isg-app__main,
+.isg-app__sidebar,
+.isg-app__footer {
   position: absolute;
   top: auto;
   left: auto;
@@ -21,7 +21,7 @@ Outer app shell.
 ================================================================================
 */
 
-.t7-app {
+.isg-app {
   overflow: hidden;
 
   top: 0;
@@ -33,7 +33,7 @@ Outer app shell.
 /*
   Adjust offset for Unsemantic grid.
 */
-.t7-app div[class*="grid-container"] {
+.isg-app div[class*="grid-container"] {
   margin-left: -10px;
   margin-right: -10px;
   padding-left: 0;
@@ -46,7 +46,7 @@ Header.
 ================================================================================
 */
 
-.t7-app__header {
+.isg-app__header {
   background: #f6f6f6;
   border-bottom: 1px solid #ddd;
 
@@ -63,22 +63,22 @@ Header.
   right: 0;
 }
 
-.t7-app__header button,
-.t7-app__header input,
-.t7-app__header select {
+.isg-app__header button,
+.isg-app__header input,
+.isg-app__header select {
   margin-top: 12px;
   vertical-align: top;
 }
 
-.t7-app__header__title {
+.isg-app__header__title {
   display: inline-block;
   font-size: 15px;
   color: #666;
   margin-right: 20px;
 }
 
-.t7-app__header__logo {
-  background: url("./t7-app__header__logo.svg");
+.isg-app__header__logo {
+  background: url("./isg-app__header__logo.svg");
   background-size: 100% 100%;
 
   /* Hide text. */
@@ -107,7 +107,7 @@ Sidebar.
 ================================================================================
 */
 
-.t7-app__sidebar {
+.isg-app__sidebar {
   background: #fff;
   border-right: 1px solid #ddd;
 
@@ -125,19 +125,19 @@ Sidebar.
   bottom: 30px;
 }
 
-.t7-app__sidebar ul,
-.t7-app__sidebar li {
+.isg-app__sidebar ul,
+.isg-app__sidebar li {
   margin: 0;
   list-style: none;
 }
 
-.t7-app__sidebar ul {
+.isg-app__sidebar ul {
   margin-top: -20px;
   margin-right: -20px;
   margin-left: -20px;
 }
 
-.t7-app__sidebar a {
+.isg-app__sidebar a {
   border-bottom: 1px solid #ddd;
   display: block;
   color: #333;
@@ -150,7 +150,7 @@ Sidebar.
   white-space: nowrap;
 }
 
-.t7-app__sidebar a:hover {
+.isg-app__sidebar a:hover {
   background: #ffd;
   border-right: 5px solid #ddd;
   padding-left: 25px;
@@ -162,7 +162,7 @@ Main content area.
 ================================================================================
 */
 
-.t7-app__main {
+.isg-app__main {
   background: #fff;
 
   padding-top: 20px;
@@ -183,7 +183,7 @@ Footer.
 ================================================================================
 */
 
-.t7-app__footer {
+.isg-app__footer {
   background: #333;
   color: #999;
 
@@ -206,10 +206,10 @@ Adjust for mobile.
 */
 
 @media (max-width: 767px) {
-  .t7-app,
-  .t7-app__header,
-  .t7-app__main,
-  .t7-app__footer {
+  .isg-app,
+  .isg-app__header,
+  .isg-app__main,
+  .isg-app__footer {
     position: relative;
     top: auto;
     left: auto;
@@ -217,18 +217,18 @@ Adjust for mobile.
     bottom: auto;
   }
 
-  .t7-app__header__title,
-  .t7-app__sidebar {
+  .isg-app__header__title,
+  .isg-app__sidebar {
     display: none;
   }
 
-  .t7-app__header__logo {
+  .isg-app__header__logo {
     width: 120px;
     height: 15px;
     margin-top: -7.5px;
   }
 
-  .t7-app__main {
+  .isg-app__main {
     overflow-x: hidden;
     overflow-y: hidden;
   }

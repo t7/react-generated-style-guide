@@ -1,6 +1,5 @@
 // Dependencies.
 import React from 'react'
-import { Link } from 'react-router'
 
 // Define class.
 class Page extends React.Component {

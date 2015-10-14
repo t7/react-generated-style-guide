@@ -2,14 +2,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// Source CSS.
-import '../source/css/reset.css'
-import '../source/css/global.css'
-import '../source/css/t7-form.css'
+// Layout.
+import './layouts/isg-app.css'
 
 // Style guide CSS.
-import './layouts/t7-app.css'
-import './layouts/t7-section.css'
+import './css/reset.css'
+import './css/global.css'
+import './css/isg-section.css'
+
+// Pilfered from "source".
+import './css/t7-form.css'
 
 /*
 {_DYNAMIC_INSERTION_POINT_}

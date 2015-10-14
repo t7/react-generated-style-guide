@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-app.css'
+import style from './isg-app.css'
 
 // Define class.
 class Footer extends React.Component {
@@ -16,7 +16,7 @@ class Footer extends React.Component {
     const year = new Date().getFullYear()
 
     return (
-      <footer className={style['t7-app__footer']} role='contentinfo'>
+      <footer className={style['isg-app__footer']} role='contentinfo'>
         &copy;
         {' '}
         {year}

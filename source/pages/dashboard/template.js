@@ -1,6 +1,8 @@
 // Dependencies.
 import React from 'react'
-import { Link } from 'react-router'
+
+// UI Components.
+import DataTable from '../../components/data_table/template'
 
 // Define class.
 class Page extends React.Component {
@@ -12,7 +14,7 @@ class Page extends React.Component {
   // Render method.
   render () {
     return (
-      <div>Bashboard Yum</div>
+      <DataTable />
     )
   }
 }

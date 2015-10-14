@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-app.css'
+import style from './isg-app.css'
 
 // UI Components.
 import Header from './app_header'
@@ -18,7 +18,7 @@ class App extends React.Component {
   // Render method.
   render () {
     return (
-      <div className={style['t7-app']}>
+      <div className={style['isg-app']}>
         <Header />
 
         {this.props.children}

@@ -7,7 +7,7 @@ import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
 // CSS.
-import style from '../../layouts/t7-section.css'
+import style from '../../css/isg-section.css'
 
 // Define class.
 class Page extends React.Component {
@@ -28,12 +28,12 @@ class Page extends React.Component {
       const name = item.name
 
       main.push(
-        <section id={id} key={i} className={style['t7-section']}>
-          <header className={style['t7-section__header']}>
+        <section id={id} key={i} className={style['isg-section']}>
+          <header className={style['isg-section__header']}>
             {name}
           </header>
           <div
-            className={style['t7-section__example']}
+            className={style['isg-section__example']}
             data-component={id}
           ></div>
           <pre><code>{markup}</code></pre>
