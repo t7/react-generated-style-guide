@@ -51,6 +51,5 @@ function renderIntro () {
   fse.outputFileSync('./build/style_guide/intro/index.html', html)
 }
 
-module.exports = function () {
-  getShellTemplate()
-}
+// Kickoff!
+getShellTemplate()

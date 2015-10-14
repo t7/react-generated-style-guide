@@ -1,14 +1,11 @@
 // Require (and run) each "build.js" file.
 
-var pages = [
-  './pages/branding/build.js',
-  './pages/intro/build.js',
-  './pages/patterns/build.js',
-  './pages/requirements/build.js',
-  './pages/screens/build.js'
-]
+require('./pages/branding/build.js')()
 
-pages.forEach(function (path) {
-  var build = require(path)
-  build()
-})
+require('./pages/intro/build.js')()
+
+require('./pages/patterns/build.js')()
+
+require('./pages/requirements/build.js')()
+
+require('./pages/screens/build.js')()

@@ -1,32 +1,27 @@
 {
   "name": "t7-front-porch-2015",
-
   "version": "1.0.0",
-
   "description": "",
-
   "main": "index.js",
-
   "scripts": {
     "test": "webpack",
     "prestart": "npm run build_index",
     "start": "webpack-dev-server --hot",
-
     "build": "webpack",
     "postbuild": "npm run build_index",
-
     "build_index": "node ./lib/build_index",
-
-    "build_style_guide": "node ./style_guide/build.js"
+    "build_isg": "npm-run-all --parallel build_isg_intro build_isg_branding build_isg_patterns build_isg_requirements build_isg_screens",
+    "build_isg_intro": "node ./style_guide/pages/intro/build",
+    "build_isg_branding": "node ./style_guide/pages/branding/build",
+    "build_isg_patterns": "node ./style_guide/pages/patterns/build",
+    "build_isg_requirements": "node ./style_guide/pages/requirements/build",
+    "build_isg_screens": "node ./style_guide/pages/screens/build"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/mundizzle/front-porch-2015.git"
   },
-
   "author": "mundizzle, nathansmith",
-
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "babel-core": "^5.8.25",
@@ -38,6 +33,7 @@
     "lodash": "^3.10.1",
     "marked": "^0.3.5",
     "node-libs-browser": "^0.5.2",
+    "npm-run-all": "^1.2.11",
     "postcss-loader": "^0.5.1",
     "pretty": "^1.0.0",
     "raw-loader": "^0.5.1",

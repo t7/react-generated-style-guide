@@ -91,10 +91,9 @@ function generateBundle () {
   })
 }
 
-module.exports = function () {
-  getData(function (data) {
-    patternsData = data
-    getShellTemplate()
-    generateBundle()
-  })
-}
+// Kickoff!
+getData(function (data) {
+  patternsData = data
+  getShellTemplate()
+  generateBundle()
+})

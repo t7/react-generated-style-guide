@@ -10,8 +10,14 @@ class Shell extends React.Component {
   render () {
     const markup = this.props.markup
     const root = this.props.root
-    const script = root + this.props.script
     const style = root + this.props.style
+
+    var script = this.props.script
+
+    if (script) {
+      script = root + script
+      script = <script src={script}></script>
+    }
 
     return (
       <html lang='en'>
@@ -27,7 +33,7 @@ class Shell extends React.Component {
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
         <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
-        <script src={script}></script>
+        {script}
       </body>
       </html>
     )

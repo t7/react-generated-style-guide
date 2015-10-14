@@ -51,6 +51,5 @@ function renderRequirements () {
   fse.outputFileSync('./build/style_guide/requirements/index.html', html)
 }
 
-module.exports = function () {
-  getShellTemplate()
-}
+// Kickoff.
+getShellTemplate()
