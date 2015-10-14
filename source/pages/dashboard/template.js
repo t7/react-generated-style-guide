@@ -1,7 +1,14 @@
 // Dependencies.
 import React from 'react'
 
-// UI Components.
+// App components.
+import App from '../../layouts/app'
+
+// Misc components.
+import Grid from '../../components_misc/unsemantic/grid_unit'
+import GridContainer from '../../components_misc/unsemantic/grid_container'
+
+// UI components.
 import Button from '../../components/form_button/template'
 import DataTable from '../../components/data_table/template'
 
@@ -17,57 +24,22 @@ class Page extends React.Component {
 
   // Render method.
   render () {
-    const list = style['t7-list--inline']
-
     return (
-      <div>
+      <App>
 
-        <ul className={list}>
-          <li>
-            <Button size='small' />
-          </li>
-          <li>
-            <Button size='small' mode='primary' />
-          </li>
-          <li>
-            <Button size='small' mode='positive' />
-          </li>
-          <li>
-            <Button size='small' mode='negative' />
-          </li>
-        </ul>
+        <GridContainer>
+          <Grid desktop='33' tablet='33'>
+            Test
+          </Grid>
+          <Grid desktop='33' tablet='33'>
+            Test
+          </Grid>
+          <Grid desktop='33' tablet='33'>
+            Test
+          </Grid>
+        </GridContainer>
 
-        <ul className={list}>
-          <li>
-            <Button />
-          </li>
-          <li>
-            <Button mode='primary' />
-          </li>
-          <li>
-            <Button mode='positive' />
-          </li>
-          <li>
-            <Button mode='negative' />
-          </li>
-        </ul>
-
-        <ul className={list}>
-          <li>
-            <Button size='big' />
-          </li>
-          <li>
-            <Button size='big' mode='primary' />
-          </li>
-          <li>
-            <Button size='big' mode='positive' />
-          </li>
-          <li>
-            <Button size='big' mode='negative' />
-          </li>
-        </ul>
-
-      </div>
+      </App>
     )
   }
 }

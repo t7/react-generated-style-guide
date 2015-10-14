@@ -1,0 +1,52 @@
+/*
+Force outer "app" wrapper to be tall.
+================================================================================
+*/
+
+.t7-app,
+.t7-app__wrapper,
+div[id="app"] {
+  min-height: 100%;
+}
+
+/*
+Wrapper. Used for "sticky footer" approach.
+================================================================================
+*/
+
+.t7-app__wrapper {
+  background: blue;
+
+  min-height: 100%;
+  padding-bottom: 50px;
+}
+
+/*
+Header.
+================================================================================
+*/
+
+.t7-app__header {
+  background: red;
+}
+
+/*
+Main.
+================================================================================
+*/
+
+.t7-app__main {
+  background: green;
+}
+
+/*
+Footer.
+================================================================================
+*/
+
+.t7-app__footer {
+  background: yellow;
+
+  margin-top: -30px;
+  height: 30px;
+}
