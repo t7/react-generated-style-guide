@@ -32,7 +32,10 @@ class Page extends React.Component {
           <header className={style['t7-section__header']}>
             {name}
           </header>
-          <div className={style['t7-section__example']} data-component={id}></div>
+          <div
+            className={style['t7-section__example']}
+            data-component={id}
+          ></div>
           <pre><code>{markup}</code></pre>
         </section>
       )

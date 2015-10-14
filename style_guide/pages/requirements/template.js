@@ -1,6 +1,5 @@
 // Dependencies.
 import React from 'react'
-import { Link } from 'react-router'
 
 // Layout Components.
 import App from '../../layouts/app'
@@ -22,27 +21,20 @@ class Page extends React.Component {
         <Sidebar>
           <ul>
             <li>
-              <Link to='/foobar'>Foobar - Catch All</Link>
+              <a href='#'>Uno</a>
             </li>
             <li>
-              <Link to='/'>Intro</Link>
+              <a href='#'>Dos</a>
             </li>
             <li>
-              <Link to='/branding'>Branding</Link>
-            </li>
-            <li>
-              <Link to='/patterns'>Patterns</Link>
-            </li>
-            <li>
-              <Link to='/requirements'>Requirements</Link>
-            </li>
-            <li>
-              <Link to='/templates'>Templates</Link>
+              <a href='#'>Tres</a>
             </li>
           </ul>
         </Sidebar>
 
-        <Main/>
+        <Main>
+          Requirements Content Here.
+        </Main>
 
       </App>
     )
@@ -50,8 +42,7 @@ class Page extends React.Component {
 }
 
 // Validation.
-Page.propTypes = {
-}
+Page.propTypes = {}
 
 // Export.
 export default Page

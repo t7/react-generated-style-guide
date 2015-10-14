@@ -19,6 +19,15 @@ hr {
   height: 0;
 }
 
+a {
+  cursor: pointer;
+}
+
+/*
+Images.
+================================================================================
+*/
+
 img {
   display: inline-block;
   max-width: 100%;
@@ -27,10 +36,6 @@ img {
 br + img,
 br + figure {
   margin-top: 5px;
-}
-
-a {
-  cursor: pointer;
 }
 
 /*
