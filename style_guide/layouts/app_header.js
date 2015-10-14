@@ -21,12 +21,13 @@ class Header extends React.Component {
   handleChange (e) {
     const path = e.target.value
 
+    // TODO: Make this change to static pages.
     utils.navigate(path)
   }
 
   // Render method.
   render () {
-    const path = this.props.path.split('/')[1] || '/'
+    const path = this.props.path
     const handleChange = this.handleChange.bind(this)
 
     // Config for <select>.

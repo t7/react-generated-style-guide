@@ -1,6 +1,10 @@
 // Dependencies.
 import React from 'react'
 
+// Layout Components.
+import App from '../../layouts/app'
+import Main from '../../layouts/app_main'
+import Sidebar from '../../layouts/app_sidebar'
 
 // Define class.
 class Page extends React.Component {
@@ -11,25 +15,58 @@ class Page extends React.Component {
 
   // Render method.
   render () {
+    const main = []
+    const sidebar = []
 
-    var patterns = this.props.json.map(function(pattern){
-      return (
-        <div>
-          <h3>{pattern.name}</h3>
-          <div id={pattern.id}></div>
-          <pre><code>{pattern.markup}</code></pre>
+    this.props.data.map(function (item, i) {
+      const id = item.id
+      const anchor = '_' + id
+      const href = '#_' + id
+      const markup = item.markup
+      const name = item.name
+
+      // Build main markup.
+      main.push(
+        <div id={anchor} key={anchor}>
+          <h3>
+            {name}
+          </h3>
+          <div data-component={id}></div>
+          <pre><code>{markup}</code></pre>
         </div>
+      )
+
+      // Build sidebar markup.
+      sidebar.push(
+        <li key={i}>
+          <a href={href}>
+            {name}
+          </a>
+        </li>
       )
     })
 
     return (
-      <div>{patterns}</div>
+      <App>
+
+        <Sidebar>
+          <ul>
+            {sidebar}
+          </ul>
+        </Sidebar>
+
+        <Main>
+          {main}
+        </Main>
+
+      </App>
     )
   }
 }
 
 // Validation.
 Page.propTypes = {
+  data: React.PropTypes.array
 }
 
 // Export.

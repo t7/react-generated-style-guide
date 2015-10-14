@@ -8,6 +8,11 @@ class Shell extends React.Component {
 
   // Render method.
   render () {
+    const markup = this.props.markup
+    const root = this.props.root
+    const script = root + this.props.script
+    const style = root + this.props.style
+
     return (
       <html lang='en'>
       <head>
@@ -16,13 +21,13 @@ class Shell extends React.Component {
         name='viewport'
         content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1'
       />
-      <link rel='stylesheet' href={this.props.root + this.props.style} />
-      <title>Style Guide Yo</title>
+      <link rel='stylesheet' href={style} />
+      <title>Interactive Style Guide</title>
       </head>
       <body>
-        <div id='app' dangerouslySetInnerHTML={{__html: this.props.markup}} />
+        <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
         <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
-        <script src={this.props.root + this.props.script}></script>
+        <script src={script}></script>
       </body>
       </html>
     )

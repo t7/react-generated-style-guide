@@ -1,83 +1,86 @@
-/*
-  NOTE: This file is a work-in-progress.
-
-  It probably doesn't yet work correctly.
-*/
-
-var webpack = require('webpack')
-
+// Dependencies.
+var fsExtra = require('fs-extra')
+var getData = require('./get_data')
+var patternsTemplatePath = require.resolve('./template.js')
+var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
+var shellPath = require.resolve('../../shell.js')
+var webpack = require('webpack')
 var webpackRequire = require('webpack-require')
 var webpackConfig = require('../../../webpack.config.js')
-var getJSON = require('./get_json')
-var pretty = require('pretty')
 
-var shellPath = require.resolve('../../shell.js')
-var patternsTemplatePath = require.resolve('./template.js')
+// Defined later.
 var PatternsTemplate
-var Shell
-var patternsJSON
+var ShellTemplate
+var patternsData
 
 function getPatternsTemplate () {
-  webpackRequire(webpackConfig, patternsTemplatePath, function (err, factory, stats, fs) {
-    if (err) console.error(err)
+  webpackRequire(webpackConfig, patternsTemplatePath, function (error, factory) {
+    if (error) {
+      console.error(error)
+    }
+
     PatternsTemplate = factory()
     renderPatterns()
   })
-
 }
 
-function getShell () {
-  webpackRequire(webpackConfig, shellPath, function (err, factory, stats, fs) {
-    if (err) console.error(err)
-    Shell = factory()
+function getShellTemplate () {
+  webpackRequire(webpackConfig, shellPath, function (error, factory) {
+    if (error) {
+      console.error(error)
+    }
+
+    ShellTemplate = factory()
     getPatternsTemplate()
   })
-
 }
 
 function renderPatterns () {
-  var pelement = React.createElement(PatternsTemplate, {
-    json: patternsJSON
+  var patternsElement = React.createElement(PatternsTemplate, {
+    data: patternsData
   })
-  var patternsMarkup = ReactDOMServer.renderToStaticMarkup(pelement)
 
-  var shellement = React.createElement(Shell, {
+  var patternsMarkup = ReactDOMServer.renderToStaticMarkup(patternsElement)
+
+  var shellElement = React.createElement(ShellTemplate, {
     root: '/style_guide/',
     style: 'style.css',
     script: 'index.js',
     markup: patternsMarkup
   })
-  var html = ReactDOMServer.renderToStaticMarkup(shellement)
-  require('fs-extra').outputFileSync('./build/style_guide/patterns/index.html', pretty('<!doctype html>' + html))
 
+  var html = ReactDOMServer.renderToStaticMarkup(shellElement)
+  html = '<!doctype html>' + html
+  html = pretty(html)
+
+  fsExtra.outputFileSync('./build/style_guide/patterns/index.html', html)
 }
 
-function bundle () {
+function generateBundle (data) {
+  data = JSON.stringify(data)
 
-  var entries = patternsJSON.map(function(pattern){
-    return pattern.path
-  })
+  fsExtra.outputFileSync('./style_guide/json/patterns.json', data)
 
   webpackConfig.entry = './style_guide/bundle.js'
 
   webpackConfig.output = {
     filename: 'index.js',
-    path: '/Users/tandemseven/GitHub/mundizzle/front-porch-2015/build/style_guide'
+    path: process.cwd() + '/build/style_guide'
   }
 
-  webpack(webpackConfig, function(err, stats) {
-    console.log('YOYOYOYOYOYOYOY!!! shelement')
+  webpack(webpackConfig, function (error) {
+    if (error) {
+      console.error(error)
+    }
   })
-
 }
 
 module.exports = function () {
-  getJSON(function (json) {
-    patternsJSON = json
-    getShell()
-    bundle()
+  getData(function (data) {
+    patternsData = data
+    getShellTemplate()
+    generateBundle(data)
   })
-
 }

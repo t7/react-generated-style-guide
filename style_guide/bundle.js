@@ -1,38 +1,53 @@
+// Dependencies.
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route } from 'react-router'
+import webpackRequire from 'webpack-require'
+import webpackConfig from '../webpack.config.js'
 
+// Source CSS.
 import '../source/css/reset.css'
 import '../source/css/global.css'
+import '../source/css/_t7-form.css'
 
-import DataTable from '../source/components/data_table/template.js'
-import Button from '../source/components/form_button/template.js'
-import CheckboxListInline from '../source/components/form_checkbox_list_inline/template.js'
-import CheckboxList from '../source/components/form_checkbox_list/template.js'
-import Checkbox from '../source/components/form_checkbox/template.js'
-import Input from '../source/components/form_input/template.js'
-import RadioListInline from '../source/components/form_radio_list_inline/template.js'
-import RadioList from '../source/components/form_radio_list/template.js'
-import Radio from '../source/components/form_radio/template.js'
-import Select from '../source/components/form_select/template.js'
-import Textarea from '../source/components/form_textarea/template.js'
-import TextDiv from '../source/components/form_textdiv/template.js'
-import ImageFigure from '../source/components/image_figure/template.js'
-import Image from '../source/components/image/template.js'
-import Tabs from '../source/components/tabs/template.js'
+// Style guide CSS.
+import './layouts/t7-app.css'
 
-ReactDOM.render(React.createElement(DataTable), document.getElementById('data_table_template'))
-ReactDOM.render(React.createElement(Button), document.getElementById('form_button_template'))
-ReactDOM.render(React.createElement(CheckboxListInline), document.getElementById('form_checkbox_list_inline_template'))
-ReactDOM.render(React.createElement(CheckboxList), document.getElementById('form_checkbox_list_template'))
-ReactDOM.render(React.createElement(Checkbox), document.getElementById('form_checkbox_template'))
-ReactDOM.render(React.createElement(Input), document.getElementById('form_input_template'))
-ReactDOM.render(React.createElement(RadioListInline), document.getElementById('form_radio_list_inline_template'))
-ReactDOM.render(React.createElement(RadioList), document.getElementById('form_radio_list_template'))
-ReactDOM.render(React.createElement(Radio), document.getElementById('form_radio_template'))
-ReactDOM.render(React.createElement(Select), document.getElementById('form_select_template'))
-ReactDOM.render(React.createElement(Textarea), document.getElementById('form_textarea_template'))
-ReactDOM.render(React.createElement(TextDiv), document.getElementById('form_textdiv_template'))
-ReactDOM.render(React.createElement(ImageFigure), document.getElementById('image_figure_template'))
-ReactDOM.render(React.createElement(Image), document.getElementById('image_template'))
-ReactDOM.render(React.createElement(Tabs), document.getElementById('tabs_template'))
+// Get JSON data.
+import data from './json/patterns.json'
+
+const components = []
+
+// TODO.
+console.log(data)
+
+data.forEach(function (item) {
+  const path = item.path
+
+  webpackRequire(webpackConfig, path, function (error, factory) {
+    if (error) {
+      console.error(error)
+    }
+
+    const id = path.replace('/template.js', '').split('/').pop()
+    const component = factory()
+
+    components.push({
+      component: component,
+      id: id
+    })
+  })
+})
+
+components.forEach(function (o) {
+  const component = o.component
+  const id = o.id
+
+  const element = React.createElement(component)
+  const str = '[data-component="' + id + '"]'
+  const el = document.querySelector(str)
+
+  // TODO.
+  console.log(str)
+
+  ReactDOM.render(element, el)
+})

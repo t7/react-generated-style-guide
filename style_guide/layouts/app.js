@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import style from './t7-app.css'
 
-// Utility methods.
-import utils from '../utils'
-
 // UI Components.
 import Header from './app_header'
 import Footer from './app_footer'
@@ -20,16 +17,9 @@ class App extends React.Component {
 
   // Render method.
   render () {
-    // Grab the URL "/#path".
-    const path = this.props.path
-    const titles = this.props.titles
-
-    // Set page title.
-    utils.title(path, titles)
-
     return (
       <div className={style['t7-app']}>
-        <Header path={path} />
+        <Header />
 
         {this.props.children}
 
@@ -41,9 +31,7 @@ class App extends React.Component {
 
 // Validation.
 App.propTypes = {
-  children: React.PropTypes.node,
-  path: React.PropTypes.string,
-  titles: React.PropTypes.object
+  children: React.PropTypes.node
 }
 
 // Export.
