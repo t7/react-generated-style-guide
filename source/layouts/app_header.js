@@ -25,10 +25,18 @@ class Footer extends React.Component {
       <header className={style['t7-app__header']} role='banner'>
         <GridContainer>
           <Grid desktop='25' tablet='25'>
-            ACME
+            <a className={style['t7-app__header__logo']}>
+              ACME
+            </a>
           </Grid>
           <Grid desktop='50' tablet='50'>
             <ul className={list['t7-list--separator']}>
+              <li>
+                <a>Banking</a>
+              </li>
+              <li>
+                <a>Investing</a>
+              </li>
               <li>
                 <a>My Accounts</a>
               </li>

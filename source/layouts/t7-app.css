@@ -47,7 +47,25 @@ Header.
   background: #f6f6f6;
   border-bottom: 1px solid #ddd;
   border-top: 5px solid #69c;
-  line-height: 50px;
+}
+
+.t7-app__header__logo {
+  background-image: url("./t7-app__header__logo.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  color: transparent;
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -99999px;
+  vertical-align: middle;
+
+  width: 150px;
+  height: 25px;
+}
+
+.t7-app__header__logo:hover {
+  background-image: url("./t7-app__header__logo--hover.png");
 }
 
 .t7-app__header ul {
@@ -58,15 +76,40 @@ Header.
   vertical-align: middle;
 }
 
+@media (max-width: 767px) {
+  .t7-app__header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .t7-app__header ul {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .t7-app__header {
+    line-height: 50px;
+  }
+}
+
 /*
 Main.
 ================================================================================
 */
 
+.t7-app__main {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 @media (min-width: 768px) {
   .t7-app__main {
-    padding-top: 20px;
-    padding-bottom: 200px;
+    /*
+      Footer height +10px.
+    */
+    padding-bottom: 210px;
   }
 }
 
@@ -98,7 +141,7 @@ Footer.
 }
 
 .t7-app__footer a:hover {
-  text-decoration: underline;
+  color: #000;
 }
 
 .t7-app__footer dt {

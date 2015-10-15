@@ -99,7 +99,7 @@ class Footer extends React.Component {
                 Legal
               </dt>
               <dd>
-                <a>Terms & Services</a>
+                <a>Terms & Conditions</a>
               </dd>
               <dd>
                 <a>Cookie Policy</a>

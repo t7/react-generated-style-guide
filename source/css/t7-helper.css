@@ -1,0 +1,243 @@
+/*
+  Misc helper classes.
+*/
+
+/*
+Float.
+================================================================================
+*/
+
+.t7-float-left {
+  float: left;
+}
+
+.t7-float-right {
+  float: right;
+}
+
+@media (max-width: 767px) {
+  .t7-mobile-float-left {
+    float: left;
+  }
+
+  .t7-mobile-float-right {
+    float: right;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .t7-tablet-float-left {
+    float: left;
+  }
+
+  .t7-tablet-float-right {
+    float: right;
+  }
+}
+
+@media (min-width: 1025px) {
+  .t7-desktop-float-left {
+    float: left;
+  }
+
+  .t7-desktop-float-right {
+    float: right;
+  }
+}
+
+/*
+Text alignment.
+================================================================================
+*/
+
+.t7-align-left {
+  text-align: left;
+}
+
+.t7-align-right {
+  float: right;
+}
+
+.t7-align-top {
+  vertical-align: top;
+}
+
+.t7-align-middle {
+  vertical-align: middle;
+}
+
+.t7-align-baseline {
+  vertical-align: baseline;
+}
+
+.t7-align-bottom {
+  vertical-align: bottom;
+}
+
+/*
+Gutter: Top.
+================================================================================
+*/
+
+.t7-gutter-top {
+  margin-top: 20px;
+}
+
+.t7-gutter-top--quarter {
+  margin-top: 5px;
+}
+
+.t7-gutter-top--half {
+  margin-top: 10px;
+}
+
+.t7-gutter-top--double {
+  margin-top: 40px;
+}
+
+/*
+Negative gutter: Top.
+================================================================================
+*/
+
+.t7-negative-gutter-top {
+  margin-top: -20px;
+}
+
+.t7-negative-gutter-top--quarter {
+  margin-top: -5px;
+}
+
+.t7-negative-gutter-top--half {
+  margin-top: -10px;
+}
+
+.t7-negative-gutter-top--double {
+  margin-top: -40px;
+}
+
+/*
+Gutter: Left.
+================================================================================
+*/
+
+.t7-gutter-left {
+  margin-left: 20px;
+}
+
+.t7-gutter-left--quarter {
+  margin-left: 5px;
+}
+
+.t7-gutter-left--half {
+  margin-left: 10px;
+}
+
+.t7-gutter-left--double {
+  margin-left: 40px;
+}
+
+/*
+Negative gutter: Left.
+================================================================================
+*/
+
+.t7-negative-gutter-left {
+  margin-left: -20px;
+}
+
+.t7-negative-gutter-left--quarter {
+  margin-left: -5px;
+}
+
+.t7-negative-gutter-left--half {
+  margin-left: -10px;
+}
+
+.t7-negative-gutter-left--double {
+  margin-left: -40px;
+}
+
+/*
+Gutter: Right.
+================================================================================
+*/
+
+.t7-gutter-right {
+  margin-right: 20px;
+}
+
+.t7-gutter-right--quarter {
+  margin-right: 5px;
+}
+
+.t7-gutter-right--half {
+  margin-right: 10px;
+}
+
+.t7-gutter-right--double {
+  margin-right: 40px;
+}
+
+/*
+Negative gutter: Right.
+================================================================================
+*/
+
+.t7-negative-gutter-right {
+  margin-right: -20px;
+}
+
+.t7-negative-gutter-right--quarter {
+  margin-right: -5px;
+}
+
+.t7-negative-gutter-right--half {
+  margin-right: -10px;
+}
+
+.t7-negative-gutter-right--double {
+  margin-right: -40px;
+}
+
+/*
+Gutter: Bottom.
+================================================================================
+*/
+
+.t7-gutter-bottom {
+  margin-bottom: 20px;
+}
+
+.t7-gutter-bottom--quarter {
+  margin-bottom: 5px;
+}
+
+.t7-gutter-bottom--half {
+  margin-bottom: 10px;
+}
+
+.t7-gutter-bottom--double {
+  margin-bottom: 40px;
+}
+
+/*
+Negative gutter: Bottom.
+================================================================================
+*/
+
+.t7-negative-gutter-bottom {
+  margin-bottom: -20px;
+}
+
+.t7-negative-gutter-bottom--quarter {
+  margin-bottom: -5px;
+}
+
+.t7-negative-gutter-bottom--half {
+  margin-bottom: -10px;
+}
+
+.t7-negative-gutter-bottom--double {
+  margin-bottom: -40px;
+}

@@ -128,6 +128,34 @@ class DataTable extends React.Component {
     const handleSort = this.handleSort.bind(this)
     const handlePagination = this.handlePagination.bind(this)
 
+    // Pagination.
+    var pageTop
+    var pageBottom
+
+    // Is `pageTop` enabled?
+    if (this.props.pageTop) {
+      pageTop = (
+        <DataTablePagination
+          pageCurrent={pageCurrent}
+          pageTotal={pageTotal}
+          tableId={id}
+          handlePagination={handlePagination}
+        />
+      )
+    }
+
+    // Is `pageBottom` enabled?
+    if (this.props.pageBottom) {
+      pageBottom = (
+        <DataTablePagination
+          pageCurrent={pageCurrent}
+          pageTotal={pageTotal}
+          tableId={id}
+          handlePagination={handlePagination}
+        />
+      )
+    }
+
     // Used in loop.
     var rows = []
 
@@ -153,12 +181,7 @@ class DataTable extends React.Component {
     return (
       <div className={style['t7-data-table__wrapper']}>
 
-        <DataTablePagination
-          pageCurrent={pageCurrent}
-          pageTotal={pageTotal}
-          tableId={id}
-          handlePagination={handlePagination}
-        />
+        {pageTop}
 
         <table
           id={id}
@@ -192,6 +215,8 @@ class DataTable extends React.Component {
 
         </table>
 
+        {pageBottom}
+
       </div>
     )
   }
@@ -206,6 +231,8 @@ DataTable.propTypes = {
   // Optional.
   id: React.PropTypes.string,
   pageSize: React.PropTypes.number,
+  pageTop: React.PropTypes.bool,
+  pageBottom: React.PropTypes.bool,
   sortIndex: React.PropTypes.number,
   sortDirection: React.PropTypes.string
 }
@@ -214,6 +241,8 @@ DataTable.propTypes = {
 DataTable.defaultProps = {
   id: utils.unique(),
   pageSize: 20,
+  pageTop: true,
+  pageBottom: false,
   sortIndex: 0,
   sortDirection: 'desc',
 
