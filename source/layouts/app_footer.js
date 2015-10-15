@@ -79,16 +79,16 @@ class Footer extends React.Component {
                 Community
               </dt>
               <dd>
-                <a>Charity Events</a>
+                <a>Annual BBQ</a>
               </dd>
               <dd>
-                <a>Get Involved</a>
+                <a>Charity Giving</a>
+              </dd>
+              <dd>
+                <a>Leadership Mentoring</a>
               </dd>
               <dd>
                 <a>Learn to Code</a>
-              </dd>
-              <dd>
-                <a>Annual BBQ</a>
               </dd>
             </dl>
           </Grid>
