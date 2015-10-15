@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import style from './isg-app.css'
 
-// UI components.
-import Select from '../components/form_select/template'
-
 // Define class.
 class Header extends React.Component {
   constructor (props) {
@@ -24,13 +21,17 @@ class Header extends React.Component {
   render () {
     return (
       <header className={style['isg-app__header']} role='banner'>
+
         <b className={style['isg-app__header__title']}>
           Interactive Style Guide
         </b>
-        <span data-component='isg_header_select'></span>
+
+        <span data-component='isg_header_select' />
+
         <span className={style['isg-app__header__logo']}>
           TandemSeven
         </span>
+
       </header>
     )
   }

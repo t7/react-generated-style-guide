@@ -83,9 +83,8 @@ class DataTablePagination extends React.Component {
 
     // Build `<select>` options.
     var selectOptions = []
-    var i
 
-    for (i = 0; i < pageTotal; i++) {
+    for (let i = 0; i < pageTotal; i++) {
       selectOptions.push({
         value: i,
         name: 'Page ' + (i + 1)

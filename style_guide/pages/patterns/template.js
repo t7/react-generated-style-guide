@@ -35,7 +35,7 @@ class Page extends React.Component {
           <div
             className={style['isg-section__example']}
             data-component={id}
-          ></div>
+          />
           <pre><code>{markup}</code></pre>
         </section>
       )

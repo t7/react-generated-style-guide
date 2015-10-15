@@ -4,11 +4,11 @@ import { Link } from 'react-router'
 
 // CSS.
 import style from './t7-app.css'
-import list from '../css/t7-list.css'
 
 // Misc components.
 import Grid from '../components_misc/unsemantic/grid_unit'
 import GridContainer from '../components_misc/unsemantic/grid_container'
+import ListSeparator from '../components/list_separator/template'
 
 // UI components.
 import Search from '../components/form_search/template'
@@ -31,7 +31,7 @@ class Footer extends React.Component {
             </a>
           </Grid>
           <Grid desktop='50' tablet='50'>
-            <ul className={list['t7-list--separator']}>
+            <ListSeparator>
               <li>
                 <Link to='/'>My Accounts</Link>
               </li>
@@ -41,7 +41,7 @@ class Footer extends React.Component {
               <li>
                 <a>Log Out</a>
               </li>
-            </ul>
+            </ListSeparator>
           </Grid>
           <Grid desktop='25' tablet='25'>
             <Search />

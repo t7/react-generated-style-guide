@@ -76,9 +76,7 @@ Input.propTypes = {
 Input.defaultProps = {
   disabled: false,
   id: utils.unique(),
-  placeholder: '',
   type: 'text',
-  value: '',
 
   // Events.
   handleChange: function (e, value) {

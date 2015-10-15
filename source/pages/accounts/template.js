@@ -2,7 +2,6 @@
 import React from 'react'
 
 // CSS.
-import list from '../../css/t7-list.css'
 import helper from '../../css/t7-helper.css'
 
 // App components.
@@ -13,7 +12,6 @@ import fake from '../../fake'
 import utils from '../../utils'
 
 // Misc components.
-import Markdown from '../../components_misc/markdown/text'
 import Grid from '../../components_misc/unsemantic/grid_unit'
 import GridOffset from '../../components_misc/unsemantic/grid_offset'
 import GridContainer from '../../components_misc/unsemantic/grid_container'
@@ -23,8 +21,12 @@ import Button from '../../components/form_button/template'
 import DataTable from '../../components/data_table/template'
 import Image from '../../components/image/template'
 import ImageFigure from '../../components/image_figure/template'
+import ListSeparator from '../../components/list_separator/template'
 import Tabs from '../../components/tabs/template'
 import TabPanel from '../../components/tabs/template_panel'
+
+// TODO.
+import Input from '../../components/form_input/template'
 
 // Define class.
 class Page extends React.Component {
@@ -70,14 +72,14 @@ class Page extends React.Component {
             </h1>
 
             <div className={rightClassName}>
-              <ul className={list['t7-list--separator']}>
+              <ListSeparator>
                 <li>
                   <a>Edit Accounts</a>
                 </li>
                 <li>
                   <a>Add Account</a>
                 </li>
-              </ul>
+              </ListSeparator>
             </div>
 
             <hr />
@@ -94,6 +96,8 @@ class Page extends React.Component {
                   Checking
                 </h2>
 
+                <Input />
+
                 <div className={rightClassName}>
                   <p className={helper['t7-mute']}>
                     Account #: TK-421
@@ -102,7 +106,7 @@ class Page extends React.Component {
 
                 <hr />
 
-                <ul className={list['t7-list--separator']}>
+                <ListSeparator>
                   <li>
                     <a>Schedule Payment</a>
                   </li>
@@ -112,7 +116,7 @@ class Page extends React.Component {
                   <li>
                     <a>Spending Trends</a>
                   </li>
-                </ul>
+                </ListSeparator>
 
                 <DataTable
                   data={fake.dataTableRows(70, 3500)}
@@ -137,14 +141,14 @@ class Page extends React.Component {
 
                 <hr />
 
-                <ul className={list['t7-list--separator']}>
+                <ListSeparator>
                   <li>
                     <a>Investment Advice</a>
                   </li>
                   <li>
                     <a>Retirement Planning</a>
                   </li>
-                </ul>
+                </ListSeparator>
 
                 <DataTable
                   data={fake.dataTableRows(70, 9000)}

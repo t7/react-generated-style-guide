@@ -5,7 +5,7 @@ import React from 'react'
 import style from './t7-app.css'
 
 // Misc components.
-import g from '../components_misc/unsemantic/grid.css'
+import Clear from '../components_misc/unsemantic/grid_clear'
 import Grid from '../components_misc/unsemantic/grid_unit'
 import GridContainer from '../components_misc/unsemantic/grid_container'
 
@@ -19,12 +19,6 @@ class Footer extends React.Component {
   // Render method.
   render () {
     const year = new Date().getFullYear()
-
-    const clear = [
-      g['hide-on-desktop'],
-      g['hide-on-tablet'],
-      g['clear']
-    ].join(' ')
 
     return (
       <footer className={style['t7-app__footer']} role='contentinfo'>
@@ -71,7 +65,7 @@ class Footer extends React.Component {
             </dl>
           </Grid>
 
-          <div className={clear}></div>
+          <Clear desktop-hide tablet-hide />
 
           <Grid desktop='25' tablet='25' mobile='50'>
             <dl>

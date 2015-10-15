@@ -1,14 +1,13 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import style from '../../css/t7-list.css'
-
 // Utility methods.
 import utils from '../../utils'
 
 // UI components.
 import Checkbox from '../form_checkbox/template'
+import ListClean from '../list_clean/template'
+import ListInline from '../list_inline/template'
 
 // Define class.
 class CheckboxList extends React.Component {
@@ -23,14 +22,14 @@ class CheckboxList extends React.Component {
     const options = this.props.options
 
     // Used in conditional.
-    var className = 't7-list--clean'
+    var List = ListClean
 
     if (inline) {
-      className = 't7-list--inline'
+      List = ListInline
     }
 
     return (
-      <ul className={style[className]}>
+      <List>
         {
           options.map(function ({checked, disabled, id, label, value, onChange}) {
             return (
@@ -46,7 +45,7 @@ class CheckboxList extends React.Component {
             )
           })
         }
-      </ul>
+      </List>
     )
   }
 }

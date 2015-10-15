@@ -83,7 +83,7 @@ export default function (count, balance) {
   var data = []
 
   // Build data.
-  for (var i = 0; i < count; i++) {
+  for (let i = 0; i < count; i++) {
     let row = generateRow(i)
     data.push(row)
   }

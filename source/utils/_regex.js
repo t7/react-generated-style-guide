@@ -7,16 +7,15 @@ export default function (x) {
 
   // Used later.
   var arr
-  var i
   var value
 
   // Is it an array?
-  var isArray = typeof x === 'object' && x.length
+  const isArray = typeof x === 'object' && x.length
 
   // Is it an array?
   if (isArray) {
     arr = []
-    i = x.length
+    let i = x.length
 
     while (i--) {
       arr.push(esc(x[i]))

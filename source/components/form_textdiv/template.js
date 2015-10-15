@@ -86,7 +86,7 @@ class Textdiv extends React.Component {
         onFocus={handleFocus}
         onKeyUp={handleKeyUp}
         onPaste={handlePaste}
-      ></div>
+      />
     )
   }
 }

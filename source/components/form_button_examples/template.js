@@ -3,9 +3,7 @@ import React from 'react'
 
 // UI Components.
 import Button from '../form_button/template'
-
-// CSS.
-import style from '../../css/t7-list.css'
+import ListInline from '../list_inline/template'
 
 // Define class.
 class Page extends React.Component {
@@ -16,12 +14,10 @@ class Page extends React.Component {
 
   // Render method.
   render () {
-    const list = style['t7-list--inline']
-
     return (
       <div>
 
-        <ul className={list}>
+        <ListInline>
           <li>
             <Button size='small' />
           </li>
@@ -34,9 +30,9 @@ class Page extends React.Component {
           <li>
             <Button size='small' mode='negative' />
           </li>
-        </ul>
+        </ListInline>
 
-        <ul className={list}>
+        <ListInline>
           <li>
             <Button />
           </li>
@@ -49,9 +45,9 @@ class Page extends React.Component {
           <li>
             <Button mode='negative' />
           </li>
-        </ul>
+        </ListInline>
 
-        <ul className={list}>
+        <ListInline>
           <li>
             <Button size='big' />
           </li>
@@ -64,7 +60,7 @@ class Page extends React.Component {
           <li>
             <Button size='big' mode='negative' />
           </li>
-        </ul>
+        </ListInline>
 
       </div>
     )
