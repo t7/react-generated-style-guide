@@ -64,10 +64,6 @@ Header.
   height: 25px;
 }
 
-.t7-app__header__logo:hover {
-  background-image: url("./t7-app__header__logo--hover.png");
-}
-
 .t7-app__header ul {
   margin-bottom: 0;
 }
