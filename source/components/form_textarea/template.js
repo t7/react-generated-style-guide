@@ -69,8 +69,6 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   disabled: false,
   id: utils.unique(),
-  placeholder: '',
-  value: '',
 
   // Events.
   handleChange: function (e, value) {

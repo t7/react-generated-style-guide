@@ -25,9 +25,6 @@ import ListSeparator from '../../components/list_separator/template'
 import Tabs from '../../components/tabs/template'
 import TabPanel from '../../components/tabs/template_panel'
 
-// TODO.
-import Input from '../../components/form_input/template'
-
 // Define class.
 class Page extends React.Component {
   constructor (props) {
@@ -95,8 +92,6 @@ class Page extends React.Component {
                 <h2 className={styleHeading}>
                   Checking
                 </h2>
-
-                <Input />
 
                 <div className={rightClassName}>
                   <p className={helper['t7-mute']}>
