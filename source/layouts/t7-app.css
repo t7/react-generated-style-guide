@@ -21,6 +21,7 @@ App shell.
 
 .t7-app a {
   color: #69c;
+  text-decoration: none;
 }
 
 .t7-app a:hover {

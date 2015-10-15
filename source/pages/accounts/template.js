@@ -10,6 +10,7 @@ import App from '../../layouts/app'
 
 // Utility methods.
 import fake from '../../fake'
+import utils from '../../utils'
 
 // Misc components.
 import Grid from '../../components_misc/unsemantic/grid_unit'
@@ -29,6 +30,9 @@ class Page extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
+
+    // Set page title.
+    utils.title(props)
   }
 
   // Render method.
@@ -99,7 +103,7 @@ class Page extends React.Component {
 
                 <ul className={list['t7-list--separator']}>
                   <li>
-                    <a>Schedule a Payment</a>
+                    <a>Schedule Payment</a>
                   </li>
                   <li>
                     <a>Transfer Funds</a>
@@ -208,12 +212,6 @@ class Page extends React.Component {
       </App>
     )
   }
-}
-
-// Validation.
-Page.propTypes = {
-  location: React.PropTypes.object,
-  route: React.PropTypes.object
 }
 
 // Export.

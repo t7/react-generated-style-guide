@@ -8,14 +8,8 @@ import './css/reset.css'
 import './css/global.css'
 
 // Pages.
-import Dashboard from './pages/dashboard/template'
+import Accounts from './pages/accounts/template'
 import NotFound from './pages/404/template'
-
-// Page titles.
-const titles = {
-  'dashboard': 'Dashboard',
-  '404': 'Page Not Found'
-}
 
 // Routes template.
 const template = (
@@ -23,14 +17,14 @@ const template = (
 
 <Route
 path='/'
-component={Dashboard}
-titles={titles}
+component={Accounts}
+title='My Accounts'
 />
 
 <Route
 path='*'
 component={NotFound}
-titles={titles}
+title='Page Not Found'
 />
 
 </Router>
