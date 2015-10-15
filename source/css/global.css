@@ -3,6 +3,11 @@ Basic HTML
 ================================================================================
 */
 
+html,
+body {
+  overflow: hidden;
+}
+
 body {
   background: #fff;
   color: #333;
