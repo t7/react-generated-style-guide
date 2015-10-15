@@ -1,12 +1,30 @@
+html,
+body {
+  overflow: hidden;
+}
+
 /*
-Force outer "app" wrapper to be tall.
+App shell.
 ================================================================================
 */
 
-.t7-app,
-.t7-app__wrapper,
-div[id="app"] {
-  min-height: 100%;
+.t7-app {
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.t7-app a {
+  color: #69c;
+}
+
+.t7-app a:hover {
+  color: #c96;
 }
 
 /*
@@ -14,11 +32,10 @@ Wrapper. Used for "sticky footer" approach.
 ================================================================================
 */
 
-.t7-app__wrapper {
-  background: blue;
-
-  min-height: 100%;
-  padding-bottom: 50px;
+@media (min-width: 768px) {
+  .t7-app__wrapper {
+    min-height: 100%;
+  }
 }
 
 /*
@@ -27,7 +44,18 @@ Header.
 */
 
 .t7-app__header {
-  background: red;
+  background: #f6f6f6;
+  border-bottom: 1px solid #ddd;
+  border-top: 5px solid #69c;
+  line-height: 50px;
+}
+
+.t7-app__header ul {
+  margin-bottom: 0;
+}
+
+.t7-app__header li {
+  vertical-align: middle;
 }
 
 /*
@@ -35,8 +63,11 @@ Main.
 ================================================================================
 */
 
-.t7-app__main {
-  background: green;
+@media (min-width: 768px) {
+  .t7-app__main {
+    padding-top: 20px;
+    padding-bottom: 200px;
+  }
 }
 
 /*
@@ -45,8 +76,38 @@ Footer.
 */
 
 .t7-app__footer {
-  background: yellow;
+  background: #ccc;
+  border-top: 5px solid #69c;
+  color: #999;
 
-  margin-top: -30px;
-  height: 30px;
+  line-height: 2;
+  padding-top: 15px;
+
+  text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
+}
+
+@media (min-width: 768px) {
+  .t7-app__footer {
+    margin-top: -200px;
+    height: 200px;
+  }
+}
+
+.t7-app__footer a {
+  color: #666;
+}
+
+.t7-app__footer a:hover {
+  text-decoration: underline;
+}
+
+.t7-app__footer dt {
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px;
+  font-size: 150%;
+}
+
+.t7-app__footer dd {
+  border-left: 1px solid #999;
+  padding-left: 10px;
 }

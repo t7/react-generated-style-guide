@@ -35,3 +35,18 @@ Inline list.
   padding-top: 10px;
   padding-left: 10px;
 }
+
+/*
+List with separators.
+================================================================================
+*/
+
+.t7-list--separator {
+  composes: t7-list--inline;
+}
+
+.t7-list--separator li + li:before {
+  content: "";
+  border-left: 1px solid #ddd;
+  padding-left: 10px;
+}

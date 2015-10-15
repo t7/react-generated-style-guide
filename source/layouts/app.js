@@ -24,7 +24,7 @@ class App extends React.Component {
   // Render method.
   render () {
     return (
-      <div className={style['t7-app']}>
+      <div data-test='foo' className={style['t7-app']}>
         <Wrapper>
           <Header />
           <Main>
