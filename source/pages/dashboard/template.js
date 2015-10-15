@@ -141,29 +141,29 @@ class Page extends React.Component {
           <Grid desktop='25' tablet='25'>
 
             <ImageFigure
-              alt='PLACEHOLDER'
+              alt='PHOTO HERE'
               caption='High Yield Opportunity'
-              width='500'
-              height='250'
+              width='100%'
+              height='50%'
             />
 
             <GridOffset>
 
               <Grid desktop='33' tablet='33' mobile='33'>
                 <p>
-                  <Image width='100%' height='100%' />
+                  <Image width='100%' height='100%' alt='FPO' />
                 </p>
               </Grid>
 
               <Grid desktop='33' tablet='33' mobile='33'>
                 <p>
-                  <Image width='100%' height='100%' />
+                  <Image width='100%' height='100%' alt='FPO' />
                 </p>
               </Grid>
 
               <Grid desktop='33' tablet='33' mobile='33'>
                 <p>
-                  <Image width='100%' height='100%' />
+                  <Image width='100%' height='100%' alt='FPO' />
                 </p>
               </Grid>
 
