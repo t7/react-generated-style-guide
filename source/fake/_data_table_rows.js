@@ -67,8 +67,8 @@ export default function (count, balance) {
       : 'Ut enim ad minim veniam...'
 
     const category = x
-      ? 'Expense'
-      : 'Revenue'
+      ? 'Withdrawl'
+      : 'Deposit'
 
     return [
       utils.today(-i),

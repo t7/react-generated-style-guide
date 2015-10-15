@@ -43,10 +43,10 @@ class Footer extends React.Component {
                 <a>Careers</a>
               </dd>
               <dd>
-                <a>Our Locations</a>
+                <a>Contact Us</a>
               </dd>
               <dd>
-                <a>Contact Us</a>
+                <a>Our Locations</a>
               </dd>
             </dl>
           </Grid>
@@ -99,13 +99,13 @@ class Footer extends React.Component {
                 Legal
               </dt>
               <dd>
-                <a>Terms & Conditions</a>
-              </dd>
-              <dd>
                 <a>Cookie Policy</a>
               </dd>
               <dd>
                 <a>Patent Info</a>
+              </dd>
+              <dd>
+                <a>Terms &amp; Conditions</a>
               </dd>
               <dd>
                 &copy; {year} ACME Corp.

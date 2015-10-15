@@ -156,9 +156,13 @@ class Page extends React.Component {
 
           <Grid desktop='25' tablet='25'>
 
+            <h6>
+              Growth Opportunity
+            </h6>
+
             <ImageFigure
               alt='PHOTO HERE'
-              caption='High Yield Opportunity'
+              caption='High Yield Potential'
               width='100%'
               height='50%'
             />

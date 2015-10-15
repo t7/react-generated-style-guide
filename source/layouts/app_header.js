@@ -38,7 +38,7 @@ class Footer extends React.Component {
                 <a>Investing</a>
               </li>
               <li>
-                <a>Accounts</a>
+                <a>My Accounts</a>
               </li>
               <li>
                 <a>User Profile</a>
