@@ -1,5 +1,6 @@
 // Dependencies.
 import React from 'react'
+import { Link } from 'react-router'
 
 // CSS.
 import style from './t7-app.css'
@@ -10,7 +11,7 @@ import Grid from '../components_misc/unsemantic/grid_unit'
 import GridContainer from '../components_misc/unsemantic/grid_container'
 
 // UI components.
-import Input from '../components/form_input/template'
+import Search from '../components/form_search/template'
 
 // Define class.
 class Footer extends React.Component {
@@ -29,27 +30,21 @@ class Footer extends React.Component {
               ACME
             </a>
           </Grid>
-          <Grid desktop='55' tablet='55'>
+          <Grid desktop='50' tablet='50'>
             <ul className={list['t7-list--separator']}>
               <li>
-                <a>Banking</a>
+                <Link to='/'>My Accounts</Link>
               </li>
               <li>
-                <a>Investing</a>
-              </li>
-              <li>
-                <a>My Accounts</a>
-              </li>
-              <li>
-                <a>User Profile</a>
+                <Link to='/profile'>User Profile</Link>
               </li>
               <li>
                 <a>Log Out</a>
               </li>
             </ul>
           </Grid>
-          <Grid desktop='20' tablet='20'>
-            <Input type='search' placeholder='Search&hellip;' />
+          <Grid desktop='25' tablet='25'>
+            <Search />
           </Grid>
         </GridContainer>
       </header>

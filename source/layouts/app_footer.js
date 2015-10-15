@@ -54,7 +54,7 @@ class Footer extends React.Component {
           <Grid desktop='25' tablet='25' mobile='50'>
             <dl>
               <dt>
-                Products
+                Industries
               </dt>
               <dd>
                 <a>Aerospace</a>
