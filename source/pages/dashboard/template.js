@@ -58,6 +58,10 @@ class Page extends React.Component {
 
             <h1 className={styleHeading}>
               My Accounts
+
+              <small>
+                Jonathan W. Rogersonian
+              </small>
             </h1>
 
             <div className={rightClassName}>
@@ -81,9 +85,15 @@ class Page extends React.Component {
 
               <TabPanel label='Checking'>
 
-                <h2>
+                <h2 className={styleHeading}>
                   Checking
                 </h2>
+
+                <div className={rightClassName}>
+                  <p className={helper['t7-mute']}>
+                    Account #: TK-421
+                  </p>
+                </div>
 
                 <hr />
 
@@ -110,9 +120,15 @@ class Page extends React.Component {
 
               <TabPanel label='Savings'>
 
-                <h2>
+                <h2 className={styleHeading}>
                   Savings
                 </h2>
+
+                <div className={rightClassName}>
+                  <p className={helper['t7-mute']}>
+                    Account #: 867-5309
+                  </p>
+                </div>
 
                 <hr />
 

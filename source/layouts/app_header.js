@@ -29,7 +29,7 @@ class Footer extends React.Component {
               ACME
             </a>
           </Grid>
-          <Grid desktop='50' tablet='50'>
+          <Grid desktop='55' tablet='55'>
             <ul className={list['t7-list--separator']}>
               <li>
                 <a>Banking</a>
@@ -38,7 +38,7 @@ class Footer extends React.Component {
                 <a>Investing</a>
               </li>
               <li>
-                <a>My Accounts</a>
+                <a>Accounts</a>
               </li>
               <li>
                 <a>User Profile</a>
@@ -48,7 +48,7 @@ class Footer extends React.Component {
               </li>
             </ul>
           </Grid>
-          <Grid desktop='25' tablet='25'>
+          <Grid desktop='20' tablet='20'>
             <Input type='search' placeholder='Search&hellip;' />
           </Grid>
         </GridContainer>
