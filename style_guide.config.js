@@ -10,13 +10,18 @@ module.exports = {
     typography: [
       {
         title: 'Lato',
-        family: 'Lato',
-        description: ''
+        fontFamily: 'Lato, sans-serif',
+        link: 'https://www.google.com/fonts/specimen/Lato'
       },
       {
         title: 'Arial, sans-serif',
-        family: 'arial',
-        description: 'Arial font. Fallback to system default sans-serif font if Arial is not available.'
+        fontFamily: 'Arial, sans-serif',
+        link: 'https://en.wikipedia.org/wiki/Arial'
+      },
+      {
+        title: 'Roboto',
+        fontFamily: 'Roboto, sans-serif',
+        link: 'https://www.google.com/fonts/specimen/Roboto'
       }
     ],
     colors: [

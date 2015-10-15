@@ -27,6 +27,8 @@ class Shell extends React.Component {
         name='viewport'
         content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1'
       />
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato' />
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
       <link rel='stylesheet' href={style} />
       <title>Interactive Style Guide</title>
       </head>

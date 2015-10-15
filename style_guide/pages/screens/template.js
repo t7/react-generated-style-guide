@@ -1,7 +1,7 @@
 // Dependencies.
 import React from 'react'
 
-// Layout Components.
+// Layout components.
 import App from '../../layouts/app'
 import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'

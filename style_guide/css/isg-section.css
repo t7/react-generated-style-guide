@@ -3,12 +3,6 @@ Sections used for the style guide itself.
 ================================================================================
 */
 
-/*
-  Used to give more padding to the top
-  of a `<div>` type heading, which has
-  an ID that is used as an anchor jump.
-*/
-
 .isg-section {
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -19,23 +13,45 @@ Sections used for the style guide itself.
   padding-left: 20px;
   padding-right: 20px;
 
+  /* Clip at rounded corners. */
   overflow: hidden;
 }
 
-.isg-section__header {
+.isg-section__header,
+.isg-section__footer {
   background: #f6f6f6;
+  padding: 10px 20px;
+}
+
+.isg-section__header {
   font-weight: bold;
 
   margin-top: -20px;
   margin-left: -20px;
   margin-right: -20px;
   margin-bottom: 20px;
+}
 
-  padding: 10px 20px;
+.isg-section__header--title-case {
+  composes: isg-section__header;
 
   text-transform: capitalize;
 }
 
 .isg-section__example {
   margin-bottom: 20px;
+
+  /*
+    Allow bottom margin to escape,
+    if it exists on a child element.
+
+    This ensures an even `20px` even
+    if the element is inline(-block).
+  */
+  overflow: visible;
+}
+
+.isg-section__footer {
+  margin-left: -20px;
+  margin-right: -20px;
 }

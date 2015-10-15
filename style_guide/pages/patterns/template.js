@@ -1,7 +1,7 @@
 // Dependencies.
 import React from 'react'
 
-// Layout Components.
+// Layout components.
 import App from '../../layouts/app'
 import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
@@ -29,7 +29,7 @@ class Page extends React.Component {
 
       main.push(
         <section id={id} key={i} className={style['isg-section']}>
-          <header className={style['isg-section__header']}>
+          <header className={style['isg-section__header--title-case']}>
             {name}
           </header>
           <div
