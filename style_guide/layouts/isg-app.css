@@ -164,6 +164,7 @@ Sidebar.
 
 .isg-app__sidebar a:hover {
   background: #ffd;
+  color: #000;
   border-right: 5px solid #ddd;
   padding-left: 25px;
   padding-right: 15px;

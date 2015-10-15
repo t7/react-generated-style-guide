@@ -1,41 +1,77 @@
 /*
-Color swatch.
+Color swatch list.
 ================================================================================
 */
 
-.isg-branding__color {
+.isg-branding__color-list {
+
+}
+
+.isg-branding__color__item {
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 5px 5px 0;
+
+  padding-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+
   margin-bottom: 20px;
+
+  overflow: hidden;
 }
 
 .isg-branding__color__sample {
-  border-radius: 3px;
-  border: 1px solid #999;
-  box-shadow: inset #fff 0 0 0 2px;
-
-  color: transparent;
-  font-size: 0;
-  margin-bottom: 5px;
-  text-indent: -99999px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 
   overflow: hidden;
   padding-top: 50%;
+
+  position: relative;
 }
 
 .isg-branding__color__value {
-  background: #f6f6f6;
-  padding: 5px;
+  text-align: center;
   text-transform: lowercase;
+  white-space: nowrap;
+
+  margin-top: -12px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+
+.isg-branding__color__value code {
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+  border-radius: 10px;
+  color: #000;
+  font-size: 11px;
+
+  display: inline-block;
+
+  padding-left: 7px;
+  padding-right: 7px;
+
+  height: 20px;
+  line-height: 21px;
 }
 
 .isg-branding__color__title {
+  background: #fff;
   padding: 5px;
 }
 
 .isg-branding__color__description {
-  color: #999;
+  background: #f6f6f6;
   font-size: 11px;
-  padding: 5px;
+
+  margin-left: -3px;
+  margin-right: -3px;
+
+  padding: 5px 8px;
+
+  position: relative;
+  z-index: 0;
 }

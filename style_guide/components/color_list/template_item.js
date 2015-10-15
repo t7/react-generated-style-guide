@@ -2,13 +2,10 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/isg-branding.css'
-
-// Misc components.
-import Grid from '../../components_misc/unsemantic/grid_unit'
+import style from './isg-color-list.css'
 
 // Define class.
-class Color extends React.Component {
+class ColorItem extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -25,35 +22,40 @@ class Color extends React.Component {
     }
 
     return (
-      <Grid desktop='20' tablet='25' mobile='50'>
+      <li className={style['isg-color-list__item']}>
 
-        <div className={style['isg-branding__color']}>
+        <div className={style['isg-color-list__section']}>
+
           <div
-            className={style['isg-branding__color__sample']}
+            className={style['isg-color-list__sample']}
             style={inlineStyle}
-          ></div>
-          <div className={style['isg-branding__color__value']}>
-            <code>{value}</code>
+          >
+            <div className={style['isg-color-list__value']}>
+              <code>{value}</code>
+            </div>
           </div>
-          <div className={style['isg-branding__color__title']}>
+
+          <div className={style['isg-color-list__title']}>
             {title}
           </div>
-          <div className={style['isg-branding__color__description']}>
+
+          <div className={style['isg-color-list__description']}>
             {description}
           </div>
+
         </div>
 
-      </Grid>
+      </li>
     )
   }
 }
 
 // Validation.
-Color.propTypes = {
+ColorItem.propTypes = {
   title: React.PropTypes.string,
   value: React.PropTypes.string,
   description: React.PropTypes.string
 }
 
 // Export.
-export default Color
+export default ColorItem

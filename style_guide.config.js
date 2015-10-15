@@ -38,17 +38,17 @@ module.exports = {
       {
         title: 'Middle Gray',
         value: '#7A8C98',
-        description: 'Topic Header gray'
+        description: 'Topic header gray'
       },
       {
         title: 'Dark Gray',
         value: '#4C565E',
-        description: 'Footer/mega menu dark gray'
+        description: 'Footer, mega menu, dark gray'
       },
       {
         title: 'Darkest Gray',
         value: '#444F57',
-        description: 'Footer/mega menu/body copy darkest gray'
+        description: 'Footer, mega menu, body copy, darkest gray'
       },
       {
         title: 'Black',
@@ -68,7 +68,7 @@ module.exports = {
       {
         title: 'Light Blue',
         value: '#3A89C3',
-        description: 'Text links/Button'
+        description: 'Text links, button'
       },
       {
         title: 'Blue',
@@ -83,7 +83,7 @@ module.exports = {
       {
         title: 'Green',
         value: '#5C9631',
-        description: 'Fixed Income POV green'
+        description: 'Fixed income POV green'
       },
       {
         title: 'Lime Green',
@@ -98,7 +98,7 @@ module.exports = {
       {
         title: 'Dark Green',
         value: '#4C7D29',
-        description: 'Fixed Income POV darkest green'
+        description: 'Fixed income POV darkest green'
       },
       {
         title: 'Orange',

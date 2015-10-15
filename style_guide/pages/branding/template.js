@@ -6,12 +6,10 @@ import App from '../../layouts/app'
 import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
-// Misc components.
-import GridContainer from '../../components_misc/unsemantic/grid_container'
-
 // UI components.
-import Color from './template_color'
-import Typography from './template_typography'
+import ColorList from '../../components/color_list/template'
+import ColorItem from '../../components/color_list/template_item'
+import Typography from '../../components/typography/template'
 
 // Define class.
 class Page extends React.Component {
@@ -45,7 +43,7 @@ class Page extends React.Component {
           </h1>
 
           <p>
-            This page contains branding related details, including colors, fonts, and iconography.
+            This page contains branding related details, such as colors and typography.
           </p>
 
           <hr />
@@ -54,12 +52,12 @@ class Page extends React.Component {
             Colors
           </h2>
 
-          <GridContainer>
+          <ColorList>
             {
               this.props.branding.colors.map(
                 function ({value, title, description}, i) {
                   return (
-                    <Color
+                    <ColorItem
                       description={description}
                       key={i}
                       title={title}
@@ -69,7 +67,7 @@ class Page extends React.Component {
                 }
               )
             }
-          </GridContainer>
+          </ColorList>
 
           <hr />
 
