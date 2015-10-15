@@ -7,7 +7,7 @@
     "phantom": "phantomjs phantom_test.js",
     "test": "webpack",
     "prestart": "npm run build_index",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot",
     "build": "webpack",
     "postbuild": "npm run build_index",
     "build_index": "node ./lib/build_index",

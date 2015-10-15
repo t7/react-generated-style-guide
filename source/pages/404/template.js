@@ -1,6 +1,5 @@
 // Dependencies.
 import React from 'react'
-import { Link } from 'react-router'
 
 // Utility methods.
 import utils from '../../utils'
@@ -9,6 +8,7 @@ import utils from '../../utils'
 import App from '../../layouts/app'
 
 // Misc components.
+import Markdown from '../../components_misc/markdown/text'
 import Grid from '../../components_misc/unsemantic/grid_unit'
 import GridContainer from '../../components_misc/unsemantic/grid_container'
 
@@ -31,17 +31,7 @@ class Page extends React.Component {
 
           <Grid desktop='100'>
 
-            <h1>
-              Page Not Found :(
-            </h1>
-
-            <p>
-              Sorry, but we couldn't find that page.
-            </p>
-
-            <p>
-              Please start again at the <Link to='/'>My Accounts</Link> page.
-            </p>
+            <Markdown file='404.md' />
 
           </Grid>
 

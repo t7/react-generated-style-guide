@@ -13,6 +13,7 @@ import fake from '../../fake'
 import utils from '../../utils'
 
 // Misc components.
+import Markdown from '../../components_misc/markdown/text'
 import Grid from '../../components_misc/unsemantic/grid_unit'
 import GridOffset from '../../components_misc/unsemantic/grid_offset'
 import GridContainer from '../../components_misc/unsemantic/grid_container'

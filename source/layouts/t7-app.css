@@ -152,4 +152,17 @@ Footer.
 .t7-app__footer dd {
   border-left: 1px solid #999;
   padding-left: 10px;
+  position: relative;
+}
+
+.t7-app__footer dd:before {
+  content: "";
+
+  background: rgba(255, 255, 255, 0.5);
+  width: 1px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
