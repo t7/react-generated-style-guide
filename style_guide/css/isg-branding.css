@@ -4,17 +4,38 @@ Color swatch.
 */
 
 .isg-branding__color {
-
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 5px 0;
+  margin-bottom: 20px;
 }
 
-.isg-branding__color-sample {
+.isg-branding__color__sample {
+  border-radius: 3px;
+  border: 1px solid #999;
+  box-shadow: inset #fff 0 0 0 2px;
 
+  color: transparent;
+  font-size: 0;
+  margin-bottom: 5px;
+  text-indent: -99999px;
+
+  overflow: hidden;
+  padding-top: 50%;
 }
 
-.isg-branding__color-title {
-
+.isg-branding__color__value {
+  background: #f6f6f6;
+  padding: 5px;
+  text-transform: lowercase;
 }
 
-.isg-branding__color-description {
+.isg-branding__color__title {
+  padding: 5px;
+}
 
+.isg-branding__color__description {
+  color: #999;
+  font-size: 11px;
+  padding: 5px;
 }

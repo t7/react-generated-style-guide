@@ -4,6 +4,9 @@ import React from 'react'
 // CSS.
 import style from '../../css/isg-branding.css'
 
+// Misc components.
+import Grid from '../../components_misc/unsemantic/grid_unit'
+
 // Define class.
 class Color extends React.Component {
   constructor (props) {
@@ -22,20 +25,25 @@ class Color extends React.Component {
     }
 
     return (
-      <div className={style['isg-branding__color']}>
-        <div
-          className={style['isg-branding__color-sample']}
-          style={inlineStyle}
-        ></div>
-        <div className={style['isg-branding__color-title']}>
-          {title}
-          <br />
-          {value}
+      <Grid desktop='20' tablet='25' mobile='50'>
+
+        <div className={style['isg-branding__color']}>
+          <div
+            className={style['isg-branding__color__sample']}
+            style={inlineStyle}
+          ></div>
+          <div className={style['isg-branding__color__value']}>
+            <code>{value}</code>
+          </div>
+          <div className={style['isg-branding__color__title']}>
+            {title}
+          </div>
+          <div className={style['isg-branding__color__description']}>
+            {description}
+          </div>
         </div>
-        <div className={style['isg-branding__color-description']}>
-          {description}
-        </div>
-      </div>
+
+      </Grid>
     )
   }
 }

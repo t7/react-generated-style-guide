@@ -6,6 +6,9 @@ import App from '../../layouts/app'
 import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
+// Misc components.
+import GridContainer from '../../components_misc/unsemantic/grid_container'
+
 // UI components.
 import Color from './template_color'
 import Typography from './template_typography'
@@ -51,20 +54,22 @@ class Page extends React.Component {
             Colors
           </h2>
 
-          {
-            this.props.branding.colors.map(
-              function ({value, title, description}, i) {
-                return (
-                  <Color
-                    description={description}
-                    key={i}
-                    title={title}
-                    value={value}
-                  />
-                )
-              }
-            )
-          }
+          <GridContainer>
+            {
+              this.props.branding.colors.map(
+                function ({value, title, description}, i) {
+                  return (
+                    <Color
+                      description={description}
+                      key={i}
+                      title={title}
+                      value={value}
+                    />
+                  )
+                }
+              )
+            }
+          </GridContainer>
 
           <hr />
 
