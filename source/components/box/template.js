@@ -22,7 +22,16 @@ class Box extends React.Component {
   // don't want to mutate `props`.
   defaultState () {
     const state = {
-      hidden: false
+      hidden: false,
+
+      /*
+        Store ID in state, because if we call
+        `utils.unique()` in render, the ID could
+        change, when we set state.hidden = true.
+
+        This is wonky, but it works.
+      */
+      id: this.props.id || utils.unique()
     }
 
     // If state exists, reset it.
@@ -66,8 +75,10 @@ class Box extends React.Component {
     const children = this.props.children
     const close = this.props.close
     const icon = this.props.icon
-    const id = this.props.id || utils.unique()
     const mode = this.props.mode
+
+    // State driven.
+    const id = this.state.id
     const hidden = this.state.hidden
 
     // Used in conditional.
