@@ -193,7 +193,7 @@ class Page extends React.Component {
 
                   </Grid>
 
-                  <Grid desktop='50'>
+                  <Grid desktop='50' tablet='50'>
                     <p>
                       <label htmlFor='_input_address_1'>
                         Street Address
@@ -203,7 +203,7 @@ class Page extends React.Component {
                     </p>
                   </Grid>
 
-                  <Grid desktop='50'>
+                  <Grid desktop='50' tablet='50'>
                     <p>
                       <label htmlFor='_input_address_2'>
                         Address Line 2
@@ -225,7 +225,7 @@ class Page extends React.Component {
                     </p>
                   </Grid>
 
-                  <Grid desktop='30' tablet='30'>
+                  <Grid desktop='40' tablet='40'>
                     <p>
                       <label htmlFor='_input_state'>
                         State
@@ -244,7 +244,7 @@ class Page extends React.Component {
                     </p>
                   </Grid>
 
-                  <Grid desktop='30' tablet='30'>
+                  <Grid desktop='20' tablet='20'>
                     <p>
                       <label htmlFor='_input_zip'>
                         Zip Code
@@ -333,7 +333,7 @@ class Page extends React.Component {
               <BoxPositive close={false} icon={false}>
 
                 <p>
-                  By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extend of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, the United States will disavow all knowledge of your official involvement, and you will be branded as a rogue agent.
+                  By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extent of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, the United States will disavow all knowledge of your official involvement, and you will be branded as a rogue agent of Earth.
                 </p>
 
                 <p>
