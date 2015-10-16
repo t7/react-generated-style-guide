@@ -193,7 +193,7 @@ class Page extends React.Component {
 
                   </Grid>
 
-                  <Grid desktop='100'>
+                  <Grid desktop='50'>
                     <p>
                       <label htmlFor='_input_address_1'>
                         Street Address
@@ -203,7 +203,7 @@ class Page extends React.Component {
                     </p>
                   </Grid>
 
-                  <Grid desktop='100'>
+                  <Grid desktop='50'>
                     <p>
                       <label htmlFor='_input_address_2'>
                         Address Line 2
@@ -212,6 +212,8 @@ class Page extends React.Component {
                       <Input id='_input_address_2' value='Apartment B' />
                     </p>
                   </Grid>
+
+                  <Clear />
 
                   <Grid desktop='40' tablet='40'>
                     <p>
@@ -306,7 +308,7 @@ class Page extends React.Component {
               </Box>
 
               <h2>
-                Supplemental Notes
+                Supplemental
               </h2>
 
               <Box>
