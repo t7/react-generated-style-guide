@@ -45,12 +45,18 @@ fieldset.t7-box {
 
 .t7-box legend {
   background: #fff;
-  color: #ccc;
+  color: #999;
 
+  font-family: Arial, sans-serif;
   font-size: 15px;
+  height: 15px;
   letter-spacing: 1px;
-  line-height: 1;
+  line-height: 0;
   text-transform: uppercase;
+
+  position: absolute;
+  top: -5px;
+  left: 15px;
 
   padding: 0;
   padding-left: 5px;
@@ -60,10 +66,6 @@ fieldset.t7-box {
     to letter-spacing adding +1px.
   */
   padding-right: 4px;
-
-  position: absolute;
-  top: -13px;
-  left: 15px;
 }
 
 /*
