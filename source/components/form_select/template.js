@@ -51,7 +51,7 @@ class Select extends React.Component {
         className={className}
         disabled={disabled}
         id={id}
-        value={value}
+        defaultValue={value}
         onChange={handleChange}
       >
         {

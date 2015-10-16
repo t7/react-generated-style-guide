@@ -14,6 +14,7 @@ Box: Default.
 
   margin-bottom: 20px;
 
+  overflow: hidden;
   position: relative;
 }
 
@@ -72,7 +73,7 @@ Box: Shared styles.
 .t7-box--negative--icon,
 .t7-box--positive--icon,
 .t7-box--warn--icon {
-  background-position: 20px 12px;
+  background-position: 20px center;
   background-repeat: no-repeat;
   background-size: 35px 35px;
 

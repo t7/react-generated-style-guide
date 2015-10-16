@@ -9,6 +9,7 @@ import './css/global.css'
 
 // Pages.
 import Accounts from './pages/accounts/template'
+import Profile from './pages/profile/template'
 import NotFound from './pages/404/template'
 
 // Routes template.
@@ -19,6 +20,12 @@ const template = (
 path='/'
 component={Accounts}
 title='My Accounts'
+/>
+
+<Route
+path='*'
+component={Profile}
+title='User Profile'
 />
 
 <Route

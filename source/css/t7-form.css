@@ -301,7 +301,12 @@ Checkbox & Radio.
 .t7-form__radio,
 .t7-form__checkbox {
   margin-left: 0;
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+ul[class*="t7-list--inline"] li + li .t7-form__radio,
+ul[class*="t7-list--inline"] li + li .t7-form__checkbox {
+  margin-left: 10px;
 }
 
 /*

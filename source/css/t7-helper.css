@@ -54,6 +54,10 @@ Text alignment.
 ================================================================================
 */
 
+.t7-align-center {
+  text-align: center;
+}
+
 .t7-align-left {
   text-align: left;
 }
