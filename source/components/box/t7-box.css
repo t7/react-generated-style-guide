@@ -45,14 +45,17 @@ fieldset.t7-box {
 
 .t7-box legend {
   background: #fff;
-  color: #999;
+  color: #ccc;
 
   font-size: 15px;
+  letter-spacing: 1px;
 
   line-height: 1;
   padding: 0;
   padding-left: 5px;
   padding-right: 5px;
+
+  text-transform: uppercase;
 
   position: absolute;
   top: -13px;
