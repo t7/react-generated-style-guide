@@ -56,6 +56,11 @@ fieldset.t7-box {
   letter-spacing: 1px;
   text-transform: uppercase;
 
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: calc(100% - 30px);
+
   position: absolute;
   top: -14px;
   left: 15px;

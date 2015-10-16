@@ -177,7 +177,7 @@ class Box extends React.Component {
           id={id}
           style={styleDisplay}
         >
-          <legend>
+          <legend title={legend}>
             {legend}
           </legend>
 
