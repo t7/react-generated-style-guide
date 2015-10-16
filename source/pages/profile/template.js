@@ -319,7 +319,7 @@ class Page extends React.Component {
                 <br />
                 <Textdiv
                   id='_input_farewell'
-                  value='Tell the commander that it *was* me who set fire to his car. Sorry!'
+                  value='Tell the commander that it *was* me who set fire to his car. Sorry! :)'
                 />
 
               </Box>
