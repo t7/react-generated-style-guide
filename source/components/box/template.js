@@ -22,7 +22,7 @@ class Box extends React.Component {
   // don't want to mutate `props`.
   defaultState () {
     const state = {
-      hidden: false,
+      hidden: this.props.hidden,
 
       /*
         Store ID in state, because if we call
@@ -74,6 +74,7 @@ class Box extends React.Component {
   render () {
     const close = this.props.close
     const icon = this.props.icon
+    const legend = this.props.legend
     const mode = this.props.mode
 
     // State driven.
@@ -154,8 +155,8 @@ class Box extends React.Component {
       )
     }
 
-    // Expose the UI.
-    return (
+    // Used in conditional.
+    var box = (
       <div
         aria-hidden={ariaHidden}
         className={className}
@@ -166,6 +167,28 @@ class Box extends React.Component {
         {closeX}
       </div>
     )
+
+    // Is it a fieldset?
+    if (legend) {
+      box = (
+          <fieldset
+          aria-hidden={ariaHidden}
+          className={className}
+          id={id}
+          style={styleDisplay}
+        >
+          <legend>
+            {legend}
+          </legend>
+
+          {children}
+          {closeX}
+        </fieldset>
+      )
+    }
+
+    // Expose the UI.
+    return box
   }
 }
 
@@ -175,6 +198,7 @@ Box.propTypes = {
   close: React.PropTypes.bool,
   icon: React.PropTypes.bool,
   id: React.PropTypes.string,
+  legend: React.PropTypes.string,
   mode: React.PropTypes.string,
   hidden: React.PropTypes.bool,
 
@@ -185,6 +209,7 @@ Box.propTypes = {
 // Prop defaults.
 Box.defaultProps = {
   children: fake.box(),
+  hidden: false,
 
   // Events.
   handleClick: function (e, id) {

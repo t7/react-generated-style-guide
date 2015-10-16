@@ -14,8 +14,49 @@ Box: Default.
 
   margin-bottom: 20px;
 
-  overflow: hidden;
   position: relative;
+}
+
+.t7-box:before,
+.t7-box:after {
+  content: ".";
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.t7-box:after {
+  clear: both;
+}
+
+/*
+Box: Fieldset & Legend.
+================================================================================
+*/
+
+fieldset.t7-box {
+  top: 15px;
+  margin-bottom: 35px;
+}
+
+.t7-box legend {
+  background: #fff;
+  color: #999;
+
+  font-size: 15px;
+
+  line-height: 1;
+  padding: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  position: absolute;
+  top: -13px;
+  left: 15px;
 }
 
 /*

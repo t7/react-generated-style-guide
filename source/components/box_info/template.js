@@ -17,6 +17,7 @@ class BoxInfo extends React.Component {
     const icon = this.props.icon
     const id = this.props.id
     const hidden = this.props.hidden
+    const legend = this.props.legend
 
     // Events.
     const handleClick = this.props.handleClick
@@ -28,6 +29,7 @@ class BoxInfo extends React.Component {
         icon={icon}
         close={close}
         hidden={hidden}
+        legend={legend}
 
         handleClick={handleClick}
       >
@@ -44,6 +46,7 @@ BoxInfo.propTypes = {
   id: React.PropTypes.string,
   icon: React.PropTypes.bool,
   hidden: React.PropTypes.bool,
+  legend: React.PropTypes.string,
 
   // Events.
   handleClick: React.PropTypes.func

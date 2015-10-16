@@ -31,6 +31,7 @@ class Button extends React.Component {
   render () {
     const ariaControls = this.props.ariaControls
     const disabled = this.props.disabled
+    const href = this.props.href
     const mode = this.props.mode
     const size = this.props.size
     const text = this.props.text
@@ -39,6 +40,20 @@ class Button extends React.Component {
 
     // Events.
     const handleClick = this.handleClick.bind(this)
+
+    // Link & ARIA?
+    if (href && ariaControls) {
+      throw new Error(
+        '<Button/> error: Using `href` and `aria-controls` is not allowed.'
+      )
+    }
+
+    // Link & Disabled?
+    if (href && disabled) {
+      throw new Error(
+        '<Button/> error: Using `href` and `disabled` is not allowed.'
+      )
+    }
 
     // Default class.
     var className = [
@@ -97,16 +112,34 @@ class Button extends React.Component {
 
     className = className.join(' ')
 
-    return (
+    // Presuppose `<button>`.
+    var button = (
       <button
         aria-controls={ariaControls}
         className={className}
         disabled={disabled}
         title={title}
         type={type}
+
         onClick={handleClick}
       >{text}</button>
     )
+
+    // Is it a link?
+    if (href) {
+      button = (
+        <a
+          className={className}
+          href={href}
+          title={title}
+
+          onClick={handleClick}
+        >{text}</a>
+      )
+    }
+
+    // Expose the UI.
+    return button
   }
 }
 
@@ -115,6 +148,7 @@ Button.propTypes = {
   ariaControls: React.PropTypes.string,
   buttonData: React.PropTypes.node,
   disabled: React.PropTypes.bool,
+  href: React.PropTypes.string,
   mode: React.PropTypes.string,
   text: React.PropTypes.string,
   size: React.PropTypes.string,

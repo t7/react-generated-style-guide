@@ -87,11 +87,7 @@ class Page extends React.Component {
 
             <form onSubmit={handleSubmit}>
 
-              <h2>
-                Personal
-              </h2>
-
-              <Box>
+              <Box legend='Personal'>
 
                 <GridOffset>
 
@@ -175,18 +171,14 @@ class Page extends React.Component {
 
               </Box>
 
-              <h2>
-                Address
-              </h2>
-
-              <Box>
+              <Box legend='Address'>
 
                 <GridOffset>
 
                   <Grid desktop='100'>
 
                     <p>
-                      Note: We are currently only accepting applicants who reside within the United States, have a valid US passport, and were born within Earth orbit. Moon colonials are encouraged to apply.
+                      Note: We are currently only accepting applicants who are citizens of the United States, have a valid US passport, and were born within Earth orbit. Moon colonials are encouraged to apply.
                     </p>
 
                     <hr />
@@ -258,11 +250,7 @@ class Page extends React.Component {
 
               </Box>
 
-              <h2>
-                Medical
-              </h2>
-
-              <Box>
+              <Box legend='Medical'>
 
                 <p>
                   If you are allergic to any foods or medications, please list them here. Also make note of the last time you interacted with aliens from any planet known to have contaigions. This will not necessarily disqualify you from consideration.
@@ -281,11 +269,7 @@ class Page extends React.Component {
 
               </Box>
 
-              <h2>
-                Combat
-              </h2>
-
-              <Box>
+              <Box legend='Combat'>
 
                 <p>
                   Do you have any specialized combat training against sentient life forms who are capable of teleportation?
@@ -296,22 +280,42 @@ class Page extends React.Component {
                     {
                       checked: true,
                       label: 'Yes',
+                      value: true,
                       name: '_input_combat_training'
                     },
                     {
                       label: 'No',
+                      value: false,
                       name: '_input_combat_training'
+                    }
+                  ]}
+                />
+
+                <hr />
+
+                <p>
+                  Do you have a current license to kill, and/or have you been certified in the past?
+                </p>
+
+                <RadioListInline
+                  options={[
+                    {
+                      checked: true,
+                      label: 'Yes',
+                      value: true,
+                      name: '_input_license_to_kill'
+                    },
+                    {
+                      label: 'No',
+                      value: false,
+                      name: '_input_license_to_kill'
                     }
                   ]}
                 />
 
               </Box>
 
-              <h2>
-                Supplemental
-              </h2>
-
-              <Box>
+              <Box legend='Farewell'>
 
                 <p>
                   In the event you are irrecoverably lost in space, you may leave special instructions with us ahead of time. These instructions will only be acted upon if you are unable to return to Earth. Otherwise, the contents of this message will not be read by anyone, including mission control.
@@ -333,7 +337,7 @@ class Page extends React.Component {
               <BoxPositive close={false} icon={false}>
 
                 <p>
-                  By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extent of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, the United States will disavow all knowledge of your official involvement, and you will be branded as a rogue agent of Earth.
+                  By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extent of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, the United States will disavow all knowledge of your official involvement, and you will be branded as a rogue agent.
                 </p>
 
                 <p>

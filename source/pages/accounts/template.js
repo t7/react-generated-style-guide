@@ -202,7 +202,7 @@ class Page extends React.Component {
             </p>
 
             <p>
-              <Button mode='positive' text='Learn More' />
+              <Button mode='positive' text='Learn More' href='#profile' />
             </p>
 
           </Grid>

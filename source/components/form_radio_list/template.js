@@ -19,7 +19,7 @@ class RadioList extends React.Component {
   // Render method.
   render () {
     const inline = this.props.inline
-    const name = this.props.name
+    const name = this.props.name || utils.unique()
     const options = this.props.options
 
     // Used in conditional.
@@ -62,7 +62,6 @@ RadioList.propTypes = {
 // Prop defaults.
 RadioList.defaultProps = {
   inline: false,
-  name: utils.unique(),
   options: [
     {
       checked: true,
