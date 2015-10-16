@@ -6,6 +6,7 @@ Box: Default.
 .t7-box {
   border: 1px solid #ddd;
   border-radius: 3px;
+  clear: both;
 
   padding-top: 20px;
   padding-left: 20px;
@@ -13,7 +14,53 @@ Box: Default.
 
   margin-bottom: 20px;
 
-  overflow: hidden;
+  position: relative;
+}
+
+/*
+Box: Close "X".
+================================================================================
+*/
+
+.t7-box__close {
+  background-image: url("./t7-box__close.png");
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: center center;
+
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+
+  cursor: pointer;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -99999px;
+
+  width: 16px;
+  height: 16px;
+
+  position: absolute;
+  top: -1px;
+  left: auto;
+  right: -1px;
+  bottom: auto;
+}
+
+.t7-box--info .t7-box__close {
+  background-color: #69c;
+}
+
+.t7-box--negative .t7-box__close {
+  background-color: #c66;
+}
+
+.t7-box--positive .t7-box__close {
+  background-color: #693;
+}
+
+.t7-box--warn .t7-box__close {
+  background-color: #c96;
 }
 
 /*

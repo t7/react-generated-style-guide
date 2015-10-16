@@ -156,7 +156,7 @@ class Tabs extends React.Component {
     const children = this.props.children
 
     // Unique ID, for tab group.
-    const guid = this.props.guid
+    const id = this.props.id || utils.unique()
 
     // Get selected state.
     const selected = this.state.selected
@@ -171,13 +171,13 @@ class Tabs extends React.Component {
     const panelOn = style['t7-tabs__panel--selected']
 
     return (
-      <div className={style['t7-tabs']}>
+      <div className={style['t7-tabs']} id={id}>
         <ul role='tablist' className={style['t7-tabs__list']}>
           {
             children.map(function (panel, i) {
               // For accessibility.
-              const idPanel = 'tabpanel_' + i + '_' + guid
-              const idTab = 'tab_' + i + '_' + guid
+              const idPanel = 'tabpanel_' + i + '_' + id
+              const idTab = 'tab_' + i + '_' + id
               const isActive = selected === i
               const className = isActive ? tabOn : tabOff
 
@@ -200,8 +200,8 @@ class Tabs extends React.Component {
         {
           children.map(function (panel, i) {
             // For accessibility.
-            const idPanel = 'tabpanel_' + i + '_' + guid
-            const idTab = 'tab_' + i + '_' + guid
+            const idPanel = 'tabpanel_' + i + '_' + id
+            const idTab = 'tab_' + i + '_' + id
             const isActive = selected === i
             const className = isActive ? panelOn : panelOff
 
@@ -237,14 +237,13 @@ class Tabs extends React.Component {
 // Validation.
 Tabs.propTypes = {
   children: React.PropTypes.node,
-  guid: React.PropTypes.string,
+  id: React.PropTypes.string,
   selected: React.PropTypes.number
 }
 
 // Defaults.
 Tabs.defaultProps = {
   children: fake.tabs(),
-  guid: utils.unique(),
   selected: 0
 }
 

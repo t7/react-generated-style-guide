@@ -25,13 +25,6 @@ import ListSeparator from '../../components/list_separator/template'
 import Tabs from '../../components/tabs/template'
 import TabPanel from '../../components/tabs/template_panel'
 
-// TODO.
-import Box from '../../components/box/template'
-import BoxInfo from '../../components/box_info/template'
-import BoxNegative from '../../components/box_negative/template'
-import BoxPositive from '../../components/box_positive/template'
-import BoxWarn from '../../components/box_warn/template'
-
 // Define class.
 class Page extends React.Component {
   constructor (props) {

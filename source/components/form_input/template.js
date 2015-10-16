@@ -31,7 +31,7 @@ class Input extends React.Component {
   // Render method.
   render () {
     const disabled = this.props.disabled
-    const id = this.props.id
+    const id = this.props.id || utils.unique()
     const placeholder = this.props.placeholder
     const type = this.props.type
     const value = this.props.value
@@ -75,7 +75,6 @@ Input.propTypes = {
 // Prop defaults.
 Input.defaultProps = {
   disabled: false,
-  id: utils.unique(),
   type: 'text',
 
   // Events.

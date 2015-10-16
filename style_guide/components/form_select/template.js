@@ -32,7 +32,7 @@ class Select extends React.Component {
   render () {
     const ariaControls = this.props.ariaControls
     const disabled = this.props.disabled
-    const id = this.props.id
+    const id = this.props.id || utils.unique()
     const options = this.props.options
     const value = this.props.value
     const width = this.props.width
@@ -80,7 +80,6 @@ Select.propTypes = {
 // Prop defaults.
 Select.defaultProps = {
   disabled: false,
-  id: utils.unique(),
   value: '',
 
   options: [

@@ -13,10 +13,24 @@ class BoxWarn extends React.Component {
 
   // Render method.
   render () {
+    const close = this.props.close
     const icon = this.props.icon
+    const id = this.props.id
+    const hidden = this.props.hidden
+
+    // Events.
+    const handleClick = this.props.handleClick
 
     return (
-      <Box mode='warn' icon={icon}>
+      <Box
+        mode='warn'
+        id={id}
+        icon={icon}
+        close={close}
+        hidden={hidden}
+
+        handleClick={handleClick}
+      >
         {this.props.children}
       </Box>
     )
@@ -26,12 +40,19 @@ class BoxWarn extends React.Component {
 // Validation.
 BoxWarn.propTypes = {
   children: React.PropTypes.node,
-  icon: React.PropTypes.bool
+  close: React.PropTypes.bool,
+  id: React.PropTypes.string,
+  icon: React.PropTypes.bool,
+  hidden: React.PropTypes.bool,
+
+  // Events.
+  handleClick: React.PropTypes.func
 }
 
 // Defaults.
 BoxWarn.defaultProps = {
   children: 'Something "meh" happened, yo.',
+  close: true,
   icon: true
 }
 

@@ -36,7 +36,7 @@ class Textarea extends React.Component {
   // Render method.
   render () {
     const disabled = this.props.disabled
-    const id = this.props.id
+    const id = this.props.id || utils.unique()
     const placeholder = this.props.placeholder
     const value = this.props.value
     const handleChange = this.handleChange.bind(this)
@@ -68,7 +68,6 @@ Textarea.propTypes = {
 // Prop defaults.
 Textarea.defaultProps = {
   disabled: false,
-  id: utils.unique(),
 
   // Events.
   handleChange: function (e, value) {

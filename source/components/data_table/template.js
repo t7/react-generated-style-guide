@@ -110,7 +110,7 @@ class DataTable extends React.Component {
 
   // Render method.
   render () {
-    const id = this.props.id
+    const id = this.props.id || utils.unique()
     const columns = this.props.columns
 
     // Read from state.
@@ -239,7 +239,6 @@ DataTable.propTypes = {
 
 // Defaults.
 DataTable.defaultProps = {
-  id: utils.unique(),
   pageSize: 20,
   pageTop: true,
   pageBottom: false,

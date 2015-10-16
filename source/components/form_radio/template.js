@@ -33,7 +33,7 @@ class Radio extends React.Component {
   render () {
     const checked = this.props.checked
     const disabled = this.props.disabled
-    const id = this.props.id
+    const id = this.props.id || utils.unique()
     const label = this.props.label
     const name = this.props.name
     const value = this.props.value
@@ -74,7 +74,6 @@ Radio.propTypes = {
 Radio.defaultProps = {
   checked: false,
   disabled: false,
-  id: utils.unique(),
   label: 'Individual radio label',
   name: utils.unique(),
   value: 'value',

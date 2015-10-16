@@ -33,7 +33,7 @@ class Checkbox extends React.Component {
   render () {
     const checked = this.props.checked
     const disabled = this.props.disabled
-    const id = this.props.id
+    const id = this.props.id || utils.unique()
     const label = this.props.label
     const value = this.props.value
     const handleChange = this.handleChange.bind(this)
@@ -71,7 +71,6 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   checked: false,
   disabled: false,
-  id: utils.unique(),
   label: 'Individual checkbox label',
   value: 'value',
 

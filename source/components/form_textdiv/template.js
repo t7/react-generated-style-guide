@@ -54,7 +54,7 @@ class Textdiv extends React.Component {
   // Render method.
   render () {
     const disabled = this.props.disabled
-    const id = this.props.id
+    const id = this.props.id || utils.unique()
     const handleBlur = this.handleBlur.bind(this)
     const handleInput = this.handleInput.bind(this)
     const handleFocus = this.handleFocus.bind(this)
@@ -105,7 +105,6 @@ Textdiv.propTypes = {
 // Prop defaults.
 Textdiv.defaultProps = {
   disabled: false,
-  id: utils.unique(),
   placeholder: '',
   value: '',
 

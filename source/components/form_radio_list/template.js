@@ -32,9 +32,9 @@ class RadioList extends React.Component {
     return (
       <List>
         {
-          options.map(function ({checked, disabled, id, label, value, onChange}) {
+          options.map(function ({checked, disabled, id, label, value, onChange}, i) {
             return (
-              <li key={id}>
+              <li key={i}>
                 <Radio
                   checked={checked}
                   disabled={disabled}
@@ -66,7 +66,6 @@ RadioList.defaultProps = {
   options: [
     {
       checked: true,
-      id: utils.unique(),
       label: 'Radio list - label 01',
 
       // Events.
@@ -75,7 +74,6 @@ RadioList.defaultProps = {
       }
     },
     {
-      id: utils.unique(),
       label: 'Radio list - label 02',
 
       // Events.
@@ -84,7 +82,6 @@ RadioList.defaultProps = {
       }
     },
     {
-      id: utils.unique(),
       label: 'Radio list - label 03',
 
       // Events.

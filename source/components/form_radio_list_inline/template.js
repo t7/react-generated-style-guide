@@ -40,32 +40,14 @@ RadioListInline.defaultProps = {
   options: [
     {
       checked: true,
-      id: utils.unique(),
-      label: 'Radio list inline - label 01',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Radio list inline - label 01'
     },
     {
-      id: utils.unique(),
-      label: 'Radio list inline - label 02',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Radio list inline - label 02'
     },
     {
       disabled: true,
-      id: utils.unique(),
-      label: '(Radio disabled)',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: '(Radio disabled)'
     }
   ]
 }
