@@ -416,7 +416,7 @@ class Page extends React.Component {
                 <ListInline>
                   <li>
                     <Button
-                      text='Complete Registration'
+                      text='Update Profile Details'
                       mode='positive'
                       type='submit'
                     />
