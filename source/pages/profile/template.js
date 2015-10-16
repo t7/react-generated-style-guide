@@ -182,7 +182,7 @@ class Page extends React.Component {
                   <Grid desktop='100'>
 
                     <p>
-                      Note: We are currently only accepting applicants who reside within the United States, have a valid US passport, and were born within Earth orbit.
+                      Note: We are currently only accepting applicants who reside within the United States, have a valid US passport, and were born within Earth orbit. Moon colonials are encouraged to apply.
                     </p>
 
                     <hr />
