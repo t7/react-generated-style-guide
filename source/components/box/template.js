@@ -72,7 +72,6 @@ class Box extends React.Component {
 
   // Render method.
   render () {
-    const children = this.props.children
     const close = this.props.close
     const icon = this.props.icon
     const mode = this.props.mode
@@ -145,48 +144,42 @@ class Box extends React.Component {
       )
     }
 
-    // Assume a `<p>` or other block level
-    // children were passed into the box.
-    var box = (
+    // Get child element(s).
+    var children = this.props.children
+
+    // Ensure at least a `<p>` exists.
+    if (typeof children === 'string') {
+      children = (
+        <p>{children}</p>
+      )
+    }
+
+    // Expose the UI.
+    return (
       <div
         aria-hidden={ariaHidden}
         className={className}
         id={id}
         style={styleDisplay}
       >
-        {this.props.children}
+        {children}
         {closeX}
       </div>
     )
-
-    // Ensure at least a `<p>` exists.
-    if (typeof children === 'string') {
-      box = (
-        <div
-          aria-hidden={ariaHidden}
-          className={className}
-          id={id}
-          style={styleDisplay}
-        >
-          <p>
-            {this.props.children}
-          </p>
-          {closeX}
-        </div>
-      )
-    }
-
-    // Expose the UI.
-    return box
   }
 }
 
 // Validation.
 Box.propTypes = {
   children: React.PropTypes.node,
+  close: React.PropTypes.bool,
   icon: React.PropTypes.bool,
+  id: React.PropTypes.string,
   mode: React.PropTypes.string,
-  hidden: React.PropTypes.bool
+  hidden: React.PropTypes.bool,
+
+  // Events.
+  handleClick: React.PropTypes.func
 }
 
 // Prop defaults.

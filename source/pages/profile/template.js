@@ -59,16 +59,10 @@ class Page extends React.Component {
 
         <GridContainer>
 
-          <Grid
-            desktop='80'
-            desktop-suffix='5'
-
-            tablet='80'
-            tablet-suffix='5'
-          >
+          <Grid desktop='100'>
 
             <h1>
-              Astronaut Profile
+              User Profile
 
               <small>
                 Jonathan W. Rogersonian
@@ -76,6 +70,16 @@ class Page extends React.Component {
             </h1>
 
             <hr />
+
+          </Grid>
+
+          <Grid
+            desktop='80'
+            desktop-suffix='5'
+
+            tablet='80'
+            tablet-suffix='5'
+          >
 
             <BoxInfo>
               Please ensure that the following information is accurate. In case of a catastrophic space disaster, this is how we will notify your next of kin. Also, please note if you have any food allergies. Thanks.
@@ -264,8 +268,8 @@ class Page extends React.Component {
 
                 <hr />
 
-                <label htmlFor='_input_allergies'>
-                  Message
+                <label htmlFor='_input_allergies' id='foo'>
+                  Allergies & Contagions
                 </label>
                 <br />
                 <Textdiv
@@ -314,7 +318,7 @@ class Page extends React.Component {
                 <hr />
 
                 <label htmlFor='_input_farewell'>
-                  Message
+                  Final Message
                 </label>
                 <br />
                 <Textdiv

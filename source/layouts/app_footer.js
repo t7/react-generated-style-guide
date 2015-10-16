@@ -99,7 +99,7 @@ class Footer extends React.Component {
                 <a>Patent Info</a>
               </dd>
               <dd>
-                <a>Terms &amp; Conditions</a>
+                <a>Terms & Conditions</a>
               </dd>
               <dd>
                 &copy; {year} ACME Corp.
