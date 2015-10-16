@@ -1,5 +1,6 @@
 // Dependencies.
 import React from 'react'
+import _ from 'lodash'
 
 // CSS.
 import helper from '../../css/t7-helper.css'
@@ -56,7 +57,7 @@ class Page extends React.Component {
     const data = []
 
     // Loop through.
-    Array.prototype.forEach.call(list, function (el) {
+    _.each(list, function (el) {
       const name = el.getAttribute('name')
       const type = el.type
       const isTextdiv = el.getAttribute('contenteditable')

@@ -30,16 +30,16 @@ class Input extends React.Component {
 
   // Render method.
   render () {
+    const autofocus = this.props.autofocus
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
     const name = this.props.name || id
     const placeholder = this.props.placeholder
+    const required = this.props.required
     const size = this.props.size
     const type = this.props.type
     const value = this.props.value
     const width = this.props.width
-
-    const handleChange = this.handleChange.bind(this)
 
     var className = style['t7-form__input']
 
@@ -47,14 +47,19 @@ class Input extends React.Component {
       className = style['t7-form__input--width-auto']
     }
 
+    // Events.
+    const handleChange = this.handleChange.bind(this)
+
     return (
       <input
+        autoFocus={autofocus}
         className={className}
         defaultValue={value}
         disabled={disabled}
         id={id}
         name={name}
         placeholder={placeholder}
+        required={required}
         size={size}
         type={type}
 
@@ -66,10 +71,12 @@ class Input extends React.Component {
 
 // Validation.
 Input.propTypes = {
+  autofocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
+  required: React.PropTypes.bool,
   size: React.PropTypes.string,
   type: React.PropTypes.string,
   value: React.PropTypes.string,
@@ -81,7 +88,6 @@ Input.propTypes = {
 
 // Prop defaults.
 Input.defaultProps = {
-  disabled: false,
   type: 'text',
 
   // Events.

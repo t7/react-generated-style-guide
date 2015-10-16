@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// Utility methods.
-import utils from '../../utils'
-
 // UI components.
 import Checkbox from '../form_checkbox/template'
 import ListClean from '../list_clean/template'
@@ -28,10 +25,13 @@ class CheckboxList extends React.Component {
       List = ListInline
     }
 
+    // Events.
+    const handleChange = this.props.handleChange
+
     return (
       <List>
         {
-          options.map(function ({checked, disabled, id, label, name, value, onChange}, i) {
+          options.map(function ({checked, disabled, id, label, name, required, value}, i) {
             return (
               <li key={i}>
                 <Checkbox
@@ -40,8 +40,9 @@ class CheckboxList extends React.Component {
                   id={id}
                   label={label}
                   name={name}
+                  required={required}
 
-                  onChange={onChange}
+                  handleChange={handleChange}
                 />
               </li>
             )
@@ -55,7 +56,10 @@ class CheckboxList extends React.Component {
 // Validation.
 CheckboxList.propTypes = {
   inline: React.PropTypes.bool,
-  options: React.PropTypes.array
+  options: React.PropTypes.array,
+
+  // Events.
+  handleChange: React.PropTypes.func
 }
 
 // Prop defaults.
@@ -63,28 +67,13 @@ CheckboxList.defaultProps = {
   inline: false,
   options: [
     {
-      label: 'Checkbox list - label 01',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Checkbox list - label 01'
     },
     {
-      label: 'Checkbox list - label 02',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Checkbox list - label 02'
     },
     {
-      label: 'Checkbox list - label 03',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Checkbox list - label 03'
     }
   ]
 }

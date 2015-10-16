@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// Utility methods.
-import utils from '../../utils'
-
 // UI components.
 import CheckboxList from '../form_checkbox_list/template'
 
@@ -19,8 +16,16 @@ class CheckboxListInline extends React.Component {
     const inline = this.props.inline
     const options = this.props.options
 
+    // Events.
+    const handleChange = this.props.handleChange
+
     return (
-      <CheckboxList options={options} inline={inline} />
+      <CheckboxList
+        inline={inline}
+        options={options}
+
+        handleChange={handleChange}
+      />
     )
   }
 }
@@ -28,7 +33,10 @@ class CheckboxListInline extends React.Component {
 // Validation.
 CheckboxListInline.propTypes = {
   inline: React.PropTypes.bool,
-  options: React.PropTypes.array
+  options: React.PropTypes.array,
+
+  // Events.
+  handleChange: React.PropTypes.func
 }
 
 // Prop defaults.
@@ -36,23 +44,14 @@ CheckboxListInline.defaultProps = {
   inline: true,
   options: [
     {
-      label: 'Checkbox list inline - label 01',
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Checkbox list inline - label 01'
     },
     {
-      label: 'Checkbox list inline - label 02',
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Checkbox list inline - label 02'
     },
     {
       disabled: true,
-      label: '(Checkbox disabled)',
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: '(Checkbox disabled)'
     }
   ]
 }

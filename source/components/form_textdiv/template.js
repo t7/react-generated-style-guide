@@ -51,18 +51,12 @@ class Textdiv extends React.Component {
 
   // Render method.
   render () {
+    const autofocus = this.props.autofocus
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
     const name = this.props.name || id
-    const handleBlur = this.handleBlur.bind(this)
-    const handleInput = this.handleInput.bind(this)
-    const handleFocus = this.handleFocus.bind(this)
-    const handleKeyUp = this.handleKeyUp.bind(this)
-    const handlePaste = this.handlePaste.bind(this)
-
-    var placeholder = this.props.placeholder
-    placeholder = placeholder.replace(/>/g, '&gt;')
-    placeholder = placeholder.replace(/</g, '&lt;')
+    const placeholder = this.props.placeholder
+    const required = this.props.required
 
     var value = this.props.value
 
@@ -72,8 +66,16 @@ class Textdiv extends React.Component {
 
     value = utils.convert_to_html(value)
 
+    // Events.
+    const handleBlur = this.handleBlur.bind(this)
+    const handleInput = this.handleInput.bind(this)
+    const handleFocus = this.handleFocus.bind(this)
+    const handleKeyUp = this.handleKeyUp.bind(this)
+    const handlePaste = this.handlePaste.bind(this)
+
     return (
       <div
+        autoFocus={autofocus}
         className={style['t7-form__textarea']}
         contentEditable={!disabled}
         dangerouslySetInnerHTML={{__html: value}}
@@ -81,6 +83,7 @@ class Textdiv extends React.Component {
         id={id}
         name={name}
         placeholder={placeholder}
+        required={required}
 
         onBlur={handleBlur}
         onInput={handleInput}
@@ -94,10 +97,12 @@ class Textdiv extends React.Component {
 
 // Validation.
 Textdiv.propTypes = {
+  autofocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
+  required: React.PropTypes.bool,
   value: React.PropTypes.string,
 
   // Events.
@@ -106,7 +111,6 @@ Textdiv.propTypes = {
 
 // Prop defaults.
 Textdiv.defaultProps = {
-  disabled: false,
   placeholder: '',
   value: '',
 

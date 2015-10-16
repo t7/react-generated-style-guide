@@ -35,21 +35,27 @@ class Textarea extends React.Component {
 
   // Render method.
   render () {
+    const autofocus = this.props.autofocus
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
     const name = this.props.name || id
     const placeholder = this.props.placeholder
     const value = this.props.value
+    const required = this.props.required
+
+    // Events.
     const handleChange = this.handleChange.bind(this)
 
     return (
       <textarea
+        autoFocus={autofocus}
         defaultValue={value}
         className={style['t7-form__textarea']}
         disabled={disabled}
         id={id}
         name={name}
         placeholder={placeholder}
+        required={required}
 
         onChange={handleChange}
       />
@@ -59,10 +65,12 @@ class Textarea extends React.Component {
 
 // Validation.
 Textarea.propTypes = {
+  autofocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
+  required: React.PropTypes.bool,
   value: React.PropTypes.string,
 
   // Events.
@@ -71,8 +79,6 @@ Textarea.propTypes = {
 
 // Prop defaults.
 Textarea.defaultProps = {
-  disabled: false,
-
   // Events.
   handleChange: function (e, value) {
     utils.log(e, value)

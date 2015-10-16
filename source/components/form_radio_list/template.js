@@ -30,10 +30,13 @@ class RadioList extends React.Component {
       List = ListInline
     }
 
+    // Events.
+    const handleChange = this.props.handleChange
+
     return (
       <List>
         {
-          options.map(function ({checked, disabled, id, label, name, value, onChange}, i) {
+          options.map(function ({checked, disabled, id, label, name, required, value}, i) {
             return (
               <li key={i}>
                 <Radio
@@ -42,9 +45,10 @@ class RadioList extends React.Component {
                   id={id}
                   label={label}
                   name={name || listName}
+                  required={required}
                   value={value}
 
-                  onChange={onChange}
+                  handleChange={handleChange}
                 />
               </li>
             )
@@ -60,37 +64,24 @@ RadioList.propTypes = {
   inline: React.PropTypes.bool,
   name: React.PropTypes.string,
   options: React.PropTypes.array,
-  value: React.PropTypes.string
+  value: React.PropTypes.string,
+
+  // Events.
+  handleChange: React.PropTypes.func
 }
 
 // Prop defaults.
 RadioList.defaultProps = {
-  inline: false,
   options: [
     {
       checked: true,
-      label: 'Radio list - label 01',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Radio list - label 01'
     },
     {
-      label: 'Radio list - label 02',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Radio list - label 02'
     },
     {
-      label: 'Radio list - label 03',
-
-      // Events.
-      onChange: function (e, value, checked) {
-        utils.log(e, value, checked)
-      }
+      label: 'Radio list - label 03'
     }
   ]
 }

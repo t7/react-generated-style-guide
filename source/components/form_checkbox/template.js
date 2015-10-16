@@ -31,23 +31,28 @@ class Checkbox extends React.Component {
 
   // Render method.
   render () {
+    const autofocus = this.props.autofocus
     const checked = this.props.checked
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
     const label = this.props.label
     const name = this.props.name || id
+    const required = this.props.required
     const value = this.props.value || label
 
+    // Events.
     const handleChange = this.handleChange.bind(this)
 
     return (
       <label htmlFor={id}>
         <input
+          autoFocus={autofocus}
           className={style['t7-form__checkbox']}
           defaultChecked={checked}
           disabled={disabled}
           id={id}
           name={name}
+          required={required}
           type='checkbox'
           value={value}
 
@@ -61,11 +66,13 @@ class Checkbox extends React.Component {
 
 // Validation.
 Checkbox.propTypes = {
+  autofocus: React.PropTypes.bool,
   checked: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   label: React.PropTypes.string,
   name: React.PropTypes.string,
+  required: React.PropTypes.bool,
   value: React.PropTypes.string,
 
   // Events.
@@ -74,8 +81,6 @@ Checkbox.propTypes = {
 
 // Prop defaults.
 Checkbox.defaultProps = {
-  checked: false,
-  disabled: false,
   label: 'Individual checkbox label',
 
   // Events.
