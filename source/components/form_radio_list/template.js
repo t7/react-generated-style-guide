@@ -19,8 +19,9 @@ class RadioList extends React.Component {
   // Render method.
   render () {
     const inline = this.props.inline
-    const name = this.props.name || utils.unique()
+    const listName = utils.unique()
     const options = this.props.options
+    const value = this.props.value
 
     // Used in conditional.
     var List = ListClean
@@ -32,7 +33,7 @@ class RadioList extends React.Component {
     return (
       <List>
         {
-          options.map(function ({checked, disabled, id, label, value, onChange}, i) {
+          options.map(function ({checked, disabled, id, label, name, value, onChange}, i) {
             return (
               <li key={i}>
                 <Radio
@@ -40,7 +41,9 @@ class RadioList extends React.Component {
                   disabled={disabled}
                   id={id}
                   label={label}
-                  name={name}
+                  name={name || listName}
+                  value={value}
+
                   onChange={onChange}
                 />
               </li>
@@ -56,7 +59,8 @@ class RadioList extends React.Component {
 RadioList.propTypes = {
   inline: React.PropTypes.bool,
   name: React.PropTypes.string,
-  options: React.PropTypes.array
+  options: React.PropTypes.array,
+  value: React.PropTypes.string
 }
 
 // Prop defaults.

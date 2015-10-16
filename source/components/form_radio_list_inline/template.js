@@ -17,11 +17,10 @@ class RadioListInline extends React.Component {
   // Render method.
   render () {
     const inline = this.props.inline
-    const name = this.props.name || utils.unique()
     const options = this.props.options
 
     return (
-      <RadioList inline={inline} name={name} options={options} />
+      <RadioList inline={inline} options={options} />
     )
   }
 }
@@ -29,7 +28,6 @@ class RadioListInline extends React.Component {
 // Validation.
 RadioListInline.propTypes = {
   inline: React.PropTypes.bool,
-  name: React.PropTypes.string,
   options: React.PropTypes.array
 }
 

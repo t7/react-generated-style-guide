@@ -45,8 +45,49 @@ class Page extends React.Component {
   handleSubmit (e) {
     utils.stop(e)
 
-    // Could harvest the key/values, etc.
-    utils.log(e)
+    // Get the `<form>` tag.
+    const form = e.target
+
+    // Get the key/values.
+    const str = 'input, select, textarea, [contenteditable="true"]'
+    const list = form.querySelectorAll(str)
+
+    // Build in a loop.
+    const data = []
+
+    // Loop through.
+    Array.prototype.forEach.call(list, function (el) {
+      const name = el.getAttribute('name')
+      const type = el.type
+      const isTextdiv = el.getAttribute('contenteditable')
+
+      var value
+
+      // If it's a Textdiv, treat differently.
+      if (isTextdiv) {
+        value = utils.convert_to_text(el.innerHTML)
+
+      // Else, typical form element.
+      } else {
+        value = el.value
+      }
+
+      const item = {
+        name: name,
+        value: value
+      }
+
+      // Pass `checked`?
+      if (type === 'radio' || type === 'checkbox') {
+        item.checked = el.checked
+      }
+
+      // Add to data.
+      data.push(item)
+    })
+
+    // Log the form data.
+    utils.log(data)
   }
 
   // Render method.
@@ -280,12 +321,12 @@ class Page extends React.Component {
                     {
                       checked: true,
                       label: 'Yes',
-                      value: true,
+                      value: 'true',
                       name: '_input_combat_training'
                     },
                     {
                       label: 'No',
-                      value: false,
+                      value: 'false',
                       name: '_input_combat_training'
                     }
                   ]}
@@ -302,12 +343,12 @@ class Page extends React.Component {
                     {
                       checked: true,
                       label: 'Yes',
-                      value: true,
+                      value: 'true',
                       name: '_input_license_to_kill'
                     },
                     {
                       label: 'No',
-                      value: false,
+                      value: 'false',
                       name: '_input_license_to_kill'
                     }
                   ]}
@@ -345,7 +386,10 @@ class Page extends React.Component {
                 </p>
 
                 <p>
-                  <Checkbox label='I agree to these terms.' />
+                  <Checkbox
+                    id='_input_agree_terms'
+                    label='I agree to these terms.'
+                  />
                 </p>
 
                 <ListInline>

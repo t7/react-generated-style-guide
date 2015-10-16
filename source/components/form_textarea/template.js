@@ -37,17 +37,20 @@ class Textarea extends React.Component {
   render () {
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
+    const name = this.props.name || id
     const placeholder = this.props.placeholder
     const value = this.props.value
     const handleChange = this.handleChange.bind(this)
 
     return (
       <textarea
+        defaultValue={value}
         className={style['t7-form__textarea']}
         disabled={disabled}
         id={id}
-        defaultValue={value}
+        name={name}
         placeholder={placeholder}
+
         onChange={handleChange}
       />
     )
@@ -58,6 +61,7 @@ class Textarea extends React.Component {
 Textarea.propTypes = {
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
+  name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   value: React.PropTypes.string,
 

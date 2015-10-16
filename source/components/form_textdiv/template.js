@@ -44,9 +44,7 @@ class Textdiv extends React.Component {
     }
 
     const el = e.target
-
-    var value = utils.trim(el.innerHTML)
-    value = utils.convert_to_text(value)
+    const value = utils.convert_to_text(el.innerHTML)
 
     handleInput(e, value)
   }
@@ -55,6 +53,7 @@ class Textdiv extends React.Component {
   render () {
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
+    const name = this.props.name || id
     const handleBlur = this.handleBlur.bind(this)
     const handleInput = this.handleInput.bind(this)
     const handleFocus = this.handleFocus.bind(this)
@@ -80,7 +79,9 @@ class Textdiv extends React.Component {
         dangerouslySetInnerHTML={{__html: value}}
         disabled={disabled}
         id={id}
+        name={name}
         placeholder={placeholder}
+
         onBlur={handleBlur}
         onInput={handleInput}
         onFocus={handleFocus}
@@ -95,6 +96,7 @@ class Textdiv extends React.Component {
 Textdiv.propTypes = {
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
+  name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   value: React.PropTypes.string,
 

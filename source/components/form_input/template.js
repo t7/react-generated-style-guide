@@ -32,6 +32,7 @@ class Input extends React.Component {
   render () {
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
+    const name = this.props.name || id
     const placeholder = this.props.placeholder
     const size = this.props.size
     const type = this.props.type
@@ -49,12 +50,13 @@ class Input extends React.Component {
     return (
       <input
         className={className}
+        defaultValue={value}
         disabled={disabled}
         id={id}
-        type={type}
-        defaultValue={value}
+        name={name}
         placeholder={placeholder}
         size={size}
+        type={type}
 
         onChange={handleChange}
       />
@@ -66,6 +68,7 @@ class Input extends React.Component {
 Input.propTypes = {
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
+  name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   size: React.PropTypes.string,
   type: React.PropTypes.string,

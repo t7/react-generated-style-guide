@@ -33,6 +33,7 @@ class Select extends React.Component {
     const ariaControls = this.props.ariaControls
     const disabled = this.props.disabled
     const id = this.props.id || utils.unique()
+    const name = this.props.name || id
     const options = this.props.options
     const value = this.props.value
     const width = this.props.width
@@ -49,9 +50,11 @@ class Select extends React.Component {
       <select
         aria-controls={ariaControls}
         className={className}
+        defaultValue={value}
         disabled={disabled}
         id={id}
-        defaultValue={value}
+        name={name}
+
         onChange={handleChange}
       >
         {
@@ -69,6 +72,7 @@ Select.propTypes = {
   ariaControls: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
+  name: React.PropTypes.string,
   options: React.PropTypes.array,
   value: React.PropTypes.string,
   width: React.PropTypes.string,

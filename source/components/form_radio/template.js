@@ -36,7 +36,7 @@ class Radio extends React.Component {
     const id = this.props.id || utils.unique()
     const label = this.props.label
     const name = this.props.name || utils.unique()
-    const value = this.props.value
+    const value = this.props.value || this.props.label
     const handleChange = this.handleChange.bind(this)
 
     return (
@@ -75,7 +75,6 @@ Radio.defaultProps = {
   checked: false,
   disabled: false,
   label: 'Individual radio label',
-  value: 'value',
 
   // Events.
   handleChange: function (e, value, checked) {

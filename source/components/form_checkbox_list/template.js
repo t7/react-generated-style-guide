@@ -31,7 +31,7 @@ class CheckboxList extends React.Component {
     return (
       <List>
         {
-          options.map(function ({checked, disabled, id, label, value, onChange}, i) {
+          options.map(function ({checked, disabled, id, label, name, value, onChange}, i) {
             return (
               <li key={i}>
                 <Checkbox
@@ -39,6 +39,8 @@ class CheckboxList extends React.Component {
                   disabled={disabled}
                   id={id}
                   label={label}
+                  name={name}
+
                   onChange={onChange}
                 />
               </li>
