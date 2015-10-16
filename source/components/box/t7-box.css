@@ -41,31 +41,32 @@ Box: Fieldset & Legend.
 fieldset.t7-box {
   top: 15px;
   margin-bottom: 35px;
+
+  padding-top: 30px;
 }
 
 .t7-box legend {
   background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
   color: #999;
 
   font-family: Arial, sans-serif;
   font-size: 15px;
-  height: 15px;
   letter-spacing: 1px;
-  line-height: 0;
   text-transform: uppercase;
 
   position: absolute;
-  top: -5px;
+  top: -14px;
   left: 15px;
 
-  padding: 0;
-  padding-left: 5px;
+  padding: 2px 7px 1px;
 
   /*
     -1px less on the right, due
     to letter-spacing adding +1px.
   */
-  padding-right: 4px;
+  padding-right: 6px;
 }
 
 /*
@@ -148,6 +149,11 @@ Box: Info.
   background-image: url("./t7-box--info--icon.png");
 }
 
+.t7-box--info legend {
+  border-color: #69c;
+  color: #69c;
+}
+
 /*
 Box: Negative.
 ================================================================================
@@ -164,6 +170,11 @@ Box: Negative.
   composes: t7-box--negative;
 
   background-image: url("./t7-box--negative--icon.png");
+}
+
+.t7-box--negative legend {
+  border-color: #c66;
+  color: #c66;
 }
 
 /*
@@ -184,6 +195,11 @@ Box: Positive.
   background-image: url("./t7-box--positive--icon.png");
 }
 
+.t7-box--positive legend {
+  border-color: #693;
+  color: #693;
+}
+
 /*
 Box: Warn.
 ================================================================================
@@ -200,4 +216,9 @@ Box: Warn.
   composes: t7-box--warn;
 
   background-image: url("./t7-box--warn--icon.png");
+}
+
+.t7-box--warn legend {
+  border-color: #c96;
+  color: #c96;
 }

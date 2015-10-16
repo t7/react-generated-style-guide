@@ -334,7 +334,11 @@ class Page extends React.Component {
 
               </Box>
 
-              <BoxPositive close={false} icon={false}>
+              <BoxPositive
+                legend='Terms & Conditions'
+                close={false}
+                icon={false}
+              >
 
                 <p>
                   By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extent of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, the United States will disavow all knowledge of your official involvement, and you will be branded as a rogue agent.
