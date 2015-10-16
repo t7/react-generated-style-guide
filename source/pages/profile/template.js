@@ -320,7 +320,7 @@ class Page extends React.Component {
 
                 <hr />
 
-                <label htmlFor='_input_allergies' id='foo'>
+                <label htmlFor='_input_allergies'>
                   Allergies & Contagions
                 </label>
                 <br />
