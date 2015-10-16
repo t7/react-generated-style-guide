@@ -215,7 +215,6 @@ Button.
 */
 
 .t7-form__button {
-  color: #fff;
   border-radius: 3px;
 
   line-height: 25px;
@@ -223,6 +222,16 @@ Button.
 
   padding-left: 10px;
   padding-right: 10px;
+}
+
+/*
+  Using `[class]` to override any inherited
+  styles if this is applied to a link `<a>`.
+*/
+.t7-form__button[class],
+.t7-form__button[class]:hover{
+  color: #fff;
+  text-decoration: none;
 }
 
 .t7-form__button:not([disabled]):active {
