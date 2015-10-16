@@ -122,6 +122,7 @@ class Tabs extends React.Component {
   // don't want to mutate `props`.
   defaultState () {
     const state = {
+      id: this.props.id || utils.unique(),
       selected: this.props.selected
     }
 
@@ -152,11 +153,11 @@ class Tabs extends React.Component {
 
   // Render method.
   render () {
+    // Unique ID, for tab group.
+    const id = this.state.id
+
     // Get the children.
     const children = this.props.children
-
-    // Unique ID, for tab group.
-    const id = this.props.id || utils.unique()
 
     // Get selected state.
     const selected = this.state.selected

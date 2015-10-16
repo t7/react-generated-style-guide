@@ -12,6 +12,26 @@ class Select extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
+
+    // Get default state.
+    this.defaultState()
+  }
+
+  // Apply to `state`, because we
+  // don't want to mutate `props`.
+  defaultState () {
+    const state = {
+      id: this.props.id || utils.unique()
+    }
+
+    // If state exists, reset it.
+    if (typeof this.state === 'object') {
+      this.setState(state)
+
+    // Otherwise, create state.
+    } else {
+      this.state = state
+    }
   }
 
   handleChange (e) {
@@ -30,9 +50,12 @@ class Select extends React.Component {
 
   // Render method.
   render () {
+    // State driven.
+    const id = this.state.id
+
+    // Props driven.
     const ariaControls = this.props.ariaControls
     const disabled = this.props.disabled
-    const id = this.props.id || utils.unique()
     const options = this.props.options
     const value = this.props.value
     const width = this.props.width

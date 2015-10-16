@@ -35,6 +35,7 @@ class DataTable extends React.Component {
   // don't want to mutate `props`.
   defaultState () {
     const state = {
+      id: this.props.id || utils.unique(),
       pageCurrent: 0,
       sortIndex: this.props.sortIndex,
       sortDirection: this.props.sortDirection
@@ -110,15 +111,16 @@ class DataTable extends React.Component {
 
   // Render method.
   render () {
-    const id = this.props.id || utils.unique()
-    const columns = this.props.columns
-
     // Read from state.
+    const id = this.state.id
     const sortIndex = this.state.sortIndex
     const sortDirection = this.state.sortDirection
+    const pageCurrent = this.state.pageCurrent
+
+    // Get columns.
+    const columns = this.props.columns
 
     // Pagination sizing.
-    const pageCurrent = this.state.pageCurrent
     const pageTotal = Math.ceil(this.props.data.length / this.props.pageSize)
 
     // Sort the data.

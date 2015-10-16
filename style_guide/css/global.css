@@ -37,7 +37,7 @@ Abbreviations in labels.
 ================================================================================
 */
 
-label abbr[title] {
+abbr[title] {
   border: 0;
   text-decoration: none;
 }

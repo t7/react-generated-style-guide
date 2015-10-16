@@ -14,12 +14,35 @@ class RadioList extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
+
+    // Get default state.
+    this.defaultState()
+  }
+
+  // Apply to `state`, because we
+  // don't want to mutate `props`.
+  defaultState () {
+    const state = {
+      listName: utils.unique()
+    }
+
+    // If state exists, reset it.
+    if (typeof this.state === 'object') {
+      this.setState(state)
+
+    // Otherwise, create state.
+    } else {
+      this.state = state
+    }
   }
 
   // Render method.
   render () {
+    // State driven.
+    const listName = this.state.listName
+
+    // Props driven.
     const inline = this.props.inline
-    const listName = utils.unique()
     const options = this.props.options
     const value = this.props.value
 

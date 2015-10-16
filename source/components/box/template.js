@@ -22,16 +22,8 @@ class Box extends React.Component {
   // don't want to mutate `props`.
   defaultState () {
     const state = {
-      hidden: this.props.hidden,
-
-      /*
-        Store ID in state, because if we call
-        `utils.unique()` in render, the ID could
-        change, when we set state.hidden = true.
-
-        This is wonky, but it works.
-      */
-      id: this.props.id || utils.unique()
+      id: this.props.id || utils.unique(),
+      hidden: false
     }
 
     // If state exists, reset it.
@@ -72,14 +64,15 @@ class Box extends React.Component {
 
   // Render method.
   render () {
+    // State driven.
+    const id = this.state.id
+    const hidden = this.state.hidden
+
+    // Props driven.
     const close = this.props.close
     const icon = this.props.icon
     const legend = this.props.legend
     const mode = this.props.mode
-
-    // State driven.
-    const id = this.state.id
-    const hidden = this.state.hidden
 
     // Used in conditional.
     var ariaHidden
@@ -171,7 +164,7 @@ class Box extends React.Component {
     // Is it a fieldset?
     if (legend) {
       box = (
-          <fieldset
+        <fieldset
           aria-hidden={ariaHidden}
           className={className}
           id={id}
@@ -200,7 +193,6 @@ Box.propTypes = {
   id: React.PropTypes.string,
   legend: React.PropTypes.string,
   mode: React.PropTypes.string,
-  hidden: React.PropTypes.bool,
 
   // Events.
   handleClick: React.PropTypes.func
@@ -209,7 +201,6 @@ Box.propTypes = {
 // Prop defaults.
 Box.defaultProps = {
   children: fake.box(),
-  hidden: false,
 
   // Events.
   handleClick: function (e, id) {
