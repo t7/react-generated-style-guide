@@ -33,6 +33,26 @@ small {
 }
 
 /*
+Abbreviations in labels.
+================================================================================
+*/
+
+abbr[title] {
+  border: 0;
+  text-decoration: none;
+}
+
+label abbr[title="Required"] {
+  color: #c96;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 0;
+
+  padding-left: 2px;
+}
+
+/*
 Images.
 ================================================================================
 */

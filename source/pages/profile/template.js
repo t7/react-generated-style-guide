@@ -137,6 +137,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_first_name'>
                         First Name
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_first_name' value='Jonathan' />
@@ -159,6 +161,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_last_name'>
                         Last Name
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_last_name' value='Rogersonian' />
@@ -171,6 +175,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_birth_date'>
                         Birth Date
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_birth_date' value='02/10/1990' />
@@ -182,6 +188,8 @@ class Page extends React.Component {
                       <label htmlFor='_input_ssn'>
                         <abbr title='Social Security Number'>
                           SSN
+
+                          <abbr title='Required'>*</abbr>
                         </abbr>
                       </label>
                       <br />
@@ -193,6 +201,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_email'>
                         Email
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_email' value='jwr@example.com' />
@@ -203,6 +213,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_phone'>
                         Phone
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_phone' value='555-867-5309' />
@@ -231,6 +243,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_address_1'>
                         Street Address
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_address_1' value='1234 Fifth Street' />
@@ -253,6 +267,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_city'>
                         City
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_city' value='Beverly Hills' />
@@ -263,6 +279,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_state'>
                         State
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Select
@@ -282,6 +300,8 @@ class Page extends React.Component {
                     <p>
                       <label htmlFor='_input_zip'>
                         Zip Code
+
+                        <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input id='_input_zip' value='90210' />
