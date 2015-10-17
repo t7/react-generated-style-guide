@@ -22,15 +22,18 @@ class Page extends React.Component {
       const id = item.id
       const href = '#' + id
       const name = item.name
+      const url = item.url
+      const image_path = '/style_guide/screens/shots/'
+      const img_small = image_path + id + '_small.png'
+      const img_medium = image_path + id + '_medium.png'
+      const img_large = image_path + id + '_large.png'
 
       main.push(
         <section id={id} key={i}>
-          <header>
-            {name}
-          </header>
-          <div
-            data-component={id}
-          />
+          <a href={url}>{name}</a>
+          <img src={img_small}/>
+          <img src={img_medium}/>
+          <img src={img_large}/>
         </section>
       )
 

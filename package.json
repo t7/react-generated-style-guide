@@ -18,7 +18,7 @@
     "build_isg_patterns": "node ./style_guide/pages/patterns/build",
     "build_isg_requirements": "node ./style_guide/pages/requirements/build",
     "build_isg_screens": "node ./style_guide/pages/screens/build",
-    "screenshots": "./lib/phantomjs style_guide/pages/screens/screenshots.js"
+    "postbuild_isg_screens": "./lib/phantomjs style_guide/pages/screens/screenshots.js"
   },
   "repository": {
     "type": "git",

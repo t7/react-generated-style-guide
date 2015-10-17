@@ -35,9 +35,23 @@ function getShellTemplate () {
   })
 }
 
-var data = [{
-  name: 'yo'
-}]
+var data = [
+  {
+    id: 'accounts',
+    url: 'http://localhost:8080',
+    name: 'Accounts'
+  },
+  {
+    id: 'profile',
+    url: 'http://localhost:8080/#/profile',
+    name: 'Profile'
+  },
+  {
+    id: 'page_not_found',
+    url: 'http://localhost:8080/#/404',
+    name: 'Page Not Found'
+  }
+]
 
 function renderScreens () {
   var screensElement = React.createElement(ScreensTemplate, {data: data})
