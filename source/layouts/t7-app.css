@@ -3,14 +3,20 @@ App shell.
 ================================================================================
 */
 
-/*div[id="app"] {
-  overflow-x: hidden;
-  overflow-y: scroll;
-}*/
-
-/*div[id="app"],
+div[id="app"],
 .t7-app {
   height: 100%;
+}
+
+/*.t7-app {
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }*/
 
 .t7-app a {
