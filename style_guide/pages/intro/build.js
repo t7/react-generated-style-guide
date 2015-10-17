@@ -40,7 +40,6 @@ function renderIntro () {
   var introMarkup = ReactDOMServer.renderToStaticMarkup(introElement)
 
   var shellElement = React.createElement(ShellTemplate, {
-    root: '',
     title: 'Intro',
     markup: introMarkup
   })
@@ -48,7 +47,8 @@ function renderIntro () {
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
 
-  fse.outputFileSync('./build/style_guide/index.html', html)
+  fse.outputFileSync('./build/style_guide/intro/index.html', html)
+  fse.outputFileSync('./build/style_guide/index.html', '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=intro" /></head><body></body></html>')
 }
 
 // Kickoff!

@@ -28,7 +28,7 @@ class Header extends React.Component {
     // Options for `<select>`.
     const options = [
       {
-        value: '',
+        value: 'intro',
         name: '- Intro'
       },
       {

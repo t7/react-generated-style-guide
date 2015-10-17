@@ -15,7 +15,7 @@
 
   el.onchange = function () {
     var value = el.value
-    var url = '/style_guide/' + value
+    var url = '../' + value
     location.href = url
   }
 })()
