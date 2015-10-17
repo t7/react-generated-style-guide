@@ -5,7 +5,7 @@ import React from 'react'
 import Box from '../box/template'
 
 // Define class.
-class BoxWarn extends React.Component {
+class FieldsetPositive extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -23,11 +23,11 @@ class BoxWarn extends React.Component {
 
     return (
       <Box
-        mode='warn'
         id={id}
         icon={icon}
         close={close}
         legend={legend}
+        mode='positive'
 
         handleClick={handleClick}
       >
@@ -38,7 +38,7 @@ class BoxWarn extends React.Component {
 }
 
 // Validation.
-BoxWarn.propTypes = {
+FieldsetPositive.propTypes = {
   children: React.PropTypes.node,
   close: React.PropTypes.bool,
   id: React.PropTypes.string,
@@ -50,11 +50,12 @@ BoxWarn.propTypes = {
 }
 
 // Defaults.
-BoxWarn.defaultProps = {
-  children: 'Something "meh" happened, yo.',
-  close: true,
-  icon: true
+FieldsetPositive.defaultProps = {
+  legend: 'Legen... wait for it... dary',
+  children: '(Form elements would go here.)',
+  close: false,
+  icon: false
 }
 
 // Export.
-export default BoxWarn
+export default FieldsetPositive

@@ -16,7 +16,6 @@ class BoxNegative extends React.Component {
     const close = this.props.close
     const icon = this.props.icon
     const id = this.props.id
-    const hidden = this.props.hidden
     const legend = this.props.legend
 
     // Events.
@@ -28,7 +27,6 @@ class BoxNegative extends React.Component {
         id={id}
         icon={icon}
         close={close}
-        hidden={hidden}
         legend={legend}
 
         handleClick={handleClick}
@@ -45,7 +43,6 @@ BoxNegative.propTypes = {
   close: React.PropTypes.bool,
   id: React.PropTypes.string,
   icon: React.PropTypes.bool,
-  hidden: React.PropTypes.bool,
   legend: React.PropTypes.string,
 
   // Events.
