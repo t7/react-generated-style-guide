@@ -9,6 +9,9 @@ import Sidebar from '../../layouts/app_sidebar'
 // CSS.
 import style from '../../css/isg-section.css'
 
+// UI components.
+import Button from '../../components/form_button/template'
+
 // Define class.
 class Page extends React.Component {
   constructor (props) {
@@ -27,6 +30,12 @@ class Page extends React.Component {
       const markup = item.markup
       const name = item.name
 
+      // Hide code example.
+      const displayNone = {
+        display: 'none'
+      }
+
+      // Build main markup.
       main.push(
         <section id={id} key={i} className={style['isg-section']}>
           <header className={style['isg-section__header--title-case']}>
@@ -36,7 +45,11 @@ class Page extends React.Component {
             className={style['isg-section__example']}
             data-component={id}
           />
-          <pre><code>{markup}</code></pre>
+          <hr />
+          <p data-code-trigger={id}>
+            <Button text='Hide/Show HTML' mode='primary' size='small' />
+          </p>
+          <pre data-code-example={id} style={displayNone}><code>{markup}</code></pre>
         </section>
       )
 
