@@ -45,7 +45,9 @@ function renderPatterns () {
   var patternsMarkup = ReactDOMServer.renderToStaticMarkup(patternsElement)
 
   var shellElement = React.createElement(ShellTemplate, {
-    script: 'patterns/index.js',
+    root: './',
+    style: 'style.css',
+    script: 'index.js',
     markup: patternsMarkup
   })
 
@@ -60,7 +62,7 @@ function generateBundle () {
   var imports = patternsData.map(function (pattern) {
     var path = pattern.path
     var componentName = path.replace('/template.js', '').split('/').pop()
-    var componentPath = '.' + path
+    var componentPath = '../../.' + path
     var selector = '[data-component="' + componentName + '"]'
 
     return `

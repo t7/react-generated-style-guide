@@ -32,13 +32,18 @@ class Shell extends React.Component {
   render () {
     const markup = this.props.markup
     const root = this.props.root
-    const style = root + this.props.style
 
+    var style = this.props.style
     var script = this.props.script
 
     if (script) {
       script = root + script
       script = <script src={script}></script>
+    }
+
+    if (style) {
+      style = root + style
+      style = <link rel='stylesheet' href={style} />
     }
 
     return (
@@ -51,7 +56,8 @@ class Shell extends React.Component {
       />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato' />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
-      <link rel='stylesheet' href={style} />
+      <link rel='stylesheet' href='/style_guide/style.css' />
+      {style}
       <title>Interactive Style Guide</title>
       </head>
       <body>
@@ -77,7 +83,7 @@ Shell.propTypes = {
 
 Shell.defaultProps = {
   root: '/style_guide/',
-  style: 'style.css',
+  style: '',
   script: '',
   markup: ''
 }

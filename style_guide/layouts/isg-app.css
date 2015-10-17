@@ -126,7 +126,7 @@ Sidebar.
   padding-right: 20px;
 
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   width: 250px;
 
