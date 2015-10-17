@@ -1,6 +1,5 @@
 // Dependencies.
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 // Layout.
 import './layouts/isg-app.css'
@@ -19,10 +18,10 @@ import './css/t7-form.css'
 // Component level CSS.
 import './components/color_list/isg-color-list.css'
 
-// For the ISG header drop-down.
-import HeaderSelect from './components/form_select/template'
+// Get raw JS.
+import header_select_js from 'raw!./components_misc/header_select/template'
 
-
+// Define class.
 class Shell extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
@@ -57,8 +56,11 @@ class Shell extends React.Component {
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
-        <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
+        <script
+          src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'
+        ></script>
         {script}
+        <script dangerouslySetInnerHTML={{__html: header_select_js}} />
       </body>
       </html>
     )

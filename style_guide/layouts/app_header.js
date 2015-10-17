@@ -4,6 +4,9 @@ import React from 'react'
 // CSS.
 import style from './isg-app.css'
 
+// UI components.
+import Select from '../components/form_select/template'
+
 // Define class.
 class Header extends React.Component {
   constructor (props) {
@@ -19,6 +22,34 @@ class Header extends React.Component {
 
   // Render method.
   render () {
+    // Options for `<select>`.
+    const options = [
+      {
+        value: '',
+        name: 'Contents...'
+      },
+      {
+        value: '/',
+        name: '- Intro'
+      },
+      {
+        value: 'branding',
+        name: '- Branding'
+      },
+      {
+        value: 'patterns',
+        name: '- Patterns'
+      },
+      {
+        value: 'requirements',
+        name: '- Requirements'
+      },
+      {
+        value: 'screens',
+        name: '- Screens'
+      }
+    ]
+
     return (
       <header className={style['isg-app__header']} role='banner'>
 
@@ -26,7 +57,7 @@ class Header extends React.Component {
           Interactive Style Guide
         </b>
 
-        <span data-component='isg_header_select' />
+        <Select id='isg_header_select' options={options} width='auto' />
 
         <span className={style['isg-app__header__logo']}>
           TandemSeven
