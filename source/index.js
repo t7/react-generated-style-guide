@@ -23,7 +23,7 @@ title='My Accounts'
 />
 
 <Route
-path='*'
+path='/profile'
 component={Profile}
 title='User Profile'
 />
