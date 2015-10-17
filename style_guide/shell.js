@@ -18,9 +18,6 @@ import './css/t7-form.css'
 // Component level CSS.
 import './components/color_list/isg-color-list.css'
 
-// Get raw JS.
-import header_select_js from 'raw!./components_misc/header_select/template'
-
 // Define class.
 class Shell extends React.Component {
   constructor (props) {
@@ -62,9 +59,8 @@ class Shell extends React.Component {
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
-        {script}
         <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
-        <script dangerouslySetInnerHTML={{__html: header_select_js}} />
+        {script}
       </body>
       </html>
     )

@@ -1,3 +1,7 @@
+/*global
+  phantom
+*/
+
 var serverRoot = 'http://localhost:8080/#/'
 var imageRoot = './build/style_guide/screens/shots/'
 
@@ -11,6 +15,7 @@ var index = 0
 
 function shoot () {
   var file = files[index]
+
   if (!file && file !== '') {
     phantom.exit()
   }

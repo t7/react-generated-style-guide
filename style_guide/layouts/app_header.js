@@ -7,6 +7,9 @@ import style from './isg-app.css'
 // UI components.
 import Select from '../components/form_select/template'
 
+// Get raw JS.
+import raw_header_select from 'raw!./raw_header_select'
+
 // Define class.
 class Header extends React.Component {
   constructor (props) {
@@ -25,11 +28,7 @@ class Header extends React.Component {
     // Options for `<select>`.
     const options = [
       {
-        value: '',
-        name: 'Contents...'
-      },
-      {
-        value: '/',
+        value: 'intro',
         name: '- Intro'
       },
       {
@@ -58,6 +57,7 @@ class Header extends React.Component {
         </b>
 
         <Select id='isg_header_select' options={options} width='auto' />
+        <script dangerouslySetInnerHTML={{__html: raw_header_select}}></script>
 
         <span className={style['isg-app__header__logo']}>
           TandemSeven
