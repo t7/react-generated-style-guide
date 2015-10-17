@@ -60,7 +60,7 @@ class Shell extends React.Component {
         <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
         {script}
         <script>
-        alert(222)
+        console.log('yo')
         </script>
       </body>
       </html>
