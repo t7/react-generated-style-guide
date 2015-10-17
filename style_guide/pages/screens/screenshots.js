@@ -1,17 +1,11 @@
-
 var serverRoot = 'http://localhost:8080/#/'
 var imageRoot = './build/style_guide/screens/shots/'
-
-var viewportSizes = [
-  {
-    width: 1280
-  }
-]
 
 var files = [
   '',
   'profile'
 ]
+
 var index = 0
 
 function shoot () {
@@ -21,13 +15,30 @@ function shoot () {
   }
 
   var page = require('webpage').create()
-  page.viewportSize = {
-    width: 1280,
-    height: Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight)
-  }
 
   page.open(serverRoot + file, function () {
-    page.render(imageRoot + (file || 'index') + '.png')
+
+    page.viewportSize = {
+      width: 1200,
+      height: 800
+    }
+
+    page.render(imageRoot + (file || 'index') + '_large.png')
+
+    page.viewportSize = {
+      width: 768,
+      height: 800
+    }
+
+    page.render(imageRoot + (file || 'index') + '_medium.png')
+
+    page.viewportSize = {
+      width: 480,
+      height: 800
+    }
+
+    page.render(imageRoot + (file || 'index') + '_small.png')
+
     index++
     shoot()
   })
