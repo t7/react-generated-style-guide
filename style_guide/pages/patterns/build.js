@@ -45,6 +45,7 @@ function renderPatterns () {
   var patternsMarkup = ReactDOMServer.renderToStaticMarkup(patternsElement)
 
   var shellElement = React.createElement(ShellTemplate, {
+    title: 'Patterns',
     root: './',
     style: 'style.css',
     script: 'index.js',

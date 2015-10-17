@@ -41,6 +41,7 @@ function renderIntro () {
   var introMarkup = ReactDOMServer.renderToStaticMarkup(introElement)
 
   var shellElement = React.createElement(ShellTemplate, {
+    title: 'Intro',
     markup: introMarkup
   })
 

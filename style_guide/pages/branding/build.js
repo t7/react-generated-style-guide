@@ -42,6 +42,7 @@ function renderBranding () {
   var brandingMarkup = ReactDOMServer.renderToStaticMarkup(brandingElement)
 
   var shellElement = React.createElement(ShellTemplate, {
+    title: 'Branding',
     markup: brandingMarkup
   })
 

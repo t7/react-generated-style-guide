@@ -30,6 +30,15 @@ class Shell extends React.Component {
     const markup = this.props.markup
     const root = this.props.root
 
+    const suffix = 'Interactive Style Guide'
+    var title = this.props.title
+
+    if (title) {
+      title = title + ' | ' + suffix
+    } else {
+      title = suffix
+    }
+
     var style = this.props.style
     var script = this.props.script
 
@@ -55,7 +64,7 @@ class Shell extends React.Component {
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
       <link rel='stylesheet' href='/style_guide/style.css' />
       {style}
-      <title>Interactive Style Guide</title>
+      <title>{title}</title>
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
@@ -69,10 +78,11 @@ class Shell extends React.Component {
 
 // Validation.
 Shell.propTypes = {
+  markup: React.PropTypes.string,
   root: React.PropTypes.string,
   script: React.PropTypes.string,
   style: React.PropTypes.string,
-  markup: React.PropTypes.string
+  title: React.PropTypes.string
 }
 
 Shell.defaultProps = {

@@ -59,6 +59,7 @@ function renderScreens () {
   var screensMarkup = ReactDOMServer.renderToStaticMarkup(screensElement)
 
   var shellElement = React.createElement(ShellTemplate, {
+    title: 'Project Screens',
     markup: screensMarkup
   })
 

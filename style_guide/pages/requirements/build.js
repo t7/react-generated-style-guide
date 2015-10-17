@@ -41,6 +41,7 @@ function renderRequirements () {
   var requirementsMarkup = ReactDOMServer.renderToStaticMarkup(requirementsElement)
 
   var shellElement = React.createElement(ShellTemplate, {
+    title: 'Requirements',
     markup: requirementsMarkup
   })
 
