@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
-    <link rel="stylesheet" href="/style_guide/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Intro | Interactive Style Guide</title>
   </head>
   <body>
@@ -14,7 +14,7 @@
         <header class="isg-app__isg-app__header___T2aeS" role="banner">
           <b class="isg-app__isg-app__header__title___3yYeY">Interactive Style Guide</b>
           <select class="t7-form__t7-form__select--width-auto___1VThn t7-form__t7-form__select___1Gcm3" id="isg_header_select" name="isg_header_select">
-            <option value="intro">- Intro</option>
+            <option selected="" value="">- Intro</option>
             <option value="branding">- Branding</option>
             <option value="patterns">- Patterns</option>
             <option value="requirements">- Requirements</option>
@@ -38,9 +38,6 @@
               });
               el.onchange = function() {
                 var value = el.value;
-                if (!value) {
-                  return;
-                }
                 var url = '/style_guide/' + value;
                 location.href = url;
               };

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
-    <link rel="stylesheet" href="/style_guide/style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <title>Project Screens | Interactive Style Guide</title>
   </head>
   <body>
@@ -14,7 +14,7 @@
         <header class="isg-app__isg-app__header___T2aeS" role="banner">
           <b class="isg-app__isg-app__header__title___3yYeY">Interactive Style Guide</b>
           <select class="t7-form__t7-form__select--width-auto___1VThn t7-form__t7-form__select___1Gcm3" id="isg_header_select" name="isg_header_select">
-            <option value="intro">- Intro</option>
+            <option selected="" value="">- Intro</option>
             <option value="branding">- Branding</option>
             <option value="patterns">- Patterns</option>
             <option value="requirements">- Requirements</option>
@@ -38,9 +38,6 @@
               });
               el.onchange = function() {
                 var value = el.value;
-                if (!value) {
-                  return;
-                }
                 var url = '/style_guide/' + value;
                 location.href = url;
               };
@@ -60,31 +57,31 @@
               <hr/>
               <h2 id="accounts">Accounts
                 <small>—
-                  <a href="http://localhost:8080">View Live Page</a> 
+                  <a href="../../">View Live Page</a> 
                 </small> 
               </h2>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Mobile</figcaption>
-                <a href="/style_guide/screens/shots/accounts_mobile.png" target="_blank">
-                  <img src="/style_guide/screens/shots/accounts_mobile.png" alt="Screenshot of Accounts on mobile" />
+                <a href="shots/accounts_mobile.png" target="_blank">
+                  <img src="shots/accounts_mobile.png" alt="Screenshot of Accounts on mobile" />
                 </a> 
               </figure>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Tablet</figcaption>
-                <a href="/style_guide/screens/shots/accounts_tablet.png" target="_blank">
-                  <img src="/style_guide/screens/shots/accounts_tablet.png" alt="Screenshot of Accounts on tablet" />
+                <a href="shots/accounts_tablet.png" target="_blank">
+                  <img src="shots/accounts_tablet.png" alt="Screenshot of Accounts on tablet" />
                 </a> 
               </figure>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Desktop</figcaption>
-                <a href="/style_guide/screens/shots/accounts_desktop.png" target="_blank">
-                  <img src="/style_guide/screens/shots/accounts_desktop.png" alt="Screenshot of Accounts on desktop" />
+                <a href="shots/accounts_desktop.png" target="_blank">
+                  <img src="shots/accounts_desktop.png" alt="Screenshot of Accounts on desktop" />
                 </a> 
               </figure>
             </div>
@@ -94,31 +91,31 @@
               <hr/>
               <h2 id="profile">Profile
                 <small>—
-                  <a href="http://localhost:8080/#/profile">View Live Page</a> 
+                  <a href="../../#/profile">View Live Page</a> 
                 </small> 
               </h2>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Mobile</figcaption>
-                <a href="/style_guide/screens/shots/profile_mobile.png" target="_blank">
-                  <img src="/style_guide/screens/shots/profile_mobile.png" alt="Screenshot of Profile on mobile" />
+                <a href="shots/profile_mobile.png" target="_blank">
+                  <img src="shots/profile_mobile.png" alt="Screenshot of Profile on mobile" />
                 </a> 
               </figure>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Tablet</figcaption>
-                <a href="/style_guide/screens/shots/profile_tablet.png" target="_blank">
-                  <img src="/style_guide/screens/shots/profile_tablet.png" alt="Screenshot of Profile on tablet" />
+                <a href="shots/profile_tablet.png" target="_blank">
+                  <img src="shots/profile_tablet.png" alt="Screenshot of Profile on tablet" />
                 </a> 
               </figure>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Desktop</figcaption>
-                <a href="/style_guide/screens/shots/profile_desktop.png" target="_blank">
-                  <img src="/style_guide/screens/shots/profile_desktop.png" alt="Screenshot of Profile on desktop" />
+                <a href="shots/profile_desktop.png" target="_blank">
+                  <img src="shots/profile_desktop.png" alt="Screenshot of Profile on desktop" />
                 </a> 
               </figure>
             </div>
@@ -128,31 +125,31 @@
               <hr/>
               <h2 id="page_not_found">Page Not Found
                 <small>—
-                  <a href="http://localhost:8080/#/404">View Live Page</a> 
+                  <a href="../../#/404">View Live Page</a> 
                 </small> 
               </h2>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Mobile</figcaption>
-                <a href="/style_guide/screens/shots/page_not_found_mobile.png" target="_blank">
-                  <img src="/style_guide/screens/shots/page_not_found_mobile.png" alt="Screenshot of Page Not Found on mobile" />
+                <a href="shots/page_not_found_mobile.png" target="_blank">
+                  <img src="shots/page_not_found_mobile.png" alt="Screenshot of Page Not Found on mobile" />
                 </a> 
               </figure>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Tablet</figcaption>
-                <a href="/style_guide/screens/shots/page_not_found_tablet.png" target="_blank">
-                  <img src="/style_guide/screens/shots/page_not_found_tablet.png" alt="Screenshot of Page Not Found on tablet" />
+                <a href="shots/page_not_found_tablet.png" target="_blank">
+                  <img src="shots/page_not_found_tablet.png" alt="Screenshot of Page Not Found on tablet" />
                 </a> 
               </figure>
             </div>
             <div class="grid__grid-33___3F19h grid__tablet-grid-33___2LV5t">
               <figure class="t7-figure__t7-figure___2wGU1">
                 <figcaption>Desktop</figcaption>
-                <a href="/style_guide/screens/shots/page_not_found_desktop.png" target="_blank">
-                  <img src="/style_guide/screens/shots/page_not_found_desktop.png" alt="Screenshot of Page Not Found on desktop" />
+                <a href="shots/page_not_found_desktop.png" target="_blank">
+                  <img src="shots/page_not_found_desktop.png" alt="Screenshot of Page Not Found on desktop" />
                 </a> 
               </figure>
             </div>
