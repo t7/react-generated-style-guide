@@ -47,7 +47,6 @@
     "snazzy": "^1.0.1",
     "standard": "^5.3.1",
     "style-loader": "^0.12.3",
-    "trash": "^3.1.1",
     "url-loader": "^0.5.6",
     "webpack": "^1.10.1",
     "webpack-dev-server": "^1.9.0",
