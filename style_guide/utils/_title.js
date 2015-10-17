@@ -1,26 +1,16 @@
 // Set the page `<title>`.
-export default function (path, titles) {
+export default function (props) {
   // Fallback site title.
-  const suffix = 'T7 Interactive Style Guide'
-
-  // Grab pathname from `props.location`.
-  path = path.split('/')[1]
+  const suffix = 'ACME Corp.'
 
   // Used in conditional.
-  var title
+  var title = props.route.title
 
-  // Is there a pathname?
-  if (path) {
-    // Does a title exist?
-    if (titles[path]) {
-      title = titles[path] + ' | ' + suffix
+  // Is there a title?
+  if (title) {
+    title = title + ' | ' + suffix
 
-    // If no title exists, 404.
-    } else {
-      title = titles['404'] + ' | ' + suffix
-    }
-
-  // If no path name.
+  // If no title exists.
   } else {
     title = suffix
   }

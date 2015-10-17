@@ -31,7 +31,7 @@ class Page extends React.Component {
 
           <Grid desktop='100'>
 
-            <Markdown file='404.md' />
+            <Markdown file='doc_requirements.md' />
 
           </Grid>
 
