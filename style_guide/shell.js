@@ -59,9 +59,6 @@ class Shell extends React.Component {
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
         <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
         {script}
-        <script>
-        console.log('yo')
-        </script>
       </body>
       </html>
     )
