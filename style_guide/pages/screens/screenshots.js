@@ -23,26 +23,63 @@ function shoot () {
   var page = require('webpage').create()
 
   page.open(serverRoot + file, function () {
-    page.viewportSize = {
-      width: 1200,
-      height: 1200
+    var html = document.documentElement
+    var body = document.body
+
+    html.setAttribute('data-mode', 'phantom')
+
+    // Get tallest.
+    function max () {
+      return Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      )
     }
 
-    page.render(imageRoot + (file || 'accounts') + '_desktop.png')
+    // Called from setTimeout.
+    function kickoff () {
+      // ========
+      // DESKTOP.
+      // ========
 
-    page.viewportSize = {
-      width: 768,
-      height: 1024
+      page.viewportSize = {
+        width: 1200,
+        height: max()
+      }
+
+      page.render(imageRoot + (file || 'accounts') + '_desktop.png')
+
+      // =======
+      // TABLET.
+      // =======
+
+      page.viewportSize = {
+        width: 768,
+        height: max()
+      }
+
+      page.render(imageRoot + (file || 'accounts') + '_tablet.png')
+
+      // =======
+      // MOBILE.
+      // =======
+
+      page.viewportSize = {
+        width: 480,
+        height: max()
+      }
+
+      page.render(imageRoot + (file || 'accounts') + '_mobile.png')
     }
 
-    page.render(imageRoot + (file || 'accounts') + '_tablet.png')
-
-    page.viewportSize = {
-      width: 480,
-      height: 800
-    }
-
-    page.render(imageRoot + (file || 'accounts') + '_mobile.png')
+    // Set delay, for CSS to kick in.
+    var timer = setTimeout(function () {
+      clearTimeout(timer)
+      kickoff()
+    }, 500)
 
     index++
     shoot()

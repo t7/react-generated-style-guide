@@ -37,7 +37,6 @@ class Page extends React.Component {
       const name = item.name
       const url = item.url
 
-      const img_border = '#ddd'
       const img_path = 'shots/'
 
       const img_mobile = img_path + id + '_mobile.png'
@@ -47,18 +46,22 @@ class Page extends React.Component {
       // Build main markup.
       main.push(
         <GridOffset key={i}>
+
           <Grid desktop='100'>
             <hr />
             <h2 id={id}>
               {name}
 
               <small>
+                {' '}
                 &mdash;
+                {' '}
                 <a href={url}>View Live Page</a>
               </small>
             </h2>
           </Grid>
-          <Grid desktop='33' tablet='33'>
+
+          <Grid desktop='25' tablet='25'>
             <ImageFigure
               alt={'Screenshot of ' + name + ' on mobile'}
               caption='Mobile'
@@ -68,7 +71,8 @@ class Page extends React.Component {
               target='_blank'
             />
           </Grid>
-          <Grid desktop='33' tablet='33'>
+
+          <Grid desktop='35' tablet='35'>
             <ImageFigure
               alt={'Screenshot of ' + name + ' on tablet'}
               caption='Tablet'
@@ -78,7 +82,8 @@ class Page extends React.Component {
               target='_blank'
             />
           </Grid>
-          <Grid desktop='33' tablet='33'>
+
+          <Grid desktop='40' tablet='40'>
             <ImageFigure
               alt={'Screenshot of ' + name + ' on desktop'}
               caption='Desktop'
@@ -88,6 +93,7 @@ class Page extends React.Component {
               target='_blank'
             />
           </Grid>
+
         </GridOffset>
       )
 
