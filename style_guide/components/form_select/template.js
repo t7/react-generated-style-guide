@@ -54,10 +54,13 @@ class Select extends React.Component {
     const id = this.state.id
 
     // Props driven.
+    const autofocus = this.props.autofocus
     const ariaControls = this.props.ariaControls
     const disabled = this.props.disabled
+    const name = this.props.name || id
     const options = this.props.options
     const value = this.props.value
+    const required = this.props.required
     const width = this.props.width
 
     const handleChange = this.handleChange.bind(this)
@@ -71,10 +74,14 @@ class Select extends React.Component {
     return (
       <select
         aria-controls={ariaControls}
+        autoFocus={autofocus}
         className={className}
+        defaultValue={value}
         disabled={disabled}
         id={id}
-        value={value}
+        name={name}
+        required={required}
+
         onChange={handleChange}
       >
         {
@@ -90,10 +97,13 @@ class Select extends React.Component {
 // Validation.
 Select.propTypes = {
   ariaControls: React.PropTypes.string,
+  autofocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
+  name: React.PropTypes.string,
   options: React.PropTypes.array,
   value: React.PropTypes.string,
+  required: React.PropTypes.bool,
   width: React.PropTypes.string,
 
   // Events.
@@ -102,7 +112,6 @@ Select.propTypes = {
 
 // Prop defaults.
 Select.defaultProps = {
-  disabled: false,
   value: '',
 
   options: [
