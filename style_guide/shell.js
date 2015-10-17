@@ -62,10 +62,8 @@ class Shell extends React.Component {
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
-        <script
-          src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'
-        ></script>
         {script}
+        <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
         <script dangerouslySetInnerHTML={{__html: header_select_js}} />
       </body>
       </html>
