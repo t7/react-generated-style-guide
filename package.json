@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "phantom": "phantomjs phantom_test.js",
-    "test": "webpack",
     "prestart": "npm run build_index",
     "start": "webpack-dev-server --hot",
     "build": "webpack",
@@ -16,7 +14,8 @@
     "build_isg_branding": "node ./style_guide/pages/branding/build",
     "build_isg_patterns": "node ./style_guide/pages/patterns/build",
     "build_isg_requirements": "node ./style_guide/pages/requirements/build",
-    "build_isg_screens": "node ./style_guide/pages/screens/build"
+    "build_isg_screens": "node ./style_guide/pages/screens/build",
+    "screenshots": "node ./style_guide/pages/screens/screenshots"
   },
   "repository": {
     "type": "git",
