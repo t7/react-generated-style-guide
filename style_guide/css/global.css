@@ -72,14 +72,6 @@ code {
   font-family: "DejaVu Sans Mono", Menlo, Consolas, monospace;
 }
 
-pre {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 20px;
-
-  overflow-x: auto;
-}
-
 /*
 Headings
 ================================================================================

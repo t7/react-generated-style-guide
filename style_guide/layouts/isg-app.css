@@ -1,18 +1,4 @@
 /*
-App shell.
-================================================================================
-*/
-
-.isg-app a {
-  color: #69c;
-  text-decoration: none;
-}
-
-.isg-app a:hover {
-  color: #c96;
-}
-
-/*
 Shared layout styling.
 ================================================================================
 */
@@ -60,11 +46,12 @@ Outer app shell.
 */
 
 .isg-app a {
-  color: #06c;
+  color: #69c;
+  text-decoration: none;
 }
 
 .isg-app a:hover {
-  color: #c60;
+  color: #c96;
 }
 
 /*

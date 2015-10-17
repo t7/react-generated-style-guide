@@ -2,7 +2,6 @@
 var fse = require('fs-extra')
 
 var screensTemplatePath = require.resolve('./template.js')
-var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var shellPath = require.resolve('../../shell.js')
@@ -65,7 +64,6 @@ function renderScreens () {
 
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
-  html = pretty(html)
 
   fse.outputFileSync('./build/style_guide/screens/index.html', html)
 }

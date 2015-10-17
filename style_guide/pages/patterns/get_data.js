@@ -34,7 +34,8 @@ var getData = function (callback) {
       var string = ReactDOMServer.renderToString(element)
 
       var markup = ReactDOMServer.renderToStaticMarkup(element)
-      markup = hljs.highlight('html', pretty(markup)).value
+      markup = pretty(markup)
+      markup = hljs.highlight('html', markup).value
 
       var path = components[index]
       var id = path.replace('/template.js', '').split('/').pop()

@@ -9,14 +9,14 @@ import Sidebar from '../../layouts/app_sidebar'
 // CSS.
 import style from '../../css/isg-section.css'
 
-// Highlight.js CSS
-import '../../css/highlight.css'
-
 // UI components.
 import Button from '../../components/form_button/template'
 
 // Get raw JS.
 import raw_button_toggle from 'raw!./raw_button_toggle'
+
+// Highlight.js CSS
+import highlight_css_raw from 'raw!./highlight.txt'
 
 // Define class.
 class Page extends React.Component {
@@ -44,20 +44,23 @@ class Page extends React.Component {
       // Build main markup.
       main.push(
         <section id={id} key={i} className={style['isg-section']}>
+
           <header className={style['isg-section__header--title-case']}>
             {name}
           </header>
+
           <div
             className={style['isg-section__example']}
             data-component={id}
           />
+
           <hr />
+
           <p data-code-trigger={id}>
             <Button text='Show Code' mode='primary' size='small' />
           </p>
-          <pre style={displayNone}>
-            <code className='hljs html' data-code-example={id} dangerouslySetInnerHTML={{__html: markup}}/>
-          </pre>
+
+          <pre data-code-example={id} style={displayNone}><code className='hljs html' data-code-example={id} dangerouslySetInnerHTML={{__html: markup}} /></pre>
 
         </section>
       )
@@ -89,6 +92,7 @@ class Page extends React.Component {
           {main}
         </Main>
 
+        <style dangerouslySetInnerHTML={{__html: highlight_css_raw}} />
         <script dangerouslySetInnerHTML={{__html: raw_button_toggle}} />
 
       </App>

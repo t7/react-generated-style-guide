@@ -2,7 +2,6 @@
 var fse = require('fs-extra')
 
 var requirementsTemplatePath = require.resolve('./template.js')
-var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var shellPath = require.resolve('../../shell.js')
@@ -47,7 +46,6 @@ function renderRequirements () {
 
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
-  html = pretty(html)
 
   fse.outputFileSync('./build/style_guide/requirements/index.html', html)
 }

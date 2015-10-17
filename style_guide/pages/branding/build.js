@@ -3,7 +3,6 @@ var fse = require('fs-extra')
 
 var styleGuideConfig = require('../../../style_guide.config.js')
 var brandingTemplatePath = require.resolve('./template.js')
-var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var shellPath = require.resolve('../../shell.js')
@@ -48,7 +47,6 @@ function renderBranding () {
 
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
-  html = pretty(html)
 
   fse.outputFileSync('./build/style_guide/branding/index.html', html)
 }

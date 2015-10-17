@@ -2,7 +2,6 @@
 var fse = require('fs-extra')
 var getData = require('./get_data')
 var patternsTemplatePath = require.resolve('./template.js')
-var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var shellPath = require.resolve('../../shell.js')
@@ -53,7 +52,6 @@ function renderPatterns () {
 
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
-  html = pretty(html)
 
   fse.outputFileSync('./build/style_guide/patterns/index.html', html)
 }
