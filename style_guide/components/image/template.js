@@ -12,8 +12,8 @@ class Image extends React.Component {
   render () {
     const alt = this.props.alt
 
-    var height = this.props.height
-    var width = this.props.width
+    var height = this.props.height || ''
+    var width = this.props.width || ''
 
     const numericWidth = parseFloat(width)
     const numericHeight = parseFloat(height)

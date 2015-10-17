@@ -112,7 +112,8 @@ h6 {
   font-size: 15px;
 }
 
-h1 small {
+h1 small,
+h2 small {
   color: #999;
   font-size: 13px;
   font-weight: normal;

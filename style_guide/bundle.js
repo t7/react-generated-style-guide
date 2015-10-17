@@ -14,3 +14,4 @@ import './css/t7-form.css'
 
 // Component level CSS.
 import './components/color_list/isg-color-list.css'
+import './components/image_figure/t7-figure.css'

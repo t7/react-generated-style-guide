@@ -25,24 +25,24 @@ function shoot () {
   page.open(serverRoot + file, function () {
     page.viewportSize = {
       width: 1200,
-      height: 800
+      height: 1200
     }
 
-    page.render(imageRoot + (file || 'accounts') + '_large.png')
+    page.render(imageRoot + (file || 'accounts') + '_desktop.png')
 
     page.viewportSize = {
       width: 768,
-      height: 800
+      height: 1024
     }
 
-    page.render(imageRoot + (file || 'accounts') + '_medium.png')
+    page.render(imageRoot + (file || 'accounts') + '_tablet.png')
 
     page.viewportSize = {
       width: 480,
       height: 800
     }
 
-    page.render(imageRoot + (file || 'accounts') + '_small.png')
+    page.render(imageRoot + (file || 'accounts') + '_mobile.png')
 
     index++
     shoot()

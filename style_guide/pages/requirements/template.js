@@ -24,9 +24,6 @@ class Page extends React.Component {
         <Sidebar>
           <ul>
             <li>
-              <a href='#requirements'>Requirements</a>
-            </li>
-            <li>
               <a href='#browser-support'>Browser Support</a>
             </li>
             <li>
