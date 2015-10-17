@@ -15,6 +15,9 @@ import '../../css/highlight.css'
 // UI components.
 import Button from '../../components/form_button/template'
 
+// Get raw JS.
+import raw_button_toggle from 'raw!./raw_button_toggle'
+
 // Define class.
 class Page extends React.Component {
   constructor (props) {
@@ -50,7 +53,7 @@ class Page extends React.Component {
           />
           <hr />
           <p data-code-trigger={id}>
-            <Button text='Hide/Show HTML' mode='primary' size='small' />
+            <Button text='Show Code' mode='primary' size='small' />
           </p>
           <pre style={displayNone}>
             <code className='hljs html' data-code-example={id} dangerouslySetInnerHTML={{__html: markup}}/>
@@ -85,6 +88,8 @@ class Page extends React.Component {
 
           {main}
         </Main>
+
+        <script dangerouslySetInnerHTML={{__html: raw_button_toggle}} />
 
       </App>
     )

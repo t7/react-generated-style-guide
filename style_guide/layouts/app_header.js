@@ -57,7 +57,7 @@ class Header extends React.Component {
         </b>
 
         <Select id='isg_header_select' options={options} width='auto' />
-        <script dangerouslySetInnerHTML={{__html: raw_header_select}}></script>
+        <script dangerouslySetInnerHTML={{__html: raw_header_select}} />
 
         <span className={style['isg-app__header__logo']}>
           TandemSeven
