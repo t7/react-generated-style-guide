@@ -75,8 +75,6 @@ Header.
   right: 0;
 }
 
-.isg-app__header button,
-.isg-app__header input,
 .isg-app__header select {
   margin-top: 12px;
   vertical-align: top;
