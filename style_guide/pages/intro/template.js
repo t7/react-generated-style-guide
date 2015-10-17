@@ -21,7 +21,18 @@ class Page extends React.Component {
     return (
       <App>
 
-        <Sidebar />
+        <Sidebar>
+          <p>
+            <b>
+              Hello. :)
+            </b>
+          </p>
+          <p>
+            <small>
+              You look nice today.
+            </small>
+          </p>
+        </Sidebar>
 
         <Main>
           <Markdown file='doc_intro.md' />
