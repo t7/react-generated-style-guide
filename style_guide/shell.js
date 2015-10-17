@@ -43,12 +43,7 @@ class Shell extends React.Component {
     var script = this.props.script
 
     if (script) {
-      script = root + script
       script = <script src={script}></script>
-    }
-
-    if (style) {
-      style = root + style
       style = <link rel='stylesheet' href={style} />
     }
 
@@ -62,7 +57,7 @@ class Shell extends React.Component {
       />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato' />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
-      <link rel='stylesheet' href='/style_guide/style.css' />
+      <link rel='stylesheet' href={root + 'style.css'}/>
       {style}
       <title>{title}</title>
       </head>
@@ -86,7 +81,7 @@ Shell.propTypes = {
 }
 
 Shell.defaultProps = {
-  root: '/style_guide/',
+  root: '../',
   style: '',
   script: '',
   markup: ''

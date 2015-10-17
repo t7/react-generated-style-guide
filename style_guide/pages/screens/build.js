@@ -38,17 +38,17 @@ function getShellTemplate () {
 var data = [
   {
     id: 'accounts',
-    url: 'http://localhost:8080',
+    url: '../../',
     name: 'Accounts'
   },
   {
     id: 'profile',
-    url: 'http://localhost:8080/#/profile',
+    url: '../../#/profile',
     name: 'Profile'
   },
   {
     id: 'page_not_found',
-    url: 'http://localhost:8080/#/404',
+    url: '../../#/404',
     name: 'Page Not Found'
   }
 ]

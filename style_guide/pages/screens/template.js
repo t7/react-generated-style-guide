@@ -38,7 +38,7 @@ class Page extends React.Component {
       const url = item.url
 
       const img_border = '#ddd'
-      const img_path = '/style_guide/screens/shots/'
+      const img_path = 'shots/'
 
       const img_mobile = img_path + id + '_mobile.png'
       const img_tablet = img_path + id + '_tablet.png'
