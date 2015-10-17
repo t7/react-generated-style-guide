@@ -106,6 +106,11 @@ xmp {
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 html {
   box-sizing: border-box;
 }
