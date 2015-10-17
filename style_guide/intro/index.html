@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <link rel="stylesheet" href="/style_guide/style.css" />
+    <title>Intro | Interactive Style Guide</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="isg-app__isg-app___3e6vd">
+        <header class="isg-app__isg-app__header___T2aeS" role="banner">
+          <b class="isg-app__isg-app__header__title___3yYeY">Interactive Style Guide</b>
+          <select class="t7-form__t7-form__select--width-auto___1VThn t7-form__t7-form__select___1Gcm3" id="isg_header_select" name="isg_header_select">
+            <option value="intro">- Intro</option>
+            <option value="branding">- Branding</option>
+            <option value="patterns">- Patterns</option>
+            <option value="requirements">- Requirements</option>
+            <option value="screens">- Screens</option>
+          </select>
+          <script>
+            'use strict';
+            ;
+            (function() {
+              var document = window.document;
+              var location = window.location;
+              var arr = location.pathname.split('/');
+              var len = arr.length;
+              var path = arr[len - 1] || arr[len - 2];
+              var el = document.getElementById('isg_header_select');
+              var list = el.getElementsByTagName('option');
+              Array.prototype.forEach.call(list, function(item, i) {
+                if (path === item.value) {
+                  el.selectedIndex = i;
+                }
+              });
+              el.onchange = function() {
+                var value = el.value;
+                if (!value) {
+                  return;
+                }
+                var url = '/style_guide/' + value;
+                location.href = url;
+              };
+            })();
+          </script><span class="isg-app__isg-app__header__logo___2gt_J">TandemSeven</span> </header>
+        <nav class="isg-app__isg-app__sidebar___7JvyS"></nav>
+        <main role="main" class="isg-app__isg-app__main___A7Zej">
+          <p>This Interactive Style Guide site is intended to serve as a reference for those who will be building, maintaining and/or extending the Acme Corp website. This guide contains front-end templates (HTML,CSS,JS) along with visual design assets necessary
+            for developing screens.</p>
+          <p>All data portrayed in the screen comps or examples included is for placement only. This guide does not cover detailed branding guidelines, business requirements, or user support.</p>
+          <p>Any data or functionality depicted is for example purposes only. For actual data and functionality, please refer to the wireframes or the UI Specifications document.</p>
+        </main>
+        <footer class="isg-app__isg-app__footer___2o40p" role="contentinfo">© 2015 TandemSeven</footer>
+      </div>
+    </div>
+    <script src="https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en"></script>
+  </body>
+</html>
