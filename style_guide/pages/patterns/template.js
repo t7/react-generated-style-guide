@@ -9,6 +9,9 @@ import Sidebar from '../../layouts/app_sidebar'
 // CSS.
 import style from '../../css/isg-section.css'
 
+// Highlight.js CSS
+import '../../css/highlight.css'
+
 // UI components.
 import Button from '../../components/form_button/template'
 
@@ -49,7 +52,10 @@ class Page extends React.Component {
           <p data-code-trigger={id}>
             <Button text='Hide/Show HTML' mode='primary' size='small' />
           </p>
-          <pre data-code-example={id} style={displayNone}><code>{markup}</code></pre>
+          <pre style={displayNone}>
+            <code className='hljs html' data-code-example={id} dangerouslySetInnerHTML={{__html: markup}}/>
+          </pre>
+
         </section>
       )
 

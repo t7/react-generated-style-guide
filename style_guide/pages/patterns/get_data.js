@@ -1,6 +1,7 @@
 // Dependencies.
 var glob = require('glob')
 var pretty = require('pretty')
+var hljs = require('highlight.js')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var webpackConfig = require('../../../webpack.config.js')
@@ -33,7 +34,7 @@ var getData = function (callback) {
       var string = ReactDOMServer.renderToString(element)
 
       var markup = ReactDOMServer.renderToStaticMarkup(element)
-      markup = pretty(markup)
+      markup = hljs.highlight('html', pretty(markup)).value
 
       var path = components[index]
       var id = path.replace('/template.js', '').split('/').pop()
