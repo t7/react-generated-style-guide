@@ -35,8 +35,12 @@ function getShellTemplate () {
   })
 }
 
+var data = [{
+  name: 'yo'
+}]
+
 function renderScreens () {
-  var screensElement = React.createElement(ScreensTemplate)
+  var screensElement = React.createElement(ScreensTemplate, {data: data})
 
   var screensMarkup = ReactDOMServer.renderToStaticMarkup(screensElement)
 

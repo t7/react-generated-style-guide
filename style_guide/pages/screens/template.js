@@ -15,49 +15,45 @@ class Page extends React.Component {
 
   // Render method.
   render () {
+    const main = []
+    const sidebar = []
+
+    this.props.data.map(function (item, i) {
+      const id = item.id
+      const href = '#' + id
+      const name = item.name
+
+      main.push(
+        <section id={id} key={i}>
+          <header>
+            {name}
+          </header>
+          <div
+            data-component={id}
+          />
+        </section>
+      )
+
+      // Build sidebar markup.
+      sidebar.push(
+        <li key={i}>
+          <a href={href}>
+            {name}
+          </a>
+        </li>
+      )
+    })
+
     return (
+
       <App>
 
         <Sidebar>
-          <ul>
-            <li>
-              <a href='#'>Uno</a>
-            </li>
-            <li>
-              <a href='#'>Dos</a>
-            </li>
-            <li>
-              <a href='#'>Tres</a>
-            </li>
-          </ul>
+          <ul>{sidebar}</ul>
         </Sidebar>
 
         <Main>
-
-          <p className='sg-description'>
-          Templates consist of one or more patterns arranged in a layout. A template can represent a portion of a page or can be a page in and of itself.
-
-          Each template opens in a new browser window.
-          </p>
-
-          {
-            this.screens.forEach(function ({screen, title}, i) {
-              return (
-                <div id='{id}}'>
-                  <div className='sg-title sg-thumbnail-title'>{title}</div>
-                  <div className='sg-thumbnail sg-thumbnail-desktop'>
-                    <a href='{url}' target='_blank'><img src='{src}.html-1366x768.png'/></a>
-                  </div>
-                  <div className='sg-thumbnail sg-thumbnail-tablet'>
-                    <a href='{url}' target='_blank'><img src='{src}.html-768x1024.png'/></a>
-                  </div>
-                  <div className='sg-thumbnail sg-thumbnail-phone'>
-                    <a href='{url}' target='_blank'><img src='{src}.html-320x568.png'/></a>
-                  </div>
-                </div>
-              )
-            })
-          }
+          {main}
         </Main>
 
       </App>
@@ -66,7 +62,9 @@ class Page extends React.Component {
 }
 
 // Validation.
-Page.propTypes = {}
+Page.propTypes = {
+  data: React.PropTypes.array
+}
 
 // Export.
 export default Page
