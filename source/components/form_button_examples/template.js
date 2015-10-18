@@ -6,7 +6,7 @@ import Button from '../form_button/template'
 import ListInline from '../list_inline/template'
 
 // Define class.
-class Page extends React.Component {
+class ButtonExample extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -67,11 +67,5 @@ class Page extends React.Component {
   }
 }
 
-// Validation.
-Page.propTypes = {
-  location: React.PropTypes.object,
-  route: React.PropTypes.object
-}
-
 // Export.
-export default Page
+export default ButtonExample
