@@ -74,11 +74,11 @@ class Page extends React.Component {
           </ListInline>
 
           <pre data-example-jsx={id} style={displayNone}>
-            <code className='hljs javascript' dangerouslySetInnerHTML={{__html: jsx}} />
+            <code className='hljs' dangerouslySetInnerHTML={{__html: jsx}} />
           </pre>
 
           <pre data-example-html={id} style={displayNone}>
-            <code className='hljs html' dangerouslySetInnerHTML={{__html: markup}} />
+            <code className='hljs' dangerouslySetInnerHTML={{__html: markup}} />
           </pre>
 
         </section>

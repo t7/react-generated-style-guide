@@ -1,8 +1,8 @@
 // Dependencies.
 var fse = require('fs-extra')
 var glob = require('glob')
-var pretty = require('pretty')
 var hljs = require('highlight.js')
+var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var webpackConfig = require('../../../webpack.config.js')
@@ -33,7 +33,8 @@ var getData = function (callback) {
       }
 
       var jsx = fse.readFileSync(require.resolve('../../.' + components[index]))
-      jsx = jsx.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      jsx = jsx.toString()
+      jsx = hljs.highlight('xml', jsx).value
 
       var component = factory()
       var element = React.createElement(component)
