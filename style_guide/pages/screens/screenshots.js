@@ -2,99 +2,56 @@
   phantom
 */
 
-var serverRoot = 'http://localhost:8080/#/'
-var imageRoot = './build/style_guide/screens/shots/'
+// Dependencies.
+const webpage = require('webpage')
+const takeScreenshot = require('./helpers/take_screenshot')
 
-var files = [
-  '',
-  'profile',
-  'page_not_found'
-]
+// Options.
+const options = require('./helpers/options')
+const breakpoints = options.breakpoints
+const imageRoot = options.imageRoot
+const serverRoot = options.serverRoot
 
 // Used in loop.
 var index = 0
 
-// Get page height.
-function getPageHeight (page) {
-  return page.evaluate(function () {
-    var html = document.documentElement
-    var body = document.body
-
-    html.setAttribute('data-mode', 'phantom')
-
-    return Math.max(
-      body.scrollHeight,
-      body.offsetHeight,
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight
-    )
-  })
-}
-
-function takeScreenshot () {
-  var file = files[index]
-
-  if (!file && file !== '') {
+// Called repeatedly.
+function shoot () {
+  if (!options.paths[index]) {
     phantom.exit()
     return
   }
 
-  var page = require('webpage').create()
+  const path = options.paths[index].path
+  const file = options.paths[index].file
 
-  page.open(serverRoot + file, function () {
-    // ========
-    // DESKTOP.
-    // ========
+  // Create the page.
+  const page = webpage.create()
 
-    page.viewportSize = {
-      width: 1200,
-      height: 5
-    }
+  page.open(options.serverRoot + path, function () {
+    breakpoints.forEach(function (x) {
+      const breakpoint = x.breakpoint
+      const width = x.width
 
-    page.viewportSize = {
-      width: 1200,
-      height: getPageHeight(page)
-    }
+      takeScreenshot({
+        prefix: file,
+        suffix: breakpoint,
+        serverRoot: serverRoot,
+        imageRoot: imageRoot,
+        page: page,
+        width: width
+      })
+    })
 
-    page.render(imageRoot + (file || 'accounts') + '_desktop.png')
-
-    // =======
-    // TABLET.
-    // =======
-
-    page.viewportSize = {
-      width: 768,
-      height: 5
-    }
-
-    page.viewportSize = {
-      width: 768,
-      height: getPageHeight(page)
-    }
-
-    page.render(imageRoot + (file || 'accounts') + '_tablet.png')
-
-    // =======
-    // MOBILE.
-    // =======
-
-    page.viewportSize = {
-      width: 480,
-      height: 5
-    }
-
-    page.viewportSize = {
-      width: 480,
-      height: getPageHeight(page)
-    }
-
-    page.render(imageRoot + (file || 'accounts') + '_mobile.png')
+    // Close the page,
+    // to free memory.
+    page.close()
 
     // Keep looping through.
     index++
-    takeScreenshot()
+    shoot()
   })
 }
 
-takeScreenshot()
+// Initial call.
+shoot()
