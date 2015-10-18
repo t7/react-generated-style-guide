@@ -36,7 +36,7 @@ function getShellTemplate () {
 }
 
 function renderBranding () {
-  var brandingElement = React.createElement(BrandingTemplate, {branding: styleGuideConfig.branding})
+  var brandingElement = React.createElement(BrandingTemplate, {branding: styleGuideConfig.pages.branding})
 
   var brandingMarkup = ReactDOMServer.renderToStaticMarkup(brandingElement)
 
