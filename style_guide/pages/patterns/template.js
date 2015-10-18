@@ -11,6 +11,7 @@ import style from '../../css/isg-section.css'
 
 // UI components.
 import Button from '../../components/form_button/template'
+import ListInline from '../../components/list_inline/template'
 
 // Get raw JS.
 import raw_button_toggle from 'raw!./raw_button_toggle'
@@ -33,6 +34,7 @@ class Page extends React.Component {
     this.props.data.map(function (item, i) {
       const id = item.id
       const href = '#' + id
+      const jsx = item.jsx
       const markup = item.markup
       const name = item.name
 
@@ -56,11 +58,22 @@ class Page extends React.Component {
 
           <hr />
 
-          <p data-code-trigger={id}>
-            <Button text='Show Code' mode='primary' size='small' />
-          </p>
+          <ListInline>
+            <li data-trigger-jsx={id}>
+              <Button text='JSX Code' size='small' />
+            </li>
+            <li data-trigger-html={id}>
+              <Button text='HTML Code' size='small' />
+            </li>
+          </ListInline>
 
-          <pre data-code-example={id} style={displayNone}><code className='hljs html' data-code-example={id} dangerouslySetInnerHTML={{__html: markup}} /></pre>
+          <pre data-example-jsx={id} style={displayNone}>
+            <code className='hljs javascript' dangerouslySetInnerHTML={{__html: jsx}} />
+          </pre>
+
+          <pre data-example-html={id} style={displayNone}>
+            <code className='hljs html' dangerouslySetInnerHTML={{__html: markup}} />
+          </pre>
 
         </section>
       )

@@ -1,4 +1,5 @@
 // Dependencies.
+var fse = require('fs-extra')
 var glob = require('glob')
 var pretty = require('pretty')
 var hljs = require('highlight.js')
@@ -26,8 +27,13 @@ var getData = function (callback) {
       _callback(data)
     }
   } else {
-    webpackRequire(webpackConfig, require.resolve('../../.' + components[index]), function (err, factory) {
-      if (err) console.error(err)
+    webpackRequire(webpackConfig, require.resolve('../../.' + components[index]), function (error, factory) {
+      if (error) {
+        console.error(error)
+      }
+
+      var jsx = fse.readFileSync(require.resolve('../../.' + components[index]))
+      jsx = jsx.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
       var component = factory()
       var element = React.createElement(component)
@@ -43,12 +49,13 @@ var getData = function (callback) {
       var url = path.replace('./source', '').replace('template.js', 'index.html')
 
       data.push({
-        path: path,
         id: id,
-        name: name,
-        url: url,
+        jsx: jsx,
         markup: markup,
-        string: string
+        name: name,
+        path: path,
+        string: string,
+        url: url
       })
 
       index++
