@@ -56,7 +56,7 @@ class Page extends React.Component {
                 {' '}
                 &mdash;
                 {' '}
-                <a href={url}>View Live Page</a>
+                <a href={url}>View Page Template</a>
               </small>
             </h2>
           </Grid>

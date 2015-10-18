@@ -58,12 +58,18 @@ class Page extends React.Component {
 
           <hr />
 
+          <p>
+            <b>
+              Example code:
+            </b>
+          </p>
+
           <ListInline>
             <li data-trigger-jsx={id}>
-              <Button text='JSX Code' size='small' />
+              <Button text='JSX' size='small' />
             </li>
             <li data-trigger-html={id}>
-              <Button text='HTML Code' size='small' />
+              <Button text='HTML' size='small' />
             </li>
           </ListInline>
 
