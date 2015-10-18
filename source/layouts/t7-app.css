@@ -18,12 +18,12 @@ Wrapper. Used for "sticky footer" approach.
 */
 
 @media (min-width: 768px) {
-  html,
-  body {
+  html:not([data-mode="phantom"]),
+  html:not([data-mode="phantom"]) body {
     overflow: hidden;
   }
 
-  html .t7-app {
+  html:not([data-mode="phantom"]) .t7-app {
     overflow-x: hidden;
     overflow-y: scroll;
 
@@ -34,7 +34,7 @@ Wrapper. Used for "sticky footer" approach.
     bottom: 0;
   }
 
-  html .t7-app__wrapper {
+  html:not([data-mode="phantom"]) .t7-app__wrapper {
     min-height: 100%;
   }
 }

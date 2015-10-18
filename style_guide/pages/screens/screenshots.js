@@ -11,43 +11,50 @@ var files = [
   'page_not_found'
 ]
 
+// Used in loop.
 var index = 0
 
-function shoot () {
-  var file = files[index]
-
-  if (!file && file !== '') {
-    phantom.exit()
-  }
-
-  var page = require('webpage').create()
-
-  page.open(serverRoot + file, function () {
+// Get page height.
+function getPageHeight (page) {
+  return page.evaluate(function () {
     var html = document.documentElement
     var body = document.body
 
     html.setAttribute('data-mode', 'phantom')
 
-    // Get tallest.
-    /*
-    function max () {
-      return Math.max(
-        body.scrollHeight,
-        body.offsetHeight,
-        html.clientHeight,
-        html.scrollHeight,
-        html.offsetHeight
-      )
-    }
-    */
+    return Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    )
+  })
+}
 
+function takeScreenshot () {
+  var file = files[index]
+
+  if (!file && file !== '') {
+    phantom.exit()
+    return
+  }
+
+  var page = require('webpage').create()
+
+  page.open(serverRoot + file, function () {
     // ========
     // DESKTOP.
     // ========
 
     page.viewportSize = {
       width: 1200,
-      height: 1200
+      height: 5
+    }
+
+    page.viewportSize = {
+      width: 1200,
+      height: getPageHeight(page)
     }
 
     page.render(imageRoot + (file || 'accounts') + '_desktop.png')
@@ -58,7 +65,12 @@ function shoot () {
 
     page.viewportSize = {
       width: 768,
-      height: 1024
+      height: 5
+    }
+
+    page.viewportSize = {
+      width: 768,
+      height: getPageHeight(page)
     }
 
     page.render(imageRoot + (file || 'accounts') + '_tablet.png')
@@ -69,15 +81,20 @@ function shoot () {
 
     page.viewportSize = {
       width: 480,
-      height: 800
+      height: 5
+    }
+
+    page.viewportSize = {
+      width: 480,
+      height: getPageHeight(page)
     }
 
     page.render(imageRoot + (file || 'accounts') + '_mobile.png')
 
     // Keep looping through.
     index++
-    shoot()
+    takeScreenshot()
   })
 }
 
-shoot()
+takeScreenshot()
