@@ -18,6 +18,11 @@ import './css/t7-form.css'
 // Component level CSS.
 import './components/color_list/isg-color-list.css'
 
+// Get raw JS.
+import raw_prism_js from 'raw!./browser_includes/raw_prism_js.txt'
+import raw_prism_css from 'raw!./browser_includes/raw_prism_css.txt'
+import raw_button_toggle_js from 'raw!./browser_includes/raw_button_toggle_js.txt'
+
 // Define class.
 class Shell extends React.Component {
   constructor (props) {
@@ -55,6 +60,7 @@ class Shell extends React.Component {
         name='viewport'
         content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1'
       />
+      <style dangerouslySetInnerHTML={{__html: raw_prism_css}} />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato' />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
       <link rel='stylesheet' href={root + 'style.css'}/>
@@ -63,6 +69,8 @@ class Shell extends React.Component {
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
+        <script dangerouslySetInnerHTML={{__html: raw_prism_js}} />
+        <script dangerouslySetInnerHTML={{__html: raw_button_toggle_js}} />
         <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
         {script}
       </body>

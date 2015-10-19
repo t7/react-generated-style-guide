@@ -1,3 +1,8 @@
+/*
+  This file is run on the front-end, and is
+  embedded via "raw_header_select_js.txt".
+*/
+
 ;(function () {
   var document = window.document
   var location = window.location

@@ -33,8 +33,7 @@ var getData = function (callback) {
       }
 
       var jsx = fse.readFileSync(require.resolve('../../.' + components[index]))
-      jsx = jsx.toString()
-      jsx = hljs.highlight('xml', jsx).value
+      jsx = jsx.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
       var component = factory()
       var element = React.createElement(component)
@@ -42,7 +41,7 @@ var getData = function (callback) {
 
       var markup = ReactDOMServer.renderToStaticMarkup(element)
       markup = pretty(markup)
-      markup = hljs.highlight('html', markup).value
+      markup = markup.replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
       var path = components[index]
       var id = path.replace('/template.js', '').split('/').pop()

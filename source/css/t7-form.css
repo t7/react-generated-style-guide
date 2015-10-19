@@ -271,11 +271,11 @@ Button mode.
 */
 
 .t7-form__button--default {
-  background: #999;
+  background: #888;
 }
 
 .t7-form__button--default:not([disabled]):active {
-  background: #666;
+  background: #555;
 }
 
 .t7-form__button--primary {

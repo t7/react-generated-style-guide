@@ -1,0 +1,1 @@
+!function(){var e=window.document,n=window.location,t=n.pathname.split("/"),a=t.length,o=t[a-1]||t[a-2],l=e.getElementById("isg_header_select"),c=l.getElementsByTagName("option");Array.prototype.forEach.call(c,function(e,n){o===e.value&&(l.selectedIndex=n)}),l.onchange=function(){var e=l.value,t="../"+e;n.href=t}}();

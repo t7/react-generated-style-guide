@@ -13,12 +13,6 @@ import style from '../../css/isg-section.css'
 import Button from '../../components/form_button/template'
 import ListInline from '../../components/list_inline/template'
 
-// Get raw JS.
-import raw_button_toggle from 'raw!./raw_button_toggle'
-
-// Highlight.js CSS
-import highlight_css_raw from 'raw!./highlight.txt'
-
 // Define class.
 class Page extends React.Component {
   constructor (props) {
@@ -66,19 +60,19 @@ class Page extends React.Component {
 
           <ListInline>
             <li data-trigger-jsx={id}>
-              <Button text='JSX' size='small' />
+              <Button text='View JSX' />
             </li>
             <li data-trigger-html={id}>
-              <Button text='HTML' size='small' />
+              <Button text='View HTML' />
             </li>
           </ListInline>
 
           <pre data-example-jsx={id} style={displayNone}>
-            <code className='hljs' dangerouslySetInnerHTML={{__html: jsx}} />
+            <code className='language-javascript' dangerouslySetInnerHTML={{__html: jsx}} />
           </pre>
 
           <pre data-example-html={id} style={displayNone}>
-            <code className='hljs' dangerouslySetInnerHTML={{__html: markup}} />
+            <code className='language-html' dangerouslySetInnerHTML={{__html: markup}} />
           </pre>
 
         </section>
@@ -110,9 +104,6 @@ class Page extends React.Component {
 
           {main}
         </Main>
-
-        <style dangerouslySetInnerHTML={{__html: highlight_css_raw}} />
-        <script dangerouslySetInnerHTML={{__html: raw_button_toggle}} />
 
       </App>
     )

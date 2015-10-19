@@ -1,3 +1,8 @@
+/*
+  This file is run on the front-end, and is
+  embedded via "raw_button_toggle_js.txt".
+*/
+
 ;(function () {
   // Build string.
   var selector = [
