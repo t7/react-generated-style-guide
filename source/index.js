@@ -19,7 +19,7 @@ const template = (
 <Route
 path='/'
 component={Accounts}
-title='My Accounts'
+title='Bank Accounts'
 />
 
 <Route

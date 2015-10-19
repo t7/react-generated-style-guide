@@ -61,7 +61,7 @@ class Page extends React.Component {
           <Grid desktop='100'>
 
             <h1 className={styleHeading}>
-              My Accounts
+              Bank Accounts
 
               <small>
                 Jonathan W. Rogersonian

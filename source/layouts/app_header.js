@@ -33,7 +33,7 @@ class Footer extends React.Component {
           <Grid desktop='50' tablet='50'>
             <ListSeparator>
               <li>
-                <Link to='/'>My Accounts</Link>
+                <Link to='/'>Bank Accounts</Link>
               </li>
               <li>
                 <Link to='/profile'>User Profile</Link>
