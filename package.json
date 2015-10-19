@@ -12,7 +12,7 @@
     "build_static": "cp -r ./source/static ./build",
     "build_index": "node ./lib/build_index",
     "build_isg_global": "node ./style_guide/build",
-    "build_isg": "npm-run-all --parallel build_isg_global build_isg_intro build_isg_branding build_isg_patterns build_isg_requirements build_isg_screens",
+    "build_isg": "npm-run-all --parallel build_static build_isg_global build_isg_intro build_isg_branding build_isg_patterns build_isg_requirements build_isg_screens",
     "build_isg_intro": "node ./style_guide/pages/intro/build",
     "build_isg_branding": "node ./style_guide/pages/branding/build",
     "build_isg_patterns": "node ./style_guide/pages/patterns/build",
