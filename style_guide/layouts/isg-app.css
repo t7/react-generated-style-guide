@@ -203,7 +203,6 @@ Footer.
 
 .isg-app__footer {
   background: #333;
-  color: #999;
 
   font-size: 11px;
 
@@ -216,6 +215,15 @@ Footer.
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.isg-app__footer,
+.isg-app__footer a {
+  color: #999;
+}
+
+.isg-app__footer a:hover {
+  color: #fff;
 }
 
 /*
