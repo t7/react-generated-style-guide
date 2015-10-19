@@ -1,7 +1,6 @@
 // Dependencies.
 var fse = require('fs-extra')
 var glob = require('glob')
-var hljs = require('highlight.js')
 var pretty = require('pretty')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
