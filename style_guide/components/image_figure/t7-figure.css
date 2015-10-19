@@ -31,12 +31,14 @@ Image figure.
   height: auto;
 }
 
-.t7-figure img:first-child {
+.t7-figure > img:first-child,
+.t7-figure > a:first-child img {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-.t7-figure img:last-child {
+.t7-figure > img:last-child,
+.t7-figure > a:last-child img {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
