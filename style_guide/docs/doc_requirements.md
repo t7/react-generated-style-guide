@@ -10,10 +10,10 @@ We aim to support the widest range of browsers possible, while also taking into 
 
 To that end, we support the latest versions of&hellip;
 
-* [Chrome](https://www.google.com/chrome/)
-* [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-* [IE / Edge](http://www.microsoft.com/en-us/windows/microsoft-edge)
-* [Opera](http://opera.com/)
+* [Chrome](http://www.google.com/chrome/)
+* [Firefox](http://www.mozilla.org/firefox/)
+* [IE / Edge](http://www.browserfordoing.com/)
+* [Opera](http://www.opera.com/)
 * [Safari](http://www.apple.com/safari/)
 
 &hellip;on the various platforms for which they are available.
