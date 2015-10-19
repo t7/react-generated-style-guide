@@ -165,8 +165,9 @@ class Page extends React.Component {
             </h6>
 
             <ImageFigure
-              alt='PHOTO HERE'
+              alt='Man looking across a lake at Matterhorn'
               caption='High Yield Potential'
+              src='./static/images/fpo_matterhorn.jpg'
               width='100%'
               height='50%'
             />
@@ -175,19 +176,34 @@ class Page extends React.Component {
 
               <Grid desktop='33' tablet='33' mobile='33'>
                 <p>
-                  <Image width='100%' height='100%' alt='FPO' />
+                  <Image
+                    alt='A dock at sunset'
+                    src='./static/images/fpo_dock.jpg'
+                    width='100%'
+                    height='100%'
+                  />
                 </p>
               </Grid>
 
               <Grid desktop='33' tablet='33' mobile='33'>
                 <p>
-                  <Image width='100%' height='100%' alt='FPO' />
+                  <Image
+                    alt='Phone taking a photo of the ocean'
+                    src='./static/images/fpo_phone_ocean.jpg'
+                    width='100%'
+                    height='100%'
+                  />
                 </p>
               </Grid>
 
               <Grid desktop='33' tablet='33' mobile='33'>
                 <p>
-                  <Image width='100%' height='100%' alt='FPO' />
+                  <Image
+                    alt='Phone booth in the UK'
+                    src='./static/images/fpo_phone_booth.jpg'
+                    width='100%'
+                    height='100%'
+                  />
                 </p>
               </Grid>
 

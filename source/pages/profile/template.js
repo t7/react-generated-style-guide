@@ -432,7 +432,12 @@ class Page extends React.Component {
 
           <Grid desktop='15' tablet='15' mobile-hide>
             <p className={helper['t7-align-center']}>
-              <Image alt='PHOTO' width='200' height='200' />
+              <Image
+                alt='Photo of Jonathan'
+                border='#ddd'
+                src='./static/images/fpo_jonathan_rogersonian.jpg'
+                width='100%'
+              />
               <br />
               <small>
                 <a title='Edit Photo'>Edit</a>
