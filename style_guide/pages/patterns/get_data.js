@@ -40,7 +40,10 @@ var getData = function (callback) {
 
       var markup = ReactDOMServer.renderToStaticMarkup(element)
       markup = pretty(markup)
-      markup = markup.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      markup = markup.replace(/\( </g, '(<')
+      markup = markup.replace(/> \)/g, '>)')
+      markup = markup.replace(/</g, '&lt;')
+      markup = markup.replace(/>/g, '&gt;')
 
       var path = components[index]
       var id = path.replace('/template.js', '').split('/').pop()
