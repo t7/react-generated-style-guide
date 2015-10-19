@@ -56,12 +56,15 @@ class Radio extends React.Component {
 
     // Props driven.
     const autofocus = this.props.autofocus
-    const checked = this.props.checked
     const disabled = this.props.disabled
     const label = this.props.label
     const name = this.props.name || id
     const required = this.props.required
     const value = this.props.value || this.props.label
+
+    // Control checked state.
+    const defaultChecked = this.props.defaultChecked
+    const checked = this.props.checked
 
     // Events.
     const handleChange = this.handleChange.bind(this)
@@ -70,7 +73,6 @@ class Radio extends React.Component {
       <label htmlFor={id}>
         <input
           autoFocus={autofocus}
-          defaultChecked={checked}
           className={style['t7-form__radio']}
           disabled={disabled}
           id={id}
@@ -78,6 +80,9 @@ class Radio extends React.Component {
           type='radio'
           required={required}
           value={value}
+
+          defaultChecked={defaultChecked}
+          checked={checked}
 
           onChange={handleChange}
         />
@@ -90,13 +95,16 @@ class Radio extends React.Component {
 // Validation.
 Radio.propTypes = {
   autofocus: React.PropTypes.bool,
-  checked: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
   label: React.PropTypes.string,
   name: React.PropTypes.string,
   required: React.PropTypes.bool,
   value: React.PropTypes.string,
+
+  // Control checked state.
+  defaultChecked: React.PropTypes.bool,
+  checked: React.PropTypes.bool,
 
   // Events.
   handleChange: React.PropTypes.func

@@ -81,7 +81,7 @@ class Textdiv extends React.Component {
     const placeholder = this.props.placeholder
     const required = this.props.required
 
-    var value = this.props.value
+    var value = this.props.value || this.props.defaultValue
 
     if (!value && placeholder) {
       value = placeholder
@@ -126,6 +126,9 @@ Textdiv.propTypes = {
   name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   required: React.PropTypes.bool,
+
+  // Control text value.
+  defaultValue: React.PropTypes.string,
   value: React.PropTypes.string,
 
   // Events.
@@ -135,6 +138,9 @@ Textdiv.propTypes = {
 // Prop defaults.
 Textdiv.defaultProps = {
   placeholder: '',
+
+  // Control text value.
+  defaultValue: '',
   value: '',
 
   // Events.

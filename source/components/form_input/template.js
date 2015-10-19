@@ -61,8 +61,11 @@ class Input extends React.Component {
     const required = this.props.required
     const size = this.props.size
     const type = this.props.type
-    const value = this.props.value
     const width = this.props.width
+
+    // Control text value.
+    const defaultValue = this.props.defaultValue
+    const value = this.props.value
 
     var className = style['t7-form__input']
 
@@ -77,7 +80,6 @@ class Input extends React.Component {
       <input
         autoFocus={autofocus}
         className={className}
-        defaultValue={value}
         disabled={disabled}
         id={id}
         name={name}
@@ -85,6 +87,9 @@ class Input extends React.Component {
         required={required}
         size={size}
         type={type}
+
+        defaultValue={defaultValue}
+        value={value}
 
         onChange={handleChange}
       />
@@ -102,8 +107,11 @@ Input.propTypes = {
   required: React.PropTypes.bool,
   size: React.PropTypes.string,
   type: React.PropTypes.string,
-  value: React.PropTypes.string,
   width: React.PropTypes.string,
+
+  // Control text value.
+  defaultValue: React.PropTypes.string,
+  value: React.PropTypes.string,
 
   // Events.
   handleChange: React.PropTypes.func

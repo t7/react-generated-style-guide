@@ -59,10 +59,14 @@ class Select extends React.Component {
     const disabled = this.props.disabled
     const name = this.props.name || id
     const options = this.props.options
-    const value = this.props.value
     const required = this.props.required
     const width = this.props.width
 
+    // Control selected state.
+    const defaultValue = this.props.defaultValue
+    const value = this.props.value
+
+    // Events.
     const handleChange = this.handleChange.bind(this)
 
     var className = style['t7-form__select']
@@ -76,11 +80,13 @@ class Select extends React.Component {
         aria-controls={ariaControls}
         autoFocus={autofocus}
         className={className}
-        defaultValue={value}
         disabled={disabled}
         id={id}
         name={name}
         required={required}
+
+        defaultValue={defaultValue}
+        value={value}
 
         onChange={handleChange}
       >
@@ -102,9 +108,12 @@ Select.propTypes = {
   id: React.PropTypes.string,
   name: React.PropTypes.string,
   options: React.PropTypes.array,
-  value: React.PropTypes.string,
   required: React.PropTypes.bool,
   width: React.PropTypes.string,
+
+  // Control selected state.
+  defaultValue: React.PropTypes.string,
+  value: React.PropTypes.string,
 
   // Events.
   handleChange: React.PropTypes.func
@@ -112,8 +121,6 @@ Select.propTypes = {
 
 // Prop defaults.
 Select.defaultProps = {
-  value: '',
-
   options: [
     {
       value: '',
