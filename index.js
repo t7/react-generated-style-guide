@@ -24691,8 +24691,8 @@
 	                null,
 	                _react2['default'].createElement(
 	                  'a',
-	                  null,
-	                  'Log Out'
+	                  { href: './style_guide/intro/' },
+	                  'Style Guide'
 	                )
 	              )
 	            )
