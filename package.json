@@ -1,7 +1,7 @@
 {
   "name": "t7-front-porch-2015",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js and React powered style guide",
   "main": "index.js",
   "scripts": {
     "clean": "node ./lib/clean",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mundizzle/front-porch-2015.git"
+    "url": "https://github.com/t7/style-guide-example.git"
   },
   "author": "mundizzle, nathansmith",
   "devDependencies": {
