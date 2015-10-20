@@ -39701,10 +39701,14 @@
 	      var disabled = this.props.disabled;
 	      var name = this.props.name || id;
 	      var options = this.props.options;
-	      var value = this.props.value;
 	      var required = this.props.required;
 	      var width = this.props.width;
 
+	      // Control selected state.
+	      var defaultValue = this.props.defaultValue;
+	      var value = this.props.value;
+
+	      // Events.
 	      var handleChange = this.handleChange.bind(this);
 
 	      var className = _cssT7FormCss2['default']['t7-form__select'];
@@ -39719,11 +39723,13 @@
 	          'aria-controls': ariaControls,
 	          autoFocus: autofocus,
 	          className: className,
-	          defaultValue: value,
 	          disabled: disabled,
 	          id: id,
 	          name: name,
 	          required: required,
+
+	          defaultValue: defaultValue,
+	          value: value,
 
 	          onChange: handleChange
 	        },
@@ -39751,9 +39757,12 @@
 	  id: _react2['default'].PropTypes.string,
 	  name: _react2['default'].PropTypes.string,
 	  options: _react2['default'].PropTypes.array,
-	  value: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
 	  width: _react2['default'].PropTypes.string,
+
+	  // Control selected state.
+	  defaultValue: _react2['default'].PropTypes.string,
+	  value: _react2['default'].PropTypes.string,
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
@@ -39761,8 +39770,6 @@
 
 	// Prop defaults.
 	Select.defaultProps = {
-	  value: '',
-
 	  options: [{
 	    value: '',
 	    name: 'Select...'
@@ -40323,21 +40330,21 @@
 
 	// Define class.
 
-	var Page = (function (_React$Component) {
-	  _inherits(Page, _React$Component);
+	var ButtonExample = (function (_React$Component) {
+	  _inherits(ButtonExample, _React$Component);
 
-	  function Page(props) {
-	    _classCallCheck(this, Page);
+	  function ButtonExample(props) {
+	    _classCallCheck(this, ButtonExample);
 
 	    // Pass `props` into scope.
-	    _get(Object.getPrototypeOf(Page.prototype), 'constructor', this).call(this, props);
+	    _get(Object.getPrototypeOf(ButtonExample.prototype), 'constructor', this).call(this, props);
 	  }
 
-	  // Validation.
+	  // Export.
 
 	  // Render method.
 
-	  _createClass(Page, [{
+	  _createClass(ButtonExample, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2['default'].createElement(
@@ -40419,16 +40426,10 @@
 	    }
 	  }]);
 
-	  return Page;
+	  return ButtonExample;
 	})(_react2['default'].Component);
 
-	Page.propTypes = {
-	  location: _react2['default'].PropTypes.object,
-	  route: _react2['default'].PropTypes.object
-	};
-
-	// Export.
-	exports['default'] = Page;
+	exports['default'] = ButtonExample;
 	module.exports = exports['default'];
 
 /***/ },
@@ -40839,12 +40840,15 @@
 
 	      // Props driven.
 	      var autofocus = this.props.autofocus;
-	      var checked = this.props.checked;
 	      var disabled = this.props.disabled;
 	      var label = this.props.label;
 	      var name = this.props.name || id;
 	      var required = this.props.required;
 	      var value = this.props.value || label;
+
+	      // Control checked state.
+	      var defaultChecked = this.props.defaultChecked;
+	      var checked = this.props.checked;
 
 	      // Events.
 	      var handleChange = this.handleChange.bind(this);
@@ -40855,13 +40859,15 @@
 	        _react2['default'].createElement('input', {
 	          autoFocus: autofocus,
 	          className: _cssT7FormCss2['default']['t7-form__checkbox'],
-	          defaultChecked: checked,
 	          disabled: disabled,
 	          id: id,
 	          name: name,
 	          required: required,
 	          type: 'checkbox',
 	          value: value,
+
+	          defaultChecked: defaultChecked,
+	          checked: checked,
 
 	          onChange: handleChange
 	        }),
@@ -40875,13 +40881,16 @@
 
 	Checkbox.propTypes = {
 	  autofocus: _react2['default'].PropTypes.bool,
-	  checked: _react2['default'].PropTypes.bool,
 	  disabled: _react2['default'].PropTypes.bool,
 	  id: _react2['default'].PropTypes.string,
 	  label: _react2['default'].PropTypes.string,
 	  name: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
 	  value: _react2['default'].PropTypes.string,
+
+	  // Control checked state.
+	  defaultChecked: _react2['default'].PropTypes.bool,
+	  checked: _react2['default'].PropTypes.bool,
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
@@ -41092,8 +41101,11 @@
 	      var required = this.props.required;
 	      var size = this.props.size;
 	      var type = this.props.type;
-	      var value = this.props.value;
 	      var width = this.props.width;
+
+	      // Control text value.
+	      var defaultValue = this.props.defaultValue;
+	      var value = this.props.value;
 
 	      var className = _cssT7FormCss2['default']['t7-form__input'];
 
@@ -41107,7 +41119,6 @@
 	      return _react2['default'].createElement('input', {
 	        autoFocus: autofocus,
 	        className: className,
-	        defaultValue: value,
 	        disabled: disabled,
 	        id: id,
 	        name: name,
@@ -41115,6 +41126,9 @@
 	        required: required,
 	        size: size,
 	        type: type,
+
+	        defaultValue: defaultValue,
+	        value: value,
 
 	        onChange: handleChange
 	      });
@@ -41133,8 +41147,11 @@
 	  required: _react2['default'].PropTypes.bool,
 	  size: _react2['default'].PropTypes.string,
 	  type: _react2['default'].PropTypes.string,
-	  value: _react2['default'].PropTypes.string,
 	  width: _react2['default'].PropTypes.string,
+
+	  // Control text value.
+	  defaultValue: _react2['default'].PropTypes.string,
+	  value: _react2['default'].PropTypes.string,
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
@@ -41512,12 +41529,15 @@
 
 	      // Props driven.
 	      var autofocus = this.props.autofocus;
-	      var checked = this.props.checked;
 	      var disabled = this.props.disabled;
 	      var label = this.props.label;
 	      var name = this.props.name || id;
 	      var required = this.props.required;
 	      var value = this.props.value || this.props.label;
+
+	      // Control checked state.
+	      var defaultChecked = this.props.defaultChecked;
+	      var checked = this.props.checked;
 
 	      // Events.
 	      var handleChange = this.handleChange.bind(this);
@@ -41527,7 +41547,6 @@
 	        { htmlFor: id },
 	        _react2['default'].createElement('input', {
 	          autoFocus: autofocus,
-	          defaultChecked: checked,
 	          className: _cssT7FormCss2['default']['t7-form__radio'],
 	          disabled: disabled,
 	          id: id,
@@ -41535,6 +41554,9 @@
 	          type: 'radio',
 	          required: required,
 	          value: value,
+
+	          defaultChecked: defaultChecked,
+	          checked: checked,
 
 	          onChange: handleChange
 	        }),
@@ -41548,13 +41570,16 @@
 
 	Radio.propTypes = {
 	  autofocus: _react2['default'].PropTypes.bool,
-	  checked: _react2['default'].PropTypes.bool,
 	  disabled: _react2['default'].PropTypes.bool,
 	  id: _react2['default'].PropTypes.string,
 	  label: _react2['default'].PropTypes.string,
 	  name: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
 	  value: _react2['default'].PropTypes.string,
+
+	  // Control checked state.
+	  defaultChecked: _react2['default'].PropTypes.bool,
+	  checked: _react2['default'].PropTypes.bool,
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
@@ -41840,21 +41865,26 @@
 	      var disabled = this.props.disabled;
 	      var name = this.props.name || id;
 	      var placeholder = this.props.placeholder;
-	      var value = this.props.value;
 	      var required = this.props.required;
+
+	      // Control text value.
+	      var defaultValue = this.props.defaultValue;
+	      var value = this.props.value;
 
 	      // Events.
 	      var handleChange = this.handleChange.bind(this);
 
 	      return _react2['default'].createElement('textarea', {
 	        autoFocus: autofocus,
-	        defaultValue: value,
 	        className: _cssT7FormCss2['default']['t7-form__textarea'],
 	        disabled: disabled,
 	        id: id,
 	        name: name,
 	        placeholder: placeholder,
 	        required: required,
+
+	        defaultValue: defaultValue,
+	        value: value,
 
 	        onChange: handleChange
 	      });
@@ -41871,6 +41901,9 @@
 	  name: _react2['default'].PropTypes.string,
 	  placeholder: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
+
+	  // Control text value.
+	  defaultValue: _react2['default'].PropTypes.string,
 	  value: _react2['default'].PropTypes.string,
 
 	  // Events.
@@ -42019,7 +42052,7 @@
 	      var placeholder = this.props.placeholder;
 	      var required = this.props.required;
 
-	      var value = this.props.value;
+	      var value = this.props.value || this.props.defaultValue;
 
 	      if (!value && placeholder) {
 	        value = placeholder;
@@ -42064,6 +42097,9 @@
 	  name: _react2['default'].PropTypes.string,
 	  placeholder: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
+
+	  // Control text value.
+	  defaultValue: _react2['default'].PropTypes.string,
 	  value: _react2['default'].PropTypes.string,
 
 	  // Events.
@@ -42073,6 +42109,9 @@
 	// Prop defaults.
 	Textdiv.defaultProps = {
 	  placeholder: '',
+
+	  // Control text value.
+	  defaultValue: '',
 	  value: '',
 
 	  // Events.

@@ -628,11 +628,11 @@ Button mode.
 */
 
 .t7-form__t7-form__button--default___2v6BP {
-  background: #999;
+  background: #888;
 }
 
 .t7-form__t7-form__button--default___2v6BP:not([disabled]):active {
-  background: #666;
+  background: #555;
 }
 
 .t7-form__t7-form__button--primary___1Ek-x {
@@ -774,12 +774,14 @@ Image figure.
   height: auto;
 }
 
-.t7-figure__t7-figure___3pLYT img:first-child {
+.t7-figure__t7-figure___3pLYT > img:first-child,
+.t7-figure__t7-figure___3pLYT > a:first-child img {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-.t7-figure__t7-figure___3pLYT img:last-child {
+.t7-figure__t7-figure___3pLYT > img:last-child,
+.t7-figure__t7-figure___3pLYT > a:last-child img {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }/*

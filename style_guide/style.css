@@ -203,7 +203,6 @@ Footer.
 
 .isg-app__isg-app__footer___2o40p {
   background: #333;
-  color: #999;
 
   font-size: 11px;
 
@@ -216,6 +215,15 @@ Footer.
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.isg-app__isg-app__footer___2o40p,
+.isg-app__isg-app__footer___2o40p a {
+  color: #999;
+}
+
+.isg-app__isg-app__footer___2o40p a:hover {
+  color: #fff;
 }
 
 /*
@@ -1750,6 +1758,7 @@ Reset.
   box-sizing: inherit;
   font-family: inherit;
   font-size: 100%;
+  text-rendering: inherit;
 }
 
 a,
@@ -1847,8 +1856,14 @@ xmp {
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 html {
   box-sizing: border-box;
+  text-rendering: optimizeSpeed;
 }
 
 b,
@@ -2143,6 +2158,126 @@ Sections used for the style guide itself.
 .isg-section__isg-section__footer___1lfoH {
   margin-left: -20px;
   margin-right: -20px;
+}/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.prism__token____kH2t.prism__comment___1upOK,
+.prism__token____kH2t.prism__prolog___1_yL_,
+.prism__token____kH2t.prism__doctype___vrGtq,
+.prism__token____kH2t.prism__cdata___1zj4O {
+  color: slategray;
+}
+
+.prism__token____kH2t.prism__punctuation___26e0b {
+  color: #f8f8f2;
+}
+
+.prism__namespace___2dyHa {
+  opacity: .7;
+}
+
+.prism__token____kH2t.prism__property___27FN4,
+.prism__token____kH2t.prism__tag___33gYq,
+.prism__token____kH2t.prism__constant___3cEy-,
+.prism__token____kH2t.prism__symbol___2ferO,
+.prism__token____kH2t.prism__deleted___93Pw- {
+  color: #f92672;
+}
+
+.prism__token____kH2t.prism__boolean___3IHDn,
+.prism__token____kH2t.prism__number___2WTaP {
+  color: #ae81ff;
+}
+
+.prism__token____kH2t.prism__selector___2SrDT,
+.prism__token____kH2t.prism__attr-name___1oEgv,
+.prism__token____kH2t.prism__string___3ek8j,
+.prism__token____kH2t.prism__char___1o1UR,
+.prism__token____kH2t.prism__builtin___2rRru,
+.prism__token____kH2t.prism__inserted___31BGT {
+  color: #a6e22e;
+}
+
+.prism__token____kH2t.prism__operator___3YNxk,
+.prism__token____kH2t.prism__entity___1COC0,
+.prism__token____kH2t.prism__url___1GbH2,
+.prism__language-css___15ZYm .prism__token____kH2t.prism__string___3ek8j,
+.prism__style___22zbP .prism__token____kH2t.prism__string___3ek8j,
+.prism__token____kH2t.prism__variable___1cM7I {
+  color: #f8f8f2;
+}
+
+.prism__token____kH2t.prism__atrule___1YQ_J,
+.prism__token____kH2t.prism__attr-value___Pc46z,
+.prism__token____kH2t.prism__function___3YcFa {
+  color: #e6db74;
+}
+
+.prism__token____kH2t.prism__keyword____FBCw {
+  color: #66d9ef;
+}
+
+.prism__token____kH2t.prism__regex___2WlpA,
+.prism__token____kH2t.prism__important___3Tgfq {
+  color: #fd971f;
+}
+
+.prism__token____kH2t.prism__important___3Tgfq,
+.prism__token____kH2t.prism__bold___O0SIe {
+  font-weight: bold;
+}
+.prism__token____kH2t.prism__italic___2_Kd4 {
+  font-style: italic;
+}
+
+.prism__token____kH2t.prism__entity___1COC0 {
+  cursor: help;
 }/*
 Form element "reset."
 ================================================================================
@@ -2414,11 +2549,11 @@ Button mode.
 */
 
 .t7-form__t7-form__button--default___3Npll {
-  background: #999;
+  background: #888;
 }
 
 .t7-form__t7-form__button--default___3Npll:not([disabled]):active {
-  background: #666;
+  background: #555;
 }
 
 .t7-form__t7-form__button--primary___2GMdb {
@@ -2652,12 +2787,35 @@ Image figure.
   height: auto;
 }
 
-.t7-figure__t7-figure___2wGU1 img:first-child {
+.t7-figure__t7-figure___2wGU1 > img:first-child,
+.t7-figure__t7-figure___2wGU1 > a:first-child img {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-.t7-figure__t7-figure___2wGU1 img:last-child {
+.t7-figure__t7-figure___2wGU1 > img:last-child,
+.t7-figure__t7-figure___2wGU1 > a:last-child img {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+}/*
+Inline list.
+================================================================================
+*/
+
+.t7-list--inline__t7-list--inline___xLMp8 {
+  font-size: 0;
+
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.t7-list--inline__t7-list--inline___xLMp8 > li {
+  font-size: 13px;
+
+  display: inline-block;
+  list-style: none;
+  margin-left: 0;
+
+  padding-top: 10px;
+  padding-left: 10px;
 }
