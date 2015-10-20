@@ -17,7 +17,7 @@ class Footer extends React.Component {
 
     return (
       <footer className={style['isg-app__footer']} role='contentinfo'>
-        &copy; {year} <a href='http://www.tandemseven.com/' target='_blank'>TandemSeven</a> &mdash; <a href='http://github.com/' target='_blank'>View on GitHub</a>
+        &copy; {year} <a href='http://www.tandemseven.com/' target='_blank'>TandemSeven</a> &mdash; <a href='https://github.com/t7/style-guide-example' target='_blank'>View on GitHub</a>
       </footer>
     )
   }
