@@ -9,6 +9,7 @@ Reset.
   box-sizing: inherit;
   font-family: inherit;
   font-size: 100%;
+  text-rendering: inherit;
 }
 
 a,
@@ -113,6 +114,7 @@ body {
 
 html {
   box-sizing: border-box;
+  text-rendering: optimizeSpeed;
 }
 
 b,
