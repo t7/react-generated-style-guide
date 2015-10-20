@@ -66,11 +66,13 @@ module.exports = function (page) {
       'background': '#000',
       'border-bottom': '1px solid #fff',
       'color': '#fff',
-      'font-family': '"Helvetica Neue", Arial, sans-serif',
+      'font-family': 'Arial, sans-serif',
       'font-size': '30px',
       'font-weight': 'bold',
+      'overflow': 'hidden',
       'padding': '10px',
-      'text-align': 'center'
+      'text-align': 'center',
+      'white-space': 'nowrap'
     })
 
     // ID of insertion point.
