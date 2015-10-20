@@ -72,7 +72,7 @@ class Page extends React.Component {
             />
           </Grid>
 
-          <Grid desktop='35' tablet='35'>
+          <Grid desktop='30' tablet='30'>
             <ImageFigure
               alt={'Screenshot of ' + name + ' on tablet'}
               caption='Tablet'
@@ -83,7 +83,7 @@ class Page extends React.Component {
             />
           </Grid>
 
-          <Grid desktop='40' tablet='40'>
+          <Grid desktop='45' tablet='45'>
             <ImageFigure
               alt={'Screenshot of ' + name + ' on desktop'}
               caption='Desktop'
