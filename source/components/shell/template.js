@@ -21,8 +21,8 @@ class Shell extends React.Component {
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: this.props.markup}} />
-        <script src='https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en'></script>
-        <script src='index.js'></script>
+        <script src={'./static/js/intl.js'} />
+        <script src='index.js' />
       </body>
       </html>
     )
