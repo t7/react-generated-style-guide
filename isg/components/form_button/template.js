@@ -85,31 +85,38 @@ class Button extends React.Component {
       ============
     */
 
-    // Default button mode.
+    // Button mode: Default.
     if (mode === 'default') {
       className.push(
         style['t7-form__button--default']
       )
 
-    // Primary button mode.
+    // Button mode: Primary.
     } else if (mode === 'primary') {
       className.push(
         style['t7-form__button--primary']
       )
 
-    // Positive button mode.
+    // Button mode; Positive.
     } else if (mode === 'positive') {
       className.push(
         style['t7-form__button--positive']
       )
 
-    // Negative button mode.
+    // Button mode: Negative.
     } else if (mode === 'negative') {
       className.push(
         style['t7-form__button--negative']
       )
+
+    // Button mode: Warn.
+    } else if (mode === 'warn') {
+      className.push(
+        style['t7-form__button--warn']
+      )
     }
 
+    // Build the string.
     className = className.join(' ')
 
     // Presuppose `<button>`.
