@@ -24691,7 +24691,7 @@
 	                null,
 	                _react2['default'].createElement(
 	                  'a',
-	                  { href: './style_guide/intro/' },
+	                  { href: './isg/intro/' },
 	                  'Style Guide'
 	                )
 	              )
