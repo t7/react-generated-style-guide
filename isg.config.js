@@ -110,7 +110,7 @@ module.exports = {
     },
     screens: {
       serverRoot: 'http://localhost:8080/#/',
-      imageRoot: './build/style_guide/screens/shots/',
+      imageRoot: './build/isg/screens/shots/',
 
       // Page paths and names.
       paths: [

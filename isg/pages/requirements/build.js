@@ -1,8 +1,7 @@
 // Dependencies.
 var fse = require('fs-extra')
 
-var styleGuideConfig = require('../../../style_guide.config.js')
-var brandingTemplatePath = require.resolve('./template.js')
+var requirementsTemplatePath = require.resolve('./template.js')
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
 var shellPath = require.resolve('../../shell.js')
@@ -10,17 +9,17 @@ var webpackRequire = require('webpack-require')
 var webpackConfig = require('../../../webpack.config.js')
 
 // Defined later.
-var BrandingTemplate
+var RequirementsTemplate
 var ShellTemplate
 
-function getBrandingTemplate () {
-  webpackRequire(webpackConfig, brandingTemplatePath, function (error, factory) {
+function getRequirementsTemplate () {
+  webpackRequire(webpackConfig, requirementsTemplatePath, function (error, factory) {
     if (error) {
       console.error(error)
     }
 
-    BrandingTemplate = factory()
-    renderBranding()
+    RequirementsTemplate = factory()
+    renderRequirements()
   })
 }
 
@@ -31,25 +30,25 @@ function getShellTemplate () {
     }
 
     ShellTemplate = factory()
-    getBrandingTemplate()
+    getRequirementsTemplate()
   })
 }
 
-function renderBranding () {
-  var brandingElement = React.createElement(BrandingTemplate, {branding: styleGuideConfig.pages.branding})
+function renderRequirements () {
+  var requirementsElement = React.createElement(RequirementsTemplate)
 
-  var brandingMarkup = ReactDOMServer.renderToStaticMarkup(brandingElement)
+  var requirementsMarkup = ReactDOMServer.renderToStaticMarkup(requirementsElement)
 
   var shellElement = React.createElement(ShellTemplate, {
-    title: 'Branding',
-    markup: brandingMarkup
+    title: 'Requirements',
+    markup: requirementsMarkup
   })
 
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
 
-  fse.outputFileSync('./build/style_guide/branding/index.html', html)
+  fse.outputFileSync('./build/isg/requirements/index.html', html)
 }
 
-// Kickoff!
+// Kickoff.
 getShellTemplate()

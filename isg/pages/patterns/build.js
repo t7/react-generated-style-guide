@@ -53,7 +53,7 @@ function renderPatterns () {
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
 
-  fse.outputFileSync('./build/style_guide/patterns/index.html', html)
+  fse.outputFileSync('./build/isg/patterns/index.html', html)
 }
 
 function generateBundle () {
@@ -69,8 +69,8 @@ function generateBundle () {
     `
   }).join('')
 
-  var bundle = fse.readFileSync('./style_guide/pages/patterns/bundle.js', 'utf8')
-  var tempBundlePath = './style_guide/pages/patterns/temp_bundle.js'
+  var bundle = fse.readFileSync('./isg/pages/patterns/bundle.js', 'utf8')
+  var tempBundlePath = './isg/pages/patterns/temp_bundle.js'
   var tempBundleFile = bundle.replace(/\/\*\s+{_DYNAMIC_INSERTION_POINT_}\s+\*\//gi, imports)
 
   fse.outputFileSync(tempBundlePath, tempBundleFile)
@@ -79,7 +79,7 @@ function generateBundle () {
 
   webpackConfig.output = {
     filename: 'index.js',
-    path: process.cwd() + '/build/style_guide/patterns'
+    path: process.cwd() + '/build/isg/patterns'
   }
 
   webpack(webpackConfig, function (error) {

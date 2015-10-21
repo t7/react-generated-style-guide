@@ -39,7 +39,7 @@ class Footer extends React.Component {
                 <Link to='/profile'>User Profile</Link>
               </li>
               <li>
-                <a href='./style_guide/intro/'>Style Guide</a>
+                <a href='./isg/intro/'>Style Guide</a>
               </li>
             </ListSeparator>
           </Grid>

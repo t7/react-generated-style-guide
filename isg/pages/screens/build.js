@@ -65,7 +65,7 @@ function renderScreens () {
   var html = ReactDOMServer.renderToStaticMarkup(shellElement)
   html = '<!doctype html>' + html
 
-  fse.outputFileSync('./build/style_guide/screens/index.html', html)
+  fse.outputFileSync('./build/isg/screens/index.html', html)
 }
 
 // Kickoff.
