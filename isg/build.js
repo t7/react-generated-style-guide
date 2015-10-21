@@ -2,12 +2,6 @@
 var webpack = require('webpack')
 var webpackConfig = require('../webpack.config.js')
 
-/*
-trash(['./build/isg']).then(() => {
-  console.log('done')
-})
-*/
-
 webpackConfig.entry = './isg/bundle.js'
 
 webpackConfig.output = {
