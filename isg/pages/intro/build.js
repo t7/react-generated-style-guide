@@ -48,7 +48,7 @@ function renderIntro () {
   html = '<!doctype html>' + html
 
   fse.outputFileSync('./build/isg/intro/index.html', html)
-  fse.outputFileSync('./build/isg/index.html', '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=intro" /></head><body></body></html>')
+  fse.outputFileSync('./build/isg/index.html', '<!doctype html><html><head><meta http-equiv="refresh" content="0; url=intro" /></head><body></body></html>')
 }
 
 // Kickoff!
