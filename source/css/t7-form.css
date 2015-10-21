@@ -302,6 +302,14 @@ Button mode.
   background: #933;
 }
 
+.t7-form__button--warn {
+  background: #c96;
+}
+
+.t7-form__button--warn:not([disabled]):active {
+  background: #963;
+}
+
 /*
 Checkbox & Radio.
 ================================================================================
