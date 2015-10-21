@@ -16,7 +16,7 @@ Any data or functionality depicted is for example purposes. For actual data and 
 
 To view the index page of the templates, go here&hellip;
 
-* [HTML Template - Index Page](../../)
+* [Example App - Index Page](../../)
 
 To view other sections of the ISG itself, go here&hellip;
 
