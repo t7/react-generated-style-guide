@@ -27813,23 +27813,28 @@
 	        ============
 	      */
 
-	      // Default button mode.
+	      // Button mode: Default.
 	      if (mode === 'default') {
 	        className.push(_cssT7FormCss2['default']['t7-form__button--default']);
 
-	        // Primary button mode.
+	        // Button mode: Primary.
 	      } else if (mode === 'primary') {
 	          className.push(_cssT7FormCss2['default']['t7-form__button--primary']);
 
-	          // Positive button mode.
+	          // Button mode; Positive.
 	        } else if (mode === 'positive') {
 	            className.push(_cssT7FormCss2['default']['t7-form__button--positive']);
 
-	            // Negative button mode.
+	            // Button mode: Negative.
 	          } else if (mode === 'negative') {
 	              className.push(_cssT7FormCss2['default']['t7-form__button--negative']);
-	            }
 
+	              // Button mode: Warn.
+	            } else if (mode === 'warn') {
+	                className.push(_cssT7FormCss2['default']['t7-form__button--warn']);
+	              }
+
+	      // Build the string.
 	      className = className.join(' ');
 
 	      // Presuppose `<button>`.
@@ -27908,7 +27913,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-form__button":"t7-form__t7-form__button___26ygf","t7-form__input":"t7-form__t7-form__input___3g6W1","t7-form__select":"t7-form__t7-form__select___3cUlJ","t7-form__textarea":"t7-form__t7-form__textarea___2UBRs","t7-form__input--width-auto":"t7-form__t7-form__input--width-auto___3Uh-7 t7-form__t7-form__input___3g6W1","t7-form__select--width-auto":"t7-form__t7-form__select--width-auto___1772T t7-form__t7-form__select___3cUlJ","t7-form__button--small":"t7-form__t7-form__button--small___1FsvV","t7-form__button--big":"t7-form__t7-form__button--big___1D68q","t7-form__button--default":"t7-form__t7-form__button--default___2v6BP","t7-form__button--primary":"t7-form__t7-form__button--primary___1Ek-x","t7-form__button--positive":"t7-form__t7-form__button--positive___3NGwO","t7-form__button--negative":"t7-form__t7-form__button--negative___18Fkr","t7-form__radio":"t7-form__t7-form__radio___1JFpG","t7-form__checkbox":"t7-form__t7-form__checkbox___1euj9"};
+	module.exports = {"t7-form__button":"t7-form__t7-form__button___26ygf","t7-form__input":"t7-form__t7-form__input___3g6W1","t7-form__select":"t7-form__t7-form__select___3cUlJ","t7-form__textarea":"t7-form__t7-form__textarea___2UBRs","t7-form__input--width-auto":"t7-form__t7-form__input--width-auto___3Uh-7 t7-form__t7-form__input___3g6W1","t7-form__select--width-auto":"t7-form__t7-form__select--width-auto___1772T t7-form__t7-form__select___3cUlJ","t7-form__button--small":"t7-form__t7-form__button--small___1FsvV","t7-form__button--big":"t7-form__t7-form__button--big___1D68q","t7-form__button--default":"t7-form__t7-form__button--default___2v6BP","t7-form__button--primary":"t7-form__t7-form__button--primary___1Ek-x","t7-form__button--positive":"t7-form__t7-form__button--positive___3NGwO","t7-form__button--negative":"t7-form__t7-form__button--negative___18Fkr","t7-form__button--warn":"t7-form__t7-form__button--warn___1aoaa","t7-form__radio":"t7-form__t7-form__radio___1JFpG","t7-form__checkbox":"t7-form__t7-form__checkbox___1euj9"};
 
 /***/ },
 /* 249 */
