@@ -35035,7 +35035,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-accordion":"t7-accordion__t7-accordion___1sw6r","t7-accordion__header":"t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__header--selected":"t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__panel":"t7-accordion__t7-accordion__panel___178bQ"};
+	module.exports = {"t7-accordion":"t7-accordion__t7-accordion___1sw6r","t7-accordion__header":"t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__header__icon":"t7-accordion__t7-accordion__header__icon___16hmQ","t7-accordion__panel":"t7-accordion__t7-accordion__panel___178bQ"};
 
 /***/ },
 /* 192 */
@@ -35061,6 +35061,12 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	// CSS.
+
+	var _t7AccordionCss = __webpack_require__(191);
+
+	var _t7AccordionCss2 = _interopRequireDefault(_t7AccordionCss);
 
 	// Define class.
 
@@ -35120,6 +35126,10 @@
 	          onClick: handleClick,
 	          onKeyDown: handleClick
 	        },
+	        _react2['default'].createElement('span', {
+	          'aria-hidden': 'true',
+	          className: _t7AccordionCss2['default']['t7-accordion__header__icon']
+	        }),
 	        label
 	      );
 	    }
