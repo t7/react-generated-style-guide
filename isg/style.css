@@ -1,14 +1,4 @@
 /*
-Prevent over-scroll.
-================================================================================
-*/
-
-html,
-body {
-  overflow: hidden;
-}
-
-/*
 Shared layout styling.
 ================================================================================
 */
@@ -262,6 +252,18 @@ Adjust for mobile.
   .isg-app__isg-app__main___2Yd8q {
     overflow-x: hidden;
     overflow-y: hidden;
+  }
+}
+
+/*
+Adjust for tablet & desktop.
+================================================================================
+*/
+
+@media (min-width: 768px) {
+  html,
+  body {
+    overflow: hidden;
   }
 }/* ================================================================== */
 /* This file has a mobile-to-tablet, and tablet-to-desktop breakpoint */
