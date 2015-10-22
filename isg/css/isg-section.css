@@ -30,12 +30,8 @@ Sections used for the style guide itself.
   margin-left: -20px;
   margin-right: -20px;
   margin-bottom: 20px;
-}
 
-.isg-section__header--title-case {
-  composes: isg-section__header;
-
-  text-transform: capitalize;
+  overflow: hidden;
 }
 
 .isg-section__example {
