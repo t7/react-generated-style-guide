@@ -35162,6 +35162,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -35194,52 +35196,20 @@
 	    _get(Object.getPrototypeOf(BoxInfo.prototype), 'constructor', this).call(this, props);
 	  }
 
-	  // Validation.
+	  // Defaults.
 
 	  // Render method.
 
 	  _createClass(BoxInfo, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
-	      var legend = this.props.legend;
-
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          mode: 'info',
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { mode: 'info' }));
 	    }
 	  }]);
 
 	  return BoxInfo;
 	})(_react2['default'].Component);
 
-	BoxInfo.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
-	};
-
-	// Defaults.
 	BoxInfo.defaultProps = {
 	  children: 'Something happened, yo.',
 	  close: true,
@@ -35526,6 +35496,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -35558,52 +35530,20 @@
 	    _get(Object.getPrototypeOf(BoxNegative.prototype), 'constructor', this).call(this, props);
 	  }
 
-	  // Validation.
+	  // Defaults.
 
 	  // Render method.
 
 	  _createClass(BoxNegative, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
-	      var legend = this.props.legend;
-
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          mode: 'negative',
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { mode: 'negative' }));
 	    }
 	  }]);
 
 	  return BoxNegative;
 	})(_react2['default'].Component);
 
-	BoxNegative.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
-	};
-
-	// Defaults.
 	BoxNegative.defaultProps = {
 	  children: 'Something bad happened, yo.',
 	  close: true,
@@ -35625,6 +35565,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -35657,52 +35599,20 @@
 	    _get(Object.getPrototypeOf(BoxWarn.prototype), 'constructor', this).call(this, props);
 	  }
 
-	  // Validation.
+	  // Defaults.
 
 	  // Render method.
 
 	  _createClass(BoxWarn, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
-	      var legend = this.props.legend;
-
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          mode: 'positive',
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { mode: 'positive' }));
 	    }
 	  }]);
 
 	  return BoxWarn;
 	})(_react2['default'].Component);
 
-	BoxWarn.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
-	};
-
-	// Defaults.
 	BoxWarn.defaultProps = {
 	  children: 'Something good happened, yo.',
 	  close: true,
@@ -35724,6 +35634,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -35756,52 +35668,20 @@
 	    _get(Object.getPrototypeOf(BoxWarn.prototype), 'constructor', this).call(this, props);
 	  }
 
-	  // Validation.
+	  // Defaults.
 
 	  // Render method.
 
 	  _createClass(BoxWarn, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
-	      var legend = this.props.legend;
-
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          mode: 'warn',
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { mode: 'warn' }));
 	    }
 	  }]);
 
 	  return BoxWarn;
 	})(_react2['default'].Component);
 
-	BoxWarn.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
-	};
-
-	// Defaults.
 	BoxWarn.defaultProps = {
 	  children: 'Something "meh" happened, yo.',
 	  close: true,
@@ -40359,6 +40239,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -40398,27 +40280,9 @@
 	  _createClass(FieldsetInfo, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
 	      var legend = this.props.legend;
 
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-	          mode: 'info',
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { legend: legend, mode: 'info' }));
 	    }
 	  }]);
 
@@ -40426,14 +40290,7 @@
 	})(_react2['default'].Component);
 
 	FieldsetInfo.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
+	  legend: _react2['default'].PropTypes.string
 	};
 
 	// Defaults.
@@ -40458,6 +40315,8 @@
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -40498,27 +40357,9 @@
 	  _createClass(FieldsetNegative, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
 	      var legend = this.props.legend;
 
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-	          mode: 'negative',
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { legend: legend, mode: 'negative' }));
 	    }
 	  }]);
 
@@ -40526,14 +40367,7 @@
 	})(_react2['default'].Component);
 
 	FieldsetNegative.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
+	  legend: _react2['default'].PropTypes.string
 	};
 
 	// Defaults.
@@ -40558,6 +40392,8 @@
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -40598,27 +40434,9 @@
 	  _createClass(FieldsetPositive, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
 	      var legend = this.props.legend;
 
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-	          mode: 'positive',
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { legend: legend, mode: 'positive' }));
 	    }
 	  }]);
 
@@ -40626,14 +40444,7 @@
 	})(_react2['default'].Component);
 
 	FieldsetPositive.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
+	  legend: _react2['default'].PropTypes.string
 	};
 
 	// Defaults.
@@ -40658,6 +40469,8 @@
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -40698,27 +40511,9 @@
 	  _createClass(FieldsetWarn, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
 	      var legend = this.props.legend;
 
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-	          mode: 'warn',
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { legend: legend, mode: 'warn' }));
 	    }
 	  }]);
 
@@ -40726,14 +40521,7 @@
 	})(_react2['default'].Component);
 
 	FieldsetWarn.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
+	  legend: _react2['default'].PropTypes.string
 	};
 
 	// Defaults.
@@ -40758,6 +40546,8 @@
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -40798,26 +40588,9 @@
 	  _createClass(Fieldset, [{
 	    key: 'render',
 	    value: function render() {
-	      var close = this.props.close;
-	      var icon = this.props.icon;
-	      var id = this.props.id;
 	      var legend = this.props.legend;
 
-	      // Events.
-	      var handleClick = this.props.handleClick;
-
-	      return _react2['default'].createElement(
-	        _boxTemplate2['default'],
-	        {
-	          id: id,
-	          icon: icon,
-	          close: close,
-	          legend: legend,
-
-	          handleClick: handleClick
-	        },
-	        this.props.children
-	      );
+	      return _react2['default'].createElement(_boxTemplate2['default'], _extends({}, this.props, { legend: legend }));
 	    }
 	  }]);
 
@@ -40825,14 +40598,7 @@
 	})(_react2['default'].Component);
 
 	Fieldset.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  close: _react2['default'].PropTypes.bool,
-	  id: _react2['default'].PropTypes.string,
-	  icon: _react2['default'].PropTypes.bool,
-	  legend: _react2['default'].PropTypes.string,
-
-	  // Events.
-	  handleClick: _react2['default'].PropTypes.func
+	  legend: _react2['default'].PropTypes.string
 	};
 
 	// Defaults.
@@ -41099,6 +40865,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -41141,15 +40909,7 @@
 	      var inline = this.props.inline;
 	      var options = this.props.options;
 
-	      // Events.
-	      var handleChange = this.props.handleChange;
-
-	      return _react2['default'].createElement(_form_checkbox_listTemplate2['default'], {
-	        inline: inline,
-	        options: options,
-
-	        handleChange: handleChange
-	      });
+	      return _react2['default'].createElement(_form_checkbox_listTemplate2['default'], _extends({}, this.props, { inline: inline, options: options }));
 	    }
 	  }]);
 
@@ -41158,10 +40918,7 @@
 
 	CheckboxListInline.propTypes = {
 	  inline: _react2['default'].PropTypes.bool,
-	  options: _react2['default'].PropTypes.array,
-
-	  // Events.
-	  handleChange: _react2['default'].PropTypes.func
+	  options: _react2['default'].PropTypes.array
 	};
 
 	// Prop defaults.
@@ -41751,6 +41508,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -41793,15 +41552,7 @@
 	      var inline = this.props.inline;
 	      var options = this.props.options;
 
-	      // Events.
-	      var handleChange = this.props.handleChange;
-
-	      return _react2['default'].createElement(_form_radio_listTemplate2['default'], {
-	        inline: inline,
-	        options: options,
-
-	        handleChange: handleChange
-	      });
+	      return _react2['default'].createElement(_form_radio_listTemplate2['default'], _extends({}, this.props, { inline: inline, options: options }));
 	    }
 	  }]);
 
@@ -41810,10 +41561,7 @@
 
 	RadioListInline.propTypes = {
 	  inline: _react2['default'].PropTypes.bool,
-	  options: _react2['default'].PropTypes.array,
-
-	  // Events.
-	  handleChange: _react2['default'].PropTypes.func
+	  options: _react2['default'].PropTypes.array
 	};
 
 	// Prop defaults.
