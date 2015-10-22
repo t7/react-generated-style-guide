@@ -8,6 +8,7 @@ import Sidebar from '../../layouts/app_sidebar'
 
 // CSS.
 import style from '../../css/isg-section.css'
+import helper from '../../css/t7-helper.css'
 
 // UI components.
 import Button from '../../components/form_button/template'
@@ -41,8 +42,17 @@ class Page extends React.Component {
       main.push(
         <section id={id} key={i} className={style['isg-section']}>
 
-          <header className={style['isg-section__header--title-case']}>
-            {name}
+          <header className={style['isg-section__header']}>
+            <span className={[helper['t7-float-left'], helper['t7-capitalize']].join(' ')}>
+              {name}
+            </span>
+
+            <a
+              target='_blank'
+              title='View on GitHub'
+              className={[helper['t7-float-right'], helper['t7-font-normal']].join(' ')}
+              href={'https://github.com/t7/style-guide-example/tree/master/source/components/' + id}
+            >GitHub</a>
           </header>
 
           <div
