@@ -35,6 +35,7 @@ class Button extends React.Component {
     const mode = this.props.mode
     const size = this.props.size
     const text = this.props.text
+    const target = this.props.target
     const title = this.props.title
     const type = this.props.type
 
@@ -138,6 +139,7 @@ class Button extends React.Component {
         <a
           className={className}
           href={href}
+          target={target}
           title={title}
 
           onClick={handleClick}
@@ -159,6 +161,7 @@ Button.propTypes = {
   mode: React.PropTypes.string,
   text: React.PropTypes.string,
   size: React.PropTypes.string,
+  target: React.PropTypes.string,
   title: React.PropTypes.string,
   type: React.PropTypes.string,
 
