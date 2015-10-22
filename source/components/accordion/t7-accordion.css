@@ -49,10 +49,6 @@ Accordion header.
   z-index: 1;
 }
 
-.t7-accordion__header--selected {
-  composes: t7-accordion__header;
-}
-
 /*
 Accordion panel.
 ================================================================================
