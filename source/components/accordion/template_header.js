@@ -1,6 +1,9 @@
 // Dependencies.
 import React from 'react'
 
+// CSS.
+import style from './t7-accordion.css'
+
 // Define class.
 class AccordionHeader extends React.Component {
   constructor (props) {
@@ -46,6 +49,10 @@ class AccordionHeader extends React.Component {
         onClick={handleClick}
         onKeyDown={handleClick}
       >
+        <span
+          aria-hidden='true'
+          className={style['t7-accordion__header__icon']}
+        />
         {label}
       </dt>
     )
