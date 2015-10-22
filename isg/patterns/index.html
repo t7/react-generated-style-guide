@@ -1,4 +1,259 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/><link rel="stylesheet" href="../static/css/prism.css"/><link rel="stylesheet" href="../style.css"/><link rel="stylesheet" href="style.css"/><title>Patterns | Interactive Style Guide</title></head><body><div id="app"><div class="isg-app__isg-app___wTGg4"><header class="isg-app__isg-app__header___2Sg8e" role="banner"><b class="isg-app__isg-app__header__title___32c-s">Interactive Style Guide</b><select class="t7-form__t7-form__select--width-auto___2RT8w t7-form__t7-form__select___3IsW_" id="isg_header_select" name="isg_header_select"><option value="intro">- Intro</option><option value="branding">- Branding</option><option value="patterns">- Patterns</option><option value="requirements">- Requirements</option><option value="screens">- Screens</option></select><script>!function(){var e=window.document,n=window.location,t=n.pathname.split("/"),a=t.length,o=t[a-1]||t[a-2],l=e.getElementById("isg_header_select"),c=l.getElementsByTagName("option");Array.prototype.forEach.call(c,function(e,n){o===e.value&&(l.selectedIndex=n)}),l.onchange=function(){var e=l.value,t="../"+e;n.href=t}}();</script><span class="isg-app__isg-app__header__logo___1mf9J">TandemSeven</span></header><nav class="isg-app__isg-app__sidebar___R_c97"><ul><li><a href="#box_info">box info</a></li><li><a href="#box_negative">box negative</a></li><li><a href="#box_positive">box positive</a></li><li><a href="#box_warn">box warn</a></li><li><a href="#box">box</a></li><li><a href="#data_table">data table</a></li><li><a href="#fieldset_info">fieldset info</a></li><li><a href="#fieldset_negative">fieldset negative</a></li><li><a href="#fieldset_positive">fieldset positive</a></li><li><a href="#fieldset_warn">fieldset warn</a></li><li><a href="#fieldset">fieldset</a></li><li><a href="#form_button_examples">form button examples</a></li><li><a href="#form_button">form button</a></li><li><a href="#form_checkbox_list_inline">form checkbox list inline</a></li><li><a href="#form_checkbox_list">form checkbox list</a></li><li><a href="#form_checkbox">form checkbox</a></li><li><a href="#form_input">form input</a></li><li><a href="#form_radio_list_inline">form radio list inline</a></li><li><a href="#form_radio_list">form radio list</a></li><li><a href="#form_radio">form radio</a></li><li><a href="#form_search">form search</a></li><li><a href="#form_select">form select</a></li><li><a href="#form_textarea">form textarea</a></li><li><a href="#form_textdiv">form textdiv</a></li><li><a href="#image_figure">image figure</a></li><li><a href="#image">image</a></li><li><a href="#list_clean">list clean</a></li><li><a href="#list_inline">list inline</a></li><li><a href="#list_separator">list separator</a></li><li><a href="#tabs">tabs</a></li></ul></nav><main role="main" class="isg-app__isg-app__main___2Yd8q"><h1>Patterns</h1><section id="box_info" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">box info</header><div class="isg-section__isg-section__example___1O0ox" data-component="box_info"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="box_info"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="box_info"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="box_info" style="display:none;"><code class="language-javascript">// Dependencies.
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/><link rel="stylesheet" href="../static/css/prism.css"/><link rel="stylesheet" href="../style.css"/><link rel="stylesheet" href="style.css"/><title>Patterns | Interactive Style Guide</title></head><body><div id="app"><div class="isg-app__isg-app___wTGg4"><header class="isg-app__isg-app__header___2Sg8e" role="banner"><b class="isg-app__isg-app__header__title___32c-s">Interactive Style Guide</b><select class="t7-form__t7-form__select--width-auto___2RT8w t7-form__t7-form__select___3IsW_" id="isg_header_select" name="isg_header_select"><option value="intro">- Intro</option><option value="branding">- Branding</option><option value="patterns">- Patterns</option><option value="requirements">- Requirements</option><option value="screens">- Screens</option></select><script>!function(){var e=window.document,n=window.location,t=n.pathname.split("/"),a=t.length,o=t[a-1]||t[a-2],l=e.getElementById("isg_header_select"),c=l.getElementsByTagName("option");Array.prototype.forEach.call(c,function(e,n){o===e.value&&(l.selectedIndex=n)}),l.onchange=function(){var e=l.value,t="../"+e;n.href=t}}();</script><span class="isg-app__isg-app__header__logo___1mf9J">TandemSeven</span></header><nav class="isg-app__isg-app__sidebar___R_c97"><ul><li><a href="#accordion_multi">accordion multi</a></li><li><a href="#accordion">accordion</a></li><li><a href="#box_info">box info</a></li><li><a href="#box_negative">box negative</a></li><li><a href="#box_positive">box positive</a></li><li><a href="#box_warn">box warn</a></li><li><a href="#box">box</a></li><li><a href="#data_table">data table</a></li><li><a href="#fieldset_info">fieldset info</a></li><li><a href="#fieldset_negative">fieldset negative</a></li><li><a href="#fieldset_positive">fieldset positive</a></li><li><a href="#fieldset_warn">fieldset warn</a></li><li><a href="#fieldset">fieldset</a></li><li><a href="#form_button_examples">form button examples</a></li><li><a href="#form_button">form button</a></li><li><a href="#form_checkbox_list_inline">form checkbox list inline</a></li><li><a href="#form_checkbox_list">form checkbox list</a></li><li><a href="#form_checkbox">form checkbox</a></li><li><a href="#form_input">form input</a></li><li><a href="#form_radio_list_inline">form radio list inline</a></li><li><a href="#form_radio_list">form radio list</a></li><li><a href="#form_radio">form radio</a></li><li><a href="#form_search">form search</a></li><li><a href="#form_select">form select</a></li><li><a href="#form_textarea">form textarea</a></li><li><a href="#form_textdiv">form textdiv</a></li><li><a href="#image_figure">image figure</a></li><li><a href="#image">image</a></li><li><a href="#list_clean">list clean</a></li><li><a href="#list_inline">list inline</a></li><li><a href="#list_separator">list separator</a></li><li><a href="#tabs">tabs</a></li></ul></nav><main role="main" class="isg-app__isg-app__main___2Yd8q"><h1>Patterns</h1><section id="accordion_multi" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">accordion multi</header><div class="isg-section__isg-section__example___1O0ox" data-component="accordion_multi"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="accordion_multi"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="accordion_multi"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="accordion_multi" style="display:none;"><code class="language-javascript">// Dependencies.
+import React from 'react'
+
+// Utility methods.
+import fake from '../../fake'
+
+// UI components.
+import Accordion from '../accordion/template'
+
+// Define class.
+class AccordionMulti extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+  }
+
+  // Render method.
+  render () {
+    return (
+      &lt;Accordion {...this.props} multi /&gt;
+    )
+  }
+}
+
+// Validation.
+AccordionMulti.propTypes = {
+  children: React.PropTypes.node,
+  id: React.PropTypes.string,
+  selected: React.PropTypes.object
+}
+
+// Defaults.
+AccordionMulti.defaultProps = {
+  children: fake.accordion(),
+  selected: {
+    0: true,
+    1: true,
+    2: true
+  }
+}
+
+// Export.
+export default AccordionMulti
+</code></pre><pre data-example-html="accordion_multi" style="display:none;"><code class="language-html">&lt;dl class="t7-accordion__t7-accordion___1sw6r" id="1445483595140_32542594289407134" role="tablist" aria-multiselectable="true"&gt;
+  &lt;dt aria-controls="accordion_panel_0_1445483595140_32542594289407134" aria-expanded="true" aria-selected="true" class="t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ" id="accordion_header_0_1445483595140_32542594289407134"
+  role="tab" tabindex="0"&gt;Item 1&lt;/dt&gt;
+  &lt;dd aria-hidden="false" aria-labeledby="accordion_header_0_1445483595140_32542594289407134" class="t7-accordion__t7-accordion__panel--selected___3hhff" id="accordion_panel_0_1445483595140_32542594289407134" role="tabpanel"&gt;
+    &lt;p&gt;Content for &quot;Item 1&quot;&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dt aria-controls="accordion_panel_1_1445483595140_32542594289407134" aria-expanded="true" aria-selected="true" class="t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ" id="accordion_header_1_1445483595140_32542594289407134"
+  role="tab" tabindex="0"&gt;Item 2&lt;/dt&gt;
+  &lt;dd aria-hidden="false" aria-labeledby="accordion_header_1_1445483595140_32542594289407134" class="t7-accordion__t7-accordion__panel--selected___3hhff" id="accordion_panel_1_1445483595140_32542594289407134" role="tabpanel"&gt;
+    &lt;p&gt;Content for &quot;Item 2&quot;&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dt aria-controls="accordion_panel_2_1445483595140_32542594289407134" aria-expanded="true" aria-selected="true" class="t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ" id="accordion_header_2_1445483595140_32542594289407134"
+  role="tab" tabindex="0"&gt;Item 3&lt;/dt&gt;
+  &lt;dd aria-hidden="false" aria-labeledby="accordion_header_2_1445483595140_32542594289407134" class="t7-accordion__t7-accordion__panel--selected___3hhff" id="accordion_panel_2_1445483595140_32542594289407134" role="tabpanel"&gt;
+    &lt;p&gt;Content for &quot;Item 3&quot;&lt;/p&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;</code></pre></section><section id="accordion" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">accordion</header><div class="isg-section__isg-section__example___1O0ox" data-component="accordion"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="accordion"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="accordion"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="accordion" style="display:none;"><code class="language-javascript">// Dependencies.
+import React from 'react'
+import _ from 'lodash'
+
+// CSS.
+import style from './t7-accordion.css'
+
+// Utility methods.
+import fake from '../../fake'
+import utils from '../../utils'
+
+// UI Components.
+import AccordionHeader from './template_header'
+
+// Define class.
+class Accordion extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Get default state.
+    this.defaultState()
+  }
+
+  // Apply to `state`, because we
+  // don't want to mutate `props`.
+  defaultState () {
+    const state = {
+      id: this.props.id || utils.unique(),
+      selected: this.props.selected
+    }
+
+    // If state exists, reset it.
+    if (typeof this.state === 'object') {
+      this.setState(state)
+
+    // Otherwise, create state.
+    } else {
+      this.state = state
+    }
+  }
+
+  // Click handler.
+  handleClick (e, index) {
+    const keyPress = e.keyCode
+    const keyEnter = keyPress === 13
+
+    // Exit, if not "Enter" key.
+    if (keyPress && !keyEnter) {
+      return
+    }
+
+    const multi = this.props.multi
+
+    var selected = _.clone(this.state.selected)
+    const isSelected = selected[index]
+
+    // If `multi` isn't supported,
+    // then we reset state object.
+    if (!multi) {
+      selected = {}
+    }
+
+    // Set current selection.
+    selected[index] = !isSelected
+
+    this.setState({
+      selected: selected
+    })
+  }
+
+  // Render method.
+  render () {
+    // Unique ID, for tab group.
+    const id = this.state.id
+
+    // Get selected state.
+    const selected = this.state.selected
+
+    // Get the children.
+    const children = this.props.children
+
+    // Multi-select?
+    const multi = this.props.multi
+
+    // On/Off class names.
+    const headerOff = style['t7-accordion__header']
+    const headerOn = style['t7-accordion__header--selected']
+    const panelOff = style['t7-accordion__panel']
+    const panelOn = style['t7-accordion__panel--selected']
+
+    // Events.
+    const handleClick = this.handleClick.bind(this)
+
+    // Populated in `map`.
+    const output = []
+
+    // Build the output.
+    children.map(function (panel, i) {
+      // For accessibility.
+      const idPanel = 'accordion_panel_' + i + '_' + id
+      const idHeader = 'accordion_header_' + i + '_' + id
+
+      // Active state.
+      const isActive = selected[i]
+
+      // Panel label & content.
+      const label = panel.props.label
+      var content = panel.props.children
+
+      if (typeof content === 'string') {
+        content = (
+          &lt;p&gt;
+            {content}
+          &lt;/p&gt;
+        )
+      }
+
+      // Add the `&lt;dt&gt;`.
+      output.push(
+        &lt;AccordionHeader
+          ariaControls={idPanel}
+          ariaExpanded={isActive}
+          ariaSelected={isActive}
+          className={isActive ? headerOn : headerOff}
+          id={idHeader}
+          index={i}
+          key={idHeader}
+          label={label}
+
+          handleClick={handleClick}
+        /&gt;
+      )
+
+      // Add the `&lt;dd&gt;`.
+      output.push(
+        &lt;dd
+          aria-hidden={!isActive}
+          aria-labeledby={idHeader}
+          className={isActive ? panelOn : panelOff}
+          id={idPanel}
+          key={idPanel}
+          role='tabpanel'
+        &gt;
+          {content}
+        &lt;/dd&gt;
+      )
+    })
+
+    // Expose the UI.
+    return (
+      &lt;dl
+        className={style['t7-accordion']}
+        id={id}
+        role='tablist'
+        aria-multiselectable={multi}
+      &gt;
+        {output}
+      &lt;/dl&gt;
+    )
+  }
+}
+
+// Validation.
+Accordion.propTypes = {
+  children: React.PropTypes.node,
+  id: React.PropTypes.string,
+  multi: React.PropTypes.bool,
+  selected: React.PropTypes.object
+}
+
+// Defaults.
+Accordion.defaultProps = {
+  children: fake.accordion(),
+  multi: false,
+  selected: {
+    0: true
+  }
+}
+
+// Export.
+export default Accordion
+</code></pre><pre data-example-html="accordion" style="display:none;"><code class="language-html">&lt;dl class="t7-accordion__t7-accordion___1sw6r" id="1445483597519_3964371280744672" role="tablist" aria-multiselectable="false"&gt;
+  &lt;dt aria-controls="accordion_panel_0_1445483597519_3964371280744672" aria-expanded="true" aria-selected="true" class="t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ" id="accordion_header_0_1445483597519_3964371280744672"
+  role="tab" tabindex="0"&gt;Item 1&lt;/dt&gt;
+  &lt;dd aria-hidden="false" aria-labeledby="accordion_header_0_1445483597519_3964371280744672" class="t7-accordion__t7-accordion__panel--selected___3hhff" id="accordion_panel_0_1445483597519_3964371280744672" role="tabpanel"&gt;
+    &lt;p&gt;Content for &quot;Item 1&quot;&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dt aria-controls="accordion_panel_1_1445483597519_3964371280744672" class="t7-accordion__t7-accordion__header___3p2IQ" id="accordion_header_1_1445483597519_3964371280744672" role="tab" tabindex="0"&gt;Item 2&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labeledby="accordion_header_1_1445483597519_3964371280744672" class="t7-accordion__t7-accordion__panel___178bQ" id="accordion_panel_1_1445483597519_3964371280744672" role="tabpanel"&gt;
+    &lt;p&gt;Content for &quot;Item 2&quot;&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dt aria-controls="accordion_panel_2_1445483597519_3964371280744672" class="t7-accordion__t7-accordion__header___3p2IQ" id="accordion_header_2_1445483597519_3964371280744672" role="tab" tabindex="0"&gt;Item 3&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labeledby="accordion_header_2_1445483597519_3964371280744672" class="t7-accordion__t7-accordion__panel___178bQ" id="accordion_panel_2_1445483597519_3964371280744672" role="tabpanel"&gt;
+    &lt;p&gt;Content for &quot;Item 3&quot;&lt;/p&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;</code></pre></section><section id="box_info" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">box info</header><div class="isg-section__isg-section__example___1O0ox" data-component="box_info"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="box_info"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="box_info"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="box_info" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
 // UI components.
@@ -58,9 +313,9 @@ BoxInfo.defaultProps = {
 
 // Export.
 export default BoxInfo
-</code></pre><pre data-example-html="box_info" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--info--icon___3X4jL t7-box__t7-box--info___1O5_C t7-box__t7-box___OxsXm" id="1445468319355_0965022745076567"&gt;
+</code></pre><pre data-example-html="box_info" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--info--icon___3X4jL t7-box__t7-box--info___1O5_C t7-box__t7-box___OxsXm" id="1445483598952_5671210014261305"&gt;
   &lt;p&gt;Something happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1445468319355_0965022745076567" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1445483598952_5671210014261305" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box_negative" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">box negative</header><div class="isg-section__isg-section__example___1O0ox" data-component="box_negative"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="box_negative"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="box_negative"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="box_negative" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
@@ -121,9 +376,9 @@ BoxNegative.defaultProps = {
 
 // Export.
 export default BoxNegative
-</code></pre><pre data-example-html="box_negative" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--negative--icon___2n2iM t7-box__t7-box--negative___XlQKl t7-box__t7-box___OxsXm" id="1445468321189_19678343343548477"&gt;
+</code></pre><pre data-example-html="box_negative" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--negative--icon___2n2iM t7-box__t7-box--negative___XlQKl t7-box__t7-box___OxsXm" id="1445483600367_15835771127603948"&gt;
   &lt;p&gt;Something bad happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1445468321189_19678343343548477" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1445483600367_15835771127603948" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box_positive" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">box positive</header><div class="isg-section__isg-section__example___1O0ox" data-component="box_positive"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="box_positive"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="box_positive"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="box_positive" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
@@ -184,9 +439,9 @@ BoxWarn.defaultProps = {
 
 // Export.
 export default BoxWarn
-</code></pre><pre data-example-html="box_positive" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--positive--icon___6pZVW t7-box__t7-box--positive___1NzLS t7-box__t7-box___OxsXm" id="1445468322743_4972923710010946"&gt;
+</code></pre><pre data-example-html="box_positive" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--positive--icon___6pZVW t7-box__t7-box--positive___1NzLS t7-box__t7-box___OxsXm" id="1445483601655_892085389001295"&gt;
   &lt;p&gt;Something good happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1445468322743_4972923710010946" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1445483601655_892085389001295" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box_warn" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">box warn</header><div class="isg-section__isg-section__example___1O0ox" data-component="box_warn"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="box_warn"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="box_warn"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="box_warn" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
@@ -247,9 +502,9 @@ BoxWarn.defaultProps = {
 
 // Export.
 export default BoxWarn
-</code></pre><pre data-example-html="box_warn" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--warn--icon___2cqlP t7-box__t7-box--warn___2ncDw t7-box__t7-box___OxsXm" id="1445468323972_11775306449271739"&gt;
+</code></pre><pre data-example-html="box_warn" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box--warn--icon___2cqlP t7-box__t7-box--warn___2ncDw t7-box__t7-box___OxsXm" id="1445483602952_26311526633799076"&gt;
   &lt;p&gt;Something &quot;meh&quot; happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1445468323972_11775306449271739" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1445483602952_26311526633799076" aria-label="Close" title="Close" class="t7-box__t7-box__close___3mz_h" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">box</header><div class="isg-section__isg-section__example___1O0ox" data-component="box"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="box"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="box"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="box" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
@@ -462,7 +717,7 @@ Box.defaultProps = {
 
 // Export.
 export default Box
-</code></pre><pre data-example-html="box" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box___OxsXm" id="1445468325164_2762970384210348"&gt;
+</code></pre><pre data-example-html="box" style="display:none;"><code class="language-html">&lt;div class="t7-box__t7-box___OxsXm" id="1445483604318_891924871597439"&gt;
   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor
     in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor
@@ -725,7 +980,7 @@ DataTable.defaultProps = {
 export default DataTable
 </code></pre><pre data-example-html="data_table" style="display:none;"><code class="language-html">&lt;div class="t7-data-table__t7-data-table__wrapper___1rx5V"&gt;
   &lt;div aria-hidden="false" aria-label="Pagination" class="t7-data-table__t7-data-table__pagination___1MYUO"&gt;&lt;span class="t7-data-table__t7-data-table__pagination__label___2hTDS"&gt;Page 1 of 3&lt;/span&gt; 
-    &lt;select class="t7-form__t7-form__select--width-auto___1772T t7-form__t7-form__select___3cUlJ" id="1445468327622_43807073682546616" name="1445468327622_43807073682546616"&gt;
+    &lt;select class="t7-form__t7-form__select--width-auto___1772T t7-form__t7-form__select___3cUlJ" id="1445483606547_8926024590618908" name="1445483606547_8926024590618908"&gt;
       &lt;option selected="" value="0"&gt;Page 1&lt;/option&gt;
       &lt;option value="1"&gt;Page 2&lt;/option&gt;
       &lt;option value="2"&gt;Page 3&lt;/option&gt;
@@ -733,7 +988,7 @@ export default DataTable
     &lt;button class="t7-form__t7-form__button___26ygf t7-form__t7-form__button--default___2v6BP" disabled="" title="Previous Page" type="button"&gt;Prev&lt;/button&gt;
     &lt;button class="t7-form__t7-form__button___26ygf t7-form__t7-form__button--default___2v6BP" title="Next Page" type="button"&gt;Next&lt;/button&gt;
   &lt;/div&gt;
-  &lt;table id="1445468327621_06990874651819468" class="t7-data-table__t7-data-table___2HloH" role="grid"&gt;
+  &lt;table id="1445483606545_3050939133390784" class="t7-data-table__t7-data-table___2HloH" role="grid"&gt;
     &lt;thead role="rowgroup"&gt;
       &lt;tr&gt;
         &lt;th aria-sort="descending" class="t7-data-table__t7-data-table__th--sortable___1K-A9 t7-data-table__t7-data-table__th___1IdhN" role="columnheader" scope="col" tabindex="0"&gt;Date&lt;/th&gt;
@@ -748,141 +1003,141 @@ export default DataTable
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 21, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$52.301&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,947.699&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$55.43&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,944.57&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 20, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$64.887&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,012.586&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$94.434&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,039.004&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 19, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$17.525&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,995.061&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$52.945&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,986.06&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 18, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$88.539&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,083.601&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$95.85&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,081.91&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 17, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$65.219&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,018.382&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$83.022&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,998.888&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 16, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$97.512&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,115.894&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$4.833&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,003.721&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 15, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$46.528&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,069.366&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$52.068&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,951.654&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 14, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$10.434&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,079.8&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$79.544&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,031.198&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 13, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$9.587&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,070.213&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$66.347&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,964.851&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 12, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$58.233&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,128.446&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$53.619&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,018.47&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 11, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$27.701&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,100.745&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$48.248&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,970.221&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 10, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$61.548&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,162.293&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$31.439&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,001.66&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 9, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$87.872&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,074.421&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$34.701&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,966.96&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 8, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$54.761&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,129.182&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$49.87&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,016.83&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 7, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$60.357&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,068.825&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$43.549&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,973.28&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 6, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$36.273&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,105.098&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$94.689&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,067.97&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 5, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$94.769&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,010.329&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$44.112&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,023.857&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 4, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$0.225&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,010.554&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$58.799&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,082.656&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 3, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$70.277&lt;/span&gt;)&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,940.276&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;(&lt;span&gt;$44.002&lt;/span&gt;)&lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,038.654&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;October 2, 2015&lt;/span&gt; &lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$1.67&lt;/span&gt; &lt;/td&gt;
-        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$19,941.946&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$68.09&lt;/span&gt; &lt;/td&gt;
+        &lt;td class="t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG" role="gridcell"&gt;&lt;span&gt;$20,106.744&lt;/span&gt; &lt;/td&gt;
       &lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
@@ -947,7 +1202,7 @@ FieldsetInfo.defaultProps = {
 
 // Export.
 export default FieldsetInfo
-</code></pre><pre data-example-html="fieldset_info" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--info___1O5_C t7-box__t7-box___OxsXm" id="1445468328830_6184523284900934"&gt;
+</code></pre><pre data-example-html="fieldset_info" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--info___1O5_C t7-box__t7-box___OxsXm" id="1445483607889_38610690576024354"&gt;
   &lt;legend title="Legen... wait for it... dary"&gt;Legen... wait for it... dary&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset_negative" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">fieldset negative</header><div class="isg-section__isg-section__example___1O0ox" data-component="fieldset_negative"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="fieldset_negative"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="fieldset_negative"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="fieldset_negative" style="display:none;"><code class="language-javascript">// Dependencies.
@@ -1011,7 +1266,7 @@ FieldsetNegative.defaultProps = {
 
 // Export.
 export default FieldsetNegative
-</code></pre><pre data-example-html="fieldset_negative" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--negative___XlQKl t7-box__t7-box___OxsXm" id="1445468330014_5981096965260804"&gt;
+</code></pre><pre data-example-html="fieldset_negative" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--negative___XlQKl t7-box__t7-box___OxsXm" id="1445483609332_32493814709596336"&gt;
   &lt;legend title="Legen... wait for it... dary"&gt;Legen... wait for it... dary&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset_positive" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">fieldset positive</header><div class="isg-section__isg-section__example___1O0ox" data-component="fieldset_positive"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="fieldset_positive"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="fieldset_positive"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="fieldset_positive" style="display:none;"><code class="language-javascript">// Dependencies.
@@ -1075,7 +1330,7 @@ FieldsetPositive.defaultProps = {
 
 // Export.
 export default FieldsetPositive
-</code></pre><pre data-example-html="fieldset_positive" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--positive___1NzLS t7-box__t7-box___OxsXm" id="1445468331185_8621168697718531"&gt;
+</code></pre><pre data-example-html="fieldset_positive" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--positive___1NzLS t7-box__t7-box___OxsXm" id="1445483610591_8778961843345314"&gt;
   &lt;legend title="Legen... wait for it... dary"&gt;Legen... wait for it... dary&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset_warn" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">fieldset warn</header><div class="isg-section__isg-section__example___1O0ox" data-component="fieldset_warn"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="fieldset_warn"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="fieldset_warn"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="fieldset_warn" style="display:none;"><code class="language-javascript">// Dependencies.
@@ -1139,7 +1394,7 @@ FieldsetWarn.defaultProps = {
 
 // Export.
 export default FieldsetWarn
-</code></pre><pre data-example-html="fieldset_warn" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--warn___2ncDw t7-box__t7-box___OxsXm" id="1445468332546_7658308362588286"&gt;
+</code></pre><pre data-example-html="fieldset_warn" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box--warn___2ncDw t7-box__t7-box___OxsXm" id="1445483611805_9258727999404073"&gt;
   &lt;legend title="Legen... wait for it... dary"&gt;Legen... wait for it... dary&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">fieldset</header><div class="isg-section__isg-section__example___1O0ox" data-component="fieldset"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="fieldset"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="fieldset"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="fieldset" style="display:none;"><code class="language-javascript">// Dependencies.
@@ -1202,13 +1457,13 @@ Fieldset.defaultProps = {
 
 // Export.
 export default Fieldset
-</code></pre><pre data-example-html="fieldset" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box___OxsXm" id="1445468333706_6097746479790658"&gt;
+</code></pre><pre data-example-html="fieldset" style="display:none;"><code class="language-html">&lt;fieldset class="t7-box__t7-box___OxsXm" id="1445483613017_07981008407659829"&gt;
   &lt;legend title="Legen... wait for it... dary"&gt;Legen... wait for it... dary&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="form_button_examples" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form button examples</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_button_examples"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_button_examples"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_button_examples"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_button_examples" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
-// UI Components.
+// UI components.
 import Button from '../form_button/template'
 import ListInline from '../list_inline/template'
 
@@ -1583,16 +1838,16 @@ CheckboxListInline.defaultProps = {
 export default CheckboxListInline
 </code></pre><pre data-example-html="form_checkbox_list_inline" style="display:none;"><code class="language-html">&lt;ul class="t7-list--inline__t7-list--inline___1m_mJ"&gt;
   &lt;li&gt;
-    &lt;label for="1445468337253_4609199967235327"&gt;
-      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445468337253_4609199967235327" name="1445468337253_4609199967235327" type="checkbox" value="Checkbox list inline - label 01" /&gt;Checkbox list inline - label 01&lt;/label&gt;
+    &lt;label for="1445483617069_14740154962055385"&gt;
+      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445483617069_14740154962055385" name="1445483617069_14740154962055385" type="checkbox" value="Checkbox list inline - label 01" /&gt;Checkbox list inline - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468337254_25247986475005746"&gt;
-      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445468337254_25247986475005746" name="1445468337254_25247986475005746" type="checkbox" value="Checkbox list inline - label 02" /&gt;Checkbox list inline - label 02&lt;/label&gt;
+    &lt;label for="1445483617069_696417780360207"&gt;
+      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445483617069_696417780360207" name="1445483617069_696417780360207" type="checkbox" value="Checkbox list inline - label 02" /&gt;Checkbox list inline - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468337254_1955985997337848"&gt;
-      &lt;input class="t7-form__t7-form__checkbox___1euj9" disabled="" id="1445468337254_1955985997337848" name="1445468337254_1955985997337848" type="checkbox" value="(Checkbox disabled)" /&gt;(Checkbox disabled)&lt;/label&gt;
+    &lt;label for="1445483617070_3332785344682634"&gt;
+      &lt;input class="t7-form__t7-form__checkbox___1euj9" disabled="" id="1445483617070_3332785344682634" name="1445483617070_3332785344682634" type="checkbox" value="(Checkbox disabled)" /&gt;(Checkbox disabled)&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_checkbox_list" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form checkbox list</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_checkbox_list"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_checkbox_list"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_checkbox_list"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_checkbox_list" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
@@ -1678,16 +1933,16 @@ CheckboxList.defaultProps = {
 export default CheckboxList
 </code></pre><pre data-example-html="form_checkbox_list" style="display:none;"><code class="language-html">&lt;ul class="t7-list--clean__t7-list--clean___3S5Dy"&gt;
   &lt;li&gt;
-    &lt;label for="1445468338543_24004268064163625"&gt;
-      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445468338543_24004268064163625" name="1445468338543_24004268064163625" type="checkbox" value="Checkbox list - label 01" /&gt;Checkbox list - label 01&lt;/label&gt;
+    &lt;label for="1445483618371_07926695444621146"&gt;
+      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445483618371_07926695444621146" name="1445483618371_07926695444621146" type="checkbox" value="Checkbox list - label 01" /&gt;Checkbox list - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468338543_8678579197730869"&gt;
-      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445468338543_8678579197730869" name="1445468338543_8678579197730869" type="checkbox" value="Checkbox list - label 02" /&gt;Checkbox list - label 02&lt;/label&gt;
+    &lt;label for="1445483618371_1903377310372889"&gt;
+      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445483618371_1903377310372889" name="1445483618371_1903377310372889" type="checkbox" value="Checkbox list - label 02" /&gt;Checkbox list - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468338544_28664444340392947"&gt;
-      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445468338544_28664444340392947" name="1445468338544_28664444340392947" type="checkbox" value="Checkbox list - label 03" /&gt;Checkbox list - label 03&lt;/label&gt;
+    &lt;label for="1445483618372_5432635524775833"&gt;
+      &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445483618372_5432635524775833" name="1445483618372_5432635524775833" type="checkbox" value="Checkbox list - label 03" /&gt;Checkbox list - label 03&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_checkbox" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form checkbox</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_checkbox"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_checkbox"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_checkbox"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_checkbox" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
@@ -1813,8 +2068,8 @@ Checkbox.defaultProps = {
 
 // Export.
 export default Checkbox
-</code></pre><pre data-example-html="form_checkbox" style="display:none;"><code class="language-html">&lt;label for="1445468339614_798672390403226"&gt;
-  &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445468339614_798672390403226" name="1445468339614_798672390403226" type="checkbox" value="Individual checkbox label" /&gt;Individual checkbox label&lt;/label&gt;</code></pre></section><section id="form_input" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form input</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_input"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_input"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_input"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_input" style="display:none;"><code class="language-javascript">// Dependencies.
+</code></pre><pre data-example-html="form_checkbox" style="display:none;"><code class="language-html">&lt;label for="1445483619419_658495056675747"&gt;
+  &lt;input class="t7-form__t7-form__checkbox___1euj9" id="1445483619419_658495056675747" name="1445483619419_658495056675747" type="checkbox" value="Individual checkbox label" /&gt;Individual checkbox label&lt;/label&gt;</code></pre></section><section id="form_input" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form input</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_input"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_input"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_input"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_input" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
 // CSS.
@@ -1945,7 +2200,7 @@ Input.defaultProps = {
 
 // Export.
 export default Input
-</code></pre><pre data-example-html="form_input" style="display:none;"><code class="language-html">&lt;input class="t7-form__t7-form__input___3g6W1" id="1445468340893_7942736544646323" name="1445468340893_7942736544646323" type="text" /&gt;</code></pre></section><section id="form_radio_list_inline" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form radio list inline</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_radio_list_inline"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_radio_list_inline"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_radio_list_inline"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_radio_list_inline" style="display:none;"><code class="language-javascript">// Dependencies.
+</code></pre><pre data-example-html="form_input" style="display:none;"><code class="language-html">&lt;input class="t7-form__t7-form__input___3g6W1" id="1445483620460_29362534545361996" name="1445483620460_29362534545361996" type="text" /&gt;</code></pre></section><section id="form_radio_list_inline" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form radio list inline</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_radio_list_inline"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_radio_list_inline"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_radio_list_inline"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_radio_list_inline" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
 // UI components.
@@ -2008,16 +2263,16 @@ RadioListInline.defaultProps = {
 export default RadioListInline
 </code></pre><pre data-example-html="form_radio_list_inline" style="display:none;"><code class="language-html">&lt;ul class="t7-list--inline__t7-list--inline___1m_mJ"&gt;
   &lt;li&gt;
-    &lt;label for="1445468342152_1645454061217606"&gt;
-      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445468342152_1645454061217606" name="1445468342151_9087115623988211" type="radio" value="Radio list inline - label 01" checked="" /&gt;Radio list inline - label 01&lt;/label&gt;
+    &lt;label for="1445483621778_5641472511924803"&gt;
+      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445483621778_5641472511924803" name="1445483621778_16082692914642394" type="radio" value="Radio list inline - label 01" checked="" /&gt;Radio list inline - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468342152_825474827317521"&gt;
-      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445468342152_825474827317521" name="1445468342151_9087115623988211" type="radio" value="Radio list inline - label 02" /&gt;Radio list inline - label 02&lt;/label&gt;
+    &lt;label for="1445483621779_35664916411042213"&gt;
+      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445483621779_35664916411042213" name="1445483621778_16082692914642394" type="radio" value="Radio list inline - label 02" /&gt;Radio list inline - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468342152_26884418656118214"&gt;
-      &lt;input class="t7-form__t7-form__radio___1JFpG" disabled="" id="1445468342152_26884418656118214" name="1445468342151_9087115623988211" type="radio" value="(Radio disabled)" /&gt;(Radio disabled)&lt;/label&gt;
+    &lt;label for="1445483621779_44069363875314593"&gt;
+      &lt;input class="t7-form__t7-form__radio___1JFpG" disabled="" id="1445483621779_44069363875314593" name="1445483621778_16082692914642394" type="radio" value="(Radio disabled)" /&gt;(Radio disabled)&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_radio_list" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form radio list</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_radio_list"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_radio_list"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_radio_list"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_radio_list" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
@@ -2134,16 +2389,16 @@ RadioList.defaultProps = {
 export default RadioList
 </code></pre><pre data-example-html="form_radio_list" style="display:none;"><code class="language-html">&lt;ul class="t7-list--clean__t7-list--clean___3S5Dy"&gt;
   &lt;li&gt;
-    &lt;label for="1445468343388_8218186185695231"&gt;
-      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445468343388_8218186185695231" name="1445468343387_4031377066858113" type="radio" value="Radio list - label 01" checked="" /&gt;Radio list - label 01&lt;/label&gt;
+    &lt;label for="1445483623090_7800019299611449"&gt;
+      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445483623090_7800019299611449" name="1445483623089_05634219548664987" type="radio" value="Radio list - label 01" checked="" /&gt;Radio list - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468343388_306650803424418"&gt;
-      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445468343388_306650803424418" name="1445468343387_4031377066858113" type="radio" value="Radio list - label 02" /&gt;Radio list - label 02&lt;/label&gt;
+    &lt;label for="1445483623090_39348876965232193"&gt;
+      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445483623090_39348876965232193" name="1445483623089_05634219548664987" type="radio" value="Radio list - label 02" /&gt;Radio list - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1445468343388_9565687295980752"&gt;
-      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445468343388_9565687295980752" name="1445468343387_4031377066858113" type="radio" value="Radio list - label 03" /&gt;Radio list - label 03&lt;/label&gt;
+    &lt;label for="1445483623090_6300251740030944"&gt;
+      &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445483623090_6300251740030944" name="1445483623089_05634219548664987" type="radio" value="Radio list - label 03" /&gt;Radio list - label 03&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_radio" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form radio</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_radio"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_radio"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_radio"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_radio" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
@@ -2269,8 +2524,8 @@ Radio.defaultProps = {
 
 // Export.
 export default Radio
-</code></pre><pre data-example-html="form_radio" style="display:none;"><code class="language-html">&lt;label for="1445468344384_43543524551205337"&gt;
-  &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445468344384_43543524551205337" name="1445468344384_43543524551205337" type="radio" value="Individual radio label" /&gt;Individual radio label&lt;/label&gt;</code></pre></section><section id="form_search" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form search</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_search"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_search"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_search"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_search" style="display:none;"><code class="language-javascript">// Dependencies.
+</code></pre><pre data-example-html="form_radio" style="display:none;"><code class="language-html">&lt;label for="1445483624186_6970765995793045"&gt;
+  &lt;input class="t7-form__t7-form__radio___1JFpG" id="1445483624186_6970765995793045" name="1445483624186_6970765995793045" type="radio" value="Individual radio label" /&gt;Individual radio label&lt;/label&gt;</code></pre></section><section id="form_search" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form search</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_search"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_search"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_search"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_search" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
 // CSS.
@@ -2367,7 +2622,7 @@ export default Search
     &lt;tbody&gt;
       &lt;tr&gt;
         &lt;td&gt;
-          &lt;input class="t7-form__t7-form__input___3g6W1" id="1445468345499_80374572169967" name="1445468345499_80374572169967" placeholder="Search..." type="search" /&gt;
+          &lt;input class="t7-form__t7-form__input___3g6W1" id="1445483625649_19837584882043302" name="1445483625649_19837584882043302" placeholder="Search..." type="search" /&gt;
         &lt;/td&gt;
         &lt;td&gt;
           &lt;button class="t7-form__t7-form__button___26ygf t7-form__t7-form__button--primary___1Ek-x" type="submit"&gt;GO&lt;/button&gt;
@@ -2525,7 +2780,7 @@ Select.defaultProps = {
 
 // Export.
 export default Select
-</code></pre><pre data-example-html="form_select" style="display:none;"><code class="language-html">&lt;select class="t7-form__t7-form__select___3cUlJ" id="1445468346543_5664202810730785" name="1445468346543_5664202810730785"&gt;
+</code></pre><pre data-example-html="form_select" style="display:none;"><code class="language-html">&lt;select class="t7-form__t7-form__select___3cUlJ" id="1445483626745_0578983158338815" name="1445483626745_0578983158338815"&gt;
   &lt;option value=""&gt;Select...&lt;/option&gt;
   &lt;option value="1"&gt;Uno&lt;/option&gt;
   &lt;option value="2"&gt;Dos&lt;/option&gt;
@@ -2650,7 +2905,7 @@ Textarea.defaultProps = {
 
 // Export.
 export default Textarea
-</code></pre><pre data-example-html="form_textarea" style="display:none;"><code class="language-html">&lt;textarea class="t7-form__t7-form__textarea___2UBRs" id="1445468347614_8273793638218194" name="1445468347614_8273793638218194"&gt;&lt;/textarea&gt;</code></pre></section><section id="form_textdiv" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form textdiv</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_textdiv"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_textdiv"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_textdiv"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_textdiv" style="display:none;"><code class="language-javascript">// Dependencies.
+</code></pre><pre data-example-html="form_textarea" style="display:none;"><code class="language-html">&lt;textarea class="t7-form__t7-form__textarea___2UBRs" id="1445483627797_34537355648353696" name="1445483627797_34537355648353696"&gt;&lt;/textarea&gt;</code></pre></section><section id="form_textdiv" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">form textdiv</header><div class="isg-section__isg-section__example___1O0ox" data-component="form_textdiv"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="form_textdiv"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="form_textdiv"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="form_textdiv" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
 // CSS.
@@ -2803,7 +3058,7 @@ Textdiv.defaultProps = {
 
 // Export.
 export default Textdiv
-</code></pre><pre data-example-html="form_textdiv" style="display:none;"><code class="language-html">&lt;div class="t7-form__t7-form__textarea___2UBRs" contenteditable="true" id="1445468348711_046944741159677505" name="1445468348711_046944741159677505" placeholder=""&gt;&lt;/div&gt;</code></pre></section><section id="image_figure" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">image figure</header><div class="isg-section__isg-section__example___1O0ox" data-component="image_figure"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="image_figure"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="image_figure"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="image_figure" style="display:none;"><code class="language-javascript">// Dependencies.
+</code></pre><pre data-example-html="form_textdiv" style="display:none;"><code class="language-html">&lt;div class="t7-form__t7-form__textarea___2UBRs" contenteditable="true" id="1445483628895_7357952420134097" name="1445483628895_7357952420134097" placeholder=""&gt;&lt;/div&gt;</code></pre></section><section id="image_figure" class="isg-section__isg-section___1jbZO"><header class="isg-section__isg-section__header--title-case___Ty8Po isg-section__isg-section__header___Hdaul">image figure</header><div class="isg-section__isg-section__example___1O0ox" data-component="image_figure"></div><hr/><p><b>Example code:</b></p><ul class="t7-list--inline__t7-list--inline___1DIC6"><li data-trigger-jsx="image_figure"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View JSX</button></li><li data-trigger-html="image_figure"><button class="t7-form__t7-form__button___2x8WW t7-form__t7-form__button--default___2wWBQ" type="button">View HTML</button></li></ul><pre data-example-jsx="image_figure" style="display:none;"><code class="language-javascript">// Dependencies.
 import React from 'react'
 
 // UI components.
@@ -3352,7 +3607,7 @@ import style from './t7-tabs.css'
 import fake from '../../fake'
 import utils from '../../utils'
 
-// UI Components.
+// UI components.
 import Tab from './template_tab'
 
 // Define class.
@@ -3423,9 +3678,14 @@ class Tabs extends React.Component {
         &lt;ul role='tablist' className={style['t7-tabs__list']}&gt;
           {
             children.map(function (panel, i) {
+              // Panel label.
+              const label = panel.props.label
+
               // For accessibility.
               const idPanel = 'tabpanel_' + i + '_' + id
               const idTab = 'tab_' + i + '_' + id
+
+              // Active state.
               const isActive = selected === i
               const className = isActive ? tabOn : tabOff
 
@@ -3438,7 +3698,7 @@ class Tabs extends React.Component {
                   id={idTab}
                   index={i}
                   key={idTab}
-                  label={panel.props.label || 'Tab ' + (i + 1)}
+                  label={label}
                   handleClick={handleClick}
                 /&gt;
               )
@@ -3450,9 +3710,12 @@ class Tabs extends React.Component {
             // For accessibility.
             const idPanel = 'tabpanel_' + i + '_' + id
             const idTab = 'tab_' + i + '_' + id
+
+            // Active state.
             const isActive = selected === i
             const className = isActive ? panelOn : panelOff
 
+            // Panel content.
             var content = panel.props.children
 
             if (!content) {
@@ -3497,19 +3760,19 @@ Tabs.defaultProps = {
 
 // Export.
 export default Tabs
-</code></pre><pre data-example-html="tabs" style="display:none;"><code class="language-html">&lt;div class="t7-tabs__t7-tabs___2o2WF" id="1445468354644_35783342737704515"&gt;
+</code></pre><pre data-example-html="tabs" style="display:none;"><code class="language-html">&lt;div class="t7-tabs__t7-tabs___2o2WF" id="1445483635149_38995396229438484"&gt;
   &lt;ul role="tablist" class="t7-tabs__t7-tabs__list___3kP8r"&gt;
-    &lt;li aria-controls="tabpanel_0_1445468354644_35783342737704515" aria-expanded="true" aria-selected="true" class="t7-tabs__t7-tabs__item--selected___2ILBm t7-tabs__t7-tabs__item___3-bDk" id="tab_0_1445468354644_35783342737704515" role="tab" tabindex="0"&gt;Tab 1&lt;/li&gt;
-    &lt;li aria-controls="tabpanel_1_1445468354644_35783342737704515" aria-expanded="false" aria-selected="false" class="t7-tabs__t7-tabs__item___3-bDk" id="tab_1_1445468354644_35783342737704515" role="tab" tabindex="0"&gt;Tab 2&lt;/li&gt;
-    &lt;li aria-controls="tabpanel_2_1445468354644_35783342737704515" aria-expanded="false" aria-selected="false" class="t7-tabs__t7-tabs__item___3-bDk" id="tab_2_1445468354644_35783342737704515" role="tab" tabindex="0"&gt;Tab 3&lt;/li&gt;
+    &lt;li aria-controls="tabpanel_0_1445483635149_38995396229438484" aria-expanded="true" aria-selected="true" class="t7-tabs__t7-tabs__item--selected___2ILBm t7-tabs__t7-tabs__item___3-bDk" id="tab_0_1445483635149_38995396229438484" role="tab" tabindex="0"&gt;Tab 1&lt;/li&gt;
+    &lt;li aria-controls="tabpanel_1_1445483635149_38995396229438484" aria-expanded="false" aria-selected="false" class="t7-tabs__t7-tabs__item___3-bDk" id="tab_1_1445483635149_38995396229438484" role="tab" tabindex="0"&gt;Tab 2&lt;/li&gt;
+    &lt;li aria-controls="tabpanel_2_1445483635149_38995396229438484" aria-expanded="false" aria-selected="false" class="t7-tabs__t7-tabs__item___3-bDk" id="tab_2_1445483635149_38995396229438484" role="tab" tabindex="0"&gt;Tab 3&lt;/li&gt;
   &lt;/ul&gt;
-  &lt;div aria-hidden="false" aria-labeledby="tab_0_1445468354644_35783342737704515" class="t7-tabs__t7-tabs__panel--selected___3PKLl" id="tabpanel_0_1445468354644_35783342737704515" role="tabpanel"&gt;
+  &lt;div aria-hidden="false" aria-labeledby="tab_0_1445483635149_38995396229438484" class="t7-tabs__t7-tabs__panel--selected___3PKLl" id="tabpanel_0_1445483635149_38995396229438484" role="tabpanel"&gt;
     &lt;p&gt;Tab content for &quot;Tab 1&quot;&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div aria-hidden="true" aria-labeledby="tab_1_1445468354644_35783342737704515" class="t7-tabs__t7-tabs__panel___CAHGh" id="tabpanel_1_1445468354644_35783342737704515" role="tabpanel"&gt;
+  &lt;div aria-hidden="true" aria-labeledby="tab_1_1445483635149_38995396229438484" class="t7-tabs__t7-tabs__panel___CAHGh" id="tabpanel_1_1445483635149_38995396229438484" role="tabpanel"&gt;
     &lt;p&gt;Tab content for &quot;Tab 2&quot;&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div aria-hidden="true" aria-labeledby="tab_2_1445468354644_35783342737704515" class="t7-tabs__t7-tabs__panel___CAHGh" id="tabpanel_2_1445468354644_35783342737704515" role="tabpanel"&gt;
+  &lt;div aria-hidden="true" aria-labeledby="tab_2_1445483635149_38995396229438484" class="t7-tabs__t7-tabs__panel___CAHGh" id="tabpanel_2_1445483635149_38995396229438484" role="tabpanel"&gt;
     &lt;p&gt;Tab content for &quot;Tab 3&quot;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre></section></main><footer class="isg-app__isg-app__footer___-vnki" role="contentinfo">© 2015 <a href="http://www.tandemseven.com/" target="_blank">TandemSeven</a> — <a href="https://github.com/t7/style-guide-example" target="_blank">View on GitHub</a></footer></div></div><script>!function(){var t=["[data-trigger-jsx] button","[data-trigger-html] button"].join(","),e=document.querySelectorAll(t);Array.prototype.forEach.call(e,function(t){var e,a=t.parentNode,l=a.getAttribute("data-trigger-html");e=l?l:a.getAttribute("data-trigger-jsx");var o=document.querySelector('[data-trigger-html="'+e+'"] button'),r=document.querySelector('[data-trigger-jsx="'+e+'"] button'),n=document.querySelector('[data-example-html="'+e+'"]'),d=document.querySelector('[data-example-jsx="'+e+'"]');t.onclick=function(t){t.preventDefault(),t.stopPropagation(),l?(d.style.display="none","none"===n.style.display?(n.style.display="block",r.disabled=!0):(n.style.display="none",r.disabled=!1)):(n.style.display="none","none"===d.style.display?(d.style.display="block",o.disabled=!0):(d.style.display="none",o.disabled=!1))}})}();</script><script src="../../static/js/intl.js"></script><script src="../static/js/prism.js"></script><script src="index.js"></script></body></html>
