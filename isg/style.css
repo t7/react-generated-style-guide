@@ -2142,11 +2142,8 @@ Sections used for the style guide itself.
   margin-left: -20px;
   margin-right: -20px;
   margin-bottom: 20px;
-}
 
-.isg-section__isg-section__header--title-case___Ty8Po {
-
-  text-transform: capitalize;
+  overflow: hidden;
 }
 
 .isg-section__isg-section__example___1O0ox {
@@ -2379,9 +2376,11 @@ Form element "reset."
 .t7-form__t7-form__button___2x8WW {
   cursor: pointer;
   display: inline-block;
+  font-weight: normal;
   line-height: 1;
   text-align: center;
   text-decoration: none;
+  text-transform: none;
   width: auto;
   white-space: nowrap;
 }
@@ -2516,7 +2515,6 @@ Button.
 .t7-form__t7-form__button___2x8WW[class],
 .t7-form__t7-form__button___2x8WW[class]:hover{
   color: #fff;
-  text-decoration: none;
 }
 
 .t7-form__t7-form__button___2x8WW:not([disabled]):active {
@@ -2587,6 +2585,14 @@ Button mode.
   background: #933;
 }
 
+.t7-form__t7-form__button--warn___1Xqsp {
+  background: #c96;
+}
+
+.t7-form__t7-form__button--warn___1Xqsp:not([disabled]):active {
+  background: #963;
+}
+
 /*
 Checkbox & Radio.
 ================================================================================
@@ -2622,6 +2628,273 @@ Disabled state.
   cursor: not-allowed;
 
   opacity: 0.5;
+}/*
+Misc helper classes.
+================================================================================
+*/
+
+.t7-helper__t7-mute___2xutA {
+  color: #999;
+}
+
+.t7-helper__t7-capitalize___1N0Z1 {
+  text-transform: capitalize;
+}
+
+.t7-helper__t7-uppercase___3TkRW {
+  text-transform: uppercase;
+}
+
+.t7-helper__t7-lowercase___8NScn {
+  text-transform: lowercase;
+}
+
+.t7-helper__t7-font-normal___12FK5 {
+  font-weight: normal;
+}
+
+/*
+Float.
+================================================================================
+*/
+
+.t7-helper__t7-float-left___2nP5z {
+  float: left;
+}
+
+.t7-helper__t7-float-right___2mnO5 {
+  float: right;
+}
+
+@media (max-width: 767px) {
+  .t7-helper__t7-mobile-float-left___2qmQG {
+    float: left;
+  }
+
+  .t7-helper__t7-mobile-float-right___2-faQ {
+    float: right;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .t7-helper__t7-tablet-float-left___2QlSS {
+    float: left;
+  }
+
+  .t7-helper__t7-tablet-float-right___2QhB_ {
+    float: right;
+  }
+}
+
+@media (min-width: 1025px) {
+  .t7-helper__t7-desktop-float-left___-fUmp {
+    float: left;
+  }
+
+  .t7-helper__t7-desktop-float-right___33BaK {
+    float: right;
+  }
+}
+
+/*
+Text alignment.
+================================================================================
+*/
+
+.t7-helper__t7-align-center___RKBig {
+  text-align: center;
+}
+
+.t7-helper__t7-align-left___2NV9u {
+  text-align: left;
+}
+
+.t7-helper__t7-align-right___2WZ2Q {
+  float: right;
+}
+
+.t7-helper__t7-align-top___2AX8M {
+  vertical-align: top;
+}
+
+.t7-helper__t7-align-middle___2FBso {
+  vertical-align: middle;
+}
+
+.t7-helper__t7-align-baseline___2O4EF {
+  vertical-align: baseline;
+}
+
+.t7-helper__t7-align-bottom___2ioLr {
+  vertical-align: bottom;
+}
+
+/*
+Gutter: Top.
+================================================================================
+*/
+
+.t7-helper__t7-gutter-top___3LUcA {
+  margin-top: 20px;
+}
+
+.t7-helper__t7-gutter-top--quarter___1FbT_ {
+  margin-top: 5px;
+}
+
+.t7-helper__t7-gutter-top--half___2qyKu {
+  margin-top: 10px;
+}
+
+.t7-helper__t7-gutter-top--double___r8mre {
+  margin-top: 40px;
+}
+
+/*
+Negative gutter: Top.
+================================================================================
+*/
+
+.t7-helper__t7-negative-gutter-top___2Zs2W {
+  margin-top: -20px;
+}
+
+.t7-helper__t7-negative-gutter-top--quarter___1aopy {
+  margin-top: -5px;
+}
+
+.t7-helper__t7-negative-gutter-top--half___23_t- {
+  margin-top: -10px;
+}
+
+.t7-helper__t7-negative-gutter-top--double___HFcPw {
+  margin-top: -40px;
+}
+
+/*
+Gutter: Left.
+================================================================================
+*/
+
+.t7-helper__t7-gutter-left___48JIO {
+  margin-left: 20px;
+}
+
+.t7-helper__t7-gutter-left--quarter___hREC5 {
+  margin-left: 5px;
+}
+
+.t7-helper__t7-gutter-left--half___-smeO {
+  margin-left: 10px;
+}
+
+.t7-helper__t7-gutter-left--double___1uh9r {
+  margin-left: 40px;
+}
+
+/*
+Negative gutter: Left.
+================================================================================
+*/
+
+.t7-helper__t7-negative-gutter-left___7dQPZ {
+  margin-left: -20px;
+}
+
+.t7-helper__t7-negative-gutter-left--quarter___1VMq7 {
+  margin-left: -5px;
+}
+
+.t7-helper__t7-negative-gutter-left--half___3aF1M {
+  margin-left: -10px;
+}
+
+.t7-helper__t7-negative-gutter-left--double___3fPv9 {
+  margin-left: -40px;
+}
+
+/*
+Gutter: Right.
+================================================================================
+*/
+
+.t7-helper__t7-gutter-right___28P02 {
+  margin-right: 20px;
+}
+
+.t7-helper__t7-gutter-right--quarter___1sIkh {
+  margin-right: 5px;
+}
+
+.t7-helper__t7-gutter-right--half___1ND_t {
+  margin-right: 10px;
+}
+
+.t7-helper__t7-gutter-right--double___mUrcs {
+  margin-right: 40px;
+}
+
+/*
+Negative gutter: Right.
+================================================================================
+*/
+
+.t7-helper__t7-negative-gutter-right___2U2UT {
+  margin-right: -20px;
+}
+
+.t7-helper__t7-negative-gutter-right--quarter___NKYr8 {
+  margin-right: -5px;
+}
+
+.t7-helper__t7-negative-gutter-right--half___27wBv {
+  margin-right: -10px;
+}
+
+.t7-helper__t7-negative-gutter-right--double___25pIY {
+  margin-right: -40px;
+}
+
+/*
+Gutter: Bottom.
+================================================================================
+*/
+
+.t7-helper__t7-gutter-bottom___i4nDA {
+  margin-bottom: 20px;
+}
+
+.t7-helper__t7-gutter-bottom--quarter___3UDiu {
+  margin-bottom: 5px;
+}
+
+.t7-helper__t7-gutter-bottom--half___225sP {
+  margin-bottom: 10px;
+}
+
+.t7-helper__t7-gutter-bottom--double___21nDH {
+  margin-bottom: 40px;
+}
+
+/*
+Negative gutter: Bottom.
+================================================================================
+*/
+
+.t7-helper__t7-negative-gutter-bottom___GZ4Hd {
+  margin-bottom: -20px;
+}
+
+.t7-helper__t7-negative-gutter-bottom--quarter___VGrQU {
+  margin-bottom: -5px;
+}
+
+.t7-helper__t7-negative-gutter-bottom--half___3ADR0 {
+  margin-bottom: -10px;
+}
+
+.t7-helper__t7-negative-gutter-bottom--double___1MfUm {
+  margin-bottom: -40px;
 }/*
 Color swatch list.
 ================================================================================

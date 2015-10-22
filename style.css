@@ -355,11 +355,28 @@ fieldset,
 figure {
   margin-bottom: 20px;
 }/*
-  Misc helper classes.
+Misc helper classes.
+================================================================================
 */
 
 .t7-helper__t7-mute___3ddTa {
   color: #999;
+}
+
+.t7-helper__t7-capitalize___3F0ku {
+  text-transform: capitalize;
+}
+
+.t7-helper__t7-uppercase___25iLQ {
+  text-transform: uppercase;
+}
+
+.t7-helper__t7-lowercase___3yrA6 {
+  text-transform: lowercase;
+}
+
+.t7-helper__t7-font-normal___2QER8 {
+  font-weight: normal;
 }
 
 /*
@@ -2375,9 +2392,11 @@ Form element "reset."
 .t7-form__t7-form__button___26ygf {
   cursor: pointer;
   display: inline-block;
+  font-weight: normal;
   line-height: 1;
   text-align: center;
   text-decoration: none;
+  text-transform: none;
   width: auto;
   white-space: nowrap;
 }
@@ -2512,7 +2531,6 @@ Button.
 .t7-form__t7-form__button___26ygf[class],
 .t7-form__t7-form__button___26ygf[class]:hover{
   color: #fff;
-  text-decoration: none;
 }
 
 .t7-form__t7-form__button___26ygf:not([disabled]):active {
