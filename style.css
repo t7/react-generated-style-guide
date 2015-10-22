@@ -725,6 +725,7 @@ Footer.
   background: #eee;
   border-top: 5px solid #69c;
   color: #aaa;
+  clear: both;
 
   font-size: 12px;
   line-height: 2;
