@@ -17,35 +17,29 @@ class Header extends React.Component {
     super(props)
   }
 
-  // Trigger when `<select>` changes.
-  handleChange (e) {
-    // TODO: Make this change to static pages.
-    // const path = e.target.value
-  }
-
   // Render method.
   render () {
     // Options for `<select>`.
     const options = [
       {
         value: 'intro',
-        name: '- Intro'
+        name: 'Intro'
       },
       {
         value: 'branding',
-        name: '- Branding'
+        name: 'Branding'
       },
       {
         value: 'patterns',
-        name: '- Patterns'
+        name: 'Patterns'
       },
       {
         value: 'requirements',
-        name: '- Requirements'
+        name: 'Requirements'
       },
       {
         value: 'screens',
-        name: '- Screens'
+        name: 'Screens'
       }
     ]
 
