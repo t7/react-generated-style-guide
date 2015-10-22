@@ -165,12 +165,6 @@ class Tabs extends React.Component {
     // Click event.
     const handleClick = this.handleClick.bind(this)
 
-    // On/Off class names.
-    const tabOff = style['t7-tabs__item']
-    const tabOn = style['t7-tabs__item--selected']
-    const panelOff = style['t7-tabs__panel']
-    const panelOn = style['t7-tabs__panel--selected']
-
     return (
       <div className={style['t7-tabs']} id={id}>
         <ul role='tablist' className={style['t7-tabs__list']}>
@@ -185,14 +179,13 @@ class Tabs extends React.Component {
 
               // Active state.
               const isActive = selected === i
-              const className = isActive ? tabOn : tabOff
 
               return (
                 <Tab
                   ariaControls={idPanel}
                   ariaExpanded={isActive}
                   ariaSelected={isActive}
-                  className={className}
+                  className={style['t7-tabs__item']}
                   id={idTab}
                   index={i}
                   key={idTab}
@@ -209,7 +202,6 @@ class Tabs extends React.Component {
             const idPanel = 'tab_panel_' + i + '_' + id
             const idTab = 'tab_' + i + '_' + id
             const isActive = selected === i
-            const className = isActive ? panelOn : panelOff
 
             // Panel content.
             var content = panel.props.children
@@ -226,7 +218,7 @@ class Tabs extends React.Component {
               <div
                 aria-hidden={!isActive}
                 aria-labeledby={idTab}
-                className={className}
+                className={style['t7-tabs__panel']}
                 id={idPanel}
                 key={idPanel}
                 role='tabpanel'

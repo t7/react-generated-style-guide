@@ -83,12 +83,6 @@ class Accordion extends React.Component {
     // Multi-select?
     const multi = this.props.multi
 
-    // On/Off class names.
-    const headerOff = style['t7-accordion__header']
-    const headerOn = style['t7-accordion__header--selected']
-    const panelOff = style['t7-accordion__panel']
-    const panelOn = style['t7-accordion__panel--selected']
-
     // Events.
     const handleClick = this.handleClick.bind(this)
 
@@ -122,7 +116,7 @@ class Accordion extends React.Component {
           ariaControls={idPanel}
           ariaExpanded={isActive}
           ariaSelected={isActive}
-          className={isActive ? headerOn : headerOff}
+          className={style['t7-accordion__header']}
           id={idHeader}
           index={i}
           key={idHeader}
@@ -137,7 +131,7 @@ class Accordion extends React.Component {
         <dd
           aria-hidden={!isActive}
           aria-labeledby={idHeader}
-          className={isActive ? panelOn : panelOff}
+          className={style['t7-accordion__panel']}
           id={idPanel}
           key={idPanel}
           role='tabpanel'
