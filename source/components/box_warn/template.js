@@ -13,40 +13,10 @@ class BoxWarn extends React.Component {
 
   // Render method.
   render () {
-    const close = this.props.close
-    const icon = this.props.icon
-    const id = this.props.id
-    const legend = this.props.legend
-
-    // Events.
-    const handleClick = this.props.handleClick
-
     return (
-      <Box
-        mode='warn'
-        id={id}
-        icon={icon}
-        close={close}
-        legend={legend}
-
-        handleClick={handleClick}
-      >
-        {this.props.children}
-      </Box>
+      <Box {...this.props} mode='warn' />
     )
   }
-}
-
-// Validation.
-BoxWarn.propTypes = {
-  children: React.PropTypes.node,
-  close: React.PropTypes.bool,
-  id: React.PropTypes.string,
-  icon: React.PropTypes.bool,
-  legend: React.PropTypes.string,
-
-  // Events.
-  handleClick: React.PropTypes.func
 }
 
 // Defaults.

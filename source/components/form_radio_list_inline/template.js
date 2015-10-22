@@ -16,16 +16,8 @@ class RadioListInline extends React.Component {
     const inline = this.props.inline
     const options = this.props.options
 
-    // Events.
-    const handleChange = this.props.handleChange
-
     return (
-      <RadioList
-        inline={inline}
-        options={options}
-
-        handleChange={handleChange}
-      />
+      <RadioList {...this.props} inline={inline} options={options} />
     )
   }
 }
@@ -33,10 +25,7 @@ class RadioListInline extends React.Component {
 // Validation.
 RadioListInline.propTypes = {
   inline: React.PropTypes.bool,
-  options: React.PropTypes.array,
-
-  // Events.
-  handleChange: React.PropTypes.func
+  options: React.PropTypes.array
 }
 
 // Prop defaults.
