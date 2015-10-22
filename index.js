@@ -24079,13 +24079,13 @@
 
 	// UI components.
 
-	var _componentsAccordionTemplate = __webpack_require__(256);
-
-	var _componentsAccordionTemplate2 = _interopRequireDefault(_componentsAccordionTemplate);
-
-	var _componentsAccordion_multiTemplate = __webpack_require__(261);
+	var _componentsAccordion_multiTemplate = __webpack_require__(256);
 
 	var _componentsAccordion_multiTemplate2 = _interopRequireDefault(_componentsAccordion_multiTemplate);
+
+	var _componentsAccordionTemplate_panel = __webpack_require__(219);
+
+	var _componentsAccordionTemplate_panel2 = _interopRequireDefault(_componentsAccordionTemplate_panel);
 
 	var _componentsForm_buttonTemplate = __webpack_require__(249);
 
@@ -24304,8 +24304,46 @@
 	                })
 	              )
 	            ),
-	            _react2['default'].createElement(_componentsAccordionTemplate2['default'], null),
-	            _react2['default'].createElement(_componentsAccordion_multiTemplate2['default'], null)
+	            _react2['default'].createElement(
+	              'h6',
+	              null,
+	              _react2['default'].createElement(
+	                'abbr',
+	                { title: 'Frequently Asked Questions' },
+	                'FAQ'
+	              )
+	            ),
+	            _react2['default'].createElement(
+	              _componentsAccordion_multiTemplate2['default'],
+	              { selected: {} },
+	              _react2['default'].createElement(
+	                _componentsAccordionTemplate_panel2['default'],
+	                { label: 'Is it worth refinancing my home?' },
+	                _react2['default'].createElement(
+	                  'p',
+	                  null,
+	                  'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                _componentsAccordionTemplate_panel2['default'],
+	                { label: 'How much should I save for my children\'s tuition?' },
+	                _react2['default'].createElement(
+	                  'p',
+	                  null,
+	                  'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                _componentsAccordionTemplate_panel2['default'],
+	                { label: 'When should I begin saving for retirement?' },
+	                _react2['default'].createElement(
+	                  'p',
+	                  null,
+	                  'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	                )
+	              )
+	            )
 	          ),
 	          _react2['default'].createElement(
 	            _components_miscUnsemanticGrid_unit2['default'],
@@ -28738,6 +28776,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -28752,13 +28792,96 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(257);
+	// Utility methods.
+
+	var _fake = __webpack_require__(217);
+
+	var _fake2 = _interopRequireDefault(_fake);
+
+	// UI components.
+
+	var _accordionTemplate = __webpack_require__(257);
+
+	var _accordionTemplate2 = _interopRequireDefault(_accordionTemplate);
+
+	// Define class.
+
+	var AccordionMulti = (function (_React$Component) {
+	  _inherits(AccordionMulti, _React$Component);
+
+	  function AccordionMulti(props) {
+	    _classCallCheck(this, AccordionMulti);
+
+	    // Pass `props` into scope.
+	    _get(Object.getPrototypeOf(AccordionMulti.prototype), 'constructor', this).call(this, props);
+	  }
+
+	  // Validation.
+
+	  // Render method.
+
+	  _createClass(AccordionMulti, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(_accordionTemplate2['default'], _extends({}, this.props, { multi: true }));
+	    }
+	  }]);
+
+	  return AccordionMulti;
+	})(_react2['default'].Component);
+
+	AccordionMulti.propTypes = {
+	  children: _react2['default'].PropTypes.node,
+	  id: _react2['default'].PropTypes.string,
+	  selected: _react2['default'].PropTypes.object
+	};
+
+	// Defaults.
+	AccordionMulti.defaultProps = {
+	  children: _fake2['default'].accordion(),
+	  selected: {
+	    0: true,
+	    1: true,
+	    2: true
+	  }
+	};
+
+	// Export.
+	exports['default'] = AccordionMulti;
+	module.exports = exports['default'];
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Dependencies.
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(258);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
 	// CSS.
 
-	var _t7AccordionCss = __webpack_require__(259);
+	var _t7AccordionCss = __webpack_require__(260);
 
 	var _t7AccordionCss2 = _interopRequireDefault(_t7AccordionCss);
 
@@ -28774,7 +28897,7 @@
 
 	// UI Components.
 
-	var _template_header = __webpack_require__(260);
+	var _template_header = __webpack_require__(261);
 
 	var _template_header2 = _interopRequireDefault(_template_header);
 
@@ -28963,7 +29086,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -41318,10 +41441,10 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(258)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(259)(module), (function() { return this; }())))
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -41337,14 +41460,14 @@
 
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"t7-accordion":"t7-accordion__t7-accordion___1sw6r","t7-accordion__header":"t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__header--selected":"t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__panel":"t7-accordion__t7-accordion__panel___178bQ","t7-accordion__panel--selected":"t7-accordion__t7-accordion__panel--selected___3hhff"};
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Dependencies.
@@ -41452,91 +41575,6 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Dependencies.
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	// Utility methods.
-
-	var _fake = __webpack_require__(217);
-
-	var _fake2 = _interopRequireDefault(_fake);
-
-	// UI components.
-
-	var _accordionTemplate = __webpack_require__(256);
-
-	var _accordionTemplate2 = _interopRequireDefault(_accordionTemplate);
-
-	// Define class.
-
-	var AccordionMulti = (function (_React$Component) {
-	  _inherits(AccordionMulti, _React$Component);
-
-	  function AccordionMulti(props) {
-	    _classCallCheck(this, AccordionMulti);
-
-	    // Pass `props` into scope.
-	    _get(Object.getPrototypeOf(AccordionMulti.prototype), 'constructor', this).call(this, props);
-	  }
-
-	  // Validation.
-
-	  // Render method.
-
-	  _createClass(AccordionMulti, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2['default'].createElement(_accordionTemplate2['default'], _extends({}, this.props, { multi: true }));
-	    }
-	  }]);
-
-	  return AccordionMulti;
-	})(_react2['default'].Component);
-
-	AccordionMulti.propTypes = {
-	  children: _react2['default'].PropTypes.node,
-	  id: _react2['default'].PropTypes.string,
-	  selected: _react2['default'].PropTypes.object
-	};
-
-	// Defaults.
-	AccordionMulti.defaultProps = {
-	  children: _fake2['default'].accordion(),
-	  selected: {
-	    0: true,
-	    1: true,
-	    2: true
-	  }
-	};
-
-	// Export.
-	exports['default'] = AccordionMulti;
-	module.exports = exports['default'];
-
-/***/ },
 /* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -41561,7 +41599,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(257);
+	var _lodash = __webpack_require__(258);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -46690,7 +46728,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(257);
+	var _lodash = __webpack_require__(258);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
