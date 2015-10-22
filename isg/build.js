@@ -2,7 +2,7 @@
 var webpack = require('webpack')
 var webpackConfig = require('../webpack.config.js')
 
-webpackConfig.entry = './isg/bundle.js'
+webpackConfig.entry = './isg/style.js'
 
 webpackConfig.output = {
   filename: 'index.js',
