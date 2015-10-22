@@ -27923,7 +27923,6 @@
 	      var mode = this.props.mode;
 	      var size = this.props.size;
 	      var text = this.props.text;
-	      var target = this.props.target;
 	      var title = this.props.title;
 	      var type = this.props.type;
 
@@ -28010,7 +28009,6 @@
 	          {
 	            className: className,
 	            href: href,
-	            target: target,
 	            title: title,
 
 	            onClick: handleClick
@@ -28035,7 +28033,6 @@
 	  mode: _react2['default'].PropTypes.string,
 	  text: _react2['default'].PropTypes.string,
 	  size: _react2['default'].PropTypes.string,
-	  target: _react2['default'].PropTypes.string,
 	  title: _react2['default'].PropTypes.string,
 	  type: _react2['default'].PropTypes.string,
 
@@ -47764,7 +47761,7 @@
 
 	// Defaults.
 	Fieldset.defaultProps = {
-	  legend: 'Legen... wait for it... dary',
+	  legend: 'Fieldset Legend',
 	  children: '(Form elements would go here.)',
 	  close: false,
 	  icon: false
@@ -47841,7 +47838,7 @@
 
 	// Defaults.
 	FieldsetPositive.defaultProps = {
-	  legend: 'Legen... wait for it... dary',
+	  legend: 'Fieldset Legend',
 	  children: '(Form elements would go here.)',
 	  close: false,
 	  icon: false

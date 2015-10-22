@@ -742,7 +742,6 @@ Footer.
   background: #eee;
   border-top: 5px solid #69c;
   color: #aaa;
-  clear: both;
 
   font-size: 12px;
   line-height: 2;
@@ -2389,7 +2388,7 @@ Form element "reset."
   line-height: 1.5;
 }
 
-.t7-form__t7-form__button___26ygf {
+.t7-form__t7-form__button___26ygf[class] {
   cursor: pointer;
   display: inline-block;
   font-weight: normal;

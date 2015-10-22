@@ -594,7 +594,7 @@ Form element "reset."
   line-height: 1.5;
 }
 
-.t7-form__t7-form__button___26ygf {
+.t7-form__t7-form__button___26ygf[class] {
   cursor: pointer;
   display: inline-block;
   font-weight: normal;
