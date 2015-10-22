@@ -89,12 +89,14 @@ Form element "reset."
   line-height: 1.5;
 }
 
-.t7-form__button {
+.t7-form__button[class] {
   cursor: pointer;
   display: inline-block;
+  font-weight: normal;
   line-height: 1;
   text-align: center;
   text-decoration: none;
+  text-transform: none;
   width: auto;
   white-space: nowrap;
 }
@@ -231,7 +233,6 @@ Button.
 .t7-form__button[class],
 .t7-form__button[class]:hover{
   color: #fff;
-  text-decoration: none;
 }
 
 .t7-form__button:not([disabled]):active {
