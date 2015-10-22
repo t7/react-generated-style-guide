@@ -28,7 +28,7 @@ FieldsetNegative.propTypes = {
 
 // Defaults.
 FieldsetNegative.defaultProps = {
-  legend: 'Legen... wait for it... dary',
+  legend: 'Fieldset Legend',
   children: '(Form elements would go here.)',
   close: false,
   icon: false
