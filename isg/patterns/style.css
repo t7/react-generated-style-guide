@@ -59,16 +59,16 @@ Accordion panel.
 */
 
 .t7-accordion__t7-accordion__panel___178bQ {
-  display: none;
-}
-
-.t7-accordion__t7-accordion__panel--selected___3hhff {
   background: #fff;
   overflow: hidden;
 
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.t7-accordion__t7-accordion__panel___178bQ[aria-hidden="true"] {
+  display: none;
 }/*
 Box: Default.
 ================================================================================

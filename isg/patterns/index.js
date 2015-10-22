@@ -22563,12 +22563,6 @@
 	      // Multi-select?
 	      var multi = this.props.multi;
 
-	      // On/Off class names.
-	      var headerOff = _t7AccordionCss2['default']['t7-accordion__header'];
-	      var headerOn = _t7AccordionCss2['default']['t7-accordion__header--selected'];
-	      var panelOff = _t7AccordionCss2['default']['t7-accordion__panel'];
-	      var panelOn = _t7AccordionCss2['default']['t7-accordion__panel--selected'];
-
 	      // Events.
 	      var handleClick = this.handleClick.bind(this);
 
@@ -22601,7 +22595,7 @@
 	          ariaControls: idPanel,
 	          ariaExpanded: isActive,
 	          ariaSelected: isActive,
-	          className: isActive ? headerOn : headerOff,
+	          className: _t7AccordionCss2['default']['t7-accordion__header'],
 	          id: idHeader,
 	          index: i,
 	          key: idHeader,
@@ -22616,7 +22610,7 @@
 	          {
 	            'aria-hidden': !isActive,
 	            'aria-labeledby': idHeader,
-	            className: isActive ? panelOn : panelOff,
+	            className: _t7AccordionCss2['default']['t7-accordion__panel'],
 	            id: idPanel,
 	            key: idPanel,
 	            role: 'tabpanel'
@@ -35041,7 +35035,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-accordion":"t7-accordion__t7-accordion___1sw6r","t7-accordion__header":"t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__header--selected":"t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__panel":"t7-accordion__t7-accordion__panel___178bQ","t7-accordion__panel--selected":"t7-accordion__t7-accordion__panel--selected___3hhff"};
+	module.exports = {"t7-accordion":"t7-accordion__t7-accordion___1sw6r","t7-accordion__header":"t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__header--selected":"t7-accordion__t7-accordion__header--selected___1Uwtf t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__panel":"t7-accordion__t7-accordion__panel___178bQ"};
 
 /***/ },
 /* 192 */
