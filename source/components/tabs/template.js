@@ -105,7 +105,7 @@ import style from './t7-tabs.css'
 import fake from '../../fake'
 import utils from '../../utils'
 
-// UI Components.
+// UI components.
 import Tab from './template_tab'
 
 // Define class.
@@ -176,9 +176,14 @@ class Tabs extends React.Component {
         <ul role='tablist' className={style['t7-tabs__list']}>
           {
             children.map(function (panel, i) {
+              // Panel label.
+              const label = panel.props.label
+
               // For accessibility.
               const idPanel = 'tabpanel_' + i + '_' + id
               const idTab = 'tab_' + i + '_' + id
+
+              // Active state.
               const isActive = selected === i
               const className = isActive ? tabOn : tabOff
 
@@ -191,7 +196,7 @@ class Tabs extends React.Component {
                   id={idTab}
                   index={i}
                   key={idTab}
-                  label={panel.props.label || 'Tab ' + (i + 1)}
+                  label={label}
                   handleClick={handleClick}
                 />
               )
@@ -203,9 +208,12 @@ class Tabs extends React.Component {
             // For accessibility.
             const idPanel = 'tabpanel_' + i + '_' + id
             const idTab = 'tab_' + i + '_' + id
+
+            // Active state.
             const isActive = selected === i
             const className = isActive ? panelOn : panelOff
 
+            // Panel content.
             var content = panel.props.children
 
             if (!content) {

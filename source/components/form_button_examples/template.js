@@ -1,7 +1,7 @@
 // Dependencies.
 import React from 'react'
 
-// UI Components.
+// UI components.
 import Button from '../form_button/template'
 import ListInline from '../list_inline/template'
 

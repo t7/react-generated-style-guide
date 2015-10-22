@@ -71,8 +71,6 @@ Tab panel.
 }
 
 .t7-tabs__panel--selected {
-  display: block;
-
   border: 1px solid #ddd;
   border-radius: 3px;
 

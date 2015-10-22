@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Define class.
-class Tab extends React.Component {
+class AccordionHeader extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -33,7 +33,7 @@ class Tab extends React.Component {
     const handleClick = this.handleClick.bind(this)
 
     return (
-      <li
+      <dt
         aria-controls={ariaControls}
         aria-expanded={ariaExpanded}
         aria-selected={ariaSelected}
@@ -47,13 +47,13 @@ class Tab extends React.Component {
         onKeyDown={handleClick}
       >
         {label}
-      </li>
+      </dt>
     )
   }
 }
 
 // Validation.
-Tab.propTypes = {
+AccordionHeader.propTypes = {
   ariaControls: React.PropTypes.string,
   ariaExpanded: React.PropTypes.bool,
   ariaSelected: React.PropTypes.bool,
@@ -67,4 +67,4 @@ Tab.propTypes = {
 }
 
 // Export.
-export default Tab
+export default AccordionHeader

@@ -4,7 +4,7 @@ import React from 'react'
 // CSS.
 import style from './isg-app.css'
 
-// UI Components.
+// UI components.
 import Header from './app_header'
 import Footer from './app_footer'
 

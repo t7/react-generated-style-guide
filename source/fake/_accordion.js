@@ -1,6 +1,6 @@
 // Dependencies.
 import React from 'react'
-import TabPanel from '../components/tabs/template_panel'
+import AccordionPanel from '../components/accordion/template_panel'
 
 // Generate dummy tab content.
 export default function (count) {
@@ -9,14 +9,14 @@ export default function (count) {
   var panels = []
 
   for (let i = 0; i < count; i++) {
-    let label = 'Tab ' + (i + 1)
+    let label = 'Item ' + (i + 1)
 
     panels.push(
-      <TabPanel label={label}>
+      <AccordionPanel label={label}>
         <p>
-          Tab content for "{label}"
+          Content for "{label}"
         </p>
-      </TabPanel>
+      </AccordionPanel>
     )
   }
 

@@ -14,7 +14,7 @@ export default function (count) {
     tabs.push(
       <TabPanel label={label}>
         <p>
-          Tab content for "{label}"
+          Content for "{label}"
         </p>
       </TabPanel>
     )

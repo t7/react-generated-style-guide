@@ -101,7 +101,7 @@ class Page extends React.Component {
 
         <GridContainer>
 
-          <Grid desktop='100'>
+          <Grid desktop='100' mobile='75' mobile-push='25'>
 
             <h1>
               User Profile
@@ -115,12 +115,29 @@ class Page extends React.Component {
 
           </Grid>
 
+          <Grid desktop='15' tablet='15' mobile='25' mobile-pull='75'>
+            <p className={helper['t7-align-center']}>
+              <Image
+                alt='Photo of Jonathan'
+                border='#ddd'
+                src='./static/images/fpo_jonathan_rogersonian.jpg'
+                width='100%'
+              />
+              <br />
+              <small>
+                <a title='Edit Photo'>Edit</a>
+              </small>
+            </p>
+          </Grid>
+
           <Grid
             desktop='80'
-            desktop-suffix='5'
+            desktop-prefix='5'
 
             tablet='80'
-            tablet-suffix='5'
+            tablet-prefix='5'
+
+            mobile='100'
           >
 
             <BoxInfo>
@@ -428,21 +445,6 @@ class Page extends React.Component {
 
             </form>
 
-          </Grid>
-
-          <Grid desktop='15' tablet='15' mobile-hide>
-            <p className={helper['t7-align-center']}>
-              <Image
-                alt='Photo of Jonathan'
-                border='#ddd'
-                src='./static/images/fpo_jonathan_rogersonian.jpg'
-                width='100%'
-              />
-              <br />
-              <small>
-                <a title='Edit Photo'>Edit</a>
-              </small>
-            </p>
           </Grid>
 
         </GridContainer>
