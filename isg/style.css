@@ -2129,6 +2129,11 @@ Sections used for the style guide itself.
   overflow: hidden;
 }
 
+.isg-section__isg-section___1jbZO > hr {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
 .isg-section__isg-section__header___Hdaul,
 .isg-section__isg-section__footer___2ZsDr {
   background: #f6f6f6;
