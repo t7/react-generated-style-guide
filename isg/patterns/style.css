@@ -964,7 +964,7 @@ List with separators.
 
 .t7-list--separator__t7-list--separator___rG8Xg li + li:before {
   content: "";
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #ccc;
   padding-left: 10px;
 }/*
 Tabs group.

@@ -24678,21 +24678,21 @@
 
 	// Define class.
 
-	var Footer = (function (_React$Component) {
-	  _inherits(Footer, _React$Component);
+	var Header = (function (_React$Component) {
+	  _inherits(Header, _React$Component);
 
-	  function Footer(props) {
-	    _classCallCheck(this, Footer);
+	  function Header(props) {
+	    _classCallCheck(this, Header);
 
 	    // Pass `props` into scope.
-	    _get(Object.getPrototypeOf(Footer.prototype), 'constructor', this).call(this, props);
+	    _get(Object.getPrototypeOf(Header.prototype), 'constructor', this).call(this, props);
 	  }
 
 	  // Export.
 
 	  // Render method.
 
-	  _createClass(Footer, [{
+	  _createClass(Header, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2['default'].createElement(
@@ -24755,10 +24755,10 @@
 	    }
 	  }]);
 
-	  return Footer;
+	  return Header;
 	})(_react2['default'].Component);
 
-	exports['default'] = Footer;
+	exports['default'] = Header;
 	module.exports = exports['default'];
 
 /***/ },
@@ -27774,6 +27774,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var buttonText = this.props.buttonText;
 	      var placeholder = this.props.placeholder;
 
 	      // Events.
@@ -27804,7 +27805,7 @@
 	                null,
 	                _react2['default'].createElement(_form_buttonTemplate2['default'], {
 	                  mode: 'primary',
-	                  text: 'GO',
+	                  text: buttonText,
 	                  type: 'submit'
 	                })
 	              )
@@ -27819,6 +27820,7 @@
 	})(_react2['default'].Component);
 
 	Search.propTypes = {
+	  buttonText: _react2['default'].PropTypes.string,
 	  placeholder: _react2['default'].PropTypes.string,
 
 	  // Events.
@@ -27827,6 +27829,7 @@
 
 	// Prop defaults.
 	Search.defaultProps = {
+	  buttonText: 'GO',
 	  placeholder: 'Search...',
 
 	  // Events.
@@ -48287,6 +48290,7 @@
 	        List,
 	        null,
 	        options.map(function (o, i) {
+	          var autofocus = o.autofocus;
 	          var checked = o.checked;
 	          var defaultChecked = o.defaultChecked;
 	          var disabled = o.disabled;
@@ -48300,6 +48304,7 @@
 	            'li',
 	            { key: i },
 	            _react2['default'].createElement(_form_radioTemplate2['default'], {
+	              autofocus: autofocus,
 	              checked: checked,
 	              defaultChecked: defaultChecked,
 	              disabled: disabled,
@@ -48702,19 +48707,19 @@
 	      _utils2['default'].convert_on_paste(e);
 	    }
 	  }, {
-	    key: 'handleInput',
-	    value: function handleInput(e) {
-	      var handleInput = this.props.handleInput;
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+	      var handleChange = this.props.handleChange;
 
 	      // Exit, if no callback.
-	      if (typeof handleInput !== 'function') {
+	      if (typeof handleChange !== 'function') {
 	        return;
 	      }
 
 	      var el = e.target;
 	      var value = _utils2['default'].convert_to_text(el.innerHTML);
 
-	      handleInput(e, value);
+	      handleChange(e, value);
 	    }
 
 	    // Render method.
@@ -48741,7 +48746,7 @@
 
 	      // Events.
 	      var handleBlur = this.handleBlur.bind(this);
-	      var handleInput = this.handleInput.bind(this);
+	      var handleChange = this.handleChange.bind(this);
 	      var handleFocus = this.handleFocus.bind(this);
 	      var handleKeyUp = this.handleKeyUp.bind(this);
 	      var handlePaste = this.handlePaste.bind(this);
@@ -48758,7 +48763,7 @@
 	        required: required,
 
 	        onBlur: handleBlur,
-	        onInput: handleInput,
+	        onInput: handleChange,
 	        onFocus: handleFocus,
 	        onKeyUp: handleKeyUp,
 	        onPaste: handlePaste
@@ -48782,7 +48787,7 @@
 	  value: _react2['default'].PropTypes.string,
 
 	  // Events.
-	  handleInput: _react2['default'].PropTypes.func
+	  handleChange: _react2['default'].PropTypes.func
 	};
 
 	// Prop defaults.
@@ -48794,7 +48799,7 @@
 	  value: '',
 
 	  // Events.
-	  handleInput: function handleInput(e, value) {
+	  handleChange: function handleChange(e, value) {
 	    _utils2['default'].log(e, value);
 	  }
 	};
