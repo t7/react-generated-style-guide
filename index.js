@@ -45834,13 +45834,13 @@
 
 	          onChange: handleChange
 	        },
-	        options.map(function (_ref) {
-	          var value = _ref.value;
-	          var name = _ref.name;
+	        options.map(function (o, i) {
+	          var name = o.name;
+	          var value = o.value;
 
 	          return _react2['default'].createElement(
 	            'option',
-	            { key: value, value: value },
+	            { key: i, value: value },
 	            name
 	          );
 	        })
@@ -48060,8 +48060,8 @@
 	          type: 'checkbox',
 	          value: value,
 
-	          defaultChecked: defaultChecked,
 	          checked: checked,
+	          defaultChecked: defaultChecked,
 
 	          onChange: handleChange
 	        }),
@@ -48115,8 +48115,6 @@
 	  value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -48149,33 +48147,24 @@
 	    _get(Object.getPrototypeOf(RadioListInline.prototype), 'constructor', this).call(this, props);
 	  }
 
-	  // Validation.
+	  // Prop defaults.
 
 	  // Render method.
 
 	  _createClass(RadioListInline, [{
 	    key: 'render',
 	    value: function render() {
-	      var inline = this.props.inline;
-	      var options = this.props.options;
-
-	      return _react2['default'].createElement(_form_radio_listTemplate2['default'], _extends({}, this.props, { inline: inline, options: options }));
+	      return _react2['default'].createElement(_form_radio_listTemplate2['default'], this.props);
 	    }
 	  }]);
 
 	  return RadioListInline;
 	})(_react2['default'].Component);
 
-	RadioListInline.propTypes = {
-	  inline: _react2['default'].PropTypes.bool,
-	  options: _react2['default'].PropTypes.array
-	};
-
-	// Prop defaults.
 	RadioListInline.defaultProps = {
 	  inline: true,
 	  options: [{
-	    checked: true,
+	    defaultChecked: true,
 	    label: 'Radio list inline - label 01'
 	  }, {
 	    label: 'Radio list inline - label 02'
@@ -48257,8 +48246,10 @@
 	  _createClass(RadioList, [{
 	    key: 'defaultState',
 	    value: function defaultState() {
+	      var listName = this.props.listName || _utils2['default'].unique();
+
 	      var state = {
-	        listName: _utils2['default'].unique()
+	        listName: listName
 	      };
 
 	      // If state exists, reset it.
@@ -48281,7 +48272,6 @@
 	      // Props driven.
 	      var inline = this.props.inline;
 	      var options = this.props.options;
-	      var value = this.props.value;
 
 	      // Used in conditional.
 	      var List = _list_cleanTemplate2['default'];
@@ -48296,24 +48286,26 @@
 	      return _react2['default'].createElement(
 	        List,
 	        null,
-	        options.map(function (_ref, i) {
-	          var checked = _ref.checked;
-	          var disabled = _ref.disabled;
-	          var id = _ref.id;
-	          var label = _ref.label;
-	          var name = _ref.name;
-	          var required = _ref.required;
-	          var value = _ref.value;
+	        options.map(function (o, i) {
+	          var checked = o.checked;
+	          var defaultChecked = o.defaultChecked;
+	          var disabled = o.disabled;
+	          var id = o.id;
+	          var label = o.label;
+	          var name = o.name || listName;
+	          var required = o.required;
+	          var value = o.value;
 
 	          return _react2['default'].createElement(
 	            'li',
 	            { key: i },
 	            _react2['default'].createElement(_form_radioTemplate2['default'], {
 	              checked: checked,
+	              defaultChecked: defaultChecked,
 	              disabled: disabled,
 	              id: id,
 	              label: label,
-	              name: name || listName,
+	              name: name,
 	              required: required,
 	              value: value,
 
@@ -48330,9 +48322,8 @@
 
 	RadioList.propTypes = {
 	  inline: _react2['default'].PropTypes.bool,
-	  name: _react2['default'].PropTypes.string,
+	  listName: _react2['default'].PropTypes.string,
 	  options: _react2['default'].PropTypes.array,
-	  value: _react2['default'].PropTypes.string,
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
@@ -48341,7 +48332,7 @@
 	// Prop defaults.
 	RadioList.defaultProps = {
 	  options: [{
-	    checked: true,
+	    defaultChecked: true,
 	    label: 'Radio list - label 01'
 	  }, {
 	    label: 'Radio list - label 02'
@@ -48479,8 +48470,8 @@
 	          required: required,
 	          value: value,
 
-	          defaultChecked: defaultChecked,
 	          checked: checked,
+	          defaultChecked: defaultChecked,
 
 	          onChange: handleChange
 	        }),
