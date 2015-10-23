@@ -3,7 +3,7 @@ import React from 'react'
 
 // Filler text for `<div class="box">`.
 export default function (count) {
-  count = count || 2
+  count = count || 1
 
   const children = []
 

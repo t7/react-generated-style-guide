@@ -10,6 +10,9 @@ import Sidebar from '../../layouts/app_sidebar'
 import style from '../../css/isg-section.css'
 import helper from '../../css/t7-helper.css'
 
+// Utility methods.
+import marked from 'marked'
+
 // UI components.
 import Button from '../../components/form_button/template'
 import ListInline from '../../components/list_inline/template'
@@ -26,12 +29,24 @@ class Page extends React.Component {
     const main = []
     const sidebar = []
 
-    this.props.data.map(function (item, i) {
-      const id = item.id
+    this.props.data.map(function (o, i) {
+      const id = o.id
       const href = '#' + id
-      const jsx = item.jsx
-      const markup = item.markup
-      const name = item.name
+      const jsx = o.jsx
+      const markup = o.markup
+      const name = o.name
+
+      // Is there a "readme.md"?
+      var readme = o.readme
+
+      if (readme) {
+        readme = marked(readme, {sanitize: true})
+        readme = readme.replace(/<pre>/g, '<pre class="language-xml">')
+        readme = {__html: readme}
+        readme = (
+          <div dangerouslySetInnerHTML={readme} />
+        )
+      }
 
       // Hide code example.
       const displayNone = {
@@ -60,11 +75,13 @@ class Page extends React.Component {
             data-component={id}
           />
 
+          {readme}
+
           <hr />
 
           <p>
             <b>
-              Example code:
+              More code:
             </b>
           </p>
 
@@ -77,12 +94,12 @@ class Page extends React.Component {
             </li>
           </ListInline>
 
-          <pre data-example-jsx={id} style={displayNone}>
-            <code className='language-javascript' dangerouslySetInnerHTML={{__html: jsx}} />
+          <pre className='language-javascript' data-example-jsx={id} style={displayNone}>
+            <code dangerouslySetInnerHTML={{__html: jsx}} />
           </pre>
 
-          <pre data-example-html={id} style={displayNone}>
-            <code className='language-html' dangerouslySetInnerHTML={{__html: markup}} />
+          <pre className='language-html' data-example-html={id} style={displayNone}>
+            <code dangerouslySetInnerHTML={{__html: markup}} />
           </pre>
 
         </section>

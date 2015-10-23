@@ -23,6 +23,22 @@ var getData = function (callback) {
       console.error(error)
     }
 
+    var readme
+    var readmePath
+
+    // Check if "readme.md" exists.
+    try {
+      readmePath = require.resolve('../../.' + components[index].replace('/template.js', '/readme.md'))
+    } catch (e) {}
+
+    // If so, let's read it.
+    if (readmePath) {
+      readme = fse.readFileSync(readmePath)
+      readme = readme.toString()
+    } else {
+      readme = ''
+    }
+
     var jsx = fse.readFileSync(require.resolve('../../.' + components[index]))
     jsx = jsx.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
@@ -48,6 +64,7 @@ var getData = function (callback) {
       markup: markup,
       name: name,
       path: path,
+      readme: readme,
       string: string,
       url: url
     })
