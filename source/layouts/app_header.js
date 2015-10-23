@@ -14,7 +14,7 @@ import ListSeparator from '../components/list_separator/template'
 import Search from '../components/form_search/template'
 
 // Define class.
-class Footer extends React.Component {
+class Header extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
@@ -53,4 +53,4 @@ class Footer extends React.Component {
 }
 
 // Export.
-export default Footer
+export default Header

@@ -1,7 +1,13 @@
-This component can be used like so:
+This component can be used like so.
+
+<pre class="language-javascript"><code>
+const selected = {
+  0: true
+}
+</code></pre>
 
 ```
-<Accordion selected={{0: true}}>
+<Accordion selected={selected}>
   <AccordionPanel label='Item 1'>
     <p>
       Content for "Item 1"

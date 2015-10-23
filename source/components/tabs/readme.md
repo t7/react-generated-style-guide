@@ -1,20 +1,20 @@
-This component can be used like so:
+This component can be used like so.
 
 ```
 <Tabs selected={0}>
-  <TabPanel label='Foo'>
+  <TabPanel label='Tab 1'>
     <p>
-      Tab content for "Foo"
+      Tab content for "Tab 1"
     </p>
   </TabPanel>
-  <TabPanel label='Bar'>
+  <TabPanel label='Tab 2'>
     <p>
-      Tab content for "Bar"
+      Tab content for "Tab 2"
     </p>
   </TabPanel>
-  <TabPanel label='Baz'>
+  <TabPanel label='Tab 3'>
     <p>
-      Tab content for "Baz"
+      Tab content for "Tab 3"
     </p>
   </TabPanel>
 </Tabs>

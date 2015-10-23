@@ -55,18 +55,18 @@ class Textdiv extends React.Component {
     utils.convert_on_paste(e)
   }
 
-  handleInput (e) {
-    const handleInput = this.props.handleInput
+  handleChange (e) {
+    const handleChange = this.props.handleChange
 
     // Exit, if no callback.
-    if (typeof handleInput !== 'function') {
+    if (typeof handleChange !== 'function') {
       return
     }
 
     const el = e.target
     const value = utils.convert_to_text(el.innerHTML)
 
-    handleInput(e, value)
+    handleChange(e, value)
   }
 
   // Render method.
@@ -91,7 +91,7 @@ class Textdiv extends React.Component {
 
     // Events.
     const handleBlur = this.handleBlur.bind(this)
-    const handleInput = this.handleInput.bind(this)
+    const handleChange = this.handleChange.bind(this)
     const handleFocus = this.handleFocus.bind(this)
     const handleKeyUp = this.handleKeyUp.bind(this)
     const handlePaste = this.handlePaste.bind(this)
@@ -109,7 +109,7 @@ class Textdiv extends React.Component {
         required={required}
 
         onBlur={handleBlur}
-        onInput={handleInput}
+        onInput={handleChange}
         onFocus={handleFocus}
         onKeyUp={handleKeyUp}
         onPaste={handlePaste}
@@ -132,7 +132,7 @@ Textdiv.propTypes = {
   value: React.PropTypes.string,
 
   // Events.
-  handleInput: React.PropTypes.func
+  handleChange: React.PropTypes.func
 }
 
 // Prop defaults.
@@ -144,7 +144,7 @@ Textdiv.defaultProps = {
   value: '',
 
   // Events.
-  handleInput: function (e, value) {
+  handleChange: function (e, value) {
     utils.log(e, value)
   }
 }

@@ -23,6 +23,6 @@ List with separators.
 
 .t7-list--separator li + li:before {
   content: "";
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #ccc;
   padding-left: 10px;
 }

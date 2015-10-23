@@ -40,7 +40,9 @@ class Page extends React.Component {
       var readme = o.readme
 
       if (readme) {
-        readme = marked(readme, {sanitize: true})
+        readme = readme.replace(/><code>\s+/g, '><code>')
+        readme = readme.replace(/\s+<\/code><\/pre>/g, '</code></pre>')
+        readme = marked(readme)
         readme = readme.replace(/<pre>/g, '<pre class="language-xml">')
         readme = {__html: readme}
         readme = (
@@ -75,14 +77,14 @@ class Page extends React.Component {
             data-component={id}
           />
 
-          {readme}
-
           <hr />
 
+          {readme}
+
           <p>
-            <b>
+            <i>
               More code:
-            </b>
+            </i>
           </p>
 
           <ListInline>

@@ -39,6 +39,7 @@ class Search extends React.Component {
 
   // Render method.
   render () {
+    const buttonText = this.props.buttonText
     const placeholder = this.props.placeholder
 
     // Events.
@@ -58,7 +59,7 @@ class Search extends React.Component {
               <td>
                 <Button
                   mode='primary'
-                  text='GO'
+                  text={buttonText}
                   type='submit'
                 />
               </td>
@@ -72,6 +73,7 @@ class Search extends React.Component {
 
 // Validation.
 Search.propTypes = {
+  buttonText: React.PropTypes.string,
   placeholder: React.PropTypes.string,
 
   // Events.
@@ -80,6 +82,7 @@ Search.propTypes = {
 
 // Prop defaults.
 Search.defaultProps = {
+  buttonText: 'GO',
   placeholder: 'Search...',
 
   // Events.

@@ -61,6 +61,7 @@ class RadioList extends React.Component {
       <List>
         {
           options.map(function (o, i) {
+            const autofocus = o.autofocus
             const checked = o.checked
             const defaultChecked = o.defaultChecked
             const disabled = o.disabled
@@ -73,6 +74,7 @@ class RadioList extends React.Component {
             return (
               <li key={i}>
                 <Radio
+                  autofocus={autofocus}
                   checked={checked}
                   defaultChecked={defaultChecked}
                   disabled={disabled}

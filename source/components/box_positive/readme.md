@@ -1,4 +1,4 @@
-This component can be used like so:
+This component can be used like so.
 
 ```
 <BoxPositive>

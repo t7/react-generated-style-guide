@@ -1,6 +1,12 @@
-This component can be used like so:
+This component can be used like so.
 
-```
+<pre class="language-javascript"><code>
+/*
+  You would likely get this data from an API,
+  but for this example, these are hard-coded
+  arrays for the columns and data (rows).
+*/
+
 const columns = [
   {
     "label": "Date",
@@ -40,20 +46,20 @@ const data = [
     "Revenue",
     225.9504753164947,
     19568.096043774858
-  ],
-  [
-    1444165911008,
-    "Ut enim ad minim veniam...",
-    "Revenue",
-    823.1116528622806,
-    20391.20769663714
   ]
 ]
+</code></pre>
 
+To use the component, pass these props.
+
+**Note:** The following example shows the defaults for each prop. Meaning, `pageTop` is default. If you want pagination on the bottom, you could set `pageTop={false}` and `pageBottom={true}`.
+
+```
 <DataTable
   columns={columns}
   data={data}
-  pageTop
+
+  pageTop={true}
   pageBottom={false}
   pageSize={20}
   sortIndex={0}
