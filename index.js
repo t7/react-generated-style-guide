@@ -25306,7 +25306,7 @@
 	// Filler text for `<div class="box">`.
 
 	exports['default'] = function (count) {
-	  count = count || 2;
+	  count = count || 1;
 
 	  var children = [];
 
