@@ -18,7 +18,6 @@ import './components_misc/unsemantic/grid.css'
 import './css/reset.css'
 import './css/global.css'
 import './css/isg-section.css'
-import './css/prism.css'
 
 // Pilfered from "source".
 import './css/t7-form.css'
