@@ -91,8 +91,13 @@ class Select extends React.Component {
         onChange={handleChange}
       >
         {
-          options.map(function ({value, name}) {
-            return <option key={value} value={value}>{name}</option>
+          options.map(function (o, i) {
+            const name = o.name
+            const value = o.value
+
+            return (
+              <option key={i} value={value}>{name}</option>
+            )
           })
         }
       </select>

@@ -31,16 +31,28 @@ class CheckboxList extends React.Component {
     return (
       <List>
         {
-          options.map(function ({checked, disabled, id, label, name, required, value}, i) {
+          options.map(function (o, i) {
+            const checked = o.checked
+            const defaultChecked = o.defaultChecked
+            const disabled = o.disabled
+            const id = o.id
+            const label = o.label
+            const name = o.name
+            const required = o.required
+            const value = o.value
+
             return (
               <li key={i}>
                 <Checkbox
-                  checked={checked}
                   disabled={disabled}
                   id={id}
                   label={label}
                   name={name}
                   required={required}
+                  value={value}
+
+                  checked={checked}
+                  defaultChecked={defaultChecked}
 
                   handleChange={handleChange}
                 />
@@ -67,6 +79,7 @@ CheckboxList.defaultProps = {
   inline: false,
   options: [
     {
+      defaultChecked: true,
       label: 'Checkbox list - label 01'
     },
     {

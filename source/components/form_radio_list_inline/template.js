@@ -13,19 +13,10 @@ class RadioListInline extends React.Component {
 
   // Render method.
   render () {
-    const inline = this.props.inline
-    const options = this.props.options
-
     return (
-      <RadioList {...this.props} inline={inline} options={options} />
+      <RadioList {...this.props} />
     )
   }
-}
-
-// Validation.
-RadioListInline.propTypes = {
-  inline: React.PropTypes.bool,
-  options: React.PropTypes.array
 }
 
 // Prop defaults.
@@ -33,7 +24,7 @@ RadioListInline.defaultProps = {
   inline: true,
   options: [
     {
-      checked: true,
+      defaultChecked: true,
       label: 'Radio list inline - label 01'
     },
     {

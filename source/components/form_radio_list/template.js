@@ -22,8 +22,10 @@ class RadioList extends React.Component {
   // Apply to `state`, because we
   // don't want to mutate `props`.
   defaultState () {
+    const listName = this.props.listName || utils.unique()
+
     const state = {
-      listName: utils.unique()
+      listName: listName
     }
 
     // If state exists, reset it.
@@ -44,7 +46,6 @@ class RadioList extends React.Component {
     // Props driven.
     const inline = this.props.inline
     const options = this.props.options
-    const value = this.props.value
 
     // Used in conditional.
     var List = ListClean
@@ -59,15 +60,25 @@ class RadioList extends React.Component {
     return (
       <List>
         {
-          options.map(function ({checked, disabled, id, label, name, required, value}, i) {
+          options.map(function (o, i) {
+            const checked = o.checked
+            const defaultChecked = o.defaultChecked
+            const disabled = o.disabled
+            const id = o.id
+            const label = o.label
+            const name = o.name || listName
+            const required = o.required
+            const value = o.value
+
             return (
               <li key={i}>
                 <Radio
                   checked={checked}
+                  defaultChecked={defaultChecked}
                   disabled={disabled}
                   id={id}
                   label={label}
-                  name={name || listName}
+                  name={name}
                   required={required}
                   value={value}
 
@@ -85,9 +96,8 @@ class RadioList extends React.Component {
 // Validation.
 RadioList.propTypes = {
   inline: React.PropTypes.bool,
-  name: React.PropTypes.string,
+  listName: React.PropTypes.string,
   options: React.PropTypes.array,
-  value: React.PropTypes.string,
 
   // Events.
   handleChange: React.PropTypes.func
@@ -97,7 +107,7 @@ RadioList.propTypes = {
 RadioList.defaultProps = {
   options: [
     {
-      checked: true,
+      defaultChecked: true,
       label: 'Radio list - label 01'
     },
     {

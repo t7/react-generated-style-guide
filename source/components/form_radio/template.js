@@ -81,8 +81,8 @@ class Radio extends React.Component {
           required={required}
           value={value}
 
-          defaultChecked={defaultChecked}
           checked={checked}
+          defaultChecked={defaultChecked}
 
           onChange={handleChange}
         />

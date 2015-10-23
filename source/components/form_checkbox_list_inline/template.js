@@ -13,19 +13,10 @@ class CheckboxListInline extends React.Component {
 
   // Render method.
   render () {
-    const inline = this.props.inline
-    const options = this.props.options
-
     return (
-      <CheckboxList {...this.props} inline={inline} options={options} />
+      <CheckboxList {...this.props} />
     )
   }
-}
-
-// Validation.
-CheckboxListInline.propTypes = {
-  inline: React.PropTypes.bool,
-  options: React.PropTypes.array
 }
 
 // Prop defaults.
@@ -33,6 +24,7 @@ CheckboxListInline.defaultProps = {
   inline: true,
   options: [
     {
+      defaultChecked: true,
       label: 'Checkbox list inline - label 01'
     },
     {

@@ -81,8 +81,8 @@ class Checkbox extends React.Component {
           type='checkbox'
           value={value}
 
-          defaultChecked={defaultChecked}
           checked={checked}
+          defaultChecked={defaultChecked}
 
           onChange={handleChange}
         />
