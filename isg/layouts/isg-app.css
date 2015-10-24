@@ -204,8 +204,7 @@ Footer.
   padding-left: 20px;
   padding-right: 20px;
 
-  height: 30px;
-  line-height: 30px;
+  overflow: hidden;
 
   left: 0;
   right: 0;
@@ -253,6 +252,10 @@ Adjust for mobile.
     overflow-x: hidden;
     overflow-y: hidden;
   }
+
+  .isg-app__footer {
+    padding-top: 20px;
+  }
 }
 
 /*
@@ -264,5 +267,14 @@ Adjust for tablet & desktop.
   html,
   body {
     overflow: hidden;
+  }
+
+  .isg-app__footer {
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .isg-app__footer p {
+    margin: 0;
   }
 }

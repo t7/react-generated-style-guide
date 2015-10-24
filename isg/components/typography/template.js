@@ -27,8 +27,7 @@ class Typography extends React.Component {
     if (link) {
       sectionFooter = (
         <footer className={style['isg-section__footer']}>
-          Read more&hellip;
-          <a href={link} target='_blank'>{link}</a>
+          Read more&hellip; <a href={link} target='_blank'>{link}</a>
         </footer>
       )
     }
