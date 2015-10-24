@@ -42072,7 +42072,7 @@
 	          value = _react2['default'].createElement(_reactIntl.FormattedDate, {
 	            value: value,
 	            day: 'numeric',
-	            month: 'long',
+	            month: 'short',
 	            year: 'numeric'
 	          });
 	        }

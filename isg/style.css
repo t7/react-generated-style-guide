@@ -253,6 +253,10 @@ Adjust for mobile.
     overflow-x: hidden;
     overflow-y: hidden;
   }
+
+  .isg-app__isg-app__footer___-vnki p {
+    margin: 0;
+  }
 }
 
 /*
