@@ -69,7 +69,7 @@ class Page extends React.Component {
               title='View on GitHub'
               className={[helper['t7-float-right'], helper['t7-font-normal']].join(' ')}
               href={'https://github.com/t7/style-guide-example/tree/master/source/components/' + id}
-            >GitHub</a>
+            >GitHub <span aria-hidden='true'>&rArr;</span></a>
           </header>
 
           <div

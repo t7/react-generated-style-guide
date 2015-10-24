@@ -302,7 +302,7 @@ class Page extends React.Component {
                       <br />
                       <Select
                         id='_input_state'
-                        value='CA'
+                        defaultValue='CA'
 
                         options={
                           JSON.parse(
@@ -357,7 +357,7 @@ class Page extends React.Component {
                 <RadioListInline
                   options={[
                     {
-                      checked: true,
+                      defaultChecked: true,
                       label: 'Yes',
                       value: 'true',
                       name: '_input_combat_training'
@@ -379,7 +379,7 @@ class Page extends React.Component {
                 <RadioListInline
                   options={[
                     {
-                      checked: true,
+                      defaultChecked: true,
                       label: 'Yes',
                       value: 'true',
                       name: '_input_license_to_kill'
