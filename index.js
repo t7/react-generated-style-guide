@@ -24327,7 +24327,7 @@
 	              ),
 	              _react2['default'].createElement(
 	                _componentsAccordionTemplate_panel2['default'],
-	                { label: 'How much should I save for my children\'s tuition?' },
+	                { label: 'How much should I save for tuition?' },
 	                _react2['default'].createElement(
 	                  'p',
 	                  null,
