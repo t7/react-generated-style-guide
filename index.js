@@ -47206,7 +47206,7 @@
 	                      _react2['default'].createElement('br', null),
 	                      _react2['default'].createElement(_componentsForm_selectTemplate2['default'], {
 	                        id: '_input_state',
-	                        value: 'CA',
+	                        defaultValue: 'CA',
 
 	                        options: JSON.parse(__webpack_require__(323))
 	                      })
@@ -47264,7 +47264,7 @@
 	                ),
 	                _react2['default'].createElement(_componentsForm_radio_list_inlineTemplate2['default'], {
 	                  options: [{
-	                    checked: true,
+	                    defaultChecked: true,
 	                    label: 'Yes',
 	                    value: 'true',
 	                    name: '_input_combat_training'
@@ -47282,7 +47282,7 @@
 	                ),
 	                _react2['default'].createElement(_componentsForm_radio_list_inlineTemplate2['default'], {
 	                  options: [{
-	                    checked: true,
+	                    defaultChecked: true,
 	                    label: 'Yes',
 	                    value: 'true',
 	                    name: '_input_license_to_kill'
