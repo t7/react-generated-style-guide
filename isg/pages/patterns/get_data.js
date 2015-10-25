@@ -26,9 +26,9 @@ var getData = function (callback) {
     var readme
     var readmePath
 
-    // Check if "readme.md" exists.
+    // Check if "README.md" exists.
     try {
-      readmePath = require.resolve('../../.' + components[index].replace('/template.js', '/readme.md'))
+      readmePath = require.resolve('../../.' + components[index].replace('/template.js', '/README.md'))
     } catch (e) {}
 
     // If so, let's read it.
