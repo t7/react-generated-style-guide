@@ -39943,7 +39943,7 @@
 	      } else if (mode === 'primary') {
 	          className.push(_cssT7FormCss2['default']['t7-form__button--primary']);
 
-	          // Button mode; Positive.
+	          // Button mode: Positive.
 	        } else if (mode === 'positive') {
 	            className.push(_cssT7FormCss2['default']['t7-form__button--positive']);
 
