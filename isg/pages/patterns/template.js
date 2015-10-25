@@ -41,9 +41,8 @@ class Page extends React.Component {
 
       if (readme) {
         readme = marked(readme)
-        readme = {__html: readme}
         readme = (
-          <div dangerouslySetInnerHTML={readme} />
+          <div dangerouslySetInnerHTML={{__html: readme}} />
         )
       }
 
@@ -95,7 +94,7 @@ class Page extends React.Component {
 
           <pre data-example-jsx={id} style={displayNone}>
             <code
-              className='lang-js'
+              className='lang-jsx'
               dangerouslySetInnerHTML={{__html: jsx}}
             />
           </pre>
