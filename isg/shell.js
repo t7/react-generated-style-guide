@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// Get raw JS.
-import raw_button_toggle_js from 'raw!./browser_includes/raw_button_toggle_js.txt'
-
 // Define class.
 class Shell extends React.Component {
   constructor (props) {
@@ -29,8 +26,15 @@ class Shell extends React.Component {
     var script = this.props.script
 
     if (script) {
-      script = <script src={script}></script>
-      style = <link rel='stylesheet' href={style} />
+      script = (
+        <script src={script} />
+      )
+    }
+
+    if (style) {
+      style = (
+        <link rel='stylesheet' href={style} />
+      )
     }
 
     return (
@@ -50,9 +54,9 @@ class Shell extends React.Component {
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
-        <script dangerouslySetInnerHTML={{__html: raw_button_toggle_js}} />
-        <script src={root + '../static/js/intl.js'} />
         <script src={root + 'static/js/prism.js'} />
+        <script src={root + 'static/js/button_toggle.js'} />
+        <script src={root + '../static/js/intl.js'} />
         {script}
       </body>
       </html>
