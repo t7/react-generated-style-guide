@@ -98,7 +98,7 @@ class Button extends React.Component {
         style['t7-form__button--primary']
       )
 
-    // Button mode; Positive.
+    // Button mode: Positive.
     } else if (mode === 'positive') {
       className.push(
         style['t7-form__button--positive']

@@ -45,7 +45,7 @@ class Image extends React.Component {
       numericWidth && isPercentHeight
 
     // Used if mixed types.
-    const error = 'Placeholder <Image /> must use the same unit (%/px) for width and height.'
+    const error = 'Placeholder <Image/> must use the same unit (%/px) for width and height.'
 
     if (!isPercentWidth) {
       width = numericWidth
