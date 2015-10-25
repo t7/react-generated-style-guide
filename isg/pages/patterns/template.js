@@ -36,7 +36,7 @@ class Page extends React.Component {
       const markup = o.markup
       const name = o.name
 
-      // Is there a "readme.md"?
+      // Is there a "README.md"?
       var readme = o.readme
 
       if (readme) {
