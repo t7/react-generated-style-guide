@@ -1,6 +1,6 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 function handleChange (e, value) {
   /*
     `e` is the event.
@@ -24,11 +24,11 @@ const type = 'text' // Default: "text".
 */
 const size = '10' // Default: null.
 const width = 'auto' // Default: 100%.
-</code></pre>
+```
 
 To use the component, pass these props.
 
-```
+```xml
 <Input
   autofocus={autofocus}
   disabled={disabled}

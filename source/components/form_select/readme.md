@@ -1,6 +1,6 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 function handleChange (e, value) {
   /*
     `e` is the event.
@@ -39,7 +39,7 @@ const options = [
     name: 'Tres'
   }
 ]
-</code></pre>
+```
 
 **Note:** There is a difference between `value` and `defaultValue`. For more info, see the React documentation for…
 
@@ -48,7 +48,7 @@ const options = [
 
 To use the component, pass these props.
 
-```
+```xml
 <Select
   ariaControls={ariaControls}
   autofocus={autofocus}

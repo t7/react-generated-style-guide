@@ -1,6 +1,6 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 function handleChange (e, value) {
   /*
     `e` is the event.
@@ -19,7 +19,7 @@ const required = true // Default: false.
 // Determine pre-filled text.
 const defaultValue = '...' // Default: null.
 const value = '...' // Default: null.
-</code></pre>
+```
 
 **Note:** There is a difference between `value` and `defaultValue`. For more info, see the React documentation for…
 
@@ -28,7 +28,7 @@ const value = '...' // Default: null.
 
 To use the component, pass these props.
 
-```
+```xml
 <Textarea
   autofocus={autofocus}
   disabled={disabled}

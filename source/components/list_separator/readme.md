@@ -1,6 +1,6 @@
 This component is a simple wrapper around `<li>` elements that are set to `display: inline`, and have visual separators between them.
 
-```
+```xml
 <ListSeparator>
   <li>
     List Item 1

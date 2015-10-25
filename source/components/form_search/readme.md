@@ -1,6 +1,6 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 function handleSubmit (e, value) {
   /*
     `e` is the event.
@@ -11,11 +11,11 @@ function handleSubmit (e, value) {
 
 const buttonText = 'GO'
 const placeholder = 'Search...'
-</code></pre>
+```
 
 To use the component, pass these props.
 
-```
+```xml
 <Search
   buttonText={buttonText}
   placeholder={placeholder}

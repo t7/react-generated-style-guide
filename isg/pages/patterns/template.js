@@ -40,10 +40,7 @@ class Page extends React.Component {
       var readme = o.readme
 
       if (readme) {
-        readme = readme.replace(/><code>\s+/g, '><code>')
-        readme = readme.replace(/\s+<\/code><\/pre>/g, '</code></pre>')
         readme = marked(readme)
-        readme = readme.replace(/<pre>/g, '<pre class="language-xml">')
         readme = {__html: readme}
         readme = (
           <div dangerouslySetInnerHTML={readme} />
@@ -96,12 +93,18 @@ class Page extends React.Component {
             </li>
           </ListInline>
 
-          <pre className='language-javascript' data-example-jsx={id} style={displayNone}>
-            <code dangerouslySetInnerHTML={{__html: jsx}} />
+          <pre data-example-jsx={id} style={displayNone}>
+            <code
+              className='lang-js'
+              dangerouslySetInnerHTML={{__html: jsx}}
+            />
           </pre>
 
-          <pre className='language-html' data-example-html={id} style={displayNone}>
-            <code dangerouslySetInnerHTML={{__html: markup}} />
+          <pre data-example-html={id} style={displayNone}>
+            <code
+              className='lang-html'
+              dangerouslySetInnerHTML={{__html: markup}}
+            />
           </pre>
 
         </section>

@@ -1,6 +1,6 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 function handleChange (e, value, checked) {
   /*
     `e` is the event.
@@ -22,7 +22,7 @@ const value = '...' // Uses label, if blank.
 // Checked state.
 const checked = true // Default: false.
 const defaultChecked = true // Default: false.
-</code></pre>
+```
 
 **Note:** There is a difference between `checked` and `defaultChecked`. For more info, see the React documentation for…
 
@@ -31,7 +31,7 @@ const defaultChecked = true // Default: false.
 
 To use the component, pass these props.
 
-```
+```xml
 <Checkbox
   autoFocus={autofocus}
   checked={checked}

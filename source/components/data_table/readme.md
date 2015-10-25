@@ -1,6 +1,6 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 /*
   You would likely get this data from an API,
   but for this example, these are hard-coded
@@ -48,13 +48,13 @@ const data = [
     19568.096043774858
   ]
 ]
-</code></pre>
+```
 
 To use the component, pass these props.
 
 **Note:** The following example shows the defaults for each prop. Meaning, `pageTop` is default. If you want pagination on the bottom, you could set `pageTop={false}` and `pageBottom={true}`.
 
-```
+```xml
 <DataTable
   columns={columns}
   data={data}

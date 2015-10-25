@@ -1,6 +1,6 @@
 This component can be used like so.
 
-```
+```xml
 <Tabs selected={0}>
   <TabPanel label='Tab 1'>
     <p>

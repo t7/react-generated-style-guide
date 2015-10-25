@@ -1,6 +1,6 @@
 This component is a simple wrapper around `<li>` elements that returns an list with slightly increased spacing, and no bullets.
 
-```
+```xml
 <ListClean>
   <li>
     List Item 1

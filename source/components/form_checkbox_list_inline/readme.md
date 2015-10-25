@@ -1,6 +1,6 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 function handleChange (e, value, checked) {
   /*
     `e` is the event.
@@ -32,11 +32,11 @@ const options = [
 
   // Etc.
 ]
-</code></pre>
+```
 
 To use the component, pass these props.
 
-```
+```xml
 <CheckboxListInline
   options={options}
 

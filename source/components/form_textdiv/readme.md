@@ -6,7 +6,7 @@ Its output is a `<div>` with `contenteditable="true"`, that converts anything pa
 
 The benefit of using a `<Textdiv />` component is that it grows with its content, without necessitating a JS grow-by-pixel approach, which is how one might handle a `<textarea>`.
 
-```
+```xml
 <Textdiv
   autofocus={autofocus}
   disabled={disabled}

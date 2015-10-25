@@ -1,6 +1,6 @@
 This component is a simple wrapper around `<li>` elements that are set to `display: inline`.
 
-```
+```xml
 <ListInline>
   <li>
     List Item 1

@@ -2,7 +2,7 @@ The `<Button />` component has several variations, in both `size` and `mode`.
 
 **Small:**
 
-```
+```xml
 <Button size='small' text='Default' />
 
 <Button size='small' mode='primary' text='Primary' />
@@ -16,7 +16,7 @@ The `<Button />` component has several variations, in both `size` and `mode`.
 
 **Normal:**
 
-```
+```xml
 <Button text='Default' />
 
 <Button mode='primary' text='Primary' />
@@ -30,7 +30,7 @@ The `<Button />` component has several variations, in both `size` and `mode`.
 
 **Big:**
 
-```
+```xml
 <Button size='big' text='Default' />
 
 <Button size='big' mode='primary' text='Primary' />

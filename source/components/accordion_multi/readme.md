@@ -1,14 +1,14 @@
 This component can be used like so.
 
-<pre class="language-javascript"><code>
+```js
 const selected = {
   0: true,
   1: true,
   2: true
 }
-</code></pre>
-
 ```
+
+```xml
 <AccordionMulti selected={selected}>
   <AccordionPanel label='Item 1'>
     <p>
