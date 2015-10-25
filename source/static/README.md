@@ -1,7 +1,7 @@
 # Static Assets
 
 This directory is meant for any static assets,
-images to be used as foreground `<img />`. etc.
+images to be used as foreground `<img/>`. etc.
 
 ---
 
@@ -34,4 +34,4 @@ https://github.com/andyearnshaw/Intl.js
 https://cdn.polyfill.io/v2/docs/features/#Intl
 
 It is needed by Safari to support the usage of
-`<FormattedNumber />` and `<FormattedDate />`.
+`<FormattedNumber/>` and `<FormattedDate/>`.

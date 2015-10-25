@@ -1,4 +1,4 @@
-The `<Button />` component has several variations, in both `size` and `mode`.
+The `<Button/>` component has several variations, in both `size` and `mode`.
 
 **Small:**
 
