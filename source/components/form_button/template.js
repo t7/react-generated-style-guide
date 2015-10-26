@@ -61,7 +61,7 @@ class Button extends React.Component {
     }
 
     // Link & type?
-    if (href && type) {
+    if (href && type !== 'button') {
       throw new Error(
         '<Button/> error: Using `href` and `type` is not allowed.'
       )
