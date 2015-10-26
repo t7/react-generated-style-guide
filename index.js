@@ -27905,6 +27905,17 @@
 	  _createClass(Button, [{
 	    key: 'handleClick',
 	    value: function handleClick(e) {
+	      /*
+	        This is here, just in case someone uses a
+	        `href` link with `disabled`. In practice,
+	        you would want to use a real `<button>`,
+	        if there may be a need to disable it.
+	      */
+	      if (this.props.disabled) {
+	        // Cancel click.
+	        e.stop();
+	      }
+
 	      var handleClick = this.props.handleClick;
 
 	      if (typeof handleClick !== 'function') {
@@ -27925,6 +27936,7 @@
 	      var href = this.props.href;
 	      var mode = this.props.mode;
 	      var size = this.props.size;
+	      var target = this.props.target;
 	      var text = this.props.text;
 	      var title = this.props.title;
 	      var type = this.props.type;
@@ -27937,9 +27949,14 @@
 	        throw new Error('<Button/> error: Using `href` and `aria-controls` is not allowed.');
 	      }
 
-	      // Link & Disabled?
-	      if (href && disabled) {
-	        throw new Error('<Button/> error: Using `href` and `disabled` is not allowed.');
+	      // Link & type?
+	      if (href && type) {
+	        throw new Error('<Button/> error: Using `href` and `type` is not allowed.');
+	      }
+
+	      // Target without link?
+	      if (target && !href) {
+	        throw new Error('<Button/> error: Using `target` without `href` is not allowed.');
 	      }
 
 	      // Default class.
@@ -28011,7 +28028,9 @@
 	          'a',
 	          {
 	            className: className,
+	            disabled: disabled,
 	            href: href,
+	            target: target,
 	            title: title,
 
 	            onClick: handleClick
@@ -28036,6 +28055,7 @@
 	  mode: _react2['default'].PropTypes.string,
 	  text: _react2['default'].PropTypes.string,
 	  size: _react2['default'].PropTypes.string,
+	  target: _react2['default'].PropTypes.string,
 	  title: _react2['default'].PropTypes.string,
 	  type: _react2['default'].PropTypes.string,
 
