@@ -10,14 +10,14 @@ module.exports = {
           link: 'https://www.google.com/fonts/specimen/Lato'
         },
         {
-          title: 'Arial, sans-serif',
-          fontFamily: 'Arial, sans-serif',
-          link: 'https://en.wikipedia.org/wiki/Arial'
-        },
-        {
           title: 'Roboto',
           fontFamily: 'Roboto, sans-serif',
           link: 'https://www.google.com/fonts/specimen/Roboto'
+        },
+        {
+          title: 'Arial, sans-serif',
+          fontFamily: 'Arial, sans-serif',
+          link: 'https://en.wikipedia.org/wiki/Arial'
         }
       ],
       colors: [
