@@ -39919,11 +39919,9 @@
 	      }
 
 	      // Link & type?
-	      // if (href && type) {
-	      //   throw new Error(
-	      //     '<Button/> error: Using `href` and `type` is not allowed.'
-	      //   )
-	      // }
+	      if (href && type !== 'button') {
+	        throw new Error('<Button/> error: Using `href` and `type` is not allowed.');
+	      }
 
 	      // Target without link?
 	      if (target && !href) {
