@@ -1,6 +1,7 @@
 This component can be used like so.
 
 ```js
+// Event callback.
 function handleChange (e, value, checked) {
   /*
     `e` is the event.

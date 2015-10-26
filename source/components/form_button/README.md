@@ -5,6 +5,18 @@ Below is an example of all the props that it can use, though some are mutually e
 By passing `href`, the component will be used as an `<a>` link, otherwise a `<button>` tag will be generated.
 
 ```js
+// Event callback.
+function handleClick (e, buttonData) {
+  /*
+    `e` is the event.
+
+    `buttonData` is whatever you have defined.
+
+    If nothing is set, then it will just be
+    the string of "Button Data" passed back.
+  */
+}
+
 const ariaControls = '...' // Default: null.
 const disabled = true // Default: false.
 const href = 'http://example.com/' Default: null.
@@ -22,18 +34,6 @@ const type = 'submit | reset' // Default: 'button'.
 */
 const buttonData = {
   foo: 'bar'
-}
-
-// Callback.
-function handleClick (e, buttonData) {
-  /*
-    `e` is the event.
-
-    `buttonData` is whatever you have defined.
-
-    If nothing is set, then it will just be
-    the string of "Button Data" passed back.
-  */
 }
 ```
 
