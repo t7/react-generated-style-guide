@@ -16,6 +16,17 @@ class Button extends React.Component {
 
   // Button click.
   handleClick (e) {
+    /*
+      This is here, just in case someone uses a
+      `href` link with `disabled`. In practice,
+      you would want to use a real `<button>`,
+      if there may be a need to disable it.
+    */
+    if (this.props.disabled) {
+      // Cancel click.
+      e.stop()
+    }
+
     const handleClick = this.props.handleClick
 
     if (typeof handleClick !== 'function') {
@@ -34,6 +45,7 @@ class Button extends React.Component {
     const href = this.props.href
     const mode = this.props.mode
     const size = this.props.size
+    const target = this.props.target
     const text = this.props.text
     const title = this.props.title
     const type = this.props.type
@@ -48,10 +60,17 @@ class Button extends React.Component {
       )
     }
 
-    // Link & Disabled?
-    if (href && disabled) {
+    // Link & type?
+    if (href && type) {
       throw new Error(
-        '<Button/> error: Using `href` and `disabled` is not allowed.'
+        '<Button/> error: Using `href` and `type` is not allowed.'
+      )
+    }
+
+    // Target without link?
+    if (target && !href) {
+      throw new Error(
+        '<Button/> error: Using `target` without `href` is not allowed.'
       )
     }
 
@@ -137,7 +156,9 @@ class Button extends React.Component {
       button = (
         <a
           className={className}
+          disabled={disabled}
           href={href}
+          target={target}
           title={title}
 
           onClick={handleClick}
@@ -159,6 +180,7 @@ Button.propTypes = {
   mode: React.PropTypes.string,
   text: React.PropTypes.string,
   size: React.PropTypes.string,
+  target: React.PropTypes.string,
   title: React.PropTypes.string,
   type: React.PropTypes.string,
 
