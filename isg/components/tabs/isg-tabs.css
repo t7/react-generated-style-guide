@@ -50,14 +50,14 @@ Tab list.
   background: #ffd;
 }
 
-.isg-tabs__item:focus {
-  border-color: #39f;
-  box-shadow: #39f 0 0 2px 0;
-}
-
 .isg-tabs__item[aria-selected="true"] {
   background: #fff;
   border-bottom-color: #fff;
+}
+
+.isg-tabs__item:focus {
+  border-color: #39f;
+  box-shadow: #39f 0 0 2px 0;
 }
 
 /*
