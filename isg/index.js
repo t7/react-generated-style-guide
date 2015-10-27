@@ -63,27 +63,33 @@
 
 	__webpack_require__(2);
 
-	// Style guide CSS.
+	// Global CSS.
 
 	__webpack_require__(3);
 
 	__webpack_require__(4);
 
+	// Code highlighting.
+
 	__webpack_require__(5);
 
-	// Pilfered from "source".
+	// Style guide CSS.
 
 	__webpack_require__(6);
 
+	// Pilfered from "source".
+
 	__webpack_require__(7);
 
-	// Component level CSS.
-
 	__webpack_require__(8);
+
+	// Component level CSS.
 
 	__webpack_require__(9);
 
 	__webpack_require__(10);
+
+	__webpack_require__(11);
 
 /***/ },
 /* 1 */
@@ -141,6 +147,12 @@
 
 /***/ },
 /* 10 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 11 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

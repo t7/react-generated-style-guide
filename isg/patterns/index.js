@@ -19875,12 +19875,7 @@
 
 	// Defaults.
 	AccordionMulti.defaultProps = {
-	  children: _fake2['default'].accordion(),
-	  selected: {
-	    0: true,
-	    1: true,
-	    2: true
-	  }
+	  children: _fake2['default'].accordion()
 	};
 
 	// Export.
@@ -22645,9 +22640,7 @@
 	Accordion.defaultProps = {
 	  children: _fake2['default'].accordion(),
 	  multi: false,
-	  selected: {
-	    0: true
-	  }
+	  selected: {}
 	};
 
 	// Export.
