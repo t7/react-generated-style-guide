@@ -22458,9 +22458,7 @@
 
 	// CSS.
 
-	var _t7AccordionCss = __webpack_require__(191);
-
-	var _t7AccordionCss2 = _interopRequireDefault(_t7AccordionCss);
+	__webpack_require__(191);
 
 	// Utility methods.
 
@@ -22595,7 +22593,7 @@
 	          ariaControls: idPanel,
 	          ariaExpanded: isActive,
 	          ariaSelected: isActive,
-	          className: _t7AccordionCss2['default']['t7-accordion__header'],
+	          className: 't7-accordion__header',
 	          id: idHeader,
 	          index: i,
 	          key: idHeader,
@@ -22610,7 +22608,7 @@
 	          {
 	            'aria-hidden': !isActive,
 	            'aria-labeledby': idHeader,
-	            className: _t7AccordionCss2['default']['t7-accordion__panel'],
+	            className: 't7-accordion__panel',
 	            id: idPanel,
 	            key: idPanel,
 	            role: 'tabpanel'
@@ -22623,7 +22621,7 @@
 	      return _react2['default'].createElement(
 	        'dl',
 	        {
-	          className: _t7AccordionCss2['default']['t7-accordion'],
+	          className: 't7-accordion',
 	          id: id,
 	          role: 'tablist',
 	          'aria-multiselectable': multi
@@ -35035,7 +35033,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-accordion":"t7-accordion__t7-accordion___1sw6r","t7-accordion__header":"t7-accordion__t7-accordion__header___3p2IQ","t7-accordion__header__icon":"t7-accordion__t7-accordion__header__icon___16hmQ","t7-accordion__panel":"t7-accordion__t7-accordion__panel___178bQ"};
 
 /***/ },
 /* 192 */
@@ -35064,9 +35061,7 @@
 
 	// CSS.
 
-	var _t7AccordionCss = __webpack_require__(191);
-
-	var _t7AccordionCss2 = _interopRequireDefault(_t7AccordionCss);
+	__webpack_require__(191);
 
 	// Define class.
 
@@ -35128,7 +35123,7 @@
 	        },
 	        _react2['default'].createElement('span', {
 	          'aria-hidden': 'true',
-	          className: _t7AccordionCss2['default']['t7-accordion__header__icon']
+	          className: 't7-accordion__header__icon'
 	        }),
 	        label
 	      );
@@ -35251,9 +35246,7 @@
 
 	// CSS.
 
-	var _t7BoxCss = __webpack_require__(195);
-
-	var _t7BoxCss2 = _interopRequireDefault(_t7BoxCss);
+	__webpack_require__(195);
 
 	// Utility methods.
 
@@ -35359,28 +35352,47 @@
 	      var handleClick = this.handleClick.bind(this);
 
 	      // Used in conditional.
-	      var className = _t7BoxCss2['default']['t7-box'];
+	      var className = ['t7-box'];
 
 	      // Mode: "info".
 	      if (mode === 'info') {
+	        className.push('t7-box--info');
+
 	        // Use "info" icon?
-	        className = icon ? _t7BoxCss2['default']['t7-box--info--icon'] : _t7BoxCss2['default']['t7-box--info'];
+	        if (icon) {
+	          className.push('t7-box--info--icon');
+	        }
 
 	        // Mode: "negative".
 	      } else if (mode === 'negative') {
+	          className.push('t7-box--negative');
+
 	          // Use "negative" icon?
-	          className = icon ? _t7BoxCss2['default']['t7-box--negative--icon'] : _t7BoxCss2['default']['t7-box--negative'];
+	          if (icon) {
+	            className.push('t7-box--negative--icon');
+	          }
 
 	          // Mode: "positive".
 	        } else if (mode === 'positive') {
+	            className.push('t7-box--positive');
+
 	            // Use "positive" icon?
-	            className = icon ? _t7BoxCss2['default']['t7-box--positive--icon'] : _t7BoxCss2['default']['t7-box--positive'];
+	            if (icon) {
+	              className.push('t7-box--positive--icon');
+	            }
 
 	            // Mode: "warn".
 	          } else if (mode === 'warn') {
+	              className.push('t7-box--warn');
+
 	              // Use "warn" icon?
-	              className = icon ? _t7BoxCss2['default']['t7-box--warn--icon'] : _t7BoxCss2['default']['t7-box--warn'];
+	              if (icon) {
+	                className.push('t7-box--warn--icon');
+	              }
 	            }
+
+	      // Build the string.
+	      className = className.join(' ');
 
 	      // Used in conditional.
 	      var closeX;
@@ -35394,7 +35406,7 @@
 	            'aria-label': 'Close',
 	            title: 'Close',
 
-	            className: _t7BoxCss2['default']['t7-box__close'],
+	            className: 't7-box__close',
 	            tabIndex: '0',
 	            onClick: handleClick,
 	            onKeyDown: handleClick
@@ -35487,7 +35499,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-box":"t7-box__t7-box___OxsXm","t7-box__close":"t7-box__t7-box__close___3mz_h","t7-box--info":"t7-box__t7-box--info___1O5_C t7-box__t7-box___OxsXm","t7-box--negative":"t7-box__t7-box--negative___XlQKl t7-box__t7-box___OxsXm","t7-box--positive":"t7-box__t7-box--positive___1NzLS t7-box__t7-box___OxsXm","t7-box--warn":"t7-box__t7-box--warn___2ncDw t7-box__t7-box___OxsXm","t7-box--info--icon":"t7-box__t7-box--info--icon___3X4jL t7-box__t7-box--info___1O5_C t7-box__t7-box___OxsXm","t7-box--negative--icon":"t7-box__t7-box--negative--icon___2n2iM t7-box__t7-box--negative___XlQKl t7-box__t7-box___OxsXm","t7-box--positive--icon":"t7-box__t7-box--positive--icon___6pZVW t7-box__t7-box--positive___1NzLS t7-box__t7-box___OxsXm","t7-box--warn--icon":"t7-box__t7-box--warn--icon___2cqlP t7-box__t7-box--warn___2ncDw t7-box__t7-box___OxsXm"};
 
 /***/ },
 /* 196 */
@@ -35727,9 +35738,7 @@
 
 	// CSS.
 
-	var _t7DataTableCss = __webpack_require__(200);
-
-	var _t7DataTableCss2 = _interopRequireDefault(_t7DataTableCss);
+	__webpack_require__(200);
 
 	// Utility methods.
 
@@ -35928,7 +35937,7 @@
 	          { role: 'row', key: 'table_data_empty_' + id },
 	          _react2['default'].createElement(
 	            'td',
-	            { className: _t7DataTableCss2['default']['t7-data-table__td'], colSpan: columns.length },
+	            { className: 't7-data-table__td', colSpan: columns.length },
 	            'No data to display.'
 	          )
 	        ));
@@ -35937,13 +35946,13 @@
 	      // Put all the UI together.
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: _t7DataTableCss2['default']['t7-data-table__wrapper'] },
+	        { className: 't7-data-table__wrapper' },
 	        pageTop,
 	        _react2['default'].createElement(
 	          'table',
 	          {
 	            id: id,
-	            className: _t7DataTableCss2['default']['t7-data-table'],
+	            className: 't7-data-table',
 	            role: 'grid'
 	          },
 	          _react2['default'].createElement(
@@ -36019,7 +36028,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-data-table":"t7-data-table__t7-data-table___2HloH","t7-data-table__wrapper":"t7-data-table__t7-data-table__wrapper___1rx5V","t7-data-table__pagination":"t7-data-table__t7-data-table__pagination___1MYUO","t7-data-table__pagination--hidden":"t7-data-table__t7-data-table__pagination--hidden___2YHD4","t7-data-table__pagination__label":"t7-data-table__t7-data-table__pagination__label___2hTDS","t7-data-table__th":"t7-data-table__t7-data-table__th___1IdhN","t7-data-table__td":"t7-data-table__t7-data-table__td___1dWHG","t7-data-table__th--sortable":"t7-data-table__t7-data-table__th--sortable___1K-A9 t7-data-table__t7-data-table__th___1IdhN","t7-data-table__td--currency":"t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG","t7-data-table__td--negative":"t7-data-table__t7-data-table__td--negative___1uKlB t7-data-table__t7-data-table__td--currency___2EKlK t7-data-table__t7-data-table__td___1dWHG"};
 
 /***/ },
 /* 201 */
@@ -36125,9 +36133,7 @@
 
 	// CSS.
 
-	var _t7DataTableCss = __webpack_require__(200);
-
-	var _t7DataTableCss2 = _interopRequireDefault(_t7DataTableCss);
+	__webpack_require__(200);
 
 	// Utility methods.
 
@@ -36164,15 +36170,15 @@
 	      var isNegative = value < 0;
 
 	      // Used in conditional.
-	      var className = _t7DataTableCss2['default']['t7-data-table__td'];
+	      var className = ['t7-data-table__td'];
 
 	      // Currency value?
 	      if (isCurrency) {
-	        className = _t7DataTableCss2['default']['t7-data-table__td--currency'];
+	        className.push('t7-data-table__td--currency');
 
 	        // Negative?
 	        if (isNegative) {
-	          className = _t7DataTableCss2['default']['t7-data-table__td--negative'];
+	          className.push('t7-data-table__td--negative');
 	          value = value * -1;
 	        }
 
@@ -36191,6 +36197,9 @@
 	            year: 'numeric'
 	          });
 	        }
+
+	      // Build the string.
+	      className = className.join(' ');
 
 	      // Used in conditional.
 	      var td;
@@ -39494,9 +39503,7 @@
 
 	// CSS.
 
-	var _t7DataTableCss = __webpack_require__(200);
-
-	var _t7DataTableCss2 = _interopRequireDefault(_t7DataTableCss);
+	__webpack_require__(200);
 
 	// Utility methods.
 
@@ -39553,11 +39560,13 @@
 	        }
 	      }
 
-	      var className = _t7DataTableCss2['default']['t7-data-table__th'];
+	      var className = ['t7-data-table__th'];
 
 	      if (sortable) {
-	        className = _t7DataTableCss2['default']['t7-data-table__th--sortable'];
+	        className.push('t7-data-table__th--sortable');
 	      }
+
+	      className = className.join(' ');
 
 	      return _react2['default'].createElement(
 	        'th',
@@ -39631,9 +39640,7 @@
 
 	// CSS.
 
-	var _t7DataTableCss = __webpack_require__(200);
-
-	var _t7DataTableCss2 = _interopRequireDefault(_t7DataTableCss);
+	__webpack_require__(200);
 
 	// Utility methods.
 
@@ -39743,12 +39750,12 @@
 
 	      // Hide initially.
 	      var ariaHidden = true;
-	      var className = _t7DataTableCss2['default']['t7-data-table__pagination--hidden'];
+	      var className = 't7-data-table__pagination--hidden';
 
 	      // Show the UI?
 	      if (pageTotal > 1) {
 	        ariaHidden = false;
-	        className = _t7DataTableCss2['default']['t7-data-table__pagination'];
+	        className = 't7-data-table__pagination';
 	      }
 
 	      return _react2['default'].createElement(
@@ -39760,7 +39767,7 @@
 	        },
 	        _react2['default'].createElement(
 	          'span',
-	          { className: _t7DataTableCss2['default']['t7-data-table__pagination__label'] },
+	          { className: 't7-data-table__pagination__label' },
 	          'Page ',
 	          pageCurrent + 1,
 	          ' of ',
@@ -39845,9 +39852,7 @@
 
 	// CSS.
 
-	var _cssT7FormCss = __webpack_require__(239);
-
-	var _cssT7FormCss2 = _interopRequireDefault(_cssT7FormCss);
+	__webpack_require__(239);
 
 	// Utility methods.
 
@@ -39929,7 +39934,7 @@
 	      }
 
 	      // Default class.
-	      var className = [_cssT7FormCss2['default']['t7-form__button']];
+	      var className = ['t7-form__button'];
 
 	      /*
 	        ============
@@ -39939,11 +39944,11 @@
 
 	      // Small button size.
 	      if (size === 'small') {
-	        className.push(_cssT7FormCss2['default']['t7-form__button--small']);
+	        className.push('t7-form__button--small');
 
 	        // Big button size.
 	      } else if (size === 'big') {
-	          className.push(_cssT7FormCss2['default']['t7-form__button--big']);
+	          className.push('t7-form__button--big');
 	        }
 
 	      /*
@@ -39954,23 +39959,23 @@
 
 	      // Button mode: Default.
 	      if (mode === 'default') {
-	        className.push(_cssT7FormCss2['default']['t7-form__button--default']);
+	        className.push('t7-form__button--default');
 
 	        // Button mode: Primary.
 	      } else if (mode === 'primary') {
-	          className.push(_cssT7FormCss2['default']['t7-form__button--primary']);
+	          className.push('t7-form__button--primary');
 
 	          // Button mode: Positive.
 	        } else if (mode === 'positive') {
-	            className.push(_cssT7FormCss2['default']['t7-form__button--positive']);
+	            className.push('t7-form__button--positive');
 
 	            // Button mode: Negative.
 	          } else if (mode === 'negative') {
-	              className.push(_cssT7FormCss2['default']['t7-form__button--negative']);
+	              className.push('t7-form__button--negative');
 
 	              // Button mode: Warn.
 	            } else if (mode === 'warn') {
-	                className.push(_cssT7FormCss2['default']['t7-form__button--warn']);
+	                className.push('t7-form__button--warn');
 	              }
 
 	      // Build the string.
@@ -40055,7 +40060,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-form__button":"t7-form__t7-form__button___26ygf","t7-form__input":"t7-form__t7-form__input___3g6W1","t7-form__select":"t7-form__t7-form__select___3cUlJ","t7-form__textarea":"t7-form__t7-form__textarea___2UBRs","t7-form__input--width-auto":"t7-form__t7-form__input--width-auto___3Uh-7 t7-form__t7-form__input___3g6W1","t7-form__select--width-auto":"t7-form__t7-form__select--width-auto___1772T t7-form__t7-form__select___3cUlJ","t7-form__button--small":"t7-form__t7-form__button--small___1FsvV","t7-form__button--big":"t7-form__t7-form__button--big___1D68q","t7-form__button--default":"t7-form__t7-form__button--default___2v6BP","t7-form__button--primary":"t7-form__t7-form__button--primary___1Ek-x","t7-form__button--positive":"t7-form__t7-form__button--positive___3NGwO","t7-form__button--negative":"t7-form__t7-form__button--negative___18Fkr","t7-form__button--warn":"t7-form__t7-form__button--warn___1aoaa","t7-form__radio":"t7-form__t7-form__radio___1JFpG","t7-form__checkbox":"t7-form__t7-form__checkbox___1euj9"};
 
 /***/ },
 /* 240 */
@@ -40084,9 +40088,7 @@
 
 	// CSS.
 
-	var _cssT7FormCss = __webpack_require__(239);
-
-	var _cssT7FormCss2 = _interopRequireDefault(_cssT7FormCss);
+	__webpack_require__(239);
 
 	// Utility methods.
 
@@ -40169,11 +40171,13 @@
 	      // Events.
 	      var handleChange = this.handleChange.bind(this);
 
-	      var className = _cssT7FormCss2['default']['t7-form__select'];
+	      var className = ['t7-form__select'];
 
 	      if (width === 'auto') {
-	        className = _cssT7FormCss2['default']['t7-form__select--width-auto'];
+	        className.push('t7-form__select--width-auto');
 	      }
+
+	      className = className.join(' ');
 
 	      return _react2['default'].createElement(
 	        'select',
@@ -40192,8 +40196,8 @@
 	          onChange: handleChange
 	        },
 	        options.map(function (o, i) {
-	          var name = o.name;
 	          var value = o.value;
+	          var name = o.name;
 
 	          return _react2['default'].createElement(
 	            'option',
@@ -40824,9 +40828,7 @@
 
 	// CSS.
 
-	var _t7ListInlineCss = __webpack_require__(248);
-
-	var _t7ListInlineCss2 = _interopRequireDefault(_t7ListInlineCss);
+	__webpack_require__(248);
 
 	// Define class.
 
@@ -40849,7 +40851,7 @@
 	    value: function render() {
 	      return _react2['default'].createElement(
 	        'ul',
-	        { className: _t7ListInlineCss2['default']['t7-list--inline'] },
+	        { className: 't7-list-inline' },
 	        this.props.children
 	      );
 	    }
@@ -40876,7 +40878,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-list--inline":"t7-list--inline__t7-list--inline___1m_mJ"};
 
 /***/ },
 /* 249 */
@@ -41115,9 +41116,7 @@
 
 	// CSS.
 
-	var _cssT7FormCss = __webpack_require__(239);
-
-	var _cssT7FormCss2 = _interopRequireDefault(_cssT7FormCss);
+	__webpack_require__(239);
 
 	// Utility methods.
 
@@ -41205,7 +41204,7 @@
 	        { htmlFor: id },
 	        _react2['default'].createElement('input', {
 	          autoFocus: autofocus,
-	          className: _cssT7FormCss2['default']['t7-form__checkbox'],
+	          className: 't7-form__checkbox',
 	          disabled: disabled,
 	          id: id,
 	          name: name,
@@ -41290,9 +41289,7 @@
 
 	// CSS.
 
-	var _t7ListCleanCss = __webpack_require__(253);
-
-	var _t7ListCleanCss2 = _interopRequireDefault(_t7ListCleanCss);
+	__webpack_require__(253);
 
 	// Define class.
 
@@ -41315,7 +41312,7 @@
 	    value: function render() {
 	      return _react2['default'].createElement(
 	        'ul',
-	        { className: _t7ListCleanCss2['default']['t7-list--clean'] },
+	        { className: 't7-list-clean' },
 	        this.props.children
 	      );
 	    }
@@ -41342,7 +41339,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-list--clean":"t7-list--clean__t7-list--clean___3S5Dy"};
 
 /***/ },
 /* 254 */
@@ -41371,9 +41367,7 @@
 
 	// CSS.
 
-	var _cssT7FormCss = __webpack_require__(239);
-
-	var _cssT7FormCss2 = _interopRequireDefault(_cssT7FormCss);
+	__webpack_require__(239);
 
 	// Utility methods.
 
@@ -41454,10 +41448,10 @@
 	      var defaultValue = this.props.defaultValue;
 	      var value = this.props.value;
 
-	      var className = _cssT7FormCss2['default']['t7-form__input'];
+	      var className = 't7-form__input';
 
 	      if (width === 'auto') {
-	        className = _cssT7FormCss2['default']['t7-form__input--width-auto'];
+	        className = 't7-form__input--width-auto';
 	      }
 
 	      // Events.
@@ -41788,9 +41782,7 @@
 
 	// CSS.
 
-	var _cssT7FormCss = __webpack_require__(239);
-
-	var _cssT7FormCss2 = _interopRequireDefault(_cssT7FormCss);
+	__webpack_require__(239);
 
 	// Utility methods.
 
@@ -41878,7 +41870,7 @@
 	        { htmlFor: id },
 	        _react2['default'].createElement('input', {
 	          autoFocus: autofocus,
-	          className: _cssT7FormCss2['default']['t7-form__radio'],
+	          className: 't7-form__radio',
 	          disabled: disabled,
 	          id: id,
 	          name: name,
@@ -41957,9 +41949,7 @@
 
 	// CSS.
 
-	var _t7SearchTableCss = __webpack_require__(259);
-
-	var _t7SearchTableCss2 = _interopRequireDefault(_t7SearchTableCss);
+	__webpack_require__(259);
 
 	// Utility methods.
 
@@ -42027,7 +42017,7 @@
 	        { onSubmit: handleSubmit },
 	        _react2['default'].createElement(
 	          'table',
-	          { role: 'presentation', className: _t7SearchTableCss2['default']['t7-search-table'] },
+	          { role: 'presentation', className: 't7-search-table' },
 	          _react2['default'].createElement(
 	            'tbody',
 	            null,
@@ -42089,7 +42079,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-search-table":"t7-search-table__t7-search-table___2aZVP"};
 
 /***/ },
 /* 260 */
@@ -42118,9 +42107,7 @@
 
 	// CSS.
 
-	var _cssT7FormCss = __webpack_require__(239);
-
-	var _cssT7FormCss2 = _interopRequireDefault(_cssT7FormCss);
+	__webpack_require__(239);
 
 	// Utility methods.
 
@@ -42210,7 +42197,7 @@
 
 	      return _react2['default'].createElement('textarea', {
 	        autoFocus: autofocus,
-	        className: _cssT7FormCss2['default']['t7-form__textarea'],
+	        className: 't7-form__textarea',
 	        disabled: disabled,
 	        id: id,
 	        name: name,
@@ -42283,9 +42270,7 @@
 
 	// CSS.
 
-	var _cssT7FormCss = __webpack_require__(239);
-
-	var _cssT7FormCss2 = _interopRequireDefault(_cssT7FormCss);
+	__webpack_require__(239);
 
 	// Utility methods.
 
@@ -42403,7 +42388,7 @@
 
 	      return _react2['default'].createElement('div', {
 	        autoFocus: autofocus,
-	        className: _cssT7FormCss2['default']['t7-form__textarea'],
+	        className: 't7-form__textarea',
 	        contentEditable: !disabled,
 	        dangerouslySetInnerHTML: { __html: value },
 	        disabled: disabled,
@@ -42491,9 +42476,7 @@
 
 	// CSS.
 
-	var _t7FigureCss = __webpack_require__(264);
-
-	var _t7FigureCss2 = _interopRequireDefault(_t7FigureCss);
+	__webpack_require__(264);
 
 	// Define class.
 
@@ -42554,7 +42537,7 @@
 	      // Assume no link.
 	      var figure = _react2['default'].createElement(
 	        'figure',
-	        { className: _t7FigureCss2['default']['t7-figure'] },
+	        { className: 't7-figure' },
 	        figcaptionTop,
 	        _react2['default'].createElement(_imageTemplate2['default'], {
 	          alt: alt,
@@ -42570,7 +42553,7 @@
 	      if (href) {
 	        figure = _react2['default'].createElement(
 	          'figure',
-	          { className: _t7FigureCss2['default']['t7-figure'] },
+	          { className: 't7-figure' },
 	          figcaptionTop,
 	          _react2['default'].createElement(
 	            'a',
@@ -42838,7 +42821,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-figure":"t7-figure__t7-figure___3pLYT"};
 
 /***/ },
 /* 265 */
@@ -42873,9 +42855,7 @@
 
 	// CSS.
 
-	var _t7ListSeparatorCss = __webpack_require__(266);
-
-	var _t7ListSeparatorCss2 = _interopRequireDefault(_t7ListSeparatorCss);
+	__webpack_require__(266);
 
 	// Define class.
 
@@ -42898,7 +42878,7 @@
 	    value: function render() {
 	      return _react2['default'].createElement(
 	        'ul',
-	        { className: _t7ListSeparatorCss2['default']['t7-list--separator'] },
+	        { className: 't7-list-separator' },
 	        this.props.children
 	      );
 	    }
@@ -42925,7 +42905,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-list--separator":"t7-list--separator__t7-list--separator___rG8Xg"};
 
 /***/ },
 /* 267 */
@@ -43051,9 +43030,7 @@
 
 	// CSS.
 
-	var _t7TabsCss = __webpack_require__(268);
-
-	var _t7TabsCss2 = _interopRequireDefault(_t7TabsCss);
+	__webpack_require__(268);
 
 	// Utility methods.
 
@@ -43142,18 +43119,12 @@
 	      // Click event.
 	      var handleClick = this.handleClick.bind(this);
 
-	      // On/Off class names.
-	      var tabOff = _t7TabsCss2['default']['t7-tabs__item'];
-	      var tabOn = _t7TabsCss2['default']['t7-tabs__item--selected'];
-	      var panelOff = _t7TabsCss2['default']['t7-tabs__panel'];
-	      var panelOn = _t7TabsCss2['default']['t7-tabs__panel--selected'];
-
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: _t7TabsCss2['default']['t7-tabs'], id: id },
+	        { className: 't7-tabs', id: id },
 	        _react2['default'].createElement(
 	          'ul',
-	          { role: 'tablist', className: _t7TabsCss2['default']['t7-tabs__list'] },
+	          { role: 'tablist', className: 't7-tabs__list' },
 	          children.map(function (panel, i) {
 	            // Panel label.
 	            var label = panel.props.label;
@@ -43164,13 +43135,12 @@
 
 	            // Active state.
 	            var isActive = selected === i;
-	            var className = isActive ? tabOn : tabOff;
 
 	            return _react2['default'].createElement(_template_tab2['default'], {
 	              ariaControls: idPanel,
 	              ariaExpanded: isActive,
 	              ariaSelected: isActive,
-	              className: className,
+	              className: 't7-tabs__item',
 	              id: idTab,
 	              index: i,
 	              key: idTab,
@@ -43186,7 +43156,6 @@
 
 	          // Active state.
 	          var isActive = selected === i;
-	          var className = isActive ? panelOn : panelOff;
 
 	          // Panel content.
 	          var content = panel.props.children;
@@ -43206,7 +43175,7 @@
 	            {
 	              'aria-hidden': !isActive,
 	              'aria-labeledby': idTab,
-	              className: className,
+	              className: 't7-tabs__panel',
 	              id: idPanel,
 	              key: i,
 	              role: 'tabpanel'
@@ -43242,7 +43211,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"t7-tabs":"t7-tabs__t7-tabs___2o2WF","t7-tabs__item":"t7-tabs__t7-tabs__item___3-bDk","t7-tabs__list":"t7-tabs__t7-tabs__list___3kP8r","t7-tabs__item--selected":"t7-tabs__t7-tabs__item--selected___2ILBm t7-tabs__t7-tabs__item___3-bDk","t7-tabs__panel":"t7-tabs__t7-tabs__panel___CAHGh","t7-tabs__panel--selected":"t7-tabs__t7-tabs__panel--selected___3PKLl"};
 
 /***/ },
 /* 269 */
