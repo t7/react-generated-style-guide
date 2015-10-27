@@ -167,9 +167,7 @@ Accordion.propTypes = {
 Accordion.defaultProps = {
   children: fake.accordion(),
   multi: false,
-  selected: {
-    0: true
-  }
+  selected: {}
 }
 
 // Export.

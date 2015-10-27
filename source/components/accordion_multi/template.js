@@ -31,12 +31,7 @@ AccordionMulti.propTypes = {
 
 // Defaults.
 AccordionMulti.defaultProps = {
-  children: fake.accordion(),
-  selected: {
-    0: true,
-    1: true,
-    2: true
-  }
+  children: fake.accordion()
 }
 
 // Export.

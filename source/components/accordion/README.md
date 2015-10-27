@@ -1,4 +1,6 @@
-This component can be used like so.
+This component functions similarly to `<AccordionMulti/>` except that it only allows for one area to be expanded at a time.
+
+By default, accordion areas are collapsed. To render an area open, pass an object with the corresponding index set to `true`.
 
 ```js
 const selected = {
