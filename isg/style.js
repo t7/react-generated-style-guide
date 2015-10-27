@@ -14,9 +14,14 @@ import './layouts/isg-app.css'
 // Grid.
 import './components_misc/unsemantic/grid.css'
 
-// Style guide CSS.
+// Global CSS.
 import './css/reset.css'
 import './css/global.css'
+
+// Code highlighting.
+import './css/prism.css'
+
+// Style guide CSS.
 import './css/isg-section.css'
 
 // Pilfered from "source".

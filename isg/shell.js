@@ -47,7 +47,6 @@ class Shell extends React.Component {
       />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato' />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
-      <link rel='stylesheet' href={root + 'static/css/prism.css'} />
       <link rel='stylesheet' href={root + 'style.css'} />
       {style}
       <title>{title}</title>
