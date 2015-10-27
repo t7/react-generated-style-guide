@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import helper from '../../css/t7-helper.css'
+import '../../css/t7-helper.css'
 
 // App components.
 import App from '../../layouts/app'
@@ -45,14 +45,14 @@ class Page extends React.Component {
 
     // Right top area.
     const rightClassName = [
-      helper['t7-tablet-float-right'],
-      helper['t7-desktop-float-right']
+      't7-tablet-float-right',
+      't7-desktop-float-right'
     ].join(' ')
 
     // Heading area.
     const styleHeading = [
-      helper['t7-tablet-float-left'],
-      helper['t7-desktop-float-left']
+      't7-tablet-float-left',
+      't7-desktop-float-left'
     ].join(' ')
 
     return (
@@ -96,7 +96,7 @@ class Page extends React.Component {
                 </h2>
 
                 <div className={rightClassName}>
-                  <p className={helper['t7-mute']}>
+                  <p className='t7-mute'>
                     Account #: TK-421
                   </p>
                 </div>
@@ -131,7 +131,7 @@ class Page extends React.Component {
                 </h2>
 
                 <div className={rightClassName}>
-                  <p className={helper['t7-mute']}>
+                  <p className='t7-mute'>
                     Account #: 867-5309
                   </p>
                 </div>

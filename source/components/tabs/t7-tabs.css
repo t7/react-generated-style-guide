@@ -55,10 +55,9 @@ Tab list.
   box-shadow: #39f 0 0 2px 0;
 }
 
-.t7-tabs__item--selected {
+.t7-tabs__item[aria-selected="true"] {
   background: #fff;
   border-bottom-color: #fff;
-  composes: t7-tabs__item;
 }
 
 /*
@@ -67,12 +66,6 @@ Tab panel.
 */
 
 .t7-tabs__panel {
-  display: none;
-}
-
-.t7-tabs__panel--selected {
-  display: block;
-
   border: 1px solid #ddd;
   border-radius: 3px;
 
@@ -81,4 +74,8 @@ Tab panel.
   padding-right: 20px;
 
   z-index: 0;
+}
+
+.t7-tabs__panel[aria-hidden="true"] {
+  display: none;
 }

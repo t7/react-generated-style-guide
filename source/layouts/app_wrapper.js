@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-app.css'
+import './t7-app.css'
 
 // Define class.
 class Wrapper extends React.Component {
@@ -14,7 +14,7 @@ class Wrapper extends React.Component {
   // Render method.
   render () {
     return (
-      <div className={style['t7-app__wrapper']}>
+      <div className='t7-app__wrapper'>
         {this.props.children}
       </div>
     )

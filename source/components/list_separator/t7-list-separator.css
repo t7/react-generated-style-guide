@@ -1,16 +1,16 @@
 /*
-Inline list.
+List with separators.
 ================================================================================
 */
 
-.t7-list--inline {
+.t7-list-separator {
   font-size: 0;
 
   margin-top: -10px;
   margin-left: -10px;
 }
 
-.t7-list--inline > li {
+.t7-list-separator li {
   font-size: 13px;
 
   display: inline-block;
@@ -18,5 +18,11 @@ Inline list.
   margin-left: 0;
 
   padding-top: 10px;
+  padding-left: 10px;
+}
+
+.t7-list-separator li + li:before {
+  content: "";
+  border-left: 1px solid #ccc;
   padding-left: 10px;
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import _ from 'lodash'
 
 // CSS.
-import style from './t7-accordion.css'
+import './t7-accordion.css'
 
 // Utility methods.
 import fake from '../../fake'
@@ -116,7 +116,7 @@ class Accordion extends React.Component {
           ariaControls={idPanel}
           ariaExpanded={isActive}
           ariaSelected={isActive}
-          className={style['t7-accordion__header']}
+          className='t7-accordion__header'
           id={idHeader}
           index={i}
           key={idHeader}
@@ -131,7 +131,7 @@ class Accordion extends React.Component {
         <dd
           aria-hidden={!isActive}
           aria-labeledby={idHeader}
-          className={style['t7-accordion__panel']}
+          className='t7-accordion__panel'
           id={idPanel}
           key={idPanel}
           role='tabpanel'
@@ -144,7 +144,7 @@ class Accordion extends React.Component {
     // Expose the UI.
     return (
       <dl
-        className={style['t7-accordion']}
+        className='t7-accordion'
         id={id}
         role='tablist'
         aria-multiselectable={multi}

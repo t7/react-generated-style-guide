@@ -5,7 +5,7 @@ import React from 'react'
 import fake from '../../fake'
 
 // CSS.
-import style from './t7-list--separator.css'
+import './t7-list-separator.css'
 
 // Define class.
 class ListSeparator extends React.Component {
@@ -17,7 +17,7 @@ class ListSeparator extends React.Component {
   // Render method.
   render () {
     return (
-      <ul className={style['t7-list--separator']}>
+      <ul className='t7-list-separator'>
         {this.props.children}
       </ul>
     )

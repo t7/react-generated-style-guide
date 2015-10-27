@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './grid.css'
+import './grid.css'
 
 // Define class.
 class Clear extends React.Component {
@@ -19,7 +19,7 @@ class Clear extends React.Component {
 
     // Populated later.
     var className = [
-      style['clear']
+      'clear'
     ]
 
     /*
@@ -29,7 +29,7 @@ class Clear extends React.Component {
     */
 
     if (desktop_hide) {
-      className.push(style['hide-on-desktop'])
+      className.push('hide-on-desktop')
     }
 
     /*
@@ -39,7 +39,7 @@ class Clear extends React.Component {
     */
 
     if (mobile_hide) {
-      className.push(style['hide-on-mobile'])
+      className.push('hide-on-mobile')
     }
 
     /*
@@ -49,7 +49,7 @@ class Clear extends React.Component {
     */
 
     if (tablet_hide) {
-      className.push(style['hide-on-tablet'])
+      className.push('hide-on-tablet')
     }
 
     /*

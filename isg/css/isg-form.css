@@ -10,10 +10,10 @@ Form element "reset."
   specific edits to "shared styles."
 */
 
-.t7-form__button,
-.t7-form__input,
-.t7-form__select,
-.t7-form__textarea {
+.isg-form__button,
+.isg-form__input,
+.isg-form__select,
+.isg-form__textarea {
   /* Undo Firefox defaults. */
   -moz-appearance: none;
 
@@ -34,27 +34,27 @@ Form element "reset."
   vertical-align: middle;
 }
 
-.t7-form__input::ms-clear,
-.t7-form__input::ms-reveal,
-.t7-form__select::-ms-expand {
+.isg-form__input::ms-clear,
+.isg-form__input::ms-reveal,
+.isg-form__select::-ms-expand {
   display: none;
 }
 
-.t7-form__input::-webkit-search-decoration {
+.isg-form__input::-webkit-search-decoration {
   display: none;
 }
 
-.t7-form__input::-webkit-outer-spin-button,
-.t7-form__input::-webkit-inner-spin-button {
+.isg-form__input::-webkit-outer-spin-button,
+.isg-form__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 /* For Firefox. */
 @-moz-document url-prefix() {
-  .t7-form__button:invalid,
-  .t7-form__input:invalid,
-  .t7-form__select:invalid,
-  .t7-form__textarea:invalid {
+  .isg-form__button:invalid,
+  .isg-form__input:invalid,
+  .isg-form__select:invalid,
+  .isg-form__textarea:invalid {
     /*
       Suppress red glow that Firefox
       adds to form fields by default,
@@ -63,33 +63,33 @@ Form element "reset."
     box-shadow: none;
   }
 
-  .t7-form__button::-moz-focus-inner,
-  .t7-form__input::-moz-focus-inner,
-  .t7-form__select::-moz-focus-inner,
-  .t7-form__textarea::-moz-focus-inner {
+  .isg-form__button::-moz-focus-inner,
+  .isg-form__input::-moz-focus-inner,
+  .isg-form__select::-moz-focus-inner,
+  .isg-form__textarea::-moz-focus-inner {
     border: 0;
     padding: 0;
   }
 }
 
-.t7-form__input::-webkit-input-placeholder,
-.t7-form__textarea::-webkit-input-placeholder {
+.isg-form__input::-webkit-input-placeholder,
+.isg-form__textarea::-webkit-input-placeholder {
   color: inherit;
 }
 
-.t7-form__input::-moz-placeholder,
-.t7-form__textarea::-moz-placeholder {
+.isg-form__input::-moz-placeholder,
+.isg-form__textarea::-moz-placeholder {
   color: inherit;
   opacity: 1;
 }
 
-.t7-form__input,
-.t7-form__select,
-.t7-form__textarea {
+.isg-form__input,
+.isg-form__select,
+.isg-form__textarea {
   line-height: 1.5;
 }
 
-.t7-form__button[class] {
+.isg-form__button[class] {
   cursor: pointer;
   display: inline-block;
   font-weight: normal;
@@ -105,9 +105,9 @@ Shared styles.
 ================================================================================
 */
 
-.t7-form__input,
-.t7-form__select,
-.t7-form__textarea {
+.isg-form__input,
+.isg-form__select,
+.isg-form__textarea {
   background-color: #fff;
   border: 1px solid #999;
   border-radius: 3px;
@@ -116,44 +116,36 @@ Shared styles.
   width: 100%;
 }
 
-.t7-form__input,
-.t7-form__select {
+.isg-form__input,
+.isg-form__select {
   display: inline-block;
   height: 25px;
 }
 
-.t7-form__input:not([disabled]):active,
-.t7-form__select:not([disabled]):active,
-.t7-form__textarea:not([disabled]):active,
-.t7-form__input:not([disabled]):focus,
-.t7-form__select:not([disabled]):focus,
-.t7-form__textarea:not([disabled]):focus {
+.isg-form__input:not([disabled]):active,
+.isg-form__select:not([disabled]):active,
+.isg-form__textarea:not([disabled]):active,
+.isg-form__input:not([disabled]):focus,
+.isg-form__select:not([disabled]):focus,
+.isg-form__textarea:not([disabled]):focus {
   border-color: #39f;
   box-shadow: #39f 0 0 2px 0;
 }
 
-.t7-form__input--width-auto {
-  composes: t7-form__input;
-}
-
-.t7-form__select--width-auto {
-  composes: t7-form__select;
-}
-
-.t7-form__input--width-auto,
-.t7-form__select--width-auto {
+.isg-form__input--width-auto,
+.isg-form__select--width-auto {
   width: auto;
 }
 
-br + .t7-form__input,
-br + .t7-form__select,
-br + .t7-form__textarea {
+br + .isg-form__input,
+br + .isg-form__select,
+br + .isg-form__textarea {
   margin-top: 5px;
 }
 
-*[class*="t7-form__"] + .t7-form__button,
-*[class*="t7-form__"] + .t7-form__input,
-*[class*="t7-form__"] + .t7-form__select {
+*[class*="isg-form__"] + .isg-form__button,
+*[class*="isg-form__"] + .isg-form__input,
+*[class*="isg-form__"] + .isg-form__select {
   margin-left: 10px;
 }
 
@@ -162,17 +154,17 @@ Text area.
 ================================================================================
 */
 
-.t7-form__textarea {
+.isg-form__textarea {
   clear: both;
   display: block;
   min-height: 63px;
 }
 
-div.t7-form__textarea {
+div.isg-form__textarea {
   margin-bottom: 20px;
 }
 
-textarea.t7-form__textarea {
+textarea.isg-form__textarea {
   resize: vertical;
 }
 
@@ -183,10 +175,10 @@ Select drop-down.
 
 /* For WebKit. */
 @media (-webkit-min-device-pixel-ratio: 0) {
-  .t7-form__select,
-  .t7-form__select[size="0"],
-  .t7-form__select[size="1"] {
-    background-image: url("./t7-form__select.png");
+  .isg-form__select,
+  .isg-form__select[size="0"],
+  .isg-form__select[size="1"] {
+    background-image: url("./isg-form__select.png");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 130%;
@@ -197,10 +189,10 @@ Select drop-down.
 
 /* For Firefox. */
 @-moz-document url-prefix() {
-  .t7-form__select,
-  .t7-form__select[size="0"],
-  .t7-form__select[size="1"] {
-    background-image: url("./t7-form__select.png");
+  .isg-form__select,
+  .isg-form__select[size="0"],
+  .isg-form__select[size="1"] {
+    background-image: url("./isg-form__select.png");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 130%;
@@ -215,7 +207,7 @@ Button.
 ================================================================================
 */
 
-.t7-form__button {
+.isg-form__button {
   border-radius: 3px;
 
   line-height: 25px;
@@ -229,17 +221,17 @@ Button.
   Using `[class]` to override any inherited
   styles if this is applied to a link `<a>`.
 */
-.t7-form__button[class],
-.t7-form__button[class]:hover{
+.isg-form__button[class],
+.isg-form__button[class]:hover{
   color: #fff;
 }
 
-.t7-form__button:not([disabled]):active {
+.isg-form__button:not([disabled]):active {
   position: relative;
   top: 1px;
 }
 
-.t7-form__button:not([disabled]):focus {
+.isg-form__button:not([disabled]):focus {
   box-shadow: #fff 0 0 0 1px, #39f 0 0 1px 2px;
 }
 
@@ -248,7 +240,7 @@ Button sizes.
 ================================================================================
 */
 
-.t7-form__button--small {
+.isg-form__button--small {
   font-size: 11px;
 
   line-height: 20px;
@@ -258,7 +250,7 @@ Button sizes.
   padding-right: 7px;
 }
 
-.t7-form__button--big {
+.isg-form__button--big {
   font-size: 20px;
 
   line-height: 35px;
@@ -270,43 +262,43 @@ Button mode.
 ================================================================================
 */
 
-.t7-form__button--default {
+.isg-form__button--default {
   background: #888;
 }
 
-.t7-form__button--default:not([disabled]):active {
+.isg-form__button--default:not([disabled]):active {
   background: #555;
 }
 
-.t7-form__button--primary {
+.isg-form__button--primary {
   background: #69c;
 }
 
-.t7-form__button--primary:not([disabled]):active {
+.isg-form__button--primary:not([disabled]):active {
   background: #369;
 }
 
-.t7-form__button--positive {
+.isg-form__button--positive {
   background: #693;
 }
 
-.t7-form__button--positive:not([disabled]):active {
+.isg-form__button--positive:not([disabled]):active {
   background: #360;
 }
 
-.t7-form__button--negative {
+.isg-form__button--negative {
   background: #c66;
 }
 
-.t7-form__button--negative:not([disabled]):active {
+.isg-form__button--negative:not([disabled]):active {
   background: #933;
 }
 
-.t7-form__button--warn {
+.isg-form__button--warn {
   background: #c96;
 }
 
-.t7-form__button--warn:not([disabled]):active {
+.isg-form__button--warn:not([disabled]):active {
   background: #963;
 }
 
@@ -315,14 +307,14 @@ Checkbox & Radio.
 ================================================================================
 */
 
-.t7-form__radio,
-.t7-form__checkbox {
+.isg-form__radio,
+.isg-form__checkbox {
   margin-left: 0;
   margin-right: 10px;
 }
 
-ul[class*="t7-list--inline"] li + li .t7-form__radio,
-ul[class*="t7-list--inline"] li + li .t7-form__checkbox {
+ul[class*="isg-list-inline"] li + li .isg-form__radio,
+ul[class*="isg-list-inline"] li + li .isg-form__checkbox {
   margin-left: 10px;
 }
 
@@ -331,12 +323,12 @@ Disabled state.
 ================================================================================
 */
 
-.t7-form__checkbox[disabled],
-.t7-form__radio[disabled],
-.t7-form__button[disabled],
-.t7-form__input[disabled],
-.t7-form__select[disabled],
-.t7-form__textarea[disabled] {
+.isg-form__checkbox[disabled],
+.isg-form__radio[disabled],
+.isg-form__button[disabled],
+.isg-form__input[disabled],
+.isg-form__select[disabled],
+.isg-form__textarea[disabled] {
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
   -khtml-user-select: none;

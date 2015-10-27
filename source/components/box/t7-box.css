@@ -142,15 +142,11 @@ Box: Info.
 */
 
 .t7-box--info {
-  composes: t7-box;
-
   background-color: #f6f9fc;
   border-color: #69c;
 }
 
 .t7-box--info--icon {
-  composes: t7-box--info;
-
   background-image: url("./t7-box--info--icon.png");
 }
 
@@ -165,15 +161,11 @@ Box: Negative.
 */
 
 .t7-box--negative {
-  composes: t7-box;
-
   background-color: #fcf9f6;
   border-color: #c66;
 }
 
 .t7-box--negative--icon {
-  composes: t7-box--negative;
-
   background-image: url("./t7-box--negative--icon.png");
 }
 
@@ -188,15 +180,11 @@ Box: Positive.
 */
 
 .t7-box--positive {
-  composes: t7-box;
-
   background-color: #f6fcf9;
   border-color: #693;
 }
 
 .t7-box--positive--icon {
-  composes: t7-box--positive;
-
   background-image: url("./t7-box--positive--icon.png");
 }
 
@@ -211,15 +199,11 @@ Box: Warn.
 */
 
 .t7-box--warn {
-  composes: t7-box;
-
   background-color: #fcf9f6;
   border-color: #c96;
 }
 
 .t7-box--warn--icon {
-  composes: t7-box--warn;
-
   background-image: url("./t7-box--warn--icon.png");
 }
 

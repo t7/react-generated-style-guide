@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/t7-form.css'
+import '../../css/t7-form.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -67,10 +67,10 @@ class Input extends React.Component {
     const defaultValue = this.props.defaultValue
     const value = this.props.value
 
-    var className = style['t7-form__input']
+    var className = 't7-form__input'
 
     if (width === 'auto') {
-      className = style['t7-form__input--width-auto']
+      className = 't7-form__input--width-auto'
     }
 
     // Events.

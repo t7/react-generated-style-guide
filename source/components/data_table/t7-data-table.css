@@ -83,7 +83,6 @@ Headers
 }
 
 .t7-data-table__th--sortable {
-  composes: t7-data-table__th;
   cursor: pointer;
 }
 
@@ -132,11 +131,9 @@ Cells.
 }
 
 .t7-data-table__td--currency {
-  composes: t7-data-table__td;
   text-align: right;
 }
 
 .t7-data-table__td--negative {
-  composes: t7-data-table__td--currency;
   color: #c33;
 }

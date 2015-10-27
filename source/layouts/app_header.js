@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router'
 
 // CSS.
-import style from './t7-app.css'
+import './t7-app.css'
 
 // Misc components.
 import Grid from '../components_misc/unsemantic/grid_unit'
@@ -23,10 +23,10 @@ class Header extends React.Component {
   // Render method.
   render () {
     return (
-      <header className={style['t7-app__header']} role='banner'>
+      <header className='t7-app__header' role='banner'>
         <GridContainer>
           <Grid desktop='25' tablet='25'>
-            <a className={style['t7-app__header__logo']}>
+            <a className='t7-app__header__logo'>
               ACME
             </a>
           </Grid>

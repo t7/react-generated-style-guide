@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-data-table.css'
+import './t7-data-table.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -45,11 +45,15 @@ class DataTableHeader extends React.Component {
       }
     }
 
-    var className = style['t7-data-table__th']
+    var className = [
+      't7-data-table__th'
+    ]
 
     if (sortable) {
-      className = style['t7-data-table__th--sortable']
+      className.push('t7-data-table__th--sortable')
     }
+
+    className = className.join(' ')
 
     return (
       <th

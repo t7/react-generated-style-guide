@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './isg-app.css'
+import './isg-app.css'
 
 // UI components.
 import Select from '../components/form_select/template'
@@ -44,9 +44,9 @@ class Header extends React.Component {
     ]
 
     return (
-      <header className={style['isg-app__header']} role='banner'>
+      <header className='isg-app__header' role='banner'>
 
-        <b className={style['isg-app__header__title']}>
+        <b className='isg-app__header__title'>
           Interactive Style Guide
         </b>
 
@@ -54,7 +54,7 @@ class Header extends React.Component {
 
         <script dangerouslySetInnerHTML={{__html: raw_header_select}} />
 
-        <span className={style['isg-app__header__logo']}>
+        <span className='isg-app__header__logo'>
           TandemSeven
         </span>
 

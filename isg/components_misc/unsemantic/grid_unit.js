@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './grid.css'
+import './grid.css'
 
 // Define class.
 class Grid extends React.Component {
@@ -46,7 +46,7 @@ class Grid extends React.Component {
     */
 
     if (parent) {
-      className.push(style['grid-parent'])
+      className.push('grid-parent')
     }
 
     /*
@@ -56,27 +56,27 @@ class Grid extends React.Component {
     */
 
     if (desktop) {
-      className.push(style['grid-' + desktop])
+      className.push('grid-' + desktop)
     }
 
     if (desktop_hide) {
-      className.push(style['hide-on-desktop'])
+      className.push('hide-on-desktop')
     }
 
     if (desktop_push) {
-      className.push(style['push-' + desktop_push])
+      className.push('push-' + desktop_push)
     }
 
     if (desktop_pull) {
-      className.push(style['pull-' + desktop_pull])
+      className.push('pull-' + desktop_pull)
     }
 
     if (desktop_prefix) {
-      className.push(style['prefix-' + desktop_prefix])
+      className.push('prefix-' + desktop_prefix)
     }
 
     if (desktop_suffix) {
-      className.push(style['suffix-' + desktop_suffix])
+      className.push('suffix-' + desktop_suffix)
     }
 
     /*
@@ -86,27 +86,27 @@ class Grid extends React.Component {
     */
 
     if (mobile) {
-      className.push(style['mobile-grid-' + mobile])
+      className.push('mobile-grid-' + mobile)
     }
 
     if (mobile_hide) {
-      className.push(style['hide-on-mobile'])
+      className.push('hide-on-mobile')
     }
 
     if (mobile_push) {
-      className.push(style['mobile-push-' + mobile_push])
+      className.push('mobile-push-' + mobile_push)
     }
 
     if (mobile_pull) {
-      className.push(style['mobile-pull-' + mobile_pull])
+      className.push('mobile-pull-' + mobile_pull)
     }
 
     if (mobile_prefix) {
-      className.push(style['mobile-prefix-' + mobile_prefix])
+      className.push('mobile-prefix-' + mobile_prefix)
     }
 
     if (mobile_suffix) {
-      className.push(style['mobile-suffix-' + mobile_suffix])
+      className.push('mobile-suffix-' + mobile_suffix)
     }
 
     /*
@@ -116,27 +116,27 @@ class Grid extends React.Component {
     */
 
     if (tablet) {
-      className.push(style['tablet-grid-' + tablet])
+      className.push('tablet-grid-' + tablet)
     }
 
     if (tablet_hide) {
-      className.push(style['hide-on-tablet'])
+      className.push('hide-on-tablet')
     }
 
     if (tablet_push) {
-      className.push(style['tablet-push-' + tablet_push])
+      className.push('tablet-push-' + tablet_push)
     }
 
     if (tablet_pull) {
-      className.push(style['tablet-pull-' + tablet_pull])
+      className.push('tablet-pull-' + tablet_pull)
     }
 
     if (tablet_prefix) {
-      className.push(style['tablet-prefix-' + tablet_prefix])
+      className.push('tablet-prefix-' + tablet_prefix)
     }
 
     if (tablet_suffix) {
-      className.push(style['tablet-suffix-' + tablet_suffix])
+      className.push('tablet-suffix-' + tablet_suffix)
     }
 
     /*

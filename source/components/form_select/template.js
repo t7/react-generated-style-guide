@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/t7-form.css'
+import '../../css/t7-form.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -69,11 +69,15 @@ class Select extends React.Component {
     // Events.
     const handleChange = this.handleChange.bind(this)
 
-    var className = style['t7-form__select']
+    var className = [
+      't7-form__select'
+    ]
 
     if (width === 'auto') {
-      className = style['t7-form__select--width-auto']
+      className.push('t7-form__select--width-auto')
     }
+
+    className = className.join(' ')
 
     return (
       <select
@@ -92,8 +96,8 @@ class Select extends React.Component {
       >
         {
           options.map(function (o, i) {
-            const name = o.name
             const value = o.value
+            const name = o.name
 
             return (
               <option key={i} value={value}>{name}</option>

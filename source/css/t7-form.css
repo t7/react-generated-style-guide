@@ -132,14 +132,6 @@ Shared styles.
   box-shadow: #39f 0 0 2px 0;
 }
 
-.t7-form__input--width-auto {
-  composes: t7-form__input;
-}
-
-.t7-form__select--width-auto {
-  composes: t7-form__select;
-}
-
 .t7-form__input--width-auto,
 .t7-form__select--width-auto {
   width: auto;
@@ -321,8 +313,8 @@ Checkbox & Radio.
   margin-right: 10px;
 }
 
-ul[class*="t7-list--inline"] li + li .t7-form__radio,
-ul[class*="t7-list--inline"] li + li .t7-form__checkbox {
+ul[class*="t7-list-inline"] li + li .t7-form__radio,
+ul[class*="t7-list-inline"] li + li .t7-form__checkbox {
   margin-left: 10px;
 }
 

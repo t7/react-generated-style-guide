@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './isg-app.css'
+import './isg-app.css'
 
 // UI components.
 import Header from './app_header'
@@ -18,7 +18,7 @@ class App extends React.Component {
   // Render method.
   render () {
     return (
-      <div className={style['isg-app']}>
+      <div className='isg-app'>
         <Header />
 
         {this.props.children}

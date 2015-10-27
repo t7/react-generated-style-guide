@@ -27,79 +27,13 @@
     </TabPanel>
   </Tabs>
 
-  //=================
-  // Markup output...
-  //=================
-
-  <div class="t7-tabs">
-    <ul role="tablist" class="t7-tabs__list">
-      <li
-        id="tab_0_GUID"
-        aria-controls="tabpanel_0_GUID"
-        aria-expanded="true"
-        aria-selected="true"
-        class="t7-tabs__item--selected"
-      >
-        Foo
-      </li>
-      <li
-        id="tab_1_GUID"
-        aria-controls="tabpanel_1_GUID"
-        aria-expanded="false"
-        aria-selected="false"
-        class="t7-tabs__item"
-      >
-        Bar
-      </li>
-      <li
-        id="tab_2_GUID"
-        aria-controls="tabpanel_2_GUID"
-        aria-expanded="false"
-        aria-selected="false"
-        class="t7-tabs__item"
-      >
-        Baz
-      </li>
-    </ul>
-    <div
-      id="tabpanel_0_GUID"
-      aria-labledby="tab_0_GUID"
-      aria-hidden="false"
-      class="t7-tabs__panel--selected"
-    >
-      <p>
-        Tab content for "Foo"
-      </p>
-    </div>
-    <div
-      id="tabpanel_1_GUID"
-      aria-labledby="tab_1_GUID"
-      aria-hidden="true"
-      class="t7-tabs__panel"
-    >
-      <p>
-        Tab content for "Bar"
-      </p>
-    </div>
-    <div
-      id="tabpanel_2_GUID"
-      aria-labledby="tab_2_GUID"
-      aria-hidden="true"
-      class="t7-tabs__panel"
-    >
-      <p>
-        Tab content for "Baz"
-      </p>
-    </div>
-  </div>
-
 */
 
 // Dependencies.
 import React from 'react'
 
 // CSS.
-import style from './t7-tabs.css'
+import './isg-tabs.css'
 
 // Utility methods.
 import fake from '../../fake'
@@ -166,8 +100,8 @@ class Tabs extends React.Component {
     const handleClick = this.handleClick.bind(this)
 
     return (
-      <div className={style['t7-tabs']} id={id}>
-        <ul role='tablist' className={style['t7-tabs__list']}>
+      <div className='isg-tabs' id={id}>
+        <ul role='tablist' className='isg-tabs__list'>
           {
             children.map(function (panel, i) {
               // Tab label.
@@ -185,7 +119,7 @@ class Tabs extends React.Component {
                   ariaControls={idPanel}
                   ariaExpanded={isActive}
                   ariaSelected={isActive}
-                  className={style['t7-tabs__item']}
+                  className='isg-tabs__item'
                   id={idTab}
                   index={i}
                   key={idTab}
@@ -218,7 +152,7 @@ class Tabs extends React.Component {
               <div
                 aria-hidden={!isActive}
                 aria-labeledby={idTab}
-                className={style['t7-tabs__panel']}
+                className='isg-tabs__panel'
                 id={idPanel}
                 key={idPanel}
                 role='tabpanel'

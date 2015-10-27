@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './isg-color-list.css'
+import './isg-color-list.css'
 
 // Define class.
 class ColorItem extends React.Component {
@@ -22,24 +22,24 @@ class ColorItem extends React.Component {
     }
 
     return (
-      <li className={style['isg-color-list__item']}>
+      <li className='isg-color-list__item'>
 
-        <div className={style['isg-color-list__section']}>
+        <div className='isg-color-list__section'>
 
           <div
-            className={style['isg-color-list__sample']}
+            className='isg-color-list__sample'
             style={inlineStyle}
           >
-            <div className={style['isg-color-list__value']}>
+            <div className='isg-color-list__value'>
               <code>{value}</code>
             </div>
           </div>
 
-          <div className={style['isg-color-list__title']}>
+          <div className='isg-color-list__title'>
             {title}
           </div>
 
-          <div className={style['isg-color-list__description']}>
+          <div className='isg-color-list__description'>
             {description}
           </div>
 

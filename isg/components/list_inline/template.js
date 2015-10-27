@@ -5,7 +5,7 @@ import React from 'react'
 import fake from '../../fake'
 
 // CSS.
-import style from './t7-list--inline.css'
+import './isg-list-inline.css'
 
 // Define class.
 class ListInline extends React.Component {
@@ -17,7 +17,7 @@ class ListInline extends React.Component {
   // Render method.
   render () {
     return (
-      <ul className={style['t7-list--inline']}>
+      <ul className='isg-list-inline'>
         {this.props.children}
       </ul>
     )

@@ -3,7 +3,7 @@ import React from 'react'
 import { FormattedDate, FormattedNumber } from 'react-intl'
 
 // CSS.
-import style from './t7-data-table.css'
+import './t7-data-table.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -27,15 +27,17 @@ class DataTableCell extends React.Component {
     const isNegative = value < 0
 
     // Used in conditional.
-    var className = style['t7-data-table__td']
+    var className = [
+      't7-data-table__td'
+    ]
 
     // Currency value?
     if (isCurrency) {
-      className = style['t7-data-table__td--currency']
+      className.push('t7-data-table__td--currency')
 
       // Negative?
       if (isNegative) {
-        className = style['t7-data-table__td--negative']
+        className.push('t7-data-table__td--negative')
         value = value * -1
       }
 
@@ -58,6 +60,9 @@ class DataTableCell extends React.Component {
         />
       )
     }
+
+    // Build the string.
+    className = className.join(' ')
 
     // Used in conditional.
     var td

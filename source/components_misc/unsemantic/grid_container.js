@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './grid.css'
+import './grid.css'
 
 // Define class.
 class GridContainer extends React.Component {
@@ -13,7 +13,7 @@ class GridContainer extends React.Component {
 
   render () {
     return (
-      <div className={style['grid-container']}>
+      <div className='grid-container'>
         {this.props.children}
       </div>
     )

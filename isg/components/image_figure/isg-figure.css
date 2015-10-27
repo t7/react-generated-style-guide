@@ -3,42 +3,42 @@ Image figure.
 ================================================================================
 */
 
-.t7-figure {
+.isg-figure {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 2px;
 }
 
-.t7-figure figcaption {
+.isg-figure figcaption {
   background: #f6f6f6;
   padding: 2px 5px;
 }
 
-.t7-figure figcaption:first-child {
+.isg-figure figcaption:first-child {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   margin-bottom: 2px;
 }
 
-.t7-figure figcaption:last-child {
+.isg-figure figcaption:last-child {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   margin-top: 2px;
 }
 
-.t7-figure img {
+.isg-figure img {
   width: 100%;
   height: auto;
 }
 
-.t7-figure > img:first-child,
-.t7-figure > a:first-child img {
+.isg-figure > img:first-child,
+.isg-figure > a:first-child img {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-.t7-figure > img:last-child,
-.t7-figure > a:last-child img {
+.isg-figure > img:last-child,
+.isg-figure > a:last-child img {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }

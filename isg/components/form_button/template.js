@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/t7-form.css'
+import '../../css/isg-form.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -58,7 +58,7 @@ class Button extends React.Component {
 
     // Default class.
     var className = [
-      style['t7-form__button']
+      'isg-form__button'
     ]
 
     /*
@@ -70,13 +70,13 @@ class Button extends React.Component {
     // Small button size.
     if (size === 'small') {
       className.push(
-        style['t7-form__button--small']
+        'isg-form__button--small'
       )
 
     // Big button size.
     } else if (size === 'big') {
       className.push(
-        style['t7-form__button--big']
+        'isg-form__button--big'
       )
     }
 
@@ -89,31 +89,31 @@ class Button extends React.Component {
     // Button mode: Default.
     if (mode === 'default') {
       className.push(
-        style['t7-form__button--default']
+        'isg-form__button--default'
       )
 
     // Button mode: Primary.
     } else if (mode === 'primary') {
       className.push(
-        style['t7-form__button--primary']
+        'isg-form__button--primary'
       )
 
     // Button mode: Positive.
     } else if (mode === 'positive') {
       className.push(
-        style['t7-form__button--positive']
+        'isg-form__button--positive'
       )
 
     // Button mode: Negative.
     } else if (mode === 'negative') {
       className.push(
-        style['t7-form__button--negative']
+        'isg-form__button--negative'
       )
 
     // Button mode: Warn.
     } else if (mode === 'warn') {
       className.push(
-        style['t7-form__button--warn']
+        'isg-form__button--warn'
       )
     }
 

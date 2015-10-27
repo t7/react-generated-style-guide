@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/t7-form.css'
+import '../../css/t7-form.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -73,7 +73,7 @@ class Radio extends React.Component {
       <label htmlFor={id}>
         <input
           autoFocus={autofocus}
-          className={style['t7-form__radio']}
+          className='t7-form__radio'
           disabled={disabled}
           id={id}
           name={name}

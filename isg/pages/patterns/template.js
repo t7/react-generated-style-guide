@@ -7,8 +7,8 @@ import Main from '../../layouts/app_main'
 import Sidebar from '../../layouts/app_sidebar'
 
 // CSS.
-import style from '../../css/isg-section.css'
-import helper from '../../css/t7-helper.css'
+import '../../css/isg-section.css'
+import '../../css/isg-helper.css'
 
 // Utility methods.
 import marked from 'marked'
@@ -53,23 +53,23 @@ class Page extends React.Component {
 
       // Build main markup.
       main.push(
-        <section id={id} key={i} className={style['isg-section']}>
+        <section id={id} key={i} className='isg-section'>
 
-          <header className={style['isg-section__header']}>
-            <span className={[helper['t7-float-left'], helper['t7-capitalize']].join(' ')}>
+          <header className='isg-section__header'>
+            <span className='isg-float-left isg-capitalize'>
               {name}
             </span>
 
             <a
               target='_blank'
               title='View on GitHub'
-              className={[helper['t7-float-right'], helper['t7-font-normal']].join(' ')}
+              className='isg-float-right isg-font-normal'
               href={'https://github.com/t7/style-guide-example/tree/master/source/components/' + id}
             >GitHub <span aria-hidden='true'>&rArr;</span></a>
           </header>
 
           <div
-            className={style['isg-section__example']}
+            className='isg-section__example'
             data-component={id}
           />
 

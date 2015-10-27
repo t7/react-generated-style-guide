@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/t7-form.css'
+import '../../css/t7-form.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -99,7 +99,7 @@ class Textdiv extends React.Component {
     return (
       <div
         autoFocus={autofocus}
-        className={style['t7-form__textarea']}
+        className='t7-form__textarea'
         contentEditable={!disabled}
         dangerouslySetInnerHTML={{__html: value}}
         disabled={disabled}

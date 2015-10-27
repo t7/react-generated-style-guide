@@ -3,8 +3,8 @@ import React from 'react'
 import { FormattedDate } from 'react-intl'
 
 // CSS.
-import style from './isg-app.css'
-import helper from '../css/t7-helper.css'
+import './isg-app.css'
+import '../css/isg-helper.css'
 
 // Define class.
 class Footer extends React.Component {
@@ -28,17 +28,17 @@ class Footer extends React.Component {
     )
 
     const floatLeft = [
-      helper['t7-tablet-float-left'],
-      helper['t7-desktop-float-left']
+      'isg-tablet-float-left',
+      'isg-desktop-float-left'
     ].join(' ')
 
     const floatRight = [
-      helper['t7-tablet-float-right'],
-      helper['t7-desktop-float-right']
+      'isg-tablet-float-right',
+      'isg-desktop-float-right'
     ].join(' ')
 
     return (
-      <footer className={style['isg-app__footer']} role='contentinfo'>
+      <footer className='isg-app__footer' role='contentinfo'>
         <p className={floatLeft}>
           <a href='https://github.com/t7/style-guide-example' target='_blank'>View on GitHub</a> &mdash; Last build: {timestamp}
         </p>

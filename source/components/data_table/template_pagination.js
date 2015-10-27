@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-data-table.css'
+import './t7-data-table.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -93,12 +93,12 @@ class DataTablePagination extends React.Component {
 
     // Hide initially.
     var ariaHidden = true
-    var className = style['t7-data-table__pagination--hidden']
+    var className = 't7-data-table__pagination--hidden'
 
     // Show the UI?
     if (pageTotal > 1) {
       ariaHidden = false
-      className = style['t7-data-table__pagination']
+      className = 't7-data-table__pagination'
     }
 
     return (
@@ -107,7 +107,7 @@ class DataTablePagination extends React.Component {
         aria-label='Pagination'
         className={className}
       >
-        <span className={style['t7-data-table__pagination__label']}>
+        <span className='t7-data-table__pagination__label'>
           Page {pageCurrent + 1} of {pageTotal}
         </span>
         <Select

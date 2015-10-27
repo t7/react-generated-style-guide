@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-accordion.css'
+import './t7-accordion.css'
 
 // Define class.
 class AccordionHeader extends React.Component {
@@ -51,7 +51,7 @@ class AccordionHeader extends React.Component {
       >
         <span
           aria-hidden='true'
-          className={style['t7-accordion__header__icon']}
+          className='t7-accordion__header__icon'
         />
         {label}
       </dt>

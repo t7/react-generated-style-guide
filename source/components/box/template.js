@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-box.css'
+import './t7-box.css'
 
 // Utility methods.
 import fake from '../../fake'
@@ -88,36 +88,49 @@ class Box extends React.Component {
     const handleClick = this.handleClick.bind(this)
 
     // Used in conditional.
-    var className = style['t7-box']
+    var className = [
+      't7-box'
+    ]
 
     // Mode: "info".
     if (mode === 'info') {
+      className.push('t7-box--info')
+
       // Use "info" icon?
-      className = icon
-        ? style['t7-box--info--icon']
-        : style['t7-box--info']
+      if (icon) {
+        className.push('t7-box--info--icon')
+      }
 
     // Mode: "negative".
     } else if (mode === 'negative') {
+      className.push('t7-box--negative')
+
       // Use "negative" icon?
-      className = icon
-        ? style['t7-box--negative--icon']
-        : style['t7-box--negative']
+      if (icon) {
+        className.push('t7-box--negative--icon')
+      }
 
     // Mode: "positive".
     } else if (mode === 'positive') {
+      className.push('t7-box--positive')
+
       // Use "positive" icon?
-      className = icon
-        ? style['t7-box--positive--icon']
-        : style['t7-box--positive']
+      if (icon) {
+        className.push('t7-box--positive--icon')
+      }
 
     // Mode: "warn".
     } else if (mode === 'warn') {
+      className.push('t7-box--warn')
+
       // Use "warn" icon?
-      className = icon
-        ? style['t7-box--warn--icon']
-        : style['t7-box--warn']
+      if (icon) {
+        className.push('t7-box--warn--icon')
+      }
     }
+
+    // Build the string.
+    className = className.join(' ')
 
     // Used in conditional.
     var closeX
@@ -130,7 +143,7 @@ class Box extends React.Component {
           aria-label='Close'
           title='Close'
 
-          className={style['t7-box__close']}
+          className='t7-box__close'
           tabIndex='0'
           onClick={handleClick}
           onKeyDown={handleClick}

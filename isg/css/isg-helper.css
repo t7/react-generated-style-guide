@@ -3,23 +3,23 @@ Misc helper classes.
 ================================================================================
 */
 
-.t7-mute {
+.isg-mute {
   color: #999;
 }
 
-.t7-capitalize {
+.isg-capitalize {
   text-transform: capitalize;
 }
 
-.t7-uppercase {
+.isg-uppercase {
   text-transform: uppercase;
 }
 
-.t7-lowercase {
+.isg-lowercase {
   text-transform: lowercase;
 }
 
-.t7-font-normal {
+.isg-font-normal {
   font-weight: normal;
 }
 
@@ -28,40 +28,40 @@ Float.
 ================================================================================
 */
 
-.t7-float-left {
+.isg-float-left {
   float: left;
 }
 
-.t7-float-right {
+.isg-float-right {
   float: right;
 }
 
 @media (max-width: 767px) {
-  .t7-mobile-float-left {
+  .isg-mobile-float-left {
     float: left;
   }
 
-  .t7-mobile-float-right {
+  .isg-mobile-float-right {
     float: right;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .t7-tablet-float-left {
+  .isg-tablet-float-left {
     float: left;
   }
 
-  .t7-tablet-float-right {
+  .isg-tablet-float-right {
     float: right;
   }
 }
 
 @media (min-width: 1025px) {
-  .t7-desktop-float-left {
+  .isg-desktop-float-left {
     float: left;
   }
 
-  .t7-desktop-float-right {
+  .isg-desktop-float-right {
     float: right;
   }
 }
@@ -71,31 +71,31 @@ Text alignment.
 ================================================================================
 */
 
-.t7-align-center {
+.isg-align-center {
   text-align: center;
 }
 
-.t7-align-left {
+.isg-align-left {
   text-align: left;
 }
 
-.t7-align-right {
+.isg-align-right {
   float: right;
 }
 
-.t7-align-top {
+.isg-align-top {
   vertical-align: top;
 }
 
-.t7-align-middle {
+.isg-align-middle {
   vertical-align: middle;
 }
 
-.t7-align-baseline {
+.isg-align-baseline {
   vertical-align: baseline;
 }
 
-.t7-align-bottom {
+.isg-align-bottom {
   vertical-align: bottom;
 }
 
@@ -104,19 +104,19 @@ Gutter: Top.
 ================================================================================
 */
 
-.t7-gutter-top {
+.isg-gutter-top {
   margin-top: 20px;
 }
 
-.t7-gutter-top--quarter {
+.isg-gutter-top--quarter {
   margin-top: 5px;
 }
 
-.t7-gutter-top--half {
+.isg-gutter-top--half {
   margin-top: 10px;
 }
 
-.t7-gutter-top--double {
+.isg-gutter-top--double {
   margin-top: 40px;
 }
 
@@ -125,19 +125,19 @@ Negative gutter: Top.
 ================================================================================
 */
 
-.t7-negative-gutter-top {
+.isg-negative-gutter-top {
   margin-top: -20px;
 }
 
-.t7-negative-gutter-top--quarter {
+.isg-negative-gutter-top--quarter {
   margin-top: -5px;
 }
 
-.t7-negative-gutter-top--half {
+.isg-negative-gutter-top--half {
   margin-top: -10px;
 }
 
-.t7-negative-gutter-top--double {
+.isg-negative-gutter-top--double {
   margin-top: -40px;
 }
 
@@ -146,19 +146,19 @@ Gutter: Left.
 ================================================================================
 */
 
-.t7-gutter-left {
+.isg-gutter-left {
   margin-left: 20px;
 }
 
-.t7-gutter-left--quarter {
+.isg-gutter-left--quarter {
   margin-left: 5px;
 }
 
-.t7-gutter-left--half {
+.isg-gutter-left--half {
   margin-left: 10px;
 }
 
-.t7-gutter-left--double {
+.isg-gutter-left--double {
   margin-left: 40px;
 }
 
@@ -167,19 +167,19 @@ Negative gutter: Left.
 ================================================================================
 */
 
-.t7-negative-gutter-left {
+.isg-negative-gutter-left {
   margin-left: -20px;
 }
 
-.t7-negative-gutter-left--quarter {
+.isg-negative-gutter-left--quarter {
   margin-left: -5px;
 }
 
-.t7-negative-gutter-left--half {
+.isg-negative-gutter-left--half {
   margin-left: -10px;
 }
 
-.t7-negative-gutter-left--double {
+.isg-negative-gutter-left--double {
   margin-left: -40px;
 }
 
@@ -188,19 +188,19 @@ Gutter: Right.
 ================================================================================
 */
 
-.t7-gutter-right {
+.isg-gutter-right {
   margin-right: 20px;
 }
 
-.t7-gutter-right--quarter {
+.isg-gutter-right--quarter {
   margin-right: 5px;
 }
 
-.t7-gutter-right--half {
+.isg-gutter-right--half {
   margin-right: 10px;
 }
 
-.t7-gutter-right--double {
+.isg-gutter-right--double {
   margin-right: 40px;
 }
 
@@ -209,19 +209,19 @@ Negative gutter: Right.
 ================================================================================
 */
 
-.t7-negative-gutter-right {
+.isg-negative-gutter-right {
   margin-right: -20px;
 }
 
-.t7-negative-gutter-right--quarter {
+.isg-negative-gutter-right--quarter {
   margin-right: -5px;
 }
 
-.t7-negative-gutter-right--half {
+.isg-negative-gutter-right--half {
   margin-right: -10px;
 }
 
-.t7-negative-gutter-right--double {
+.isg-negative-gutter-right--double {
   margin-right: -40px;
 }
 
@@ -230,19 +230,19 @@ Gutter: Bottom.
 ================================================================================
 */
 
-.t7-gutter-bottom {
+.isg-gutter-bottom {
   margin-bottom: 20px;
 }
 
-.t7-gutter-bottom--quarter {
+.isg-gutter-bottom--quarter {
   margin-bottom: 5px;
 }
 
-.t7-gutter-bottom--half {
+.isg-gutter-bottom--half {
   margin-bottom: 10px;
 }
 
-.t7-gutter-bottom--double {
+.isg-gutter-bottom--double {
   margin-bottom: 40px;
 }
 
@@ -251,18 +251,18 @@ Negative gutter: Bottom.
 ================================================================================
 */
 
-.t7-negative-gutter-bottom {
+.isg-negative-gutter-bottom {
   margin-bottom: -20px;
 }
 
-.t7-negative-gutter-bottom--quarter {
+.isg-negative-gutter-bottom--quarter {
   margin-bottom: -5px;
 }
 
-.t7-negative-gutter-bottom--half {
+.isg-negative-gutter-bottom--half {
   margin-bottom: -10px;
 }
 
-.t7-negative-gutter-bottom--double {
+.isg-negative-gutter-bottom--double {
   margin-bottom: -40px;
 }

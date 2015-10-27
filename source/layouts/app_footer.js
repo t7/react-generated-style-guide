@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-app.css'
+import './t7-app.css'
 
 // Misc components.
 import Clear from '../components_misc/unsemantic/grid_clear'
@@ -21,7 +21,7 @@ class Footer extends React.Component {
     const year = new Date().getFullYear()
 
     return (
-      <footer className={style['t7-app__footer']} role='contentinfo'>
+      <footer className='t7-app__footer' role='contentinfo'>
 
         <GridContainer>
 

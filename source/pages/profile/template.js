@@ -3,7 +3,7 @@ import React from 'react'
 import _ from 'lodash'
 
 // CSS.
-import helper from '../../css/t7-helper.css'
+import '../../css/t7-helper.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -116,7 +116,7 @@ class Page extends React.Component {
           </Grid>
 
           <Grid desktop='15' tablet='15' mobile='25' mobile-pull='75'>
-            <p className={helper['t7-align-center']}>
+            <p className='t7-align-center'>
               <Image
                 alt='Photo of Jonathan'
                 border='#ddd'

@@ -5,7 +5,7 @@ import React from 'react'
 import Image from '../image/template'
 
 // CSS.
-import style from './t7-figure.css'
+import './isg-figure.css'
 
 // Define class.
 class ImageFigure extends React.Component {
@@ -55,7 +55,7 @@ class ImageFigure extends React.Component {
 
     // Assume no link.
     var figure = (
-      <figure className={style['t7-figure']}>
+      <figure className='isg-figure'>
         {figcaptionTop}
         <Image
           alt={alt}
@@ -71,7 +71,7 @@ class ImageFigure extends React.Component {
     // Is there a link?
     if (href) {
       figure = (
-        <figure className={style['t7-figure']}>
+        <figure className='isg-figure'>
           {figcaptionTop}
           <a href={href} target={target}>
             <Image

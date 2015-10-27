@@ -3,7 +3,7 @@ import React from 'react'
 import _ from 'lodash'
 
 // CSS.
-import style from './t7-data-table.css'
+import './t7-data-table.css'
 
 // Utility methods.
 import fake from '../../fake'
@@ -172,7 +172,7 @@ class DataTable extends React.Component {
     if (!rows.length) {
       rows.push(
         <tr role='row' key={'table_data_empty_' + id}>
-          <td className={style['t7-data-table__td']} colSpan={columns.length}>
+          <td className='t7-data-table__td' colSpan={columns.length}>
             No data to display.
           </td>
         </tr>
@@ -181,13 +181,13 @@ class DataTable extends React.Component {
 
     // Put all the UI together.
     return (
-      <div className={style['t7-data-table__wrapper']}>
+      <div className='t7-data-table__wrapper'>
 
         {pageTop}
 
         <table
           id={id}
-          className={style['t7-data-table']}
+          className='t7-data-table'
           role='grid'
         >
 

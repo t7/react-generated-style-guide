@@ -3,7 +3,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/isg-section.css'
+import '../../css/isg-section.css'
 
 // Define class.
 class Typography extends React.Component {
@@ -26,20 +26,20 @@ class Typography extends React.Component {
 
     if (link) {
       sectionFooter = (
-        <footer className={style['isg-section__footer']}>
+        <footer className='isg-section__footer'>
           Read more&hellip; <a href={link} target='_blank'>{link}</a>
         </footer>
       )
     }
 
     return (
-      <section className={style['isg-section']}>
+      <section className='isg-section'>
 
-        <header className={style['isg-section__header']}>
+        <header className='isg-section__header'>
           {title}
         </header>
 
-        <div className={style['isg-section__example']} style={inlineStyle}>
+        <div className='isg-section__example' style={inlineStyle}>
 
           <h1>
             Grumpy wizards make toxic brew for the evil Queen and Jack.

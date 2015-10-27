@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/t7-form.css'
+import '../../css/t7-form.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -75,7 +75,7 @@ class Textarea extends React.Component {
     return (
       <textarea
         autoFocus={autofocus}
-        className={style['t7-form__textarea']}
+        className='t7-form__textarea'
         disabled={disabled}
         id={id}
         name={name}

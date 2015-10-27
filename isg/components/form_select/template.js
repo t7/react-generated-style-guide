@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from '../../css/t7-form.css'
+import '../../css/isg-form.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -69,11 +69,15 @@ class Select extends React.Component {
     // Events.
     const handleChange = this.handleChange.bind(this)
 
-    var className = style['t7-form__select']
+    var className = [
+      'isg-form__select'
+    ]
 
     if (width === 'auto') {
-      className = style['t7-form__select--width-auto']
+      className.push('isg-form__select--width-auto')
     }
+
+    className = className.join(' ')
 
     return (
       <select

@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './t7-search-table.css'
+import './t7-search-table.css'
 
 // Utility methods.
 import utils from '../../utils'
@@ -47,7 +47,7 @@ class Search extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        <table role='presentation' className={style['t7-search-table']}>
+        <table role='presentation' className='t7-search-table'>
           <tbody>
             <tr>
               <td>

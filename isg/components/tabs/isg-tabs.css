@@ -3,7 +3,7 @@ Tabs group.
 ================================================================================
 */
 
-.t7-tabs {
+.isg-tabs {
   margin-bottom: 20px;
 }
 
@@ -12,13 +12,13 @@ Tab list.
 ================================================================================
 */
 
-.t7-tabs__item,
-.t7-tabs__list {
+.isg-tabs__item,
+.isg-tabs__list {
   list-style: none;
   margin: 0;
 }
 
-.t7-tabs__list {
+.isg-tabs__list {
   font-size: 0;
   margin-bottom: -1px;
   padding-left: 15px;
@@ -28,7 +28,7 @@ Tab list.
   z-index: 1;
 }
 
-.t7-tabs__item {
+.isg-tabs__item {
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -46,16 +46,16 @@ Tab list.
   outline: 0;
 }
 
-.t7-tabs__item:hover {
+.isg-tabs__item:hover {
   background: #ffd;
 }
 
-.t7-tabs__item:focus {
+.isg-tabs__item:focus {
   border-color: #39f;
   box-shadow: #39f 0 0 2px 0;
 }
 
-.t7-tabs__item[aria-selected="true"] {
+.isg-tabs__item[aria-selected="true"] {
   background: #fff;
   border-bottom-color: #fff;
 }
@@ -65,7 +65,7 @@ Tab panel.
 ================================================================================
 */
 
-.t7-tabs__panel {
+.isg-tabs__panel {
   border: 1px solid #ddd;
   border-radius: 3px;
 
@@ -76,6 +76,6 @@ Tab panel.
   z-index: 0;
 }
 
-.t7-tabs__panel[aria-hidden="true"] {
+.isg-tabs__panel[aria-hidden="true"] {
   display: none;
 }

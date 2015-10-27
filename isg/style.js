@@ -20,10 +20,10 @@ import './css/global.css'
 import './css/isg-section.css'
 
 // Pilfered from "source".
-import './css/t7-form.css'
-import './css/t7-helper.css'
+import './css/isg-form.css'
+import './css/isg-helper.css'
 
 // Component level CSS.
 import './components/color_list/isg-color-list.css'
-import './components/image_figure/t7-figure.css'
-import './components/list_inline/t7-list--inline.css'
+import './components/image_figure/isg-figure.css'
+import './components/list_inline/isg-list-inline.css'

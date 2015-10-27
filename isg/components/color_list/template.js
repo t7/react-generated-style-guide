@@ -2,7 +2,7 @@
 import React from 'react'
 
 // CSS.
-import style from './isg-color-list.css'
+import './isg-color-list.css'
 
 // Define class.
 class ColorList extends React.Component {
@@ -14,7 +14,7 @@ class ColorList extends React.Component {
   // Render method.
   render () {
     return (
-      <ul className={style['isg-color-list']}>
+      <ul className='isg-color-list'>
         {this.props.children}
       </ul>
     )
