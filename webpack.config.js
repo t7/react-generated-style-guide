@@ -1,3 +1,4 @@
+var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
@@ -58,6 +59,20 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('style.css', {
       allChunks: true
+    }),
+
+    /*
+      This adds the `window.fetch` Ajax helper.
+
+      Documentation here:
+
+      https://github.com/github/fetch
+    */
+    new webpack.ProvidePlugin({
+      'Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
+      'window.Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+      'window.fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     })
   ]
 }
