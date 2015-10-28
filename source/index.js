@@ -3,6 +3,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route } from 'react-router'
 
+/*
+  This adds the `window.fetch` Ajax helper.
+
+  Documentation here:
+
+  https://github.com/github/fetch
+*/
+import 'whatwg-fetch'
+
 // Un-scoped CSS.
 import './css/reset.css'
 import './css/global.css'

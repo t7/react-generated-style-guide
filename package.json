@@ -50,6 +50,7 @@
     "url-loader": "^0.5.6",
     "webpack": "^1.10.1",
     "webpack-dev-server": "^1.9.0",
-    "webpack-require": "0.0.15"
+    "webpack-require": "0.0.15",
+    "whatwg-fetch": "^0.10.0"
   }
 }
