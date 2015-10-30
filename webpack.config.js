@@ -29,7 +29,8 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader?minimize&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+          'css-loader?minimize&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss-loader'
         )
       },
       // SVG.
