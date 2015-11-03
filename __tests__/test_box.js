@@ -32,12 +32,18 @@ describe('Box', function () {
   // Get content.
   const content = T.scryRenderedDOMComponentsWithTag(el, 'p')
 
+  // ===================
   // Test for existence.
+  // ===================
+
   it('exists in the page', function () {
     expect(T.isCompositeComponent(el)).toBeTruthy()
   })
 
+  // =================
   // Test for content.
+  // =================
+
   it('has content', function () {
     expect(content.length).toBe(2)
   })

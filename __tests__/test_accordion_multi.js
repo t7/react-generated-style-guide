@@ -23,12 +23,12 @@ describe('AccordionMulti', function () {
     <AccordionMulti>
       <AccordionPanel label='Item 1'>
         <p>
-          Content for 'Item 1'
+          Content for "Item 1"
         </p>
       </AccordionPanel>
       <AccordionPanel label='Item 2'>
         <p>
-          Content for 'Item 2'
+          Content for "Item 2"
         </p>
       </AccordionPanel>
     </AccordionMulti>
@@ -38,22 +38,34 @@ describe('AccordionMulti', function () {
   const headers = T.scryRenderedDOMComponentsWithTag(el, 'dt')
   const panels = T.scryRenderedDOMComponentsWithTag(el, 'dd')
 
+  // ===================
   // Test for existence.
+  // ===================
+
   it('exists in the page', function () {
     expect(T.isCompositeComponent(el)).toBeTruthy()
   })
 
+  // =================
   // Test for headers.
+  // =================
+
   it('has child headers', function () {
     expect(headers.length).toBe(2)
   })
 
+  // ================
   // Test for panels.
+  // ================
+
   it('has child panels', function () {
     expect(panels.length).toBe(2)
   })
 
+  // ================
   // Test for events.
+  // ================
+
   it('responds to clicks', function () {
     T.Simulate.click(headers[0])
     T.Simulate.click(headers[1])

@@ -38,22 +38,34 @@ describe('BoxPositive', function () {
   // Get close link.
   const close = T.scryRenderedDOMComponentsWithClass(el, 't7-box__close')
 
+  // ===================
   // Test for existence.
+  // ===================
+
   it('exists in the page', function () {
     expect(T.isCompositeComponent(el)).toBeTruthy()
   })
 
+  // =================
   // Test for content.
+  // =================
+
   it('has content', function () {
     expect(content.length).toBe(2)
   })
 
+  // ====================
   // Test for close link.
+  // ====================
+
   it('has close link', function () {
     expect(close.length).toBe(1)
   })
 
+  // ================
   // Test for events.
+  // ================
+
   it('responds to close', function () {
     T.Simulate.click(close[0])
 
