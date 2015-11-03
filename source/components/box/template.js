@@ -81,7 +81,6 @@ class Box extends React.Component {
     // Hidden?
     if (hidden) {
       ariaHidden = true
-      styleDisplay = {display: 'none'}
     }
 
     // Events.
@@ -167,7 +166,6 @@ class Box extends React.Component {
         aria-hidden={ariaHidden}
         className={className}
         id={id}
-        style={styleDisplay}
       >
         {children}
         {closeX}
@@ -181,7 +179,6 @@ class Box extends React.Component {
           aria-hidden={ariaHidden}
           className={className}
           id={id}
-          style={styleDisplay}
         >
           <legend title={legend}>
             {legend}

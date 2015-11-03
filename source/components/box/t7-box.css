@@ -17,6 +17,10 @@ Box: Default.
   position: relative;
 }
 
+.t7-box[aria-hidden="true"] {
+  display: none;
+}
+
 .t7-box:before,
 .t7-box:after {
   content: ".";
