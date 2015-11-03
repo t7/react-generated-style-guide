@@ -13,19 +13,14 @@ const React = require('react')
 const T = require('react-addons-test-utils')
 
 // UI components.
-const Accordion = require('../source/components/accordion/template')
+const AccordionMulti = require('../source/components/accordion_multi/template')
 const AccordionPanel = require('../source/components/accordion/template_panel')
 
 // Describe `<Component/>` name.
-describe('Accordion', function () {
-  // First panel selected.
-  const selected = {
-    0: true
-  }
-
+describe('AccordionMulti', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
-    <Accordion selected={selected}>
+    <AccordionMulti>
       <AccordionPanel label='Item 1'>
         <p>
           Content for 'Item 1'
@@ -41,7 +36,7 @@ describe('Accordion', function () {
           Content for 'Item 1'
         </p>
       </AccordionPanel>
-    </Accordion>
+    </AccordionMulti>
   )
 
   // Get headers and panels.
@@ -65,11 +60,12 @@ describe('Accordion', function () {
 
   // Test for events.
   it('responds to clicks', function () {
+    T.Simulate.click(headers[0])
     T.Simulate.click(headers[1])
 
-    // First panel = off.
-    expect(headers[0].getAttribute('aria-selected')).toBe(null)
-    expect(panels[0].getAttribute('aria-hidden')).toBe('true')
+    // First panel = on.
+    expect(headers[0].getAttribute('aria-selected')).toBe('true')
+    expect(panels[0].getAttribute('aria-hidden')).toBe('false')
 
     // Second panel = on.
     expect(headers[1].getAttribute('aria-selected')).toBe('true')
