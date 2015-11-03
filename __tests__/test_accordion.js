@@ -31,14 +31,9 @@ describe('Accordion', function () {
           Content for 'Item 1'
         </p>
       </AccordionPanel>
-      <AccordionPanel label='Item 1'>
+      <AccordionPanel label='Item 2'>
         <p>
-          Content for 'Item 1'
-        </p>
-      </AccordionPanel>
-      <AccordionPanel label='Item 1'>
-        <p>
-          Content for 'Item 1'
+          Content for 'Item 2'
         </p>
       </AccordionPanel>
     </Accordion>
@@ -55,12 +50,12 @@ describe('Accordion', function () {
 
   // Test for headers.
   it('has child headers', function () {
-    expect(headers.length).toBe(3)
+    expect(headers.length).toBe(2)
   })
 
   // Test for panels.
   it('has child panels', function () {
-    expect(panels.length).toBe(3)
+    expect(panels.length).toBe(2)
   })
 
   // Test for events.
