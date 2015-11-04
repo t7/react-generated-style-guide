@@ -103,8 +103,15 @@ describe('DataTable', function () {
     const buttons = paginationTop.querySelectorAll('button')
     const select = paginationTop.querySelector('select')
 
+    // =============
     // Click "Next".
+    // =============
+
     T.Simulate.click(buttons[1])
+
+    // Buttons enabled/disabled?
+    expect(buttons[0].disabled).toBe(false)
+    expect(buttons[1].disabled).toBe(true)
 
     // Check `<select>` value.
     expect(select.value).toBe('1')
@@ -112,8 +119,15 @@ describe('DataTable', function () {
     // Ensure 15 rows.
     expect(tbody.querySelectorAll('tr').length).toBe(15)
 
+    // =============
     // Click "Prev".
+    // =============
+
     T.Simulate.click(buttons[0])
+
+    // Buttons enabled/disabled?
+    expect(buttons[0].disabled).toBe(true)
+    expect(buttons[1].disabled).toBe(false)
 
     // Check `<select>` value.
     expect(select.value).toBe('0')
