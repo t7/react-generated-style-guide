@@ -55,7 +55,10 @@ describe('DataTable', function () {
   const paginationTop = pagination[0]
   const paginationBottom = pagination[1]
 
+  // ===================
   // Test for existence.
+  // ===================
+
   it('exists in the page', function () {
     expect(T.isCompositeComponent(el)).toBe(true)
   })

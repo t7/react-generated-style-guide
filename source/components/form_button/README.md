@@ -19,7 +19,7 @@ function handleClick (e, buttonData) {
 
 const ariaControls = '...' // Default: null.
 const disabled = true // Default: false.
-const href = 'http://example.com/' Default: null.
+const href = 'http://example.com/' // Default: null.
 const mode = 'info | negative | positive | warn' // Default: 'default'.
 const size = 'small | big' // Default: null.
 const text = 'Button Text'
@@ -59,6 +59,7 @@ To use the component, pass these props.
   size={size}
   text={text}
   title={title}
+  type={type}
 
   handleClick={handleClick}
 />

@@ -174,7 +174,7 @@ class Button extends React.Component {
 // Validation.
 Button.propTypes = {
   ariaControls: React.PropTypes.string,
-  buttonData: React.PropTypes.node,
+  buttonData: React.PropTypes.any,
   disabled: React.PropTypes.bool,
   href: React.PropTypes.string,
   mode: React.PropTypes.string,
