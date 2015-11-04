@@ -10,7 +10,7 @@
   var len = arr.length
   var path = arr[len - 1] || arr[len - 2]
   var el = document.getElementById('isg_header_select')
-  var list = el.getElementsByTagName('option')
+  var list = el.querySelectorAll('option')
 
   Array.prototype.forEach.call(list, function (item, i) {
     if (path === item.value) {

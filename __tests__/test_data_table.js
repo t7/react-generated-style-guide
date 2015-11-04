@@ -39,14 +39,14 @@ describe('DataTable', function () {
   const parent = T.findRenderedDOMComponentWithClass(el, 't7-data-table__wrapper')
 
   // Get column headers.
-  const thead = parent.getElementsByTagName('thead')[0]
-  const th = thead.getElementsByTagName('th')
+  const thead = parent.querySelector('thead')
+  const th = thead.querySelectorAll('th')
 
   // Get the rows.
-  const tbody = parent.getElementsByTagName('tbody')[0]
+  const tbody = parent.querySelector('tbody')
 
   // Get pagination.
-  const pagination = parent.getElementsByClassName('t7-data-table__pagination')
+  const pagination = parent.querySelectorAll('.t7-data-table__pagination')
 
   // ========================
   // Pagination: top, bottom.
@@ -66,7 +66,7 @@ describe('DataTable', function () {
 
   it('has rows present', function () {
     // Ensure 20 initial rows.
-    expect(tbody.getElementsByTagName('tr').length).toBe(20)
+    expect(tbody.querySelectorAll('tr').length).toBe(20)
   })
 
   // =========================
@@ -86,7 +86,7 @@ describe('DataTable', function () {
   // ================
 
   it('has correct page count', function () {
-    const options = paginationTop.getElementsByTagName('option')
+    const options = paginationTop.querySelectorAll('option')
 
     // Should be two pages.
     expect(options.length).toBe(2)
@@ -97,8 +97,8 @@ describe('DataTable', function () {
   // ================
 
   it('has functional pagination', function () {
-    const buttons = paginationTop.getElementsByTagName('button')
-    const select = paginationTop.getElementsByTagName('select')[0]
+    const buttons = paginationTop.querySelectorAll('button')
+    const select = paginationTop.querySelector('select')
 
     // Click "Next".
     T.Simulate.click(buttons[1])
@@ -107,7 +107,7 @@ describe('DataTable', function () {
     expect(select.value).toBe('1')
 
     // Ensure 15 rows.
-    expect(tbody.getElementsByTagName('tr').length).toBe(15)
+    expect(tbody.querySelectorAll('tr').length).toBe(15)
 
     // Click "Prev".
     T.Simulate.click(buttons[0])
@@ -116,7 +116,7 @@ describe('DataTable', function () {
     expect(select.value).toBe('0')
 
     // Ensure 20 rows.
-    expect(tbody.getElementsByTagName('tr').length).toBe(20)
+    expect(tbody.querySelectorAll('tr').length).toBe(20)
   })
 
   // =================
