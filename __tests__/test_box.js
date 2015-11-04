@@ -29,15 +29,18 @@ describe('Box', function () {
     </Box>
   )
 
+  // Get parent element.
+  const parent = T.findRenderedDOMComponentWithClass(el, 't7-box')
+
   // Get content.
-  const content = T.scryRenderedDOMComponentsWithTag(el, 'p')
+  const content = parent.querySelectorAll('p')
 
   // ===================
   // Test for existence.
   // ===================
 
   it('exists in the page', function () {
-    expect(T.isCompositeComponent(el)).toBeTruthy()
+    expect(T.isCompositeComponent(el)).toBe(true)
   })
 
   // =================

@@ -22,31 +22,31 @@ const data = fake.dataTableRows(35)
 
 // Describe `<Component/>` name.
 describe('DataTable', function () {
-  const table = (
-  <DataTable
-  columns={columns}
-  data={data}
+  // Insert the component into DOM.
+  const el = T.renderIntoDocument(
+    <DataTable
+    columns={columns}
+    data={data}
 
-  pageTop
-  pageBottom
-  pageSize={20}
-  sortIndex={0}
-  />
+    pageTop
+    pageBottom
+    pageSize={20}
+    sortIndex={0}
+    />
   )
 
-  // Insert the component into DOM.
-  const el = T.renderIntoDocument(table)
+  // Get parent element.
+  const parent = T.findRenderedDOMComponentWithClass(el, 't7-data-table__wrapper')
 
   // Get column headers.
-  const thead = T.findRenderedDOMComponentWithTag(el, 'thead')
+  const thead = parent.getElementsByTagName('thead')[0]
   const th = thead.getElementsByTagName('th')
 
   // Get the rows.
-  const tbody = T.findRenderedDOMComponentWithTag(el, 'tbody')
+  const tbody = parent.getElementsByTagName('tbody')[0]
 
   // Get pagination.
-  const pagination =
-  T.scryRenderedDOMComponentsWithClass(el, 't7-data-table__pagination')
+  const pagination = parent.getElementsByClassName('t7-data-table__pagination')
 
   // ========================
   // Pagination: top, bottom.
@@ -57,7 +57,7 @@ describe('DataTable', function () {
 
   // Test for existence.
   it('exists in the page', function () {
-    expect(T.isCompositeComponent(el)).toBeTruthy()
+    expect(T.isCompositeComponent(el)).toBe(true)
   })
 
   // ==============

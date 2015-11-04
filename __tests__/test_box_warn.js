@@ -29,21 +29,21 @@ describe('BoxWarn', function () {
     </BoxWarn>
   )
 
-  // Get box.
-  const box = T.scryRenderedDOMComponentsWithClass(el, 't7-box--warn')
+  // Get parent element.
+  const parent = T.findRenderedDOMComponentWithClass(el, 't7-box--warn')
 
   // Get content.
-  const content = T.scryRenderedDOMComponentsWithTag(el, 'p')
+  const content = parent.querySelectorAll('p')
 
   // Get close link.
-  const close = T.scryRenderedDOMComponentsWithClass(el, 't7-box__close')
+  const close = parent.querySelector('.t7-box__close')
 
   // ===================
   // Test for existence.
   // ===================
 
   it('exists in the page', function () {
-    expect(T.isCompositeComponent(el)).toBeTruthy()
+    expect(T.isCompositeComponent(el)).toBe(true)
   })
 
   // =================
@@ -54,22 +54,14 @@ describe('BoxWarn', function () {
     expect(content.length).toBe(2)
   })
 
-  // ====================
-  // Test for close link.
-  // ====================
-
-  it('has close link', function () {
-    expect(close.length).toBe(1)
-  })
-
-  // ================
-  // Test for events.
-  // ================
+  // ===============
+  // Test for close.
+  // ===============
 
   it('responds to close', function () {
-    T.Simulate.click(close[0])
+    T.Simulate.click(close)
 
     // Box should be hidden.
-    expect(box[0].getAttribute('aria-hidden')).toBe('true')
+    expect(parent.getAttribute('aria-hidden')).toBe('true')
   })
 })

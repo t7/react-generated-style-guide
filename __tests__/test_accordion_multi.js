@@ -34,16 +34,19 @@ describe('AccordionMulti', function () {
     </AccordionMulti>
   )
 
+  // Get parent element.
+  const parent = T.findRenderedDOMComponentWithClass(el, 't7-accordion')
+
   // Get headers and panels.
-  const headers = T.scryRenderedDOMComponentsWithTag(el, 'dt')
-  const panels = T.scryRenderedDOMComponentsWithTag(el, 'dd')
+  const headers = parent.querySelectorAll('dt')
+  const panels = parent.querySelectorAll('dd')
 
   // ===================
   // Test for existence.
   // ===================
 
   it('exists in the page', function () {
-    expect(T.isCompositeComponent(el)).toBeTruthy()
+    expect(T.isCompositeComponent(el)).toBe(true)
   })
 
   // =================
