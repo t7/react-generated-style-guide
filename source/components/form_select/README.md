@@ -56,6 +56,7 @@ To use the component, pass these props.
   disabled={disabled}
   id={id}
   name={name}
+  options={options}
   required={required}
 
   defaultValue={defaultValue}
