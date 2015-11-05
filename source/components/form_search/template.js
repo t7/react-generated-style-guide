@@ -40,6 +40,7 @@ class Search extends React.Component {
   // Render method.
   render () {
     const buttonText = this.props.buttonText
+    const defaultValue = this.props.defaultValue
     const placeholder = this.props.placeholder
 
     // Events.
@@ -52,6 +53,7 @@ class Search extends React.Component {
             <tr>
               <td>
                 <Input
+                  defaultValue={defaultValue}
                   placeholder={placeholder}
                   type='search'
                 />
@@ -74,6 +76,7 @@ class Search extends React.Component {
 // Validation.
 Search.propTypes = {
   buttonText: React.PropTypes.string,
+  defaultValue: React.PropTypes.string,
   placeholder: React.PropTypes.string,
 
   // Events.
