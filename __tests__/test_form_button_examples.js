@@ -29,13 +29,13 @@ describe('ButtonExamples', function () {
   // Get buttons by size.
   // ====================
 
-  const buttons_size_small =
+  const sizeSmall =
   parent.querySelectorAll('.t7-form__button--small')
 
-  const buttons_size_big =
+  const sizeBig =
   parent.querySelectorAll('.t7-form__button--big')
 
-  const buttons_size_normal =
+  const sizeNormal =
   parent.querySelectorAll(
     [
       '.t7-form__button',
@@ -48,19 +48,19 @@ describe('ButtonExamples', function () {
   // Get buttons by mode.
   // ====================
 
-  const buttons_mode_default =
+  const modeDefault =
   parent.querySelectorAll('.t7-form__button--default')
 
-  const buttons_mode_primary =
+  const modePrimary =
   parent.querySelectorAll('.t7-form__button--primary')
 
-  const buttons_mode_positive =
+  const modePositive =
   parent.querySelectorAll('.t7-form__button--positive')
 
-  const buttons_mode_negative =
+  const modeNegative =
   parent.querySelectorAll('.t7-form__button--negative')
 
-  const buttons_mode_warn =
+  const modeWarn =
   parent.querySelectorAll('.t7-form__button--warn')
 
   // ===================
@@ -76,9 +76,9 @@ describe('ButtonExamples', function () {
   // ===============
 
   it('has correct sizes', function () {
-    expect(buttons_size_small.length).toBe(5)
-    expect(buttons_size_big.length).toBe(5)
-    expect(buttons_size_normal.length).toBe(5)
+    expect(sizeSmall.length).toBe(5)
+    expect(sizeBig.length).toBe(5)
+    expect(sizeNormal.length).toBe(5)
   })
 
   // ===============
@@ -86,10 +86,10 @@ describe('ButtonExamples', function () {
   // ===============
 
   it('has correct modes', function () {
-    expect(buttons_mode_default.length).toBe(3)
-    expect(buttons_mode_primary.length).toBe(3)
-    expect(buttons_mode_positive.length).toBe(3)
-    expect(buttons_mode_negative.length).toBe(3)
-    expect(buttons_mode_warn.length).toBe(3)
+    expect(modeDefault.length).toBe(3)
+    expect(modePrimary.length).toBe(3)
+    expect(modePositive.length).toBe(3)
+    expect(modeNegative.length).toBe(3)
+    expect(modeWarn.length).toBe(3)
   })
 })
