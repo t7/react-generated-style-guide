@@ -66,6 +66,10 @@ describe('Textdiv', function () {
     expect(textdiv.hasAttribute('disabled')).toBe(true)
   })
 
+  it('editing is off', function () {
+    expect(textdiv.getAttribute('contenteditable')).toBe('false')
+  })
+
   it('has correct ID', function () {
     expect(textdiv.id).toBe('example_id')
   })
