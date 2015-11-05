@@ -13,30 +13,47 @@ const React = require('react')
 const T = require('react-addons-test-utils')
 
 // UI components.
-const Image =
-require('../source/components/image/template')
+const ImageFigure =
+require('../source/components/image_figure/template')
 
 // Describe `<Component/>` name.
-describe('Image', function () {
+describe('ImageFigure', function () {
   const alt = 'example_alt'
   const border = '#999'
+  const caption = 'example_caption'
+  const captionTop = true
+  const href = 'http://example.com/'
   const src = 'photo.jpg'
+  const target = '_blank'
   const width = '100'
   const height = '50'
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
-    <Image
+    <ImageFigure
     alt={alt}
     border={border}
+    caption={caption}
+    captionTop={captionTop}
+    href={href}
     src={src}
+    target={target}
     width={width}
     height={height}
     />
   )
 
+  // Get parent `<figure>`.
+  const parent = T.findRenderedDOMComponentWithTag(el, 'figure')
+
+  // Get the `<a>`.
+  const link = parent.querySelector('a')
+
   // Get the `<img/>`.
-  const image = T.findRenderedDOMComponentWithTag(el, 'img')
+  const image = parent.querySelector('img')
+
+  // Get the `<figcaption>`.
+  const figcaption = parent.querySelector('figcaption')
 
   // ===================
   // Test for existence.
@@ -68,5 +85,31 @@ describe('Image', function () {
 
   it('has correct height', function () {
     expect(image.getAttribute('height')).toBe('50')
+  })
+
+  // ===============
+  // Test for image.
+  // ===============
+
+  it('has correct href', function () {
+    expect(link.getAttribute('href')).toBe('http://example.com/')
+  })
+
+  it('has correct target', function () {
+    expect(link.getAttribute('target')).toBe('_blank')
+  })
+
+  // =================
+  // Test for caption.
+  // =================
+
+  it('has correct caption text', function () {
+    expect(figcaption.innerHTML).toBe('example_caption')
+  })
+
+  it('has correct caption position', function () {
+    const x = parent.querySelectorAll('figcaption + a > img').length
+
+    expect(x).toBe(1)
   })
 })
