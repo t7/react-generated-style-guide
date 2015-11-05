@@ -35176,6 +35176,12 @@
 	  handleClick: _react2['default'].PropTypes.func
 	};
 
+	// Defaults.
+	AccordionHeader.defaultProps = {
+	  ariaExpanded: false,
+	  ariaSelected: false
+	};
+
 	// Export.
 	exports['default'] = AccordionHeader;
 	module.exports = exports['default'];
@@ -40050,7 +40056,7 @@
 
 	Button.propTypes = {
 	  ariaControls: _react2['default'].PropTypes.string,
-	  buttonData: _react2['default'].PropTypes.node,
+	  buttonData: _react2['default'].PropTypes.any,
 	  disabled: _react2['default'].PropTypes.bool,
 	  href: _react2['default'].PropTypes.string,
 	  mode: _react2['default'].PropTypes.string,
@@ -42034,6 +42040,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var buttonText = this.props.buttonText;
+	      var defaultValue = this.props.defaultValue;
 	      var placeholder = this.props.placeholder;
 
 	      // Events.
@@ -42055,6 +42062,7 @@
 	                'td',
 	                null,
 	                _react2['default'].createElement(_form_inputTemplate2['default'], {
+	                  defaultValue: defaultValue,
 	                  placeholder: placeholder,
 	                  type: 'search'
 	                })
@@ -42080,6 +42088,7 @@
 
 	Search.propTypes = {
 	  buttonText: _react2['default'].PropTypes.string,
+	  defaultValue: _react2['default'].PropTypes.string,
 	  placeholder: _react2['default'].PropTypes.string,
 
 	  // Events.
@@ -42966,72 +42975,6 @@
 	    </TabPanel>
 	  </Tabs>
 
-	  //=================
-	  // Markup output...
-	  //=================
-
-	  <div class="t7-tabs">
-	    <ul role="tablist" class="t7-tabs__list">
-	      <li
-	        id="tab_0_GUID"
-	        aria-controls="tabpanel_0_GUID"
-	        aria-expanded="true"
-	        aria-selected="true"
-	        class="t7-tabs__item--selected"
-	      >
-	        Foo
-	      </li>
-	      <li
-	        id="tab_1_GUID"
-	        aria-controls="tabpanel_1_GUID"
-	        aria-expanded="false"
-	        aria-selected="false"
-	        class="t7-tabs__item"
-	      >
-	        Bar
-	      </li>
-	      <li
-	        id="tab_2_GUID"
-	        aria-controls="tabpanel_2_GUID"
-	        aria-expanded="false"
-	        aria-selected="false"
-	        class="t7-tabs__item"
-	      >
-	        Baz
-	      </li>
-	    </ul>
-	    <div
-	      id="tabpanel_0_GUID"
-	      aria-labledby="tab_0_GUID"
-	      aria-hidden="false"
-	      class="t7-tabs__panel--selected"
-	    >
-	      <p>
-	        Tab content for "Foo"
-	      </p>
-	    </div>
-	    <div
-	      id="tabpanel_1_GUID"
-	      aria-labledby="tab_1_GUID"
-	      aria-hidden="true"
-	      class="t7-tabs__panel"
-	    >
-	      <p>
-	        Tab content for "Bar"
-	      </p>
-	    </div>
-	    <div
-	      id="tabpanel_2_GUID"
-	      aria-labledby="tab_2_GUID"
-	      aria-hidden="true"
-	      class="t7-tabs__panel"
-	    >
-	      <p>
-	        Tab content for "Baz"
-	      </p>
-	    </div>
-	  </div>
-
 	*/
 
 	// Dependencies.
@@ -43345,7 +43288,8 @@
 
 	// Defaults.
 	Tab.defaultProps = {
-	  selected: 0
+	  ariaExpanded: false,
+	  ariaSelected: false
 	};
 
 	// Export.
