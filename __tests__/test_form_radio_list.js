@@ -13,11 +13,11 @@ const React = require('react')
 const T = require('react-addons-test-utils')
 
 // UI components.
-const RadioListInline =
-require('../source/components/form_radio_list_inline/template')
+const RadioList =
+require('../source/components/form_radio_list/template')
 
 // Describe `<Component/>` name.
-describe('RadioListInline', function () {
+describe('RadioList', function () {
   const options = [
     {
       label: 'example_label_0'
@@ -29,11 +29,11 @@ describe('RadioListInline', function () {
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
-    <RadioListInline options={options} />
+    <RadioList options={options} />
   )
 
   // Get parent element.
-  const parent = T.findRenderedDOMComponentWithClass(el, 't7-list-inline')
+  const parent = T.findRenderedDOMComponentWithClass(el, 't7-list-clean')
 
   // Get items.
   const items = parent.querySelectorAll('li')
