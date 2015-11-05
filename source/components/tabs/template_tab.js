@@ -68,7 +68,8 @@ Tab.propTypes = {
 
 // Defaults.
 Tab.defaultProps = {
-  selected: 0
+  ariaExpanded: false,
+  ariaSelected: false
 }
 
 // Export.

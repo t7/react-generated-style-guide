@@ -60,7 +60,7 @@ describe('Search', function () {
   // ================
 
   it('has correct text', function () {
-    const x = button.textContent.trim()
+    const x = button.textContent
 
     expect(x).toBe('example_text')
   })

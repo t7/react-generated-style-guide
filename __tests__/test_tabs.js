@@ -13,38 +13,33 @@ const React = require('react')
 const T = require('react-addons-test-utils')
 
 // UI components.
-const Accordion = require('../source/components/accordion/template')
-const AccordionPanel = require('../source/components/accordion/template_panel')
+const Tabs = require('../source/components/tabs/template')
+const TabPanel = require('../source/components/tabs/template_panel')
 
 // Describe `<Component/>` name.
-describe('Accordion', function () {
-  // First panel selected.
-  const selected = {
-    0: true
-  }
-
+describe('Tabs', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
-    <Accordion selected={selected}>
-      <AccordionPanel label='Item 1'>
+    <Tabs selected={0}>
+      <TabPanel label='Tab 1'>
         <p>
-          Content for "Item 1"
+          Tab content for "Tab 1"
         </p>
-      </AccordionPanel>
-      <AccordionPanel label='Item 2'>
+      </TabPanel>
+      <TabPanel label='Tab 2'>
         <p>
-          Content for "Item 2"
+          Tab content for "Tab 2"
         </p>
-      </AccordionPanel>
-    </Accordion>
+      </TabPanel>
+    </Tabs>
   )
 
   // Get parent element.
-  const parent = T.findRenderedDOMComponentWithClass(el, 't7-accordion')
+  const parent = T.findRenderedDOMComponentWithClass(el, 't7-tabs')
 
   // Get headers and panels.
-  const headers = parent.querySelectorAll('dt')
-  const panels = parent.querySelectorAll('dd')
+  const tabs = parent.querySelectorAll('.t7-tabs__item')
+  const panels = parent.querySelectorAll('.t7-tabs__panel')
 
   // ===================
   // Test for existence.
@@ -54,12 +49,12 @@ describe('Accordion', function () {
     expect(T.isCompositeComponent(el)).toBe(true)
   })
 
-  // =================
-  // Test for headers.
-  // =================
+  // ==============
+  // Test for tabs.
+  // ==============
 
-  it('has child headers', function () {
-    expect(headers.length).toBe(2)
+  it('has child tabs', function () {
+    expect(tabs.length).toBe(2)
   })
 
   // ================
@@ -75,14 +70,14 @@ describe('Accordion', function () {
   // ================
 
   it('responds to clicks', function () {
-    T.Simulate.click(headers[1])
+    T.Simulate.click(tabs[1])
 
     // First panel = off.
-    expect(headers[0].getAttribute('aria-selected')).toBe('false')
+    expect(tabs[0].getAttribute('aria-selected')).toBe('false')
     expect(panels[0].getAttribute('aria-hidden')).toBe('true')
 
     // Second panel = on.
-    expect(headers[1].getAttribute('aria-selected')).toBe('true')
+    expect(tabs[1].getAttribute('aria-selected')).toBe('true')
     expect(panels[1].getAttribute('aria-hidden')).toBe('false')
   })
 })

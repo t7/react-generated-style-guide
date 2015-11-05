@@ -66,5 +66,11 @@ Tab.propTypes = {
   handleClick: React.PropTypes.func
 }
 
+// Defaults.
+Tab.defaultProps = {
+  ariaExpanded: false,
+  ariaSelected: false
+}
+
 // Export.
 export default Tab

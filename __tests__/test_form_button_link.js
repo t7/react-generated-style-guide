@@ -78,7 +78,7 @@ describe('Button', function () {
   // ==============
 
   it('has correct text', function () {
-    const x = button.innerHTML.trim()
+    const x = button.innerHTML
 
     expect(x).toBe('GO')
   })

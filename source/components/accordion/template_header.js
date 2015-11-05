@@ -73,5 +73,11 @@ AccordionHeader.propTypes = {
   handleClick: React.PropTypes.func
 }
 
+// Defaults.
+AccordionHeader.defaultProps = {
+  ariaExpanded: false,
+  ariaSelected: false
+}
+
 // Export.
 export default AccordionHeader
