@@ -12,11 +12,11 @@ function handleChange (e, value, checked) {
   */
 }
 
-const autoFocus = true // Default: false.
+const autofocus = true // Default: false.
 const disabled = true // Default: false.
 const id = '...' // Ensured unique, if blank.
 const label = 'Individual radio label' // Accompanying text.
-const name = '...' // Ensured unique, if blank.
+const name = '...' // Uses id, if blank.
 const required = true // Default: false.
 const value = '...' // Uses label, if blank.
 
@@ -34,7 +34,7 @@ To use the component, pass these props.
 
 ```xml
 <Radio
-  autoFocus={autofocus}
+  autofocus={autofocus}
   checked={checked}
   defaultChecked={defaultChecked}
   disabled={disabled}

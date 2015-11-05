@@ -11,7 +11,7 @@ function handleChange (e, value) {
 }
 
 const autofocus = true // Default: false.
-const disabled = // Default: false.
+const disabled = true // Default: false.
 const id = '...' // Ensured unique, if blank.
 const name = '...' // Uses id, if blank.
 const placeholder = '...' // Default: null.
