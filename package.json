@@ -23,7 +23,7 @@
     "build_all": "npm run build && npm run build_isg",
     "prestart": "npm run build_static",
     "start": "webpack-dev-server --hot",
-    "prebuild": "npm run build_static",
+    "prebuild": "npm run build_static && npm run test",
     "build": "webpack -p",
     "build_static": "node ./lib/build_static",
     "build_isg_global": "node ./isg/build",
