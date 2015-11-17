@@ -35376,7 +35376,6 @@
 
 	      // Used in conditional.
 	      var ariaHidden;
-	      var styleDisplay;
 
 	      // Hidden?
 	      if (hidden) {
