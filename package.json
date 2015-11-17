@@ -20,7 +20,6 @@
   },
   "scripts": {
     "test": "jest",
-    "build_all": "npm run build && npm run build_isg",
     "prestart": "npm run build_static",
     "start": "webpack-dev-server --hot",
     "prebuild": "npm run build_static && npm run test",
@@ -34,7 +33,8 @@
     "build_isg_patterns": "node ./isg/pages/patterns/build",
     "build_isg_requirements": "node ./isg/pages/requirements/build",
     "build_isg_screens": "node ./isg/pages/screens/build",
-    "postbuild_isg_screens": "./lib/phantomjs isg/pages/screens/screenshots.js"
+    "postbuild_isg_screens": "./lib/phantomjs isg/pages/screens/screenshots.js",
+    "build_all": "npm run build && npm run build_isg"
   },
   "repository": {
     "type": "git",
