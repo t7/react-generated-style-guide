@@ -76,7 +76,6 @@ class Box extends React.Component {
 
     // Used in conditional.
     var ariaHidden
-    var styleDisplay
 
     // Hidden?
     if (hidden) {
