@@ -1,12 +1,19 @@
 // Dependencies.
 import React from 'react'
-import { FormattedDate, FormattedNumber } from 'react-intl'
+import accounting from 'accounting'
+import moment from 'moment'
 
 // CSS.
 import './t7-data-table.css'
 
 // Utility methods.
 import utils from '../../utils'
+
+// Money formatting.
+accounting.settings.currency.format = {
+  pos: '%s%v',
+  neg: '(%s%v)'
+}
 
 // Define class.
 class DataTableCell extends React.Component {
@@ -38,63 +45,24 @@ class DataTableCell extends React.Component {
       // Negative?
       if (isNegative) {
         className.push('t7-data-table__td--negative')
-        value = value * -1
       }
 
-      value = (
-        <FormattedNumber
-          value={value}
-          style='currency'
-          currency='USD'
-        />
-      )
+      value = accounting.formatMoney(value)
 
     // Date value?
     } else if (isDate) {
-      value = (
-        <FormattedDate
-          value={value}
-          day='numeric'
-          month='short'
-          year='numeric'
-        />
-      )
+      value = moment(value).format('MMM D, YYYY')
     }
 
-    // Build the string.
+    // Convert `className` to string.
     className = className.join(' ')
 
-    // Used in conditional.
-    var td
-
-    /*
-      NOTE: Handling negative values this way, rather than
-      a simple string concatenation, because the result of
-      `<FormattedNumber />` is an object. So, we can't do:
-
-        value = '(' + value + ')'
-
-      Because the output would be "([Object object])".
-    */
-    if (isCurrency && isNegative) {
-      // Wrap in parenthesis.
-      td = (
-        <td key={index} className={className} role='gridcell'>
-          ({value})
-        </td>
-      )
-
-    // Otherwise, leave value as-is.
-    } else {
-      td = (
-        <td key={index} className={className} role='gridcell'>
-          {value}
-        </td>
-      )
-    }
-
     // Expose `<td>`.
-    return td
+    return (
+      <td key={index} className={className} role='gridcell'>
+        {value}
+      </td>
+    )
   }
 }
 
