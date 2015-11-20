@@ -21,7 +21,6 @@ class Shell extends React.Component {
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: this.props.markup}} />
-        <script src={'./static/js/intl.js'} />
         <script src='index.js' />
       </body>
       </html>

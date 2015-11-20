@@ -1,6 +1,6 @@
 // Dependencies.
 import React from 'react'
-import { FormattedDate } from 'react-intl'
+import moment from 'moment'
 
 // CSS.
 import './isg-app.css'
@@ -17,15 +17,7 @@ class Footer extends React.Component {
   render () {
     const now = new Date()
     const year = now.getFullYear()
-
-    const timestamp = (
-      <FormattedDate
-        value={now}
-        day='numeric'
-        month='short'
-        year='numeric'
-      />
-    )
+    const timestamp = moment(now).format('MMM D, YYYY')
 
     const floatLeft = [
       'isg-tablet-float-left',

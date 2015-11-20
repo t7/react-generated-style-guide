@@ -55,7 +55,6 @@ class Shell extends React.Component {
         <div id='app' dangerouslySetInnerHTML={{__html: markup}} />
         <script src={root + 'static/js/prism.js'} />
         <script src={root + 'static/js/button_toggle.js'} />
-        <script src={root + '../static/js/intl.js'} />
         {script}
       </body>
       </html>
