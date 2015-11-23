@@ -20,7 +20,7 @@ class App extends React.Component {
   // Render method.
   render () {
     return (
-      <div data-test='foo' className='t7-app'>
+      <div className='t7-app'>
         <Wrapper>
           <Header />
           <Main>
