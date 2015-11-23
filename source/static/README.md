@@ -22,16 +22,3 @@ http://uifaces.com/garand
 * https://unsplash.com/photos/1eWaod96d3k
 * https://unsplash.com/photos/7P_2hzKryQEf
 * https://unsplash.com/photos/1eWaod96d3k
-
----
-
-## Intl Polyfill
-
-The "intl.js" file is from this Polyfill…
-
-https://github.com/andyearnshaw/Intl.js
-
-https://cdn.polyfill.io/v2/docs/features/#Intl
-
-It is needed by Safari to support the usage of
-`<FormattedNumber/>` and `<FormattedDate/>`.
