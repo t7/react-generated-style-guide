@@ -35115,6 +35115,14 @@
 	  _createClass(AccordionHeader, [{
 	    key: 'handleClick',
 	    value: function handleClick(e) {
+	      var keyPress = e.keyCode;
+	      var keyEnter = keyPress === 13;
+
+	      // Exit, if not "Enter" key.
+	      if (keyPress && !keyEnter) {
+	        return;
+	      }
+
 	      var handleClick = this.props.handleClick;
 	      var index = this.props.index;
 
@@ -48175,6 +48183,14 @@
 	  _createClass(DataTableHeader, [{
 	    key: 'handleSort',
 	    value: function handleSort(e) {
+	      var keyPress = e.keyCode;
+	      var keyEnter = keyPress === 13;
+
+	      // Exit, if not "Enter" key.
+	      if (keyPress && !keyEnter) {
+	        return;
+	      }
+
 	      var index = this.props.index;
 	      var sortDirection = this.props.sortDirection;
 	      var handleSort = this.props.handleSort;
@@ -51840,6 +51856,14 @@
 	  _createClass(Tab, [{
 	    key: 'handleClick',
 	    value: function handleClick(e) {
+	      var keyPress = e.keyCode;
+	      var keyEnter = keyPress === 13;
+
+	      // Exit, if not "Enter" key.
+	      if (keyPress && !keyEnter) {
+	        return;
+	      }
+
 	      var handleClick = this.props.handleClick;
 	      var index = this.props.index;
 
