@@ -15,6 +15,14 @@ class DataTableHeader extends React.Component {
   }
 
   handleSort (e) {
+    const keyPress = e.keyCode
+    const keyEnter = keyPress === 13
+
+    // Exit, if not "Enter" key.
+    if (keyPress && !keyEnter) {
+      return
+    }
+
     const index = this.props.index
     const sortDirection = this.props.sortDirection
     const handleSort = this.props.handleSort

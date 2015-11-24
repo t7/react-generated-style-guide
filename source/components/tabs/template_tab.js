@@ -10,6 +10,14 @@ class Tab extends React.Component {
 
   // Click handler.
   handleClick (e) {
+    const keyPress = e.keyCode
+    const keyEnter = keyPress === 13
+
+    // Exit, if not "Enter" key.
+    if (keyPress && !keyEnter) {
+      return
+    }
+
     const handleClick = this.props.handleClick
     const index = this.props.index
 
