@@ -130,7 +130,7 @@ class Accordion extends React.Component {
       output.push(
         <dd
           aria-hidden={!isActive}
-          aria-labeledby={idHeader}
+          aria-labelledby={idHeader}
           className='t7-accordion__panel'
           id={idPanel}
           key={idPanel}

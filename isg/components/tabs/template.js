@@ -151,7 +151,7 @@ class Tabs extends React.Component {
             return (
               <div
                 aria-hidden={!isActive}
-                aria-labeledby={idTab}
+                aria-labelledby={idTab}
                 className='isg-tabs__panel'
                 id={idPanel}
                 key={idPanel}

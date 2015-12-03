@@ -153,7 +153,7 @@ class Tabs extends React.Component {
             return (
               <div
                 aria-hidden={!isActive}
-                aria-labeledby={idTab}
+                aria-labelledby={idTab}
                 className='t7-tabs__panel'
                 id={idPanel}
                 key={i}
