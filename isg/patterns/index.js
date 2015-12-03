@@ -22642,7 +22642,7 @@
 	          'dd',
 	          {
 	            'aria-hidden': !isActive,
-	            'aria-labeledby': idHeader,
+	            'aria-labelledby': idHeader,
 	            className: 't7-accordion__panel',
 	            id: idPanel,
 	            key: idPanel,
@@ -51774,7 +51774,7 @@
 	            'div',
 	            {
 	              'aria-hidden': !isActive,
-	              'aria-labeledby': idTab,
+	              'aria-labelledby': idTab,
 	              className: 't7-tabs__panel',
 	              id: idPanel,
 	              key: i,
