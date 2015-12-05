@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import './t7-accordion.css'
-
 // Define class.
 class AccordionHeader extends React.Component {
   constructor (props) {
