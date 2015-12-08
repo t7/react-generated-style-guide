@@ -20,12 +20,12 @@ function handleClick (e, buttonData) {
 const ariaControls = '...' // Default: null.
 const disabled = true // Default: false.
 const href = 'http://example.com/' // Default: null.
-const mode = 'info | negative | positive | warn' // Default: 'default'.
+const mode = 'info | negative | positive | warn' // Default: "default".
 const size = 'small | big' // Default: null.
 const text = 'Button Text'
 const target = '_blank | ...' // Default: null.
 const title = '...' // Default: null.
-const type = 'submit | reset' // Default: 'button'.
+const type = 'submit | reset' // Default: "button".
 
 /*
   Data you might want to associate

@@ -4,7 +4,7 @@
 
 ## Welcome
 
-Welcome to the Interactive Style Guide (ISG). It is intended to serve as a reference for those who will be maintaining and building upon the ACME Corp. web site/app. This guide contains front-end templates &ndash; HTML,CSS, JS &ndash; along with visual design assets necessary for developing screens.
+Welcome to the Interactive Style Guide (ISG). It is intended to serve as a reference for those who will be maintaining and building upon the ACME Corp. web site/app. This guide contains front-end templates &ndash; HTML, CSS, JS &ndash; along with visual design assets necessary for developing screens.
 
 All data portrayed in the screen comps or code examples included is for placement only. This guide does not cover detailed branding guidelines, business requirements, or user support.
 
