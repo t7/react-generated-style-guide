@@ -35092,10 +35092,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	// CSS.
-
-	__webpack_require__(192);
-
 	// Define class.
 
 	var AccordionHeader = (function (_React$Component) {
