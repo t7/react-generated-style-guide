@@ -178,7 +178,7 @@ Select drop-down.
   .t7-form__select,
   .t7-form__select[size="0"],
   .t7-form__select[size="1"] {
-    background-image: url("./t7-form__select.png");
+    background-image: url("./t7-form__select.svg");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 130%;
@@ -192,7 +192,7 @@ Select drop-down.
   .t7-form__select,
   .t7-form__select[size="0"],
   .t7-form__select[size="1"] {
-    background-image: url("./t7-form__select.png");
+    background-image: url("./t7-form__select.svg");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 130%;

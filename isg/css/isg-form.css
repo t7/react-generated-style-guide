@@ -178,7 +178,7 @@ Select drop-down.
   .isg-form__select,
   .isg-form__select[size="0"],
   .isg-form__select[size="1"] {
-    background-image: url("./isg-form__select.png");
+    background-image: url("./isg-form__select.svg");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 130%;
@@ -192,7 +192,7 @@ Select drop-down.
   .isg-form__select,
   .isg-form__select[size="0"],
   .isg-form__select[size="1"] {
-    background-image: url("./isg-form__select.png");
+    background-image: url("./isg-form__select.svg");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 130%;

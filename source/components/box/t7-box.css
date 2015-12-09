@@ -84,7 +84,7 @@ Box: Close "X".
 */
 
 .t7-box__close {
-  background-image: url("./t7-box__close.png");
+  background-image: url("./t7-box__close.svg");
   background-repeat: no-repeat;
   background-size: 10px 10px;
   background-position: center center;
@@ -151,7 +151,7 @@ Box: Info.
 }
 
 .t7-box--info--icon {
-  background-image: url("./t7-box--info--icon.png");
+  background-image: url("./t7-box--info--icon.svg");
 }
 
 .t7-box--info legend {
@@ -170,7 +170,7 @@ Box: Negative.
 }
 
 .t7-box--negative--icon {
-  background-image: url("./t7-box--negative--icon.png");
+  background-image: url("./t7-box--negative--icon.svg");
 }
 
 .t7-box--negative legend {
@@ -189,7 +189,7 @@ Box: Positive.
 }
 
 .t7-box--positive--icon {
-  background-image: url("./t7-box--positive--icon.png");
+  background-image: url("./t7-box--positive--icon.svg");
 }
 
 .t7-box--positive legend {
@@ -208,7 +208,7 @@ Box: Warn.
 }
 
 .t7-box--warn--icon {
-  background-image: url("./t7-box--warn--icon.png");
+  background-image: url("./t7-box--warn--icon.svg");
 }
 
 .t7-box--warn legend {

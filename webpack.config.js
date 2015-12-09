@@ -36,12 +36,12 @@ module.exports = {
       // SVG.
       {
         test: /\.svg$/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
+        loader: 'url-loader?limit=20000&mimetype=image/svg+xml'
       },
       // Images.
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192&name=[name]_[sha512:hash:base64:7].[ext]'
+        loader: 'url-loader?limit=20000&name=[name]_[sha512:hash:base64:7].[ext]'
       }
     ]
   },

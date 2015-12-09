@@ -98,9 +98,10 @@ Headers
 .t7-data-table__th--sortable:before {
   content: "";
 
-  background-image: url("./t7-data-table__th--sortable.png");
+  background-image: url("./t7-data-table__th--sortable.svg");
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: 7px 11px;
 
   display: inline-block;
   margin-right: 5px;
@@ -114,11 +115,11 @@ Headers
 }
 
 .t7-data-table__th--sortable[aria-sort="ascending"]:before {
-  background-image: url("./t7-data-table__th--sortable[asc].png");
+  background-image: url("./t7-data-table__th--sortable[asc].svg");
 }
 
 .t7-data-table__th--sortable[aria-sort="descending"]:before {
-  background-image: url("./t7-data-table__th--sortable[desc].png");
+  background-image: url("./t7-data-table__th--sortable[desc].svg");
 }
 
 /*
