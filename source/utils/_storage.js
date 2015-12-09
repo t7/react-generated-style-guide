@@ -56,11 +56,11 @@ function get (key) {
     // Attempt to parse.
     data = JSON.parse(data)
   } catch (e) {
-    // Use untouched.
-    data = parseFloat(cache[key])
+    // Set to original.
+    data = cache[key]
   }
 
-  return data || cache[key]
+  return data
 }
 
 // ==============
