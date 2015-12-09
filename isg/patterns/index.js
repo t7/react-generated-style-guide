@@ -22298,11 +22298,11 @@
 	    // Attempt to parse.
 	    data = JSON.parse(data);
 	  } catch (e) {
-	    // Use untouched.
-	    data = parseFloat(cache[key]);
+	    // Set to original.
+	    data = cache[key];
 	  }
 
-	  return data || cache[key];
+	  return data;
 	}
 
 	// ==============
@@ -22317,6 +22317,14 @@
 	  cache[key] = data;
 	}
 
+	// ==========================
+	// Cache: Remove single item.
+	// ==========================
+
+	function remove(key) {
+	  delete cache[key];
+	}
+
 	// ==============
 	// Export object.
 	// ==============
@@ -22324,6 +22332,7 @@
 	exports['default'] = {
 	  clear: clear,
 	  get: get,
+	  remove: remove,
 	  set: set
 	};
 	module.exports = exports['default'];
