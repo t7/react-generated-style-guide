@@ -50,7 +50,7 @@
 	  files that `./isg/pages/*` make use of.
 
 	  This is necessary because they are flat-file compiled,
-	  so  their CSS isn't built by Webpack as it would be
+	  so their CSS isn't built by Webpack as it would be
 	  in a typical hot-compiled JS "app" approach.
 	*/
 
