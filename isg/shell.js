@@ -47,7 +47,7 @@ class Shell extends React.Component {
       />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato' />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
-      <link rel='stylesheet' href={root + 'style.css'} />
+      <link rel='stylesheet' href={root + 'build.css'} />
       {style}
       <title>{title}</title>
       </head>
