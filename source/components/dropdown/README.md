@@ -1,7 +1,6 @@
 This component can be used like so.
 
 ```js
-// This would be API driven.
 const menuAlign = 'right' // Default: "left".
 const target = '_blank' // Default: null.
 const text = 'Dropdown Trigger Text'
