@@ -45,7 +45,7 @@ function renderPatterns () {
 
   var shellElement = React.createElement(ShellTemplate, {
     title: 'Patterns',
-    style: 'style.css',
+    style: 'build.css',
     script: 'index.js',
     markup: patternsMarkup
   })

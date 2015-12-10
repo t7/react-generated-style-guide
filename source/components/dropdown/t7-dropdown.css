@@ -1,0 +1,102 @@
+/*
+============================================================
+Dropdown.
+============================================================
+*/
+
+.t7-dropdown {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+
+  position: relative;
+}
+
+/*
+============================================================
+Dropdown: Trigger.
+============================================================
+*/
+
+.t7-dropdown__trigger[class] {
+  background-image: url("./t7-dropdown__trigger.svg");
+  background-size: 11px auto;
+  background-repeat: no-repeat;
+  background-position: right center;
+
+  display: inline-block;
+  text-decoration: none;
+
+  padding-right: 16px;
+}
+
+.t7-dropdown__trigger[class],
+.t7-dropdown__trigger[class]:hover {
+  color: #333;
+}
+
+/*
+============================================================
+Dropdown: Menu.
+============================================================
+*/
+
+.t7-dropdown__menu,
+.t7-dropdown__menu__item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.t7-dropdown__menu {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  position: absolute;
+  top: 100%;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+
+*[data-menu-align="left"] > .t7-dropdown__menu {
+  left: 0;
+}
+
+*[data-menu-align="right"] > .t7-dropdown__menu {
+  right: 0;
+}
+
+.t7-dropdown__menu[aria-hidden='true'] {
+  display: none;
+}
+
+.t7-dropdown__menu__item {
+  padding: 5px 10px;
+}
+
+.t7-dropdown__menu__link[class] {
+  color: #333;
+  display: block;
+
+  margin: -5px -10px;
+  padding: 5px 10px;
+
+  text-decoration: none;
+
+  overflow: hidden;
+}
+
+.t7-dropdown__menu__link[class]:hover {
+  background: #ffd;
+  color: #000;
+}
+
+.t7-dropdown__menu__item:not(:first-child) .t7-dropdown__menu__link[class] {
+  border-top: 1px solid #ccc;
+}

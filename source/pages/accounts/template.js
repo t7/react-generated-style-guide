@@ -21,6 +21,7 @@ import AccordionMulti from '../../components/accordion_multi/template'
 import AccordionPanel from '../../components/accordion/template_panel'
 import Button from '../../components/form_button/template'
 import DataTable from '../../components/data_table/template'
+import Dropdown from '../../components/dropdown/template'
 import Image from '../../components/image/template'
 import ImageFigure from '../../components/image_figure/template'
 import ListSeparator from '../../components/list_separator/template'
@@ -96,24 +97,28 @@ class Page extends React.Component {
                 </h2>
 
                 <div className={rightClassName}>
-                  <p className='t7-mute'>
-                    Account #: TK-421
-                  </p>
+                  <Dropdown
+                    text='Options'
+                    menuAlign='right'
+                    items={[
+                      {
+                        text: 'Schedule Payment'
+                      },
+                      {
+                        text: 'Transfer Funds'
+                      },
+                      {
+                        text: 'Spending Trends'
+                      }
+                    ]}
+                  />
                 </div>
 
                 <hr />
 
-                <ListSeparator>
-                  <li>
-                    <a>Schedule Payment</a>
-                  </li>
-                  <li>
-                    <a>Transfer Funds</a>
-                  </li>
-                  <li>
-                    <a>Spending Trends</a>
-                  </li>
-                </ListSeparator>
+                <p className='t7-mute'>
+                  Account #: TK-421
+                </p>
 
                 <DataTable
                   data={fake.dataTableRows(70, 3500)}
@@ -131,21 +136,27 @@ class Page extends React.Component {
                 </h2>
 
                 <div className={rightClassName}>
-                  <p className='t7-mute'>
-                    Account #: 867-5309
-                  </p>
+                  <Dropdown
+                    text='Options'
+                    menuAlign='right'
+                    items={[
+                      {
+                        target: '_blank',
+                        text: 'Investment Advice',
+                        href: 'http://example.com'
+                      },
+                      {
+                        text: 'Retirement Planning'
+                      }
+                    ]}
+                  />
                 </div>
 
                 <hr />
 
-                <ListSeparator>
-                  <li>
-                    <a>Investment Advice</a>
-                  </li>
-                  <li>
-                    <a>Retirement Planning</a>
-                  </li>
-                </ListSeparator>
+                <p className='t7-mute'>
+                  Account #: 867-5309
+                </p>
 
                 <DataTable
                   data={fake.dataTableRows(70, 9000)}
