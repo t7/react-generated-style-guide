@@ -26,9 +26,9 @@ class Header extends React.Component {
       <header className='t7-app__header' role='banner'>
         <GridContainer>
           <Grid desktop='25' tablet='25'>
-            <a className='t7-app__header__logo'>
+            <Link to='/' className='t7-app__header__logo'>
               ACME
-            </a>
+            </Link>
           </Grid>
           <Grid desktop='50' tablet='50'>
             <ListSeparator>
