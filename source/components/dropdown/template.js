@@ -92,7 +92,7 @@ class DropDown extends React.Component {
     const isDropdown = c.match('t7-dropdown')
 
     // Does component exist in page?
-    const itExists = !!this.refs[this.state.id]
+    const componentParent = this.refs[this.state.id]
 
     // Set in conditional.
     var parent = {}
@@ -111,13 +111,13 @@ class DropDown extends React.Component {
     }
 
     // Ensure it's not the dropdown itself.
-    const isValid = parent.id !== this.state.id
+    const isValid = parent !== componentParent
 
     if (isValid) {
       b.removeEventListener('mousedown', f)
       b.removeEventListener('touchstart', f)
 
-      if (itExists) {
+      if (componentParent) {
         this.setState({
           isActive: false
         })
