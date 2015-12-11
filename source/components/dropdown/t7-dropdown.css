@@ -10,6 +10,7 @@ Dropdown.
   -khtml-user-select: none;
   user-select: none;
 
+  display: inline-block;
   position: relative;
 }
 
@@ -52,10 +53,14 @@ Dropdown: Menu.
 .t7-dropdown__menu {
   background: #fff;
   border: 1px solid #000;
-  border-radius: 5px;
+  border-radius: 4px;
 
-  white-space: nowrap;
+  margin-left: -11px;
+  margin-right: -11px;
+
+  min-width: 100%;
   overflow: hidden;
+  white-space: nowrap;
 
   position: absolute;
   top: 100%;
@@ -87,9 +92,8 @@ Dropdown: Menu.
   margin: -5px -10px;
   padding: 5px 10px;
 
+  outline: 0;
   text-decoration: none;
-
-  overflow: hidden;
 }
 
 .t7-dropdown__menu__link[class]:hover {
@@ -97,6 +101,27 @@ Dropdown: Menu.
   color: #000;
 }
 
+.t7-dropdown__menu__link[class]:focus,
+.t7-dropdown__menu__link[class]:active {
+  box-shadow: inset #39f 0 0 2px 1px;
+}
+
 .t7-dropdown__menu__item:not(:first-child) .t7-dropdown__menu__link[class] {
   border-top: 1px solid #ccc;
+}
+
+/*
+============================================================
+End caps for first/last links.
+============================================================
+*/
+
+.t7-dropdown__menu__item:first-child .t7-dropdown__menu__link[class] {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.t7-dropdown__menu__item:last-child .t7-dropdown__menu__link[class] {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }

@@ -95,7 +95,7 @@ class DropDown extends React.Component {
     const componentParent = this.refs[this.state.id]
 
     // Set in conditional.
-    var parent = {}
+    var parent
 
     // Get parent.
     if (isLink) {
