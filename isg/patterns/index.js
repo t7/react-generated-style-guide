@@ -49255,7 +49255,7 @@
 	      var componentParent = this.refs[this.state.id];
 
 	      // Set in conditional.
-	      var parent = {};
+	      var parent;
 
 	      // Get parent.
 	      if (isLink) {
