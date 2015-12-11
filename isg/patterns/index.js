@@ -49178,15 +49178,15 @@
 	  _createClass(DropDown, [{
 	    key: 'defaultState',
 	    value: function defaultState() {
-	      // Check if expanded flag was passed.
-	      var expanded = this.props.expanded;
+	      // Check if flag was passed.
+	      var isActive = this.props.isActive;
 
-	      if (!_utils2['default'].exists(expanded)) {
-	        expanded = false;
+	      if (!_utils2['default'].exists(isActive)) {
+	        isActive = false;
 	      }
 
 	      var state = {
-	        expanded: expanded,
+	        isActive: isActive,
 	        id: this.props.id || _utils2['default'].unique()
 	      };
 
@@ -49205,7 +49205,7 @@
 	    key: 'handleClick',
 	    value: function handleClick(e, text) {
 	      this.setState({
-	        expanded: false
+	        isActive: false
 	      });
 
 	      var handleClick = this.props.handleClick;
@@ -49394,7 +49394,7 @@
 	})(_react2['default'].Component);
 
 	DropDown.propTypes = {
-	  expanded: _react2['default'].PropTypes.bool,
+	  isActive: _react2['default'].PropTypes.bool,
 	  menuAlign: _react2['default'].PropTypes.string,
 	  id: _react2['default'].PropTypes.string,
 	  items: _react2['default'].PropTypes.array,
