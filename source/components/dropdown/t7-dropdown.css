@@ -58,7 +58,7 @@ Dropdown: Menu.
   margin-left: -11px;
   margin-right: -11px;
 
-  min-width: 100%;
+  min-width: calc(100% + 22px);
   overflow: hidden;
   white-space: nowrap;
 
