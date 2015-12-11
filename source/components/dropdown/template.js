@@ -132,12 +132,14 @@ class DropDown extends React.Component {
     const b = document.body
     const f = this.bodyClickHandler.bind(this)
 
+    // Un-bind events.
+    b.removeEventListener('mousedown', f)
+    b.removeEventListener('touchstart', f)
+
+    // Re-add, if needed.
     if (isActive) {
       b.addEventListener('mousedown', f)
       b.addEventListener('touchstart', f)
-    } else {
-      b.removeEventListener('mousedown', f)
-      b.removeEventListener('touchstart', f)
     }
   }
 
