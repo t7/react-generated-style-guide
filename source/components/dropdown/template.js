@@ -92,7 +92,7 @@ class DropDown extends React.Component {
     const isDropdown = c.match('t7-dropdown')
 
     // Does component exist in page?
-    const itExists = !!document.getElementById(this.state.id)
+    const itExists = !!this.refs[this.state.id]
 
     // Set in conditional.
     var parent = {}
@@ -181,6 +181,7 @@ class DropDown extends React.Component {
     return (
       <div
         id={id}
+        ref={id}
         className='t7-dropdown'
         data-menu-align={menuAlign}
       >

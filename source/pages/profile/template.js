@@ -158,7 +158,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_first_name' value='Jonathan' />
+                      <Input
+                        id='_input_first_name'
+                        ref='_input_first_name'
+                        defaultValue='Jonathan'
+                      />
                     </p>
                   </Grid>
 
@@ -170,7 +174,11 @@ class Page extends React.Component {
                         </abbr>
                       </label>
                       <br />
-                      <Input id='_input_middle_initial' value='W' />
+                      <Input
+                        id='_input_middle_initial'
+                        ref='_input_middle_initial'
+                        defaultValue='W'
+                      />
                     </p>
                   </Grid>
 
@@ -182,7 +190,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_last_name' value='Rogersonian' />
+                      <Input
+                        id='_input_last_name'
+                        ref='_input_middle_initial'
+                        defaultValue='Rogersonian'
+                      />
                     </p>
                   </Grid>
 
@@ -196,7 +208,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_birth_date' value='02/10/1990' />
+                      <Input
+                        id='_input_birth_date'
+                        ref='_input_birth_date'
+                        defaultValue='02/10/1990'
+                      />
                     </p>
                   </Grid>
 
@@ -210,7 +226,11 @@ class Page extends React.Component {
                         </abbr>
                       </label>
                       <br />
-                      <Input id='_input_ssn' value='007-50-1337' />
+                      <Input
+                        id='_input_ssn'
+                        ref='_input_ssn'
+                        defaultValue='007-50-1337'
+                      />
                     </p>
                   </Grid>
 
@@ -222,7 +242,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_email' value='jwr@example.com' />
+                      <Input
+                        id='_input_email'
+                        ref='_input_email'
+                        defaultValue='jwr@example.com'
+                      />
                     </p>
                   </Grid>
 
@@ -234,7 +258,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_phone' value='555-867-5309' />
+                      <Input
+                        id='_input_phone'
+                        ref='_input_phone'
+                        defaultValue='555-867-5309'
+                      />
                     </p>
                   </Grid>
 
@@ -264,7 +292,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_address_1' value='1234 Fifth Street' />
+                      <Input
+                        id='_input_address_1'
+                        ref='_input_address_1'
+                        defaultValue='1234 Fifth Street'
+                      />
                     </p>
                   </Grid>
 
@@ -274,7 +306,11 @@ class Page extends React.Component {
                         Address Line 2
                       </label>
                       <br />
-                      <Input id='_input_address_2' value='Apartment B' />
+                      <Input
+                        id='_input_address_2'
+                        ref='_input_address_2'
+                        defaultValue='Apartment B'
+                      />
                     </p>
                   </Grid>
 
@@ -288,7 +324,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_city' value='Beverly Hills' />
+                      <Input
+                        id='_input_city'
+                        ref='_input_city'
+                        defaultValue='Beverly Hills'
+                      />
                     </p>
                   </Grid>
 
@@ -302,7 +342,8 @@ class Page extends React.Component {
                       <br />
                       <Select
                         id='_input_state'
-                        defaultValue='CA'
+                        ref='_input_state'
+                        defaultdefaultValue='CA'
 
                         options={
                           JSON.parse(
@@ -321,7 +362,11 @@ class Page extends React.Component {
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
-                      <Input id='_input_zip' value='90210' />
+                      <Input
+                        id='_input_zip'
+                        ref='_input_zip'
+                        defaultValue='90210'
+                      />
                     </p>
                   </Grid>
 
@@ -343,7 +388,8 @@ class Page extends React.Component {
                 <br />
                 <Textdiv
                   id='_input_allergies'
-                  value='No food allergies, but I am deathly allergic to cats.'
+                  ref='_input_allergies'
+                  defaultValue='No food allergies, but I am deathly allergic to cats.'
                 />
 
               </Fieldset>
@@ -408,7 +454,8 @@ class Page extends React.Component {
                 <br />
                 <Textdiv
                   id='_input_farewell'
-                  value='Tell the commander that it *was* me who set fire to his car. Sorry! :)'
+                  ref='_input_farewell'
+                  defaultValue='Tell the commander that it *was* me who set fire to his car. Sorry! :)'
                 />
 
               </Fieldset>
@@ -422,6 +469,7 @@ class Page extends React.Component {
                 <p>
                   <Checkbox
                     id='_input_agree_terms'
+                    ref='_input_agree_terms'
                     label='I agree to these terms.'
                   />
                 </p>
