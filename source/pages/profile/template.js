@@ -1,6 +1,5 @@
 // Dependencies.
 import React from 'react'
-import _ from 'lodash'
 
 // CSS.
 import '../../css/t7-helper.css'
