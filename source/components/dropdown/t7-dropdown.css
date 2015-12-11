@@ -107,7 +107,7 @@ Dropdown: Menu.
 }
 
 .t7-dropdown__menu__item:not(:first-child) .t7-dropdown__menu__link[class] {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
 }
 
 /*
