@@ -17,6 +17,14 @@ export default function (form) {
 
   // Loop through.
   _.each(list, function (el) {
+    // Check if it's disabled.
+    const isDisabled = el.disabled || el.hasAttribute('disabled')
+
+    // Exit if disabled.
+    if (isDisabled) {
+      return
+    }
+
     const name = el.getAttribute('name')
     const type = el.type
     const isTextdiv = el.getAttribute('contenteditable')
@@ -42,13 +50,8 @@ export default function (form) {
       item.checked = el.checked
     }
 
-    // Is it disabled?
-    const isDisabled = el.disabled || el.hasAttribute('disabled')
-
     // Add to data.
-    if (!isDisabled) {
-      data.push(item)
-    }
+    data.push(item)
   })
 
   // Send back object.
