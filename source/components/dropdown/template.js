@@ -113,15 +113,17 @@ class DropDown extends React.Component {
     // Ensure it's not the dropdown itself.
     const isValid = parent !== componentParent
 
-    if (isValid) {
+    // Un-bind events.
+    if (isValid || !componentParent) {
       b.removeEventListener('mousedown', f)
       b.removeEventListener('touchstart', f)
+    }
 
-      if (componentParent) {
-        this.setState({
-          isActive: false
-        })
-      }
+    // Change state.
+    if (isValid && componentParent) {
+      this.setState({
+        isActive: false
+      })
     }
   }
 
