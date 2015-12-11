@@ -21,15 +21,15 @@ class DropDown extends React.Component {
   // Apply to `state`, because we
   // don't want to mutate `props`.
   defaultState () {
-    // Check if expanded flag was passed.
-    var expanded = this.props.expanded
+    // Check if flag was passed.
+    var isActive = this.props.isActive
 
-    if (!utils.exists(expanded)) {
-      expanded = false
+    if (!utils.exists(isActive)) {
+      isActive = false
     }
 
     const state = {
-      expanded: expanded,
+      isActive: isActive,
       id: this.props.id || utils.unique()
     }
 
@@ -46,7 +46,7 @@ class DropDown extends React.Component {
   // Click event for items.
   handleClick (e, text) {
     this.setState({
-      expanded: false
+      isActive: false
     })
 
     const handleClick = this.props.handleClick
@@ -223,7 +223,7 @@ class DropDown extends React.Component {
 
 // Validation.
 DropDown.propTypes = {
-  expanded: React.PropTypes.bool,
+  isActive: React.PropTypes.bool,
   menuAlign: React.PropTypes.string,
   id: React.PropTypes.string,
   items: React.PropTypes.array,
