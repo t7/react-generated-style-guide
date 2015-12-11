@@ -49,43 +49,8 @@ class Page extends React.Component {
     // Get the `<form>` tag.
     const form = e.target
 
-    // Get the key/values.
-    const str = 'input, select, textarea, [contenteditable="true"]'
-    const list = form.querySelectorAll(str)
-
-    // Build in a loop.
-    const data = []
-
-    // Loop through.
-    _.each(list, function (el) {
-      const name = el.getAttribute('name')
-      const type = el.type
-      const isTextdiv = el.getAttribute('contenteditable')
-
-      var value
-
-      // If it's a Textdiv, treat differently.
-      if (isTextdiv) {
-        value = utils.convert_to_text(el.innerHTML)
-
-      // Else, typical form element.
-      } else {
-        value = el.value
-      }
-
-      const item = {
-        name: name,
-        value: value
-      }
-
-      // Pass `checked`?
-      if (type === 'radio' || type === 'checkbox') {
-        item.checked = el.checked
-      }
-
-      // Add to data.
-      data.push(item)
-    })
+    // Get form data.
+    const data = utils.parseFormData(form)
 
     // Log the form data.
     utils.log(data)
@@ -160,7 +125,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_first_name'
-                        ref='_input_first_name'
                         defaultValue='Jonathan'
                       />
                     </p>
@@ -176,7 +140,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_middle_initial'
-                        ref='_input_middle_initial'
                         defaultValue='W'
                       />
                     </p>
@@ -192,7 +155,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_last_name'
-                        ref='_input_middle_initial'
                         defaultValue='Rogersonian'
                       />
                     </p>
@@ -210,7 +172,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_birth_date'
-                        ref='_input_birth_date'
                         defaultValue='02/10/1990'
                       />
                     </p>
@@ -228,7 +189,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_ssn'
-                        ref='_input_ssn'
                         defaultValue='007-50-1337'
                       />
                     </p>
@@ -244,7 +204,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_email'
-                        ref='_input_email'
                         defaultValue='jwr@example.com'
                       />
                     </p>
@@ -260,7 +219,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_phone'
-                        ref='_input_phone'
                         defaultValue='555-867-5309'
                       />
                     </p>
@@ -294,7 +252,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_address_1'
-                        ref='_input_address_1'
                         defaultValue='1234 Fifth Street'
                       />
                     </p>
@@ -308,7 +265,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_address_2'
-                        ref='_input_address_2'
                         defaultValue='Apartment B'
                       />
                     </p>
@@ -326,7 +282,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_city'
-                        ref='_input_city'
                         defaultValue='Beverly Hills'
                       />
                     </p>
@@ -342,7 +297,6 @@ class Page extends React.Component {
                       <br />
                       <Select
                         id='_input_state'
-                        ref='_input_state'
                         defaultdefaultValue='CA'
 
                         options={
@@ -364,7 +318,6 @@ class Page extends React.Component {
                       <br />
                       <Input
                         id='_input_zip'
-                        ref='_input_zip'
                         defaultValue='90210'
                       />
                     </p>
@@ -388,7 +341,6 @@ class Page extends React.Component {
                 <br />
                 <Textdiv
                   id='_input_allergies'
-                  ref='_input_allergies'
                   defaultValue='No food allergies, but I am deathly allergic to cats.'
                 />
 
@@ -454,7 +406,6 @@ class Page extends React.Component {
                 <br />
                 <Textdiv
                   id='_input_farewell'
-                  ref='_input_farewell'
                   defaultValue='Tell the commander that it *was* me who set fire to his car. Sorry! :)'
                 />
 
@@ -469,7 +420,6 @@ class Page extends React.Component {
                 <p>
                   <Checkbox
                     id='_input_agree_terms'
-                    ref='_input_agree_terms'
                     label='I agree to these terms.'
                   />
                 </p>

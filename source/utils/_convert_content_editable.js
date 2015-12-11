@@ -24,7 +24,7 @@ export default function (e) {
   } else if (is_div) {
     value = el.innerHTML
     value = value.trim()
-    value = utils.convert_to_text(value)
+    value = utils.convertToText(value)
   }
 
   // Check event and key.
@@ -42,7 +42,7 @@ export default function (e) {
   if (do_replace_inline) {
     el.innerHTML = value
   } else if (do_replace_block) {
-    value = utils.convert_to_html(value)
+    value = utils.convertToMarkup(value)
 
     el.innerHTML = value
   }

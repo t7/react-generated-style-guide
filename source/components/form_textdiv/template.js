@@ -40,19 +40,19 @@ class Textdiv extends React.Component {
   }
 
   handleBlur (e) {
-    utils.convert_content_editable(e)
+    utils.convertContentEditable(e)
   }
 
   handleFocus (e) {
-    utils.convert_content_focus(e)
+    utils.convertContentFocus(e)
   }
 
   handleKeyUp (e) {
-    utils.convert_content_editable(e)
+    utils.convertContentEditable(e)
   }
 
   handlePaste (e) {
-    utils.convert_on_paste(e)
+    utils.convertOnPaste(e)
   }
 
   handleChange (e) {
@@ -64,7 +64,7 @@ class Textdiv extends React.Component {
     }
 
     const el = e.target
-    const value = utils.convert_to_text(el.innerHTML)
+    const value = utils.convertToText(el.innerHTML)
 
     handleChange(e, value)
   }
@@ -87,7 +87,7 @@ class Textdiv extends React.Component {
       value = placeholder
     }
 
-    value = utils.convert_to_html(value)
+    value = utils.convertToMarkup(value)
 
     // Events.
     const handleBlur = this.handleBlur.bind(this)
