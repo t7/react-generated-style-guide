@@ -22114,6 +22114,14 @@
 
 	  // Loop through.
 	  _lodash2['default'].each(list, function (el) {
+	    // Check if it's disabled.
+	    var isDisabled = el.disabled || el.hasAttribute('disabled');
+
+	    // Exit if disabled.
+	    if (isDisabled) {
+	      return;
+	    }
+
 	    var name = el.getAttribute('name');
 	    var type = el.type;
 	    var isTextdiv = el.getAttribute('contenteditable');
@@ -22139,13 +22147,8 @@
 	      item.checked = el.checked;
 	    }
 
-	    // Is it disabled?
-	    var isDisabled = el.disabled || el.hasAttribute('disabled');
-
 	    // Add to data.
-	    if (!isDisabled) {
-	      data.push(item);
-	    }
+	    data.push(item);
 	  });
 
 	  // Send back object.
