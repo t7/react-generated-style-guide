@@ -49185,9 +49185,15 @@
 	        isActive = false;
 	      }
 
+	      var id = this.props.id || _utils2['default'].unique();
+	      var idMenu = id + '_menu';
+	      var idTrigger = id + '_trigger';
+
 	      var state = {
 	        isActive: isActive,
-	        id: this.props.id || _utils2['default'].unique()
+	        id: id,
+	        idMenu: idMenu,
+	        idTrigger: idTrigger
 	      };
 
 	      // If state exists, reset it.
@@ -49207,6 +49213,9 @@
 	      this.setState({
 	        isActive: false
 	      });
+
+	      // Place focus back on trigger.
+	      this.refs[this.state.idTrigger].focus();
 
 	      var handleClick = this.props.handleClick;
 
@@ -49315,8 +49324,8 @@
 	      // State driven.
 	      var isActive = this.state.isActive;
 	      var id = this.state.id;
-	      var idMenu = id + '_menu';
-	      var idTrigger = id + '_trigger';
+	      var idMenu = this.state.idMenu;
+	      var idTrigger = this.state.idTrigger;
 
 	      // Props driven.
 	      var menuAlign = this.props.menuAlign;
@@ -49359,6 +49368,7 @@
 	          'a',
 	          {
 	            id: idTrigger,
+	            ref: idTrigger,
 	            'aria-controls': idMenu,
 
 	            'aria-expanded': isActive,
