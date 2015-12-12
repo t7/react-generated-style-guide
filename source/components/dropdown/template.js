@@ -28,9 +28,15 @@ class DropDown extends React.Component {
       isActive = false
     }
 
+    const id = this.props.id || utils.unique()
+    const idMenu = id + '_menu'
+    const idTrigger = id + '_trigger'
+
     const state = {
       isActive: isActive,
-      id: this.props.id || utils.unique()
+      id: id,
+      idMenu: idMenu,
+      idTrigger: idTrigger
     }
 
     // If state exists, reset it.
@@ -48,6 +54,9 @@ class DropDown extends React.Component {
     this.setState({
       isActive: false
     })
+
+    // Place focus back on trigger.
+    this.refs[this.state.idTrigger].focus()
 
     const handleClick = this.props.handleClick
 
@@ -148,8 +157,8 @@ class DropDown extends React.Component {
     // State driven.
     const isActive = this.state.isActive
     const id = this.state.id
-    const idMenu = id + '_menu'
-    const idTrigger = id + '_trigger'
+    const idMenu = this.state.idMenu
+    const idTrigger = this.state.idTrigger
 
     // Props driven.
     const menuAlign = this.props.menuAlign
@@ -191,6 +200,7 @@ class DropDown extends React.Component {
       >
         <a
           id={idTrigger}
+          ref={idTrigger}
           aria-controls={idMenu}
 
           aria-expanded={isActive}
