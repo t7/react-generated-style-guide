@@ -141,9 +141,7 @@ class Page extends React.Component {
                     menuAlign='right'
                     items={[
                       {
-                        target: '_blank',
-                        text: 'Investment Advice',
-                        href: 'http://example.com'
+                        text: 'Investment Advice'
                       },
                       {
                         text: 'Retirement Planning'
