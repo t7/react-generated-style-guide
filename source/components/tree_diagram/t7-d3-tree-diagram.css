@@ -34,14 +34,12 @@ D3.js - Tree Diagram.
 
 .t7-d3-tree-diagram__rect {
   fill: #fff;
-  stroke: #666;
-  stroke-width: 1px;
-  shape-rendering: crispEdges;
+  stroke: #999;
+  stroke-width: 2px;
 }
 
 .t7-d3-tree-diagram__link {
   fill: none;
   stroke: #999;
   stroke-width: 1px;
-  shape-rendering: crispEdges;
 }

@@ -9,8 +9,8 @@ export default class Chart {
 
   setConfig () {
     this.config = {}
-    this.config.rectWidth = 110
-    this.config.rectHeight = 30
+    this.config.rectW = 110
+    this.config.rectH = 30
   }
 
   bindResize () {
@@ -48,26 +48,18 @@ export default class Chart {
     this.redraw()
   }
 
-  setPan () {
-    this.svg.attr(
-      'transform',
-      'translate(' + d3.event.translate + ')' +
-      ' ' +
-      'scale(' + d3.event.scale + ')'
-    )
-  }
-
   elbowLink (d) {
-    const rectWidth = this.config.rectWidth
-    const rectHeight = this.config.rectHeight
+    const rectW = this.config.rectW
+    const rectH = this.config.rectH
 
-    const startX = d.source.x + (rectWidth / 2)
-    const startY = d.source.y + (rectHeight / 2)
+    const startX = d.source.x + (rectW / 2)
+    const startY = d.source.y + (rectH / 2)
 
-    const midY = (d.source.y + ((d.target.y - d.source.y) * 0.5)) + (rectHeight / 2)
+    const midY =
+    (d.source.y + ((d.target.y - d.source.y) * 0.5)) + (rectH / 2)
 
-    const endX = (d.target.x + (rectWidth / 2))
-    const endY = (d.target.y + (rectHeight / 2))
+    const endX = (d.target.x + (rectW / 2))
+    const endY = (d.target.y + (rectH / 2))
 
     const value =
       // Move to: X, Y.
@@ -86,6 +78,15 @@ export default class Chart {
     return value
   }
 
+  setPan () {
+    this.svg.attr(
+      'transform',
+      'translate(' + d3.event.translate + ')' +
+      ' ' +
+      'scale(' + d3.event.scale + ')'
+    )
+  }
+
   /*
     This is called via `this.render`
     or when the window is resized.
@@ -102,48 +103,54 @@ export default class Chart {
       return
     }
 
-    var z
-    var i = 0
-
     const setPan = this.setPan.bind(this)
     const elbowLink = this.elbowLink.bind(this)
 
     const width = this.el.offsetWidth
     const height = this.el.offsetHeight
 
-    const rectWidth = this.config.rectWidth
-    const rectHeight = this.config.rectHeight
+    const rectW = this.config.rectW
+    const rectH = this.config.rectH
 
-    const offset = (width / 2) - (rectWidth / 2)
+    const offset = (width / 2) - (rectW / 2)
 
     const tree = d3.layout.tree()
 
     // Set default node size.
     tree.nodeSize([
-      rectWidth + 20,
-      rectHeight + 20
+      rectW + 20,
+      rectH + 20
     ])
 
     // Compute tree layout.
     const nodes = tree.nodes(data)
     const links = tree.links(nodes)
 
-    this.svg = d3
+    const root = d3
       .select(this.el)
       .append('svg')
       .attr('width', width)
       .attr('height', height)
-      .call(z = d3.behavior.zoom().scaleExtent([1, 1]).on('zoom', setPan))
+      .call(
+        d3
+          .behavior
+          .zoom()
+          .translate([offset, 20])
+          .scaleExtent([0.25, 2])
+          .on('zoom', setPan)
+      )
+
+    this.svg = root
       .append('g')
       .attr('transform', 'translate(' + offset + ',' + 20 + ')')
-
-    // Zoom point of origin.
-    z.translate([offset, 20])
 
     // Normalize depth.
     nodes.forEach(function (d) {
       d.y = d.depth * 100
     })
+
+    // Used in loop.
+    var i = 0
 
     // Update the nodes.
     const allNodes = this
@@ -162,21 +169,18 @@ export default class Chart {
     // Enter any new nodes at the parent's previous position.
     const allNodesInner = allNodes.enter().append('g')
 
-    allNodesInner
-      .attr('transform', function (d) {
-        return 'translate(' + 0 + ',' + height / 2 + ')'
-      })
-
+    // Add rectangles.
     allNodesInner
       .append('rect')
       .attr('class', 't7-d3-tree-diagram__rect')
-      .attr('width', rectWidth)
-      .attr('height', rectHeight)
+      .attr('width', rectW)
+      .attr('height', rectH)
 
+    // Add text.
     allNodesInner
       .append('text')
-      .attr('x', rectWidth / 2)
-      .attr('y', rectHeight / 2)
+      .attr('x', rectW / 2)
+      .attr('y', rectH / 2)
       .attr('dy', '0.35em')
       .attr('text-anchor', 'middle')
       .text(function (d) {
@@ -202,8 +206,8 @@ export default class Chart {
       .enter()
       .insert('path', 'g')
       .attr('class', 't7-d3-tree-diagram__link')
-      .attr('x', rectWidth / 2)
-      .attr('y', rectHeight / 2)
+      .attr('x', rectW / 2)
+      .attr('y', rectH / 2)
       .attr('d', elbowLink)
   }
 }
