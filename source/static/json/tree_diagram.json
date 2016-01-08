@@ -2,57 +2,57 @@
   "name": "1A",
   "children": [
     {
-      "name": "1A: 2A",
+      "name": "1A-2A",
       "children": [
         {
-          "name": "1A: 2A: 3A",
+          "name": "1A-2A-3A",
           "children": [
             {
-              "name": "1A: 2A: 3A: 4A",
+              "name": "1A-2A-3A-4A",
               "children": [
                 {
-                  "name": "1A: 2A: 3A: 4A: 5A"
+                  "name": "1A-2A-3A-4A-5A"
                 },
                 {
-                  "name": "1A: 2A: 3A: 4A: 5B"
+                  "name": "1A-2A-3A-4A-5B"
                 }
               ]
             },
             {
-              "name": "1A: 2A: 3A: 4B",
+              "name": "1A-2A-3A-4B",
               "children": [
                 {
-                  "name": "1A: 2A: 3A: 4B: 5A"
+                  "name": "1A-2A-3A-4B-5A"
                 },
                 {
-                  "name": "1A: 2A: 3A: 4B: 5B"
+                  "name": "1A-2A-3A-4B-5B"
                 }
               ]
             }
           ]
         },
         {
-          "name": "1A: 2A: 3B",
+          "name": "1A-2A-3B",
           "children": [
             {
-              "name": "1A: 2A: 3B: 4A",
+              "name": "1A-2A-3B-4A",
               "children": [
                 {
-                  "name": "1A: 2A: 3B: 4A: 5A"
+                  "name": "1A-2A-3B-4A-5A"
                 },
                 {
-                  "name": "1A: 2A: 3B: 4A: 5B"
+                  "name": "1A-2A-3B-4A-5B"
                 }
               ]
             },
             {
-              "name": "1A: 2A: 3B: 4B",
+              "name": "1A-2A-3B-4B",
               "children": [
                 {
-                  "name": "1A: 2A: 3B: 4B: 5A"
+                  "name": "1A-2A-3B-4B-5A"
                 },
                 {
-                  "name": "1A: 2A: 3B: 4B: 5B"
+                  "name": "1A-2A-3B-4B-5B"
                 }
               ]
             }
@@ -61,57 +61,57 @@
       ]
     },
     {
-      "name": "1A: 2B",
+      "name": "1A-2B",
       "children": [
         {
-          "name": "1A: 2B: 3A",
+          "name": "1A-2B-3A",
           "children": [
             {
-              "name": "1A: 2B: 3A: 4A",
+              "name": "1A-2B-3A-4A",
               "children": [
                 {
-                  "name": "1A: 2B: 3A: 4A: 5A"
+                  "name": "1A-2B-3A-4A-5A"
                 },
                 {
-                  "name": "1A: 2B: 3A: 4A: 5B"
+                  "name": "1A-2B-3A-4A-5B"
                 }
               ]
             },
             {
-              "name": "1A: 2B: 3A: 4B",
+              "name": "1A-2B-3A-4B",
               "children": [
                 {
-                  "name": "1A: 2B: 3A: 4B: 5A"
+                  "name": "1A-2B-3A-4B-5A"
                 },
                 {
-                  "name": "1A: 2B: 3A: 4B: 5B"
+                  "name": "1A-2B-3A-4B-5B"
                 }
               ]
             }
           ]
         },
         {
-          "name": "1A: 2B: 3B",
+          "name": "1A-2B-3B",
           "children": [
             {
-              "name": "1A: 2B: 3B: 4A",
+              "name": "1A-2B-3B-4A",
               "children": [
                 {
-                  "name": "1A: 2B: 3B: 4A: 5A"
+                  "name": "1A-2B-3B-4A-5A"
                 },
                 {
-                  "name": "1A: 2B: 3B: 4A: 5B"
+                  "name": "1A-2B-3B-4A-5B"
                 }
               ]
             },
             {
-              "name": "1A: 2B: 3B: 4B",
+              "name": "1A-2B-3B-4B",
               "children": [
                 {
-                  "name": "1A: 2B: 3B: 4B: 5A"
+                  "name": "1A-2B-3B-4B-5A"
                 },
                 {
-                  "name": "1A: 2B: 3B: 4B: 5B"
+                  "name": "1A-2B-3B-4B-5B"
                 }
               ]
             }
