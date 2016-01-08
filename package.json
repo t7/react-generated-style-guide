@@ -48,6 +48,7 @@
     "babel-jest": "^5.3.0",
     "babel-loader": "^5.3.2",
     "css-loader": "^0.15.5",
+    "d3": "^3.5.12",
     "deep-equal": "^1.0.1",
     "es6-promise": "^3.0.2",
     "exports-loader": "^0.6.2",

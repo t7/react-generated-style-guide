@@ -9,6 +9,7 @@ import './css/global.css'
 
 // Pages.
 import Accounts from './pages/accounts/template'
+import Diagram from './pages/diagram/template'
 import Profile from './pages/profile/template'
 import NotFound from './pages/404/template'
 
@@ -20,6 +21,12 @@ const template = (
 path='/'
 component={Accounts}
 title='Bank Accounts'
+/>
+
+<Route
+path='/diagram'
+component={Diagram}
+title='Tree Diagram'
 />
 
 <Route

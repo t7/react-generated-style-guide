@@ -33,13 +33,16 @@ class Header extends React.Component {
           <Grid desktop='50' tablet='50'>
             <ListSeparator>
               <li>
-                <Link to='/'>Bank Accounts</Link>
+                <Link to='/'>Accounts</Link>
               </li>
               <li>
-                <Link to='/profile'>User Profile</Link>
+                <Link to='/profile'>Profile</Link>
               </li>
               <li>
-                <a href='./isg/intro/'>Style Guide</a>
+                <Link to='/diagram'>Diagram</Link>
+              </li>
+              <li>
+                <a href='./isg/intro/'>ISG</a>
               </li>
             </ListSeparator>
           </Grid>
