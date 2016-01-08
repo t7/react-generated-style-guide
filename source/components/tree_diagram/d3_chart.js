@@ -14,13 +14,23 @@ export default class Chart {
   }
 
   bindResize () {
-    const redraw = this.redraw.bind(this)
-    window.addEventListener('resize', redraw)
+    const resize = this.resize.bind(this)
+    window.addEventListener('resize', resize)
   }
 
   unbindResize () {
-    const redraw = this.redraw.bind(this)
-    window.removeEventListener('resize', redraw)
+    const resize = this.resize.bind(this)
+    window.removeEventListener('resize', resize)
+  }
+
+  resize () {
+    const width = this.el.offsetWidth
+    const height = this.el.offsetHeight
+
+    d3
+      .select('svg')
+      .attr('width', width)
+      .attr('height', height)
   }
 
   /*
@@ -87,6 +97,19 @@ export default class Chart {
     )
   }
 
+  nodeToggle (d) {
+    // TODO.
+    console.log('test')
+
+    if (d.children) {
+      d._children = d.children
+      d.children = null
+    } else {
+      d.children = d._children
+      d._children = null
+    }
+  }
+
   /*
     This is called via `this.render`
     or when the window is resized.
@@ -105,6 +128,7 @@ export default class Chart {
 
     const setPan = this.setPan.bind(this)
     const elbowLink = this.elbowLink.bind(this)
+    const nodeToggle = this.nodeToggle.bind(this)
 
     const width = this.el.offsetWidth
     const height = this.el.offsetHeight
@@ -166,7 +190,7 @@ export default class Chart {
         return d.id
       })
 
-    // Enter any new nodes at the parent's previous position.
+    // Create elements per node.
     const allNodesInner = allNodes.enter().append('g')
 
     // Add rectangles.
@@ -187,11 +211,14 @@ export default class Chart {
         return d.name
       })
 
-    // Place nodes in position.
+    // Loop through nodes.
     allNodes
+      // Place nodes in position.
       .attr('transform', function (d) {
         return 'translate(' + d.x + ',' + d.y + ')'
       })
+      // Click event.
+      .on('click', nodeToggle)
 
     // Update the links.
     const allLinks = this
