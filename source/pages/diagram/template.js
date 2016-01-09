@@ -80,6 +80,10 @@ class Page extends React.Component {
 
           <Grid desktop='100'>
 
+            <h1>
+              Example D3.js Diagram
+            </h1>
+
             <TreeDiagram data={data} />
 
           </Grid>

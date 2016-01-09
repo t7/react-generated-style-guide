@@ -33,11 +33,26 @@ class TreeDiagram extends React.Component {
 
   // Render method.
   render () {
+    const data = this.props.data
+
+    // Set in conditional.
+    var loadingMessage
+
+    if (!data || !Object.keys(data).length) {
+      loadingMessage = (
+        <div className='t7-d3-tree-diagram__loading'>
+          Loading…
+        </div>
+      )
+    }
+
     return (
       <div
         className='t7-d3-tree-diagram'
         ref='el'
-      />
+      >
+        {loadingMessage}
+      </div>
     )
   }
 }
@@ -49,7 +64,33 @@ TreeDiagram.propTypes = {
 
 // Defaults.
 TreeDiagram.defaultProps = {
-
+  data: {
+    name: '1A',
+    children: [
+      {
+        name: '1A-2A',
+        children: [
+          {
+            name: '1A-2A-3A'
+          },
+          {
+            name: '1A-2A-3B'
+          }
+        ]
+      },
+      {
+        name: '1A-2B',
+        children: [
+          {
+            name: '1A-2B-3A'
+          },
+          {
+            name: '1A-2B-3B'
+          }
+        ]
+      }
+    ]
+  }
 }
 
 // Export.

@@ -97,17 +97,15 @@ export default class Chart {
     )
   }
 
-  nodeToggle (d) {
-    // TODO.
-    console.log('test')
+  nodeToggle (source) {
+    const children = source.children
 
-    if (d.children) {
-      d._children = d.children
-      d.children = null
-    } else {
-      d.children = d._children
-      d._children = null
+    if (!children || !children.length) {
+      return
     }
+
+    // TODO.
+    console.log(source.children)
   }
 
   /*
@@ -138,17 +136,21 @@ export default class Chart {
 
     const offset = (width / 2) - (rectW / 2)
 
-    const tree = d3.layout.tree()
+    this.tree = d3.layout.tree()
+
+    this.tree.separation(function () {
+      return 1
+    })
 
     // Set default node size.
-    tree.nodeSize([
+    this.tree.nodeSize([
       rectW + 20,
       rectH + 20
     ])
 
     // Compute tree layout.
-    const nodes = tree.nodes(data)
-    const links = tree.links(nodes)
+    const nodes = this.tree.nodes(data).reverse()
+    const links = this.tree.links(nodes)
 
     const root = d3
       .select(this.el)
@@ -181,6 +183,10 @@ export default class Chart {
       .svg
       .selectAll()
       .data(nodes, function (d) {
+        // Stash [X,Y] for transition.
+        d._x = d.x
+        d._y = d.y
+
         // Increment counter.
         i++
 
@@ -191,7 +197,11 @@ export default class Chart {
       })
 
     // Create elements per node.
-    const allNodesInner = allNodes.enter().append('g')
+    const allNodesInner =
+      allNodes
+      .enter()
+      .append('g')
+      .attr('class', 't7-d3-tree-diagram__node')
 
     // Add rectangles.
     allNodesInner
