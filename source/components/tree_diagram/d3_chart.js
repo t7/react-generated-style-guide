@@ -8,9 +8,11 @@ export default class Chart {
   }
 
   setConfig () {
-    this.config = {}
-    this.config.rectW = 110
-    this.config.rectH = 30
+    this.config = {
+      duration: 500,
+      rectW: 110,
+      rectH: 30
+    }
   }
 
   bindResize () {
@@ -47,15 +49,6 @@ export default class Chart {
     }
 
     svg.remove()
-  }
-
-  /*
-    Called when the React component
-    is mounted, or has updated data.
-  */
-  render (data) {
-    this.data = data
-    this.redraw()
   }
 
   elbowLink (d) {
@@ -97,22 +90,29 @@ export default class Chart {
     )
   }
 
-  nodeToggle (source) {
-    const children = source.children
-
-    if (!children || !children.length) {
-      return
+  nodeToggle (d) {
+    if (d.children) {
+      d._children = d.children
+      d.children = null
+    } else {
+      d.children = d._children
+      d._children = null
     }
 
-    // TODO.
-    console.log(source.children)
+    this.update(d)
   }
 
   /*
-    This is called via `this.render`
-    or when the window is resized.
+    Called when the React component
+    is mounted, or has updated data.
   */
-  redraw () {
+  render (data) {
+    this.data = data
+    this.destroy()
+    this.setup()
+  }
+
+  setup () {
     // Destroy, if it exists.
     this.destroy()
 
@@ -125,8 +125,6 @@ export default class Chart {
     }
 
     const setPan = this.setPan.bind(this)
-    const elbowLink = this.elbowLink.bind(this)
-    const nodeToggle = this.nodeToggle.bind(this)
 
     const width = this.el.offsetWidth
     const height = this.el.offsetHeight
@@ -148,10 +146,6 @@ export default class Chart {
       rectH + 20
     ])
 
-    // Compute tree layout.
-    const nodes = this.tree.nodes(data).reverse()
-    const links = this.tree.links(nodes)
-
     const root = d3
       .select(this.el)
       .append('svg')
@@ -170,6 +164,31 @@ export default class Chart {
       .append('g')
       .attr('transform', 'translate(' + offset + ',' + 20 + ')')
 
+    this.update(data)
+  }
+
+  // Called via `this.render`.
+  update (source) {
+    // Get data set in `render`.
+    const data = this.data
+
+    // Exit, if no data.
+    if (!source || !Object.keys(data).length) {
+      return
+    }
+
+    // const setPan = this.setPan.bind(this)
+    const elbowLink = this.elbowLink.bind(this)
+    const nodeToggle = this.nodeToggle.bind(this)
+
+    const duration = this.config.duration
+    const rectW = this.config.rectW
+    const rectH = this.config.rectH
+
+    // Compute tree layout.
+    const nodes = this.tree.nodes(data)
+    const links = this.tree.links(nodes)
+
     // Normalize depth.
     nodes.forEach(function (d) {
       d.y = d.depth * 100
@@ -181,12 +200,8 @@ export default class Chart {
     // Update the nodes.
     const allNodes = this
       .svg
-      .selectAll()
+      .selectAll('.t7-d3-tree-diagram__node')
       .data(nodes, function (d) {
-        // Stash [X,Y] for transition.
-        d._x = d.x
-        d._y = d.y
-
         // Increment counter.
         i++
 
@@ -197,21 +212,25 @@ export default class Chart {
       })
 
     // Create elements per node.
-    const allNodesInner =
+    const allNodesEnter =
       allNodes
       .enter()
       .append('g')
       .attr('class', 't7-d3-tree-diagram__node')
+      .attr('transform', function (d) {
+        return 'translate(' + (source.x0 || source.x) + ',' + (source.y0 || source.y) + ')'
+      })
+      .on('click', nodeToggle)
 
     // Add rectangles.
-    allNodesInner
+    allNodesEnter
       .append('rect')
       .attr('class', 't7-d3-tree-diagram__rect')
       .attr('width', rectW)
       .attr('height', rectH)
 
     // Add text.
-    allNodesInner
+    allNodesEnter
       .append('text')
       .attr('x', rectW / 2)
       .attr('y', rectH / 2)
@@ -221,19 +240,27 @@ export default class Chart {
         return d.name
       })
 
-    // Loop through nodes.
+    // Place nodes in position.
     allNodes
-      // Place nodes in position.
+      .transition()
+      .duration(duration)
       .attr('transform', function (d) {
         return 'translate(' + d.x + ',' + d.y + ')'
       })
-      // Click event.
-      .on('click', nodeToggle)
+
+    allNodes
+      .exit()
+      .transition()
+      .duration(duration)
+      .attr('transform', function (d) {
+        return 'translate(' + source.x + ',' + source.y + ')'
+      })
+      .remove()
 
     // Update the links.
     const allLinks = this
       .svg
-      .selectAll()
+      .selectAll('.t7-d3-tree-diagram__link')
       .data(links, function (d) {
         return d.target.id
       })
@@ -245,6 +272,44 @@ export default class Chart {
       .attr('class', 't7-d3-tree-diagram__link')
       .attr('x', rectW / 2)
       .attr('y', rectH / 2)
+      .attr('d', function (d) {
+        const o = {
+          x: source.x0 || source.x,
+          y: source.y0 || source.y
+        }
+
+        return elbowLink({
+          source: o,
+          target: o
+        })
+      })
+
+    allLinks
+      .transition()
+      .duration(duration)
       .attr('d', elbowLink)
+
+    allLinks
+      .exit()
+      .transition()
+      .duration(duration)
+      .attr('d', function (d) {
+        const o = {
+          x: source.x,
+          y: source.y
+        }
+
+        return elbowLink({
+          source: o,
+          target: o
+        })
+      })
+      .remove()
+
+    // Stash positions.
+    nodes.forEach(function (d) {
+      d.x0 = d.x
+      d.y0 = d.y
+    })
   }
 }
