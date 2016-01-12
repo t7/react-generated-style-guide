@@ -99,7 +99,8 @@ export default class Chart {
       d._children = null
     }
 
-    this.update(d)
+    // Set `showAnimation` to `true`.
+    this.update(d, true)
   }
 
   /*
@@ -168,14 +169,9 @@ export default class Chart {
   }
 
   // Called via `this.render`.
-  update (source) {
+  update (source, showAnimation) {
     // Get data set in `render`.
     const data = this.data
-
-    // Exit, if no data.
-    if (!source || !Object.keys(data).length) {
-      return
-    }
 
     // const setPan = this.setPan.bind(this)
     const elbowLink = this.elbowLink.bind(this)
@@ -240,23 +236,6 @@ export default class Chart {
         return d.name
       })
 
-    // Place nodes in position.
-    allNodes
-      .transition()
-      .duration(duration)
-      .attr('transform', function (d) {
-        return 'translate(' + d.x + ',' + d.y + ')'
-      })
-
-    allNodes
-      .exit()
-      .transition()
-      .duration(duration)
-      .attr('transform', function (d) {
-        return 'translate(' + source.x + ',' + source.y + ')'
-      })
-      .remove()
-
     // Update the links.
     const allLinks = this
       .svg
@@ -284,27 +263,69 @@ export default class Chart {
         })
       })
 
-    allLinks
-      .transition()
-      .duration(duration)
-      .attr('d', elbowLink)
+    // ===============
+    // Show animation?
+    // ===============
 
-    allLinks
-      .exit()
-      .transition()
-      .duration(duration)
-      .attr('d', function (d) {
-        const o = {
-          x: source.x,
-          y: source.y
-        }
-
-        return elbowLink({
-          source: o,
-          target: o
+    if (showAnimation) {
+      allNodes
+        .transition()
+        .duration(duration)
+        .attr('transform', function (d) {
+          return 'translate(' + d.x + ',' + d.y + ')'
         })
-      })
-      .remove()
+
+      allNodes
+        .exit()
+        .transition()
+        .duration(duration)
+        .attr('transform', function (d) {
+          return 'translate(' + source.x + ',' + source.y + ')'
+        })
+        .remove()
+
+      allLinks
+        .transition()
+        .duration(duration)
+        .attr('d', elbowLink)
+
+      allLinks
+        .exit()
+        .transition()
+        .duration(duration)
+        .attr('d', function (d) {
+          const o = {
+            x: source.x,
+            y: source.y
+          }
+
+          return elbowLink({
+            source: o,
+            target: o
+          })
+        })
+        .remove()
+
+    // =============
+    // No animation?
+    // =============
+    } else {
+      allNodes
+        .attr('transform', function (d) {
+          return 'translate(' + d.x + ',' + d.y + ')'
+        })
+
+      allNodes
+        .exit()
+        .remove()
+
+      allLinks
+        .attr('d', elbowLink)
+
+      allLinks
+        .exit()
+        .remove()
+    }
 
     // Stash positions.
     nodes.forEach(function (d) {

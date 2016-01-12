@@ -84,6 +84,10 @@ class Page extends React.Component {
               Example D3.js Diagram
             </h1>
 
+            <p className='t7-mute'>
+              <b>Note:</b> Click an item to expand/collapse.
+            </p>
+
             <TreeDiagram data={data} />
 
           </Grid>
