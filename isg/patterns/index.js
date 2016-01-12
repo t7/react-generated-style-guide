@@ -52831,7 +52831,8 @@
 	        d._children = null;
 	      }
 
-	      this.update(d);
+	      // Set `showAnimation` to `true`.
+	      this.update(d, true);
 	    }
 
 	    /*
@@ -52888,14 +52889,9 @@
 	    // Called via `this.render`.
 	  }, {
 	    key: 'update',
-	    value: function update(source) {
+	    value: function update(source, showAnimation) {
 	      // Get data set in `render`.
 	      var data = this.data;
-
-	      // Exit, if no data.
-	      if (!source || !Object.keys(data).length) {
-	        return;
-	      }
 
 	      // const setPan = this.setPan.bind(this)
 	      var elbowLink = this.elbowLink.bind(this);
@@ -52941,15 +52937,6 @@
 	        return d.name;
 	      });
 
-	      // Place nodes in position.
-	      allNodes.transition().duration(duration).attr('transform', function (d) {
-	        return 'translate(' + d.x + ',' + d.y + ')';
-	      });
-
-	      allNodes.exit().transition().duration(duration).attr('transform', function (d) {
-	        return 'translate(' + source.x + ',' + source.y + ')';
-	      }).remove();
-
 	      // Update the links.
 	      var allLinks = this.svg.selectAll('.t7-d3-tree-diagram__link').data(links, function (d) {
 	        return d.target.id;
@@ -52968,19 +52955,47 @@
 	        });
 	      });
 
-	      allLinks.transition().duration(duration).attr('d', elbowLink);
+	      // ===============
+	      // Show animation?
+	      // ===============
 
-	      allLinks.exit().transition().duration(duration).attr('d', function (d) {
-	        var o = {
-	          x: source.x,
-	          y: source.y
-	        };
-
-	        return elbowLink({
-	          source: o,
-	          target: o
+	      if (showAnimation) {
+	        allNodes.transition().duration(duration).attr('transform', function (d) {
+	          return 'translate(' + d.x + ',' + d.y + ')';
 	        });
-	      }).remove();
+
+	        allNodes.exit().transition().duration(duration).attr('transform', function (d) {
+	          return 'translate(' + source.x + ',' + source.y + ')';
+	        }).remove();
+
+	        allLinks.transition().duration(duration).attr('d', elbowLink);
+
+	        allLinks.exit().transition().duration(duration).attr('d', function (d) {
+	          var o = {
+	            x: source.x,
+	            y: source.y
+	          };
+
+	          return elbowLink({
+	            source: o,
+	            target: o
+	          });
+	        }).remove();
+
+	        // =============
+	        // No animation?
+	        // =============
+	      } else {
+	          allNodes.attr('transform', function (d) {
+	            return 'translate(' + d.x + ',' + d.y + ')';
+	          });
+
+	          allNodes.exit().remove();
+
+	          allLinks.attr('d', elbowLink);
+
+	          allLinks.exit().remove();
+	        }
 
 	      // Stash positions.
 	      nodes.forEach(function (d) {
