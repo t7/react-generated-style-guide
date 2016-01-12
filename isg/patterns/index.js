@@ -52741,9 +52741,11 @@
 	  _createClass(Chart, [{
 	    key: 'setConfig',
 	    value: function setConfig() {
-	      this.config = {};
-	      this.config.rectW = 110;
-	      this.config.rectH = 30;
+	      this.config = {
+	        duration: 500,
+	        rectW: 110,
+	        rectH: 30
+	      };
 	    }
 	  }, {
 	    key: 'bindResize',
@@ -52783,17 +52785,6 @@
 
 	      svg.remove();
 	    }
-
-	    /*
-	      Called when the React component
-	      is mounted, or has updated data.
-	    */
-	  }, {
-	    key: 'render',
-	    value: function render(data) {
-	      this.data = data;
-	      this.redraw();
-	    }
 	  }, {
 	    key: 'elbowLink',
 	    value: function elbowLink(d) {
@@ -52831,24 +52822,32 @@
 	    }
 	  }, {
 	    key: 'nodeToggle',
-	    value: function nodeToggle(source) {
-	      var children = source.children;
-
-	      if (!children || !children.length) {
-	        return;
+	    value: function nodeToggle(d) {
+	      if (d.children) {
+	        d._children = d.children;
+	        d.children = null;
+	      } else {
+	        d.children = d._children;
+	        d._children = null;
 	      }
 
-	      // TODO.
-	      console.log(source.children);
+	      this.update(d);
 	    }
 
 	    /*
-	      This is called via `this.render`
-	      or when the window is resized.
+	      Called when the React component
+	      is mounted, or has updated data.
 	    */
 	  }, {
-	    key: 'redraw',
-	    value: function redraw() {
+	    key: 'render',
+	    value: function render(data) {
+	      this.data = data;
+	      this.destroy();
+	      this.setup();
+	    }
+	  }, {
+	    key: 'setup',
+	    value: function setup() {
 	      // Destroy, if it exists.
 	      this.destroy();
 
@@ -52861,8 +52860,6 @@
 	      }
 
 	      var setPan = this.setPan.bind(this);
-	      var elbowLink = this.elbowLink.bind(this);
-	      var nodeToggle = this.nodeToggle.bind(this);
 
 	      var width = this.el.offsetWidth;
 	      var height = this.el.offsetHeight;
@@ -52881,13 +52878,36 @@
 	      // Set default node size.
 	      this.tree.nodeSize([rectW + 20, rectH + 20]);
 
-	      // Compute tree layout.
-	      var nodes = this.tree.nodes(data).reverse();
-	      var links = this.tree.links(nodes);
-
 	      var root = _d32['default'].select(this.el).append('svg').attr('width', width).attr('height', height).call(_d32['default'].behavior.zoom().translate([offset, 20]).scaleExtent([0.25, 2]).on('zoom', setPan));
 
 	      this.svg = root.append('g').attr('transform', 'translate(' + offset + ',' + 20 + ')');
+
+	      this.update(data);
+	    }
+
+	    // Called via `this.render`.
+	  }, {
+	    key: 'update',
+	    value: function update(source) {
+	      // Get data set in `render`.
+	      var data = this.data;
+
+	      // Exit, if no data.
+	      if (!source || !Object.keys(data).length) {
+	        return;
+	      }
+
+	      // const setPan = this.setPan.bind(this)
+	      var elbowLink = this.elbowLink.bind(this);
+	      var nodeToggle = this.nodeToggle.bind(this);
+
+	      var duration = this.config.duration;
+	      var rectW = this.config.rectW;
+	      var rectH = this.config.rectH;
+
+	      // Compute tree layout.
+	      var nodes = this.tree.nodes(data);
+	      var links = this.tree.links(nodes);
 
 	      // Normalize depth.
 	      nodes.forEach(function (d) {
@@ -52898,11 +52918,7 @@
 	      var i = 0;
 
 	      // Update the nodes.
-	      var allNodes = this.svg.selectAll().data(nodes, function (d) {
-	        // Stash [X,Y] for transition.
-	        d._x = d.x;
-	        d._y = d.y;
-
+	      var allNodes = this.svg.selectAll('.t7-d3-tree-diagram__node').data(nodes, function (d) {
 	        // Increment counter.
 	        i++;
 
@@ -52913,32 +52929,64 @@
 	      });
 
 	      // Create elements per node.
-	      var allNodesInner = allNodes.enter().append('g').attr('class', 't7-d3-tree-diagram__node');
+	      var allNodesEnter = allNodes.enter().append('g').attr('class', 't7-d3-tree-diagram__node').attr('transform', function (d) {
+	        return 'translate(' + (source.x0 || source.x) + ',' + (source.y0 || source.y) + ')';
+	      }).on('click', nodeToggle);
 
 	      // Add rectangles.
-	      allNodesInner.append('rect').attr('class', 't7-d3-tree-diagram__rect').attr('width', rectW).attr('height', rectH);
+	      allNodesEnter.append('rect').attr('class', 't7-d3-tree-diagram__rect').attr('width', rectW).attr('height', rectH);
 
 	      // Add text.
-	      allNodesInner.append('text').attr('x', rectW / 2).attr('y', rectH / 2).attr('dy', '0.35em').attr('text-anchor', 'middle').text(function (d) {
+	      allNodesEnter.append('text').attr('x', rectW / 2).attr('y', rectH / 2).attr('dy', '0.35em').attr('text-anchor', 'middle').text(function (d) {
 	        return d.name;
 	      });
 
-	      // Loop through nodes.
-	      allNodes
 	      // Place nodes in position.
-	      .attr('transform', function (d) {
+	      allNodes.transition().duration(duration).attr('transform', function (d) {
 	        return 'translate(' + d.x + ',' + d.y + ')';
-	      })
-	      // Click event.
-	      .on('click', nodeToggle);
+	      });
+
+	      allNodes.exit().transition().duration(duration).attr('transform', function (d) {
+	        return 'translate(' + source.x + ',' + source.y + ')';
+	      }).remove();
 
 	      // Update the links.
-	      var allLinks = this.svg.selectAll().data(links, function (d) {
+	      var allLinks = this.svg.selectAll('.t7-d3-tree-diagram__link').data(links, function (d) {
 	        return d.target.id;
 	      });
 
 	      // Apply "elbow" style to links.
-	      allLinks.enter().insert('path', 'g').attr('class', 't7-d3-tree-diagram__link').attr('x', rectW / 2).attr('y', rectH / 2).attr('d', elbowLink);
+	      allLinks.enter().insert('path', 'g').attr('class', 't7-d3-tree-diagram__link').attr('x', rectW / 2).attr('y', rectH / 2).attr('d', function (d) {
+	        var o = {
+	          x: source.x0 || source.x,
+	          y: source.y0 || source.y
+	        };
+
+	        return elbowLink({
+	          source: o,
+	          target: o
+	        });
+	      });
+
+	      allLinks.transition().duration(duration).attr('d', elbowLink);
+
+	      allLinks.exit().transition().duration(duration).attr('d', function (d) {
+	        var o = {
+	          x: source.x,
+	          y: source.y
+	        };
+
+	        return elbowLink({
+	          source: o,
+	          target: o
+	        });
+	      }).remove();
+
+	      // Stash positions.
+	      nodes.forEach(function (d) {
+	        d.x0 = d.x;
+	        d.y0 = d.y;
+	      });
 	    }
 	  }]);
 
