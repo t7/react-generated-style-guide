@@ -1,17 +1,21 @@
 import d3 from 'd3'
 
 export default class Chart {
-  constructor (el) {
+  constructor (el, props) {
     this.el = el
     this.setConfig()
     this.bindResize()
+
+    // Callback for clicking a "leaf".
+    this.handleClickLeaf =
+      props.handleClickLeaf || function () {}
   }
 
   setConfig () {
     this.config = {
       duration: 500,
-      rectW: 110,
-      rectH: 30
+      rectW: 250,
+      rectH: 100
     }
   }
 
@@ -103,6 +107,18 @@ export default class Chart {
     this.update(d, true)
   }
 
+  nodeToggleFill (d, el) {
+    var fill = 'none'
+
+    if (d.children) {
+      fill = 'url(#t7-d3-tree-diagram__toggle--minus)'
+    } else if (d._children) {
+      fill = 'url(#t7-d3-tree-diagram__toggle--plus)'
+    }
+
+    return fill
+  }
+
   /*
     Called when the React component
     is mounted, or has updated data.
@@ -111,6 +127,29 @@ export default class Chart {
     this.data = data
     this.destroy()
     this.setup()
+  }
+
+  createIcon (o) {
+    o = o || {}
+
+    const id = o.id
+    const path = o.path
+    const width = o.width
+    const height = o.height
+    const x = o.x || 0
+    const y = o.y || 0
+
+    this.defs
+      .append('pattern')
+      .attr('id', id)
+      .attr('width', width)
+      .attr('height', height)
+      .append('image')
+      .attr('xlink:href', path)
+      .attr('width', width)
+      .attr('height', height)
+      .attr('x', x)
+      .attr('y', y)
   }
 
   setup () {
@@ -147,7 +186,7 @@ export default class Chart {
       rectH + 20
     ])
 
-    const root = d3
+    this.root = d3
       .select(this.el)
       .append('svg')
       .attr('width', width)
@@ -161,7 +200,28 @@ export default class Chart {
           .on('zoom', setPan)
       )
 
-    this.svg = root
+    this.defs = this.root.append('defs')
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__toggle--plus',
+      path: '/static/images/t7-d3-tree-diagram__toggle--plus.svg',
+      width: 10,
+      height: 10,
+      x: 3,
+      y: 3
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__toggle--minus',
+      path: '/static/images/t7-d3-tree-diagram__toggle--minus.svg',
+      width: 10,
+      height: 10,
+      x: 3,
+      y: 3
+    })
+
+    // Add the parent group.
+    this.svg = this.root
       .append('g')
       .attr('transform', 'translate(' + offset + ',' + 20 + ')')
 
@@ -173,10 +233,15 @@ export default class Chart {
     // Get data set in `render`.
     const data = this.data
 
-    // const setPan = this.setPan.bind(this)
+    // Callbacks with `this` bound to scope.
     const elbowLink = this.elbowLink.bind(this)
     const nodeToggle = this.nodeToggle.bind(this)
+    const nodeToggleFill = this.nodeToggleFill.bind(this)
 
+    // Defined in the React `props`.
+    const handleClickLeaf = this.handleClickLeaf.bind(this)
+
+    // Options from `this.setConfig`.
     const duration = this.config.duration
     const rectW = this.config.rectW
     const rectH = this.config.rectH
@@ -185,9 +250,10 @@ export default class Chart {
     const nodes = this.tree.nodes(data)
     const links = this.tree.links(nodes)
 
-    // Normalize depth.
+    // Loop through nodes.
     nodes.forEach(function (d) {
-      d.y = d.depth * 100
+      // Normalize depth.
+      d.y = d.depth * (rectH + 50)
     })
 
     // Used in loop.
@@ -214,9 +280,11 @@ export default class Chart {
       .append('g')
       .attr('class', 't7-d3-tree-diagram__node')
       .attr('transform', function (d) {
-        return 'translate(' + (source.x0 || source.x) + ',' + (source.y0 || source.y) + ')'
+        const x = source.x0 || source.x
+        const y = source.y0 || source.y
+
+        return 'translate(' + x + ',' + y + ')'
       })
-      .on('click', nodeToggle)
 
     // Add rectangles.
     allNodesEnter
@@ -224,19 +292,62 @@ export default class Chart {
       .attr('class', 't7-d3-tree-diagram__rect')
       .attr('width', rectW)
       .attr('height', rectH)
+      .attr('rx', 4)
+      .attr('ry', 4)
+      .on('click', handleClickLeaf)
+      .on('mouseover', function (d) {
+        d3.select(this).classed({
+          't7-d3-tree-diagram__rect': true,
+          't7-d3-tree-diagram__rect--hover': true
+        })
+      })
+      .on('mouseout', function (d) {
+        d3.select(this).classed({
+          't7-d3-tree-diagram__rect': true,
+          't7-d3-tree-diagram__rect--hover': false
+        })
+      })
+
+    // Add the "+/-" toggle.
+    allNodesEnter
+      .append('rect')
+      .attr('width', 16)
+      .attr('height', 16)
+      .attr('x', 20)
+      .attr('y', 50)
+      .attr('rx', 4)
+      .attr('ry', 4)
+      .attr('class', 't7-d3-tree-diagram__toggle')
+      .attr('style', function (d) {
+        if (!d.children && !d._children) {
+          return 'display:none'
+        }
+      })
+      .attr('fill', function (d) {
+        return nodeToggleFill(d, this)
+      })
+      .on('click', function (d) {
+        nodeToggle(d)
+
+        // `this` means the element itself.
+        const fill = nodeToggleFill(d, this)
+
+        d3.select(this).attr('fill', fill)
+      })
 
     // Add text.
     allNodesEnter
       .append('text')
-      .attr('x', rectW / 2)
-      .attr('y', rectH / 2)
+      .attr('x', 60)
+      .attr('y', 30)
       .attr('dy', '0.35em')
-      .attr('text-anchor', 'middle')
+      .attr('text-anchor', 'start')
+      .attr('class', 't7-d3-tree-diagram__name')
       .text(function (d) {
         return d.name
       })
 
-    // Update the links.
+    // Associate links with targets.
     const allLinks = this
       .svg
       .selectAll('.t7-d3-tree-diagram__link')
@@ -268,6 +379,7 @@ export default class Chart {
     // ===============
 
     if (showAnimation) {
+      // Nodes: opening transition.
       allNodes
         .transition()
         .duration(duration)
@@ -275,6 +387,7 @@ export default class Chart {
           return 'translate(' + d.x + ',' + d.y + ')'
         })
 
+      // Nodes: closing transition.
       allNodes
         .exit()
         .transition()
@@ -284,11 +397,13 @@ export default class Chart {
         })
         .remove()
 
+      // Links: opening transition.
       allLinks
         .transition()
         .duration(duration)
         .attr('d', elbowLink)
 
+      // Links: closing transition.
       allLinks
         .exit()
         .transition()
@@ -305,23 +420,28 @@ export default class Chart {
           })
         })
         .remove()
+    }
 
     // =============
     // No animation?
     // =============
-    } else {
+
+    if (!showAnimation) {
+      // Nodes: open.
       allNodes
         .attr('transform', function (d) {
           return 'translate(' + d.x + ',' + d.y + ')'
         })
 
+      // Nodes: closed.
       allNodes
         .exit()
         .remove()
 
-      allLinks
-        .attr('d', elbowLink)
+      // Links: open.
+      allLinks.attr('d', elbowLink)
 
+      // Links: closed.
       allLinks
         .exit()
         .remove()

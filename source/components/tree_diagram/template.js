@@ -1,6 +1,9 @@
 // Dependencies.
 import React from 'react'
 
+// Utility methods.
+import utils from '../../utils'
+
 // CSS.
 import './t7-d3-tree-diagram.css'
 
@@ -17,7 +20,7 @@ class TreeDiagram extends React.Component {
   // Initial call to D3.
   componentDidMount () {
     // Create chart instance.
-    this.chart = new Chart(this.refs.el)
+    this.chart = new Chart(this.refs.el, this.props)
     this.chart.render(this.props.data)
   }
 
@@ -59,11 +62,17 @@ class TreeDiagram extends React.Component {
 
 // Validation.
 TreeDiagram.propTypes = {
-  data: React.PropTypes.object
+  data: React.PropTypes.object,
+  handleClickLeaf: React.PropTypes.func
 }
 
 // Defaults.
 TreeDiagram.defaultProps = {
+  handleClickLeaf: function (d) {
+    utils.log(d)
+  },
+
+  // Fake data.
   data: {
     name: '1A',
     children: [

@@ -4,10 +4,9 @@ D3.js - Tree Diagram.
 */
 
 .t7-d3-tree-diagram {
-  background: #fcfcfc;
-  box-shadow: inset 0 1px 2px 0 #fff;
+  background: #fff;
   border: 1px solid;
-  border-color: #ddd #ccc #bbb;
+  border-color: #ddd;
   border-radius: 4px;
 
   margin-bottom: 20px;
@@ -31,6 +30,11 @@ D3.js - Tree Diagram.
 }
 
 .t7-d3-tree-diagram svg {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+
   cursor: default;
 
   position: absolute;
@@ -47,12 +51,28 @@ D3.js - Tree Diagram.
 
 .t7-d3-tree-diagram__rect {
   fill: #fff;
-  stroke: #999;
-  stroke-width: 2px;
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+.t7-d3-tree-diagram__rect--hover {
+  fill: #f3f9ff;
+  stroke: #53a7db;
+}
+
+.t7-d3-tree-diagram__name {
+  /* TODO. */
 }
 
 .t7-d3-tree-diagram__link {
   fill: none;
-  stroke: #999;
+  stroke: #ddd;
+  stroke-width: 1px;
+}
+
+.t7-d3-tree-diagram__toggle {
+  cursor: pointer;
+
+  stroke: #ccc;
   stroke-width: 1px;
 }
