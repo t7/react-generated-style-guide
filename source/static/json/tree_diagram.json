@@ -1,119 +1,161 @@
 {
-  "name": "1A",
+  "name": "Name of Super House",
+  "type": "superHouse",
+  "mv": "$X00,000.00",
+  "date": "MM/DD/YY",
   "children": [
     {
-      "name": "1A-2A",
+      "name": "Name of Household",
+      "number": "1234-5678-90",
+      "type": "household",
+      "mv": "$X00,000.00",
+      "date": "MM/DD/YY",
       "children": [
         {
-          "name": "1A-2A-3A",
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "status": "okay",
+          "updatedBy": "electronic",
+          "percent": "25%",
           "children": [
             {
-              "name": "1A-2A-3A-4A",
-              "children": [
-                {
-                  "name": "1A-2A-3A-4A-5A"
-                },
-                {
-                  "name": "1A-2A-3A-4A-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
             },
             {
-              "name": "1A-2A-3A-4B",
-              "children": [
-                {
-                  "name": "1A-2A-3A-4B-5A"
-                },
-                {
-                  "name": "1A-2A-3A-4B-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "other",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
             }
           ]
         },
         {
-          "name": "1A-2A-3B",
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "date": "MM/DD/YY",
+          "status": "okay",
+          "updatedBy": "electronic",
+          "percent": "25%",
           "children": [
             {
-              "name": "1A-2A-3B-4A",
-              "children": [
-                {
-                  "name": "1A-2A-3B-4A-5A"
-                },
-                {
-                  "name": "1A-2A-3B-4A-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
             },
             {
-              "name": "1A-2A-3B-4B",
-              "children": [
-                {
-                  "name": "1A-2A-3B-4B-5A"
-                },
-                {
-                  "name": "1A-2A-3B-4B-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "other",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
             }
           ]
         }
       ]
     },
     {
-      "name": "1A-2B",
+      "name": "Name of Household",
+      "number": "1234-5678-90",
+      "type": "household",
+      "mv": "$X00,000.00",
+      "date": "MM/DD/YY",
       "children": [
         {
-          "name": "1A-2B-3A",
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "date": "MM/DD/YY",
+          "status": "okay",
+          "updatedBy": "electronic",
+          "percent": "25%",
           "children": [
             {
-              "name": "1A-2B-3A-4A",
-              "children": [
-                {
-                  "name": "1A-2B-3A-4A-5A"
-                },
-                {
-                  "name": "1A-2B-3A-4A-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
             },
             {
-              "name": "1A-2B-3A-4B",
-              "children": [
-                {
-                  "name": "1A-2B-3A-4B-5A"
-                },
-                {
-                  "name": "1A-2B-3A-4B-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "other",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
             }
           ]
         },
         {
-          "name": "1A-2B-3B",
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "date": "MM/DD/YY",
+          "status": "okay",
+          "updatedBy": "electronic",
+          "percent": "25%",
           "children": [
             {
-              "name": "1A-2B-3B-4A",
-              "children": [
-                {
-                  "name": "1A-2B-3B-4A-5A"
-                },
-                {
-                  "name": "1A-2B-3B-4A-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
             },
             {
-              "name": "1A-2B-3B-4B",
-              "children": [
-                {
-                  "name": "1A-2B-3B-4B-5A"
-                },
-                {
-                  "name": "1A-2B-3B-4B-5B"
-                }
-              ]
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "other",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
             }
           ]
         }

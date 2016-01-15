@@ -45,13 +45,12 @@ D3.js - Tree Diagram.
 }
 
 .t7-d3-tree-diagram text {
-  font-size: 12px;
   font-family: sans-serif;
 }
 
 .t7-d3-tree-diagram__rect {
   fill: #fff;
-  stroke: #ccc;
+  stroke: #999;
   stroke-width: 1px;
 }
 
@@ -60,19 +59,27 @@ D3.js - Tree Diagram.
   stroke: #53a7db;
 }
 
-.t7-d3-tree-diagram__name {
-  /* TODO. */
-}
-
 .t7-d3-tree-diagram__link {
   fill: none;
-  stroke: #ddd;
+  stroke: #ccc;
   stroke-width: 1px;
+  /*shape-rendering: crispEdges;*/
 }
 
 .t7-d3-tree-diagram__toggle {
   cursor: pointer;
 
-  stroke: #ccc;
+  stroke: #999;
   stroke-width: 1px;
+}
+
+.t7-d3-tree-diagram__name {
+    font-size: 12px;
+  font-weight: bold;
+}
+
+.t7-d3-tree-diagram__percent,
+.t7-d3-tree-diagram__description {
+  fill: #999;
+  font-size: 11px;
 }

@@ -14,8 +14,8 @@ export default class Chart {
   setConfig () {
     this.config = {
       duration: 500,
-      rectW: 250,
-      rectH: 100
+      rectW: 260,
+      rectH: 130
     }
   }
 
@@ -111,9 +111,9 @@ export default class Chart {
     var fill = 'none'
 
     if (d.children) {
-      fill = 'url(#t7-d3-tree-diagram__toggle--minus)'
+      fill = 'url(#t7-d3-tree-diagram__icon-minus)'
     } else if (d._children) {
-      fill = 'url(#t7-d3-tree-diagram__toggle--plus)'
+      fill = 'url(#t7-d3-tree-diagram__icon-plus)'
     }
 
     return fill
@@ -150,6 +150,91 @@ export default class Chart {
       .attr('height', height)
       .attr('x', x)
       .attr('y', y)
+  }
+
+  buildIcons () {
+    this.defs = this.root.append('defs')
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-plus',
+      path: require('./images/t7-d3-tree-diagram__icon-plus.svg'),
+      width: 10,
+      height: 10,
+      x: 3,
+      y: 3
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-minus',
+      path: require('./images/t7-d3-tree-diagram__icon-minus.svg'),
+      width: 10,
+      height: 10,
+      x: 3,
+      y: 3
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-superhouse',
+      path: require('./images/t7-d3-tree-diagram__icon-superhouse.svg'),
+      width: 24,
+      height: 24
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-household',
+      path: require('./images/t7-d3-tree-diagram__icon-household.svg'),
+      width: 24,
+      height: 24
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-tax-entity',
+      path: require('./images/t7-d3-tree-diagram__icon-tax-entity.svg'),
+      width: 24,
+      height: 24
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-pcr',
+      path: require('./images/t7-d3-tree-diagram__icon-pcr.svg'),
+      width: 24,
+      height: 24
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-briefcase',
+      path: require('./images/t7-d3-tree-diagram__icon-briefcase.svg'),
+      width: 24,
+      height: 24
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-check',
+      path: require('./images/t7-d3-tree-diagram__icon-check.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-lightning',
+      path: require('./images/t7-d3-tree-diagram__icon-lightning.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-keyboard',
+      path: require('./images/t7-d3-tree-diagram__icon-keyboard.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-people',
+      path: require('./images/t7-d3-tree-diagram__icon-people.svg'),
+      width: 16,
+      height: 16
+    })
   }
 
   setup () {
@@ -200,25 +285,8 @@ export default class Chart {
           .on('zoom', setPan)
       )
 
-    this.defs = this.root.append('defs')
-
-    this.createIcon({
-      id: 't7-d3-tree-diagram__toggle--plus',
-      path: '/static/images/t7-d3-tree-diagram__toggle--plus.svg',
-      width: 10,
-      height: 10,
-      x: 3,
-      y: 3
-    })
-
-    this.createIcon({
-      id: 't7-d3-tree-diagram__toggle--minus',
-      path: '/static/images/t7-d3-tree-diagram__toggle--minus.svg',
-      width: 10,
-      height: 10,
-      x: 3,
-      y: 3
-    })
+    // Add images to the `<defs>`.
+    this.buildIcons()
 
     // Add the parent group.
     this.svg = this.root
@@ -291,7 +359,27 @@ export default class Chart {
       .append('rect')
       .attr('class', 't7-d3-tree-diagram__rect')
       .attr('width', rectW)
-      .attr('height', rectH)
+      .attr('height', function (d) {
+        const t = d.type
+
+        var n = rectH
+
+        if (t === 'superHouse') {
+          n = rectH - 40
+        }
+
+        if (t === 'household') {
+          n = rectH - 35
+        }
+
+        if (t === 'taxtEntity' || t === 'account') {
+          if (!d.alertText) {
+            // TODO.
+          }
+        }
+
+        return n
+      })
       .attr('rx', 4)
       .attr('ry', 4)
       .on('click', handleClickLeaf)
@@ -308,13 +396,168 @@ export default class Chart {
         })
       })
 
+    // Add the "type" icon.
+    allNodesEnter
+      .append('rect')
+      .attr('width', 24)
+      .attr('height', 24)
+      .attr('x', 15)
+      .attr('y', 20)
+      .attr('class', 't7-d3-tree-diagram__icon-type')
+      .attr('fill', function (d) {
+        const t = d.type
+        const m = d.managedBy
+
+        var fill = 'none'
+
+        // Super House?
+        if (t === 'superHouse') {
+          fill = 'url(#t7-d3-tree-diagram__icon-superhouse)'
+        }
+
+        // Household?
+        if (t === 'household') {
+          fill = 'url(#t7-d3-tree-diagram__icon-household)'
+        }
+
+        // Household?
+        if (t === 'taxEntity') {
+          fill = 'url(#t7-d3-tree-diagram__icon-tax-entity)'
+        }
+
+        // Household?
+        if (t === 'account') {
+          // Managed by PCR?
+          if (m === 'self') {
+            fill = 'url(#t7-d3-tree-diagram__icon-pcr)'
+          }
+
+          // Managed by outside firm?
+          if (m === 'other') {
+            fill = 'url(#t7-d3-tree-diagram__icon-briefcase)'
+          }
+        }
+
+        return fill
+      })
+
+    // Add the "status" icon.
+    allNodesEnter
+      .append('rect')
+      .attr('width', 16)
+      .attr('height', 16)
+      .attr('x', 50)
+      .attr('y', 90)
+      .attr('class', 't7-d3-tree-diagram__icon-status')
+      .attr('fill', function (d) {
+        const s = d.status
+
+        var fill = 'none'
+
+        // Staus: okay?
+        if (s === 'okay') {
+          fill = 'url(#t7-d3-tree-diagram__icon-check)'
+        }
+
+        // Status: problem?
+        if (s === 'problem') {
+          fill = 'url(#t7-d3-tree-diagram__icon-problem)'
+        }
+
+        // Status: pending?
+        if (s === 'pending') {
+          fill = 'url(#t7-d3-tree-diagram__icon-time)'
+        }
+
+        return fill
+      })
+      .attr('style', function (d) {
+        if (!d.status) {
+          return 'display:none'
+        }
+      })
+
+    // Add the "updated by" icon.
+    allNodesEnter
+      .append('rect')
+      .attr('width', 16)
+      .attr('height', 16)
+      .attr('x', 75)
+      .attr('y', 90)
+      .attr('class', 't7-d3-tree-diagram__icon-updated-by')
+      .attr('fill', function (d) {
+        const u = d.updatedBy
+
+        var fill = 'none'
+
+        // Updated by: electronic?
+        if (u === 'electronic') {
+          fill = 'url(#t7-d3-tree-diagram__icon-lightning)'
+        }
+
+        // Updated by: manually?
+        if (u === 'manual') {
+          fill = 'url(#t7-d3-tree-diagram__icon-keyboard)'
+        }
+
+        return fill
+      })
+      .attr('style', function (d) {
+        if (!d.updatedBy) {
+          return 'display:none'
+        }
+      })
+
+    // Add the "percent" icon.
+    allNodesEnter
+      .append('rect')
+      .attr('width', 16)
+      .attr('height', 16)
+      .attr('x', 100)
+      .attr('y', 90)
+      .attr('class', 't7-d3-tree-diagram__icon-percent')
+      .attr('fill', function (d) {
+        const p = d.percent
+
+        var fill = 'none'
+
+        // Percent exists?
+        if (p) {
+          fill = 'url(#t7-d3-tree-diagram__icon-people)'
+        }
+
+        return fill
+      })
+      .attr('style', function (d) {
+        if (!d.percent) {
+          return 'display:none'
+        }
+      })
+
+    // Add node name.
+    allNodesEnter
+      .append('text')
+      .attr('x', 119)
+      .attr('y', 98)
+      .attr('dy', '0.35em')
+      .attr('text-anchor', 'start')
+      .attr('class', 't7-d3-tree-diagram__percent')
+      .text(function (d) {
+        return d.percent
+      })
+      .attr('style', function (d) {
+        if (!d.percent) {
+          return 'display:none'
+        }
+      })
+
     // Add the "+/-" toggle.
     allNodesEnter
       .append('rect')
       .attr('width', 16)
       .attr('height', 16)
-      .attr('x', 20)
-      .attr('y', 50)
+      .attr('x', 18)
+      .attr('y', 55)
       .attr('rx', 4)
       .attr('ry', 4)
       .attr('class', 't7-d3-tree-diagram__toggle')
@@ -335,16 +578,69 @@ export default class Chart {
         d3.select(this).attr('fill', fill)
       })
 
-    // Add text.
+    // Add node name.
     allNodesEnter
       .append('text')
-      .attr('x', 60)
+      .attr('x', 50)
       .attr('y', 30)
       .attr('dy', '0.35em')
       .attr('text-anchor', 'start')
       .attr('class', 't7-d3-tree-diagram__name')
       .text(function (d) {
         return d.name
+      })
+
+    // Add node number (account, tax ID).
+    allNodesEnter
+      .append('text')
+      .attr('x', 50)
+      .attr('y', 50)
+      .attr('dy', '0.35em')
+      .attr('text-anchor', 'start')
+      .attr('class', 't7-d3-tree-diagram__description')
+      .text(function (d) {
+        return d.number
+      })
+      .attr('style', function (d) {
+        if (!d.number) {
+          return 'display:none'
+        }
+      })
+
+    // Add node description.
+    allNodesEnter
+      .append('text')
+      .attr('x', 50)
+      .attr('y', function (d) {
+        var n = 50
+
+        if (d.number) {
+          n = 70
+        }
+
+        return n
+      })
+      .attr('dy', '0.35em')
+      .attr('text-anchor', 'start')
+      .attr('class', 't7-d3-tree-diagram__description')
+      .text(function (d) {
+        var date = d.date || ''
+        var mv = d.mv || ''
+
+        if (mv) {
+          mv = 'MV ' + mv
+        }
+
+        if (date) {
+          date = 'as of ' + date
+        }
+
+        const str = [
+          mv,
+          date
+        ].join(' ')
+
+        return str
       })
 
     // Associate links with targets.

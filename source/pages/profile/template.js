@@ -31,6 +31,9 @@ import RadioListInline from '../../components/form_radio_list_inline/template'
 import Select from '../../components/form_select/template'
 import Textdiv from '../../components/form_textdiv/template'
 
+// JSON.
+import statesData from './states.json'
+
 // Define class.
 class Page extends React.Component {
   constructor (props) {
@@ -297,12 +300,7 @@ class Page extends React.Component {
                       <Select
                         id='_input_state'
                         defaultdefaultValue='CA'
-
-                        options={
-                          JSON.parse(
-                            require('raw!./states.json')
-                          )
-                        }
+                        options={statesData}
                       />
                     </p>
                   </Grid>

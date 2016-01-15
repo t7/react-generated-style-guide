@@ -73,33 +73,7 @@ TreeDiagram.defaultProps = {
   },
 
   // Fake data.
-  data: {
-    name: '1A',
-    children: [
-      {
-        name: '1A-2A',
-        children: [
-          {
-            name: '1A-2A-3A'
-          },
-          {
-            name: '1A-2A-3B'
-          }
-        ]
-      },
-      {
-        name: '1A-2B',
-        children: [
-          {
-            name: '1A-2B-3A'
-          },
-          {
-            name: '1A-2B-3B'
-          }
-        ]
-      }
-    ]
-  }
+  data: require('../../static/json/tree_diagram.json')
 }
 
 // Export.
