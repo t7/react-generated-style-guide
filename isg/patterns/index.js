@@ -52594,6 +52594,12 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	// Utility methods.
+
+	var _utils = __webpack_require__(166);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
 	// CSS.
 
 	__webpack_require__(332);
@@ -52624,7 +52630,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      // Create chart instance.
-	      this.chart = new _d3_chart2['default'](this.refs.el);
+	      this.chart = new _d3_chart2['default'](this.refs.el, this.props);
 	      this.chart.render(this.props.data);
 	    }
 
@@ -52674,29 +52680,18 @@
 	})(_react2['default'].Component);
 
 	TreeDiagram.propTypes = {
-	  data: _react2['default'].PropTypes.object
+	  data: _react2['default'].PropTypes.object,
+	  handleClickLeaf: _react2['default'].PropTypes.func
 	};
 
 	// Defaults.
 	TreeDiagram.defaultProps = {
-	  data: {
-	    name: '1A',
-	    children: [{
-	      name: '1A-2A',
-	      children: [{
-	        name: '1A-2A-3A'
-	      }, {
-	        name: '1A-2A-3B'
-	      }]
-	    }, {
-	      name: '1A-2B',
-	      children: [{
-	        name: '1A-2B-3A'
-	      }, {
-	        name: '1A-2B-3B'
-	      }]
-	    }]
-	  }
+	  handleClickLeaf: function handleClickLeaf(d) {
+	    _utils2['default'].log(d);
+	  },
+
+	  // Fake data.
+	  data: __webpack_require__(335)
 	};
 
 	// Export.
@@ -52730,12 +52725,15 @@
 	var _d32 = _interopRequireDefault(_d3);
 
 	var Chart = (function () {
-	  function Chart(el) {
+	  function Chart(el, props) {
 	    _classCallCheck(this, Chart);
 
 	    this.el = el;
 	    this.setConfig();
 	    this.bindResize();
+
+	    // Callback for clicking a "leaf".
+	    this.handleClickLeaf = props.handleClickLeaf || function () {};
 	  }
 
 	  _createClass(Chart, [{
@@ -52743,8 +52741,8 @@
 	    value: function setConfig() {
 	      this.config = {
 	        duration: 500,
-	        rectW: 110,
-	        rectH: 30
+	        rectW: 260,
+	        rectH: 130
 	      };
 	    }
 	  }, {
@@ -52834,6 +52832,19 @@
 	      // Set `showAnimation` to `true`.
 	      this.update(d, true);
 	    }
+	  }, {
+	    key: 'nodeToggleFill',
+	    value: function nodeToggleFill(d, el) {
+	      var fill = 'none';
+
+	      if (d.children) {
+	        fill = 'url(#t7-d3-tree-diagram__icon-minus)';
+	      } else if (d._children) {
+	        fill = 'url(#t7-d3-tree-diagram__icon-plus)';
+	      }
+
+	      return fill;
+	    }
 
 	    /*
 	      Called when the React component
@@ -52845,6 +52856,106 @@
 	      this.data = data;
 	      this.destroy();
 	      this.setup();
+	    }
+	  }, {
+	    key: 'createIcon',
+	    value: function createIcon(o) {
+	      o = o || {};
+
+	      var id = o.id;
+	      var path = o.path;
+	      var width = o.width;
+	      var height = o.height;
+	      var x = o.x || 0;
+	      var y = o.y || 0;
+
+	      this.defs.append('pattern').attr('id', id).attr('width', width).attr('height', height).append('image').attr('xlink:href', path).attr('width', width).attr('height', height).attr('x', x).attr('y', y);
+	    }
+	  }, {
+	    key: 'buildIcons',
+	    value: function buildIcons() {
+	      this.defs = this.root.append('defs');
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-plus',
+	        path: '/static/images/t7-d3-tree-diagram__icon-plus.svg',
+	        width: 10,
+	        height: 10,
+	        x: 3,
+	        y: 3
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-minus',
+	        path: '/static/images/t7-d3-tree-diagram__icon-minus.svg',
+	        width: 10,
+	        height: 10,
+	        x: 3,
+	        y: 3
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-superhouse',
+	        path: '/static/images/t7-d3-tree-diagram__icon-superhouse.svg',
+	        width: 24,
+	        height: 24
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-household',
+	        path: '/static/images/t7-d3-tree-diagram__icon-household.svg',
+	        width: 24,
+	        height: 24
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-tax-entity',
+	        path: '/static/images/t7-d3-tree-diagram__icon-tax-entity.svg',
+	        width: 24,
+	        height: 24
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-pcr',
+	        path: '/static/images/t7-d3-tree-diagram__icon-pcr.svg',
+	        width: 24,
+	        height: 24
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-briefcase',
+	        path: '/static/images/t7-d3-tree-diagram__icon-briefcase.svg',
+	        width: 24,
+	        height: 24
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-check',
+	        path: '/static/images/t7-d3-tree-diagram__icon-check.svg',
+	        width: 16,
+	        height: 16
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-lightning',
+	        path: '/static/images/t7-d3-tree-diagram__icon-lightning.svg',
+	        width: 16,
+	        height: 16
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-keyboard',
+	        path: '/static/images/t7-d3-tree-diagram__icon-keyboard.svg',
+	        width: 16,
+	        height: 16
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-people',
+	        path: '/static/images/t7-d3-tree-diagram__icon-people.svg',
+	        width: 16,
+	        height: 16
+	      });
 	    }
 	  }, {
 	    key: 'setup',
@@ -52879,9 +52990,13 @@
 	      // Set default node size.
 	      this.tree.nodeSize([rectW + 20, rectH + 20]);
 
-	      var root = _d32['default'].select(this.el).append('svg').attr('width', width).attr('height', height).call(_d32['default'].behavior.zoom().translate([offset, 20]).scaleExtent([0.25, 2]).on('zoom', setPan));
+	      this.root = _d32['default'].select(this.el).append('svg').attr('width', width).attr('height', height).call(_d32['default'].behavior.zoom().translate([offset, 20]).scaleExtent([0.25, 2]).on('zoom', setPan));
 
-	      this.svg = root.append('g').attr('transform', 'translate(' + offset + ',' + 20 + ')');
+	      // Add images to the `<defs>`.
+	      this.buildIcons();
+
+	      // Add the parent group.
+	      this.svg = this.root.append('g').attr('transform', 'translate(' + offset + ',' + 20 + ')');
 
 	      this.update(data);
 	    }
@@ -52893,10 +53008,15 @@
 	      // Get data set in `render`.
 	      var data = this.data;
 
-	      // const setPan = this.setPan.bind(this)
+	      // Callbacks with `this` bound to scope.
 	      var elbowLink = this.elbowLink.bind(this);
 	      var nodeToggle = this.nodeToggle.bind(this);
+	      var nodeToggleFill = this.nodeToggleFill.bind(this);
 
+	      // Defined in the React `props`.
+	      var handleClickLeaf = this.handleClickLeaf.bind(this);
+
+	      // Options from `this.setConfig`.
 	      var duration = this.config.duration;
 	      var rectW = this.config.rectW;
 	      var rectH = this.config.rectH;
@@ -52905,9 +53025,10 @@
 	      var nodes = this.tree.nodes(data);
 	      var links = this.tree.links(nodes);
 
-	      // Normalize depth.
+	      // Loop through nodes.
 	      nodes.forEach(function (d) {
-	        d.y = d.depth * 100;
+	        // Normalize depth.
+	        d.y = d.depth * (rectH + 50);
 	      });
 
 	      // Used in loop.
@@ -52926,18 +53047,218 @@
 
 	      // Create elements per node.
 	      var allNodesEnter = allNodes.enter().append('g').attr('class', 't7-d3-tree-diagram__node').attr('transform', function (d) {
-	        return 'translate(' + (source.x0 || source.x) + ',' + (source.y0 || source.y) + ')';
-	      }).on('click', nodeToggle);
+	        var x = source.x0 || source.x;
+	        var y = source.y0 || source.y;
+
+	        return 'translate(' + x + ',' + y + ')';
+	      });
 
 	      // Add rectangles.
-	      allNodesEnter.append('rect').attr('class', 't7-d3-tree-diagram__rect').attr('width', rectW).attr('height', rectH);
+	      allNodesEnter.append('rect').attr('class', 't7-d3-tree-diagram__rect').attr('width', rectW).attr('height', function (d) {
+	        var t = d.type;
 
-	      // Add text.
-	      allNodesEnter.append('text').attr('x', rectW / 2).attr('y', rectH / 2).attr('dy', '0.35em').attr('text-anchor', 'middle').text(function (d) {
+	        var n = rectH;
+
+	        if (t === 'superHouse') {
+	          n = rectH - 40;
+	        }
+
+	        if (t === 'household') {
+	          n = rectH - 35;
+	        }
+
+	        if (t === 'taxtEntity' || t === 'account') {
+	          if (!d.alertText) {
+	            // TODO.
+	          }
+	        }
+
+	        return n;
+	      }).attr('rx', 4).attr('ry', 4).on('click', handleClickLeaf).on('mouseover', function (d) {
+	        _d32['default'].select(this).classed({
+	          't7-d3-tree-diagram__rect': true,
+	          't7-d3-tree-diagram__rect--hover': true
+	        });
+	      }).on('mouseout', function (d) {
+	        _d32['default'].select(this).classed({
+	          't7-d3-tree-diagram__rect': true,
+	          't7-d3-tree-diagram__rect--hover': false
+	        });
+	      });
+
+	      // Add the "type" icon.
+	      allNodesEnter.append('rect').attr('width', 24).attr('height', 24).attr('x', 15).attr('y', 20).attr('class', 't7-d3-tree-diagram__icon-type').attr('fill', function (d) {
+	        var t = d.type;
+	        var m = d.managedBy;
+
+	        var fill = 'none';
+
+	        // Super House?
+	        if (t === 'superHouse') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-superhouse)';
+	        }
+
+	        // Household?
+	        if (t === 'household') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-household)';
+	        }
+
+	        // Household?
+	        if (t === 'taxEntity') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-tax-entity)';
+	        }
+
+	        // Household?
+	        if (t === 'account') {
+	          // Managed by PCR?
+	          if (m === 'self') {
+	            fill = 'url(#t7-d3-tree-diagram__icon-pcr)';
+	          }
+
+	          // Managed by outside firm?
+	          if (m === 'other') {
+	            fill = 'url(#t7-d3-tree-diagram__icon-briefcase)';
+	          }
+	        }
+
+	        return fill;
+	      });
+
+	      // Add the "status" icon.
+	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 50).attr('y', 90).attr('class', 't7-d3-tree-diagram__icon-status').attr('fill', function (d) {
+	        var s = d.status;
+
+	        var fill = 'none';
+
+	        // Staus: okay?
+	        if (s === 'okay') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-check)';
+	        }
+
+	        // Status: problem?
+	        if (s === 'problem') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-problem)';
+	        }
+
+	        // Status: pending?
+	        if (s === 'pending') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-time)';
+	        }
+
+	        return fill;
+	      }).attr('style', function (d) {
+	        if (!d.status) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // Add the "updated by" icon.
+	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 75).attr('y', 90).attr('class', 't7-d3-tree-diagram__icon-updated-by').attr('fill', function (d) {
+	        var u = d.updatedBy;
+
+	        var fill = 'none';
+
+	        // Updated by: electronic?
+	        if (u === 'electronic') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-lightning)';
+	        }
+
+	        // Updated by: manually?
+	        if (u === 'manual') {
+	          fill = 'url(#t7-d3-tree-diagram__icon-keyboard)';
+	        }
+
+	        return fill;
+	      }).attr('style', function (d) {
+	        if (!d.updatedBy) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // Add the "percent" icon.
+	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 100).attr('y', 90).attr('class', 't7-d3-tree-diagram__icon-percent').attr('fill', function (d) {
+	        var p = d.percent;
+
+	        var fill = 'none';
+
+	        // Percent exists?
+	        if (p) {
+	          fill = 'url(#t7-d3-tree-diagram__icon-people)';
+	        }
+
+	        return fill;
+	      }).attr('style', function (d) {
+	        if (!d.percent) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // Add node name.
+	      allNodesEnter.append('text').attr('x', 119).attr('y', 98).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__percent').text(function (d) {
+	        return d.percent;
+	      }).attr('style', function (d) {
+	        if (!d.percent) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // Add the "+/-" toggle.
+	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 18).attr('y', 55).attr('rx', 4).attr('ry', 4).attr('class', 't7-d3-tree-diagram__toggle').attr('style', function (d) {
+	        if (!d.children && !d._children) {
+	          return 'display:none';
+	        }
+	      }).attr('fill', function (d) {
+	        return nodeToggleFill(d, this);
+	      }).on('click', function (d) {
+	        nodeToggle(d);
+
+	        // `this` means the element itself.
+	        var fill = nodeToggleFill(d, this);
+
+	        _d32['default'].select(this).attr('fill', fill);
+	      });
+
+	      // Add node name.
+	      allNodesEnter.append('text').attr('x', 50).attr('y', 30).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__name').text(function (d) {
 	        return d.name;
 	      });
 
-	      // Update the links.
+	      // Add node number (account, tax ID).
+	      allNodesEnter.append('text').attr('x', 50).attr('y', 50).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__description').text(function (d) {
+	        return d.number;
+	      }).attr('style', function (d) {
+	        if (!d.number) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // Add node description.
+	      allNodesEnter.append('text').attr('x', 50).attr('y', function (d) {
+	        var n = 50;
+
+	        if (d.number) {
+	          n = 70;
+	        }
+
+	        return n;
+	      }).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__description').text(function (d) {
+	        var date = d.date || '';
+	        var mv = d.mv || '';
+
+	        if (mv) {
+	          mv = 'MV ' + mv;
+	        }
+
+	        if (date) {
+	          date = 'as of ' + date;
+	        }
+
+	        var str = [mv, date].join(' ');
+
+	        return str;
+	      });
+
+	      // Associate links with targets.
 	      var allLinks = this.svg.selectAll('.t7-d3-tree-diagram__link').data(links, function (d) {
 	        return d.target.id;
 	      });
@@ -52960,16 +53281,20 @@
 	      // ===============
 
 	      if (showAnimation) {
+	        // Nodes: opening transition.
 	        allNodes.transition().duration(duration).attr('transform', function (d) {
 	          return 'translate(' + d.x + ',' + d.y + ')';
 	        });
 
+	        // Nodes: closing transition.
 	        allNodes.exit().transition().duration(duration).attr('transform', function (d) {
 	          return 'translate(' + source.x + ',' + source.y + ')';
 	        }).remove();
 
+	        // Links: opening transition.
 	        allLinks.transition().duration(duration).attr('d', elbowLink);
 
+	        // Links: closing transition.
 	        allLinks.exit().transition().duration(duration).attr('d', function (d) {
 	          var o = {
 	            x: source.x,
@@ -52981,21 +53306,27 @@
 	            target: o
 	          });
 	        }).remove();
+	      }
 
-	        // =============
-	        // No animation?
-	        // =============
-	      } else {
-	          allNodes.attr('transform', function (d) {
-	            return 'translate(' + d.x + ',' + d.y + ')';
-	          });
+	      // =============
+	      // No animation?
+	      // =============
 
-	          allNodes.exit().remove();
+	      if (!showAnimation) {
+	        // Nodes: open.
+	        allNodes.attr('transform', function (d) {
+	          return 'translate(' + d.x + ',' + d.y + ')';
+	        });
 
-	          allLinks.attr('d', elbowLink);
+	        // Nodes: closed.
+	        allNodes.exit().remove();
 
-	          allLinks.exit().remove();
-	        }
+	        // Links: open.
+	        allLinks.attr('d', elbowLink);
+
+	        // Links: closed.
+	        allLinks.exit().remove();
+	      }
 
 	      // Stash positions.
 	      nodes.forEach(function (d) {
@@ -62568,6 +62899,173 @@
 	  });
 	  if (true) this.d3 = d3, !(__WEBPACK_AMD_DEFINE_FACTORY__ = (d3), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); else if (typeof module === "object" && module.exports) module.exports = d3; else this.d3 = d3;
 	}();
+
+/***/ },
+/* 335 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"name": "Name of Super House",
+		"type": "superHouse",
+		"mv": "$X00,000.00",
+		"date": "MM/DD/YY",
+		"children": [
+			{
+				"name": "Name of Household",
+				"number": "1234-5678-90",
+				"type": "household",
+				"mv": "$X00,000.00",
+				"date": "MM/DD/YY",
+				"children": [
+					{
+						"name": "Name of Tax Entity",
+						"number": "1234-5678-90",
+						"type": "taxEntity",
+						"mv": "$X00,000.00",
+						"date": "MM/DD/YY",
+						"status": "okay",
+						"updatedBy": "electronic",
+						"percent": "25%",
+						"children": [
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "self",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "electronic",
+								"percent": "25%"
+							},
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "other",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "manual",
+								"percent": "25%"
+							}
+						]
+					},
+					{
+						"name": "Name of Tax Entity",
+						"number": "1234-5678-90",
+						"type": "taxEntity",
+						"mv": "$X00,000.00",
+						"date": "MM/DD/YY",
+						"status": "okay",
+						"updatedBy": "electronic",
+						"percent": "25%",
+						"children": [
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "self",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "electronic",
+								"percent": "25%"
+							},
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "other",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "manual",
+								"percent": "25%"
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "Name of Household",
+				"number": "1234-5678-90",
+				"type": "household",
+				"mv": "$X00,000.00",
+				"date": "MM/DD/YY",
+				"children": [
+					{
+						"name": "Name of Tax Entity",
+						"number": "1234-5678-90",
+						"type": "taxEntity",
+						"mv": "$X00,000.00",
+						"date": "MM/DD/YY",
+						"status": "okay",
+						"updatedBy": "electronic",
+						"percent": "25%",
+						"children": [
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "self",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "electronic",
+								"percent": "25%"
+							},
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "other",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "manual",
+								"percent": "25%"
+							}
+						]
+					},
+					{
+						"name": "Name of Tax Entity",
+						"number": "1234-5678-90",
+						"type": "taxEntity",
+						"mv": "$X00,000.00",
+						"date": "MM/DD/YY",
+						"status": "okay",
+						"updatedBy": "electronic",
+						"percent": "25%",
+						"children": [
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "self",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "electronic",
+								"percent": "25%"
+							},
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "other",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "manual",
+								"percent": "25%"
+							}
+						]
+					}
+				]
+			}
+		]
+	};
 
 /***/ }
 /******/ ]);
