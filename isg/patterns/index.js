@@ -52749,7 +52749,7 @@
 	      this.config = {
 	        duration: 500,
 	        rectW: 260,
-	        rectH: 130,
+	        rectH: 150,
 	        itemH: 30,
 	        menu: {
 	          /*
@@ -52870,7 +52870,7 @@
 	      var menuH = menuData ? menuData.length * itemH : 0;
 
 	      var x = d.x + rectW - 7;
-	      var y = d.y + 17;
+	      var y = d.y + 18;
 	      var transform = 'translate(' + x + ',' + y + ')';
 
 	      var group = svg.select('.t7-d3-tree-diagram__menu__group');
@@ -52991,6 +52991,29 @@
 	      var y = o.y || 0;
 
 	      this.defs.append('pattern').attr('id', id).attr('width', width).attr('height', height).append('image').attr('xlink:href', path).attr('width', width).attr('height', height).attr('x', x).attr('y', y);
+	    }
+	  }, {
+	    key: 'calcRectHeight',
+	    value: function calcRectHeight(d) {
+	      var height = 50;
+
+	      if (d.name) {
+	        height += 30;
+	      }
+
+	      if (d.number) {
+	        height += 15;
+	      }
+
+	      if (d.mv) {
+	        height += 15;
+	      }
+
+	      if (d.status) {
+	        height += 25;
+	      }
+
+	      return height;
 	    }
 	  }, {
 	    key: 'buildIcons',
@@ -53147,6 +53170,7 @@
 
 	      // Callbacks with `this` bound to scope.
 	      var arrowMenuToggle = this.arrowMenuToggle.bind(this);
+	      var calcRectHeight = this.calcRectHeight.bind(this);
 	      var elbowLink = this.elbowLink.bind(this);
 	      var itemToggle = this.itemToggle.bind(this);
 	      var itemToggleFill = this.itemToggleFill.bind(this);
@@ -53164,17 +53188,46 @@
 	      var nodes = this.tree.nodes(data);
 	      var links = this.tree.links(nodes);
 
-	      // Check for existing menu.
-	      var menuGroup = this.svg.select('.t7-d3-tree-diagram__menu__group');
-
 	      // Remove menu, if it exists.
-	      if (menuGroup) {
-	        menuGroup.remove();
-	      }
+	      this.svg.select('.t7-d3-tree-diagram__menu__group').remove();
 
 	      // Normalize depth.
 	      nodes.forEach(function (d) {
-	        d.y = d.depth * (rectH + 50);
+	        var offset = rectH + 50;
+	        var isAccount = d.type === 'account';
+
+	        var haxTaxChildren = d.children && d.children[0].type === 'taxEntity';
+
+	        var hasAccountChildren = d.children && d.children[0].type === 'account';
+
+	        // If not account, apply normal depth.
+	        if (!isAccount) {
+	          d.y = d.depth * offset;
+	        }
+
+	        // Loop through account children.
+	        if (hasAccountChildren) {
+	          d.children.forEach(function (child, i) {
+	            child.x = d.x + 20;
+	            child.y = d.y + offset + i * offset;
+	          });
+	        }
+
+	        // Loop through tax entity children.
+	        if (haxTaxChildren) {
+	          (function () {
+	            var count = d.children.length;
+	            var isCountEven = count % 2 === 0;
+	            var middle = Math.floor(count / 2);
+
+	            d.children.forEach(function (child, i) {
+	              if (middle === i) {
+	                // TODO.
+	                console.log(middle);
+	              }
+	            });
+	          })();
+	        }
 	      });
 
 	      // =================
@@ -53223,25 +53276,7 @@
 	      itemRect.attr('width', rectW);
 
 	      itemRect.attr('height', function (d) {
-	        var t = d.type;
-
-	        var n = rectH;
-
-	        if (t === 'superHouse') {
-	          n = rectH - 40;
-	        }
-
-	        if (t === 'household') {
-	          n = rectH - 35;
-	        }
-
-	        if (t === 'taxtEntity' || t === 'account') {
-	          if (!d.alertText) {
-	            // TODO: Render alert text.
-	          }
-	        }
-
-	        return n;
+	        return calcRectHeight(d);
 	      });
 
 	      // ====================
@@ -63319,6 +63354,40 @@
 				"mv": "$X00,000.00",
 				"date": "MM/DD/YY",
 				"children": [
+					{
+						"name": "Name of Tax Entity",
+						"number": "1234-5678-90",
+						"type": "taxEntity",
+						"mv": "$X00,000.00",
+						"date": "MM/DD/YY",
+						"status": "okay",
+						"updatedBy": "electronic",
+						"percent": "25%",
+						"children": [
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "self",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "electronic",
+								"percent": "25%"
+							},
+							{
+								"name": "Name of Account",
+								"number": "1234-5678-90",
+								"type": "account",
+								"managedBy": "other",
+								"mv": "$X0,000.00",
+								"date": "MM/DD/YY",
+								"status": "okay",
+								"updatedBy": "manual",
+								"percent": "25%"
+							}
+						]
+					},
 					{
 						"name": "Name of Tax Entity",
 						"number": "1234-5678-90",

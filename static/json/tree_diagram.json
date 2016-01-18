@@ -51,6 +51,40 @@
           "type": "taxEntity",
           "mv": "$X00,000.00",
           "date": "MM/DD/YY",
+          "status": "okay",
+          "updatedBy": "electronic",
+          "percent": "25%",
+          "children": [
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
+            },
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "other",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
+            }
+          ]
+        },
+        {
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
           "date": "MM/DD/YY",
           "status": "okay",
           "updatedBy": "electronic",
