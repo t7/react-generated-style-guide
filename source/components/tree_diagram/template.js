@@ -72,6 +72,10 @@ TreeDiagram.defaultProps = {
     utils.log(d)
   },
 
+  handleClickMenu: function (text, data) {
+    utils.log(text, data)
+  },
+
   // Fake data.
   data: require('../../static/json/tree_diagram.json')
 }

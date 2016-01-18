@@ -108,8 +108,7 @@ Tree Diagram: Arrow menu.
 
 .t7-d3-tree-diagram__menu {
   fill: #fff;
-  stroke: #000;
-  stroke-width: 1px;
+  outline: 1px solid #000;
 }
 
 .t7-d3-tree-diagram__menu__row__group {

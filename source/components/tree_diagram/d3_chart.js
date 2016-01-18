@@ -9,6 +9,10 @@ export default class Chart {
     // Callback for clicking a "leaf".
     this.handleClickLeaf =
       props.handleClickLeaf || function () {}
+
+    // Callback for clicking menu item.
+    this.handleClickMenu =
+      props.handleClickMenu || function () {}
   }
 
   setConfig () {
@@ -134,6 +138,9 @@ export default class Chart {
   }
 
   arrowMenuToggle (d, el) {
+    // Callback.
+    const handleClickMenu = this.handleClickMenu.bind(handleClickMenu)
+
     const svg = this.svg
 
     const config = this.config
@@ -208,10 +215,14 @@ export default class Chart {
       g.attr('transform', 'translate(1,' + y + ')')
       g.attr('class', 't7-d3-tree-diagram__menu__row__group')
 
+      g.on('click', function (x) {
+        handleClickMenu(item.text, d)
+      })
+
       // Add row.
       const rect = g.append('rect')
       rect.attr('class', 't7-d3-tree-diagram__menu__row')
-      rect.attr('width', menuW - 2)
+      rect.attr('width', menuW - 1)
       rect.attr('height', itemH)
 
       // Add text.
