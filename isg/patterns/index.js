@@ -52691,7 +52691,7 @@
 	  },
 
 	  // Fake data.
-	  data: __webpack_require__(346)
+	  data: __webpack_require__(347)
 	};
 
 	// Export.
@@ -52742,7 +52742,33 @@
 	      this.config = {
 	        duration: 500,
 	        rectW: 260,
-	        rectH: 130
+	        rectH: 130,
+	        itemH: 30,
+	        menu: {
+	          /*
+	            NOTE: These keys correspond
+	            to each object's `*.type`.
+	          */
+	          superHouse: [{
+	            text: 'Add: Household'
+	          }, {
+	            text: 'View/Edit: Super House Details'
+	          }],
+	          household: [{
+	            text: 'Add: Tax Entity'
+	          }, {
+	            text: 'View/Edit: Household Details'
+	          }],
+	          taxEntity: [{
+	            text: 'Add: Single Account'
+	          }, {
+	            text: 'Add: PCR Data Services Accounts'
+	          }, {
+	            text: 'Add: Firm/Office Managed Accounts'
+	          }, {
+	            text: 'View/Edit: Tax Entity Details'
+	          }]
+	        }
 	      };
 	    }
 	  }, {
@@ -52786,8 +52812,10 @@
 	  }, {
 	    key: 'elbowLink',
 	    value: function elbowLink(d) {
-	      var rectW = this.config.rectW;
-	      var rectH = this.config.rectH;
+	      var config = this.config;
+
+	      var rectW = config.rectW;
+	      var rectH = config.rectH;
 
 	      var startX = d.source.x + rectW / 2;
 	      var startY = d.source.y + rectH / 2;
@@ -52819,8 +52847,99 @@
 	      this.svg.attr('transform', 'translate(' + _d32['default'].event.translate + ')' + ' ' + 'scale(' + _d32['default'].event.scale + ')');
 	    }
 	  }, {
-	    key: 'nodeToggle',
-	    value: function nodeToggle(d) {
+	    key: 'arrowMenuToggle',
+	    value: function arrowMenuToggle(d, el) {
+	      var svg = this.svg;
+
+	      var config = this.config;
+	      var rectW = config.rectW;
+
+	      var type = d.type;
+	      var menuData = config.menu[type];
+	      var itemH = config.itemH;
+	      var menuH = menuData ? menuData.length * itemH : 0;
+
+	      var x = d.x + rectW - 7;
+	      var y = d.y + 17;
+	      var transform = 'translate(' + x + ',' + y + ')';
+
+	      var group = svg.select('.t7-d3-tree-diagram__menu__group');
+
+	      var groupDom = group[0][0];
+	      var groupExists = groupDom !== null;
+
+	      // Set in conditional.
+	      var isActive;
+
+	      // Does arrow menu exist?
+	      if (groupExists) {
+	        var currentTransform = group.attr('transform');
+
+	        isActive = currentTransform === transform;
+
+	        group.remove();
+	      }
+
+	      /*
+	        If active menu is being toggled closed:
+	         Exit, don't create a new DOM element.
+	      */
+	      if (isActive || !menuData) {
+	        return;
+	      }
+
+	      // Add group to DOM.
+	      group = svg.append('g');
+	      group.attr('transform', transform);
+	      group.attr('class', 't7-d3-tree-diagram__menu__group');
+
+	      // Add menu to DOM.
+	      var menu = group.append('rect');
+
+	      // Defined in loop.
+	      var characterCount = 0;
+
+	      // Get longest text string.
+	      menuData.forEach(function (item, i) {
+	        if (item.text.length > characterCount) {
+	          characterCount = item.text.length;
+	        }
+	      });
+
+	      // Determine menu width.
+	      var menuW = characterCount * 7;
+
+	      // Add menu properties.
+	      menu.attr('class', 't7-d3-tree-diagram__menu');
+	      menu.attr('width', menuW);
+	      menu.attr('height', menuH);
+
+	      menuData.forEach(function (item, i) {
+	        var y = i * itemH;
+
+	        // Add row group.
+	        var g = group.append('g');
+	        g.attr('transform', 'translate(1,' + y + ')');
+	        g.attr('class', 't7-d3-tree-diagram__menu__row__group');
+
+	        // Add row.
+	        var rect = g.append('rect');
+	        rect.attr('class', 't7-d3-tree-diagram__menu__row');
+	        rect.attr('width', menuW - 1);
+	        rect.attr('height', itemH);
+
+	        // Add text.
+	        var text = g.append('text');
+	        text.text(item.text);
+	        text.attr('class', 't7-d3-tree-diagram__menu__text');
+	        text.attr('x', 10);
+	        text.attr('y', itemH / 2);
+	        text.attr('dy', '0.35em');
+	      });
+	    }
+	  }, {
+	    key: 'itemToggle',
+	    value: function itemToggle(d) {
 	      if (d.children) {
 	        d._children = d.children;
 	        d.children = null;
@@ -52833,8 +52952,8 @@
 	      this.update(d, true);
 	    }
 	  }, {
-	    key: 'nodeToggleFill',
-	    value: function nodeToggleFill(d, el) {
+	    key: 'itemToggleFill',
+	    value: function itemToggleFill(d, el) {
 	      var fill = 'none';
 
 	      if (d.children) {
@@ -52844,18 +52963,6 @@
 	      }
 
 	      return fill;
-	    }
-
-	    /*
-	      Called when the React component
-	      is mounted, or has updated data.
-	    */
-	  }, {
-	    key: 'render',
-	    value: function render(data) {
-	      this.data = data;
-	      this.destroy();
-	      this.setup();
 	    }
 	  }, {
 	    key: 'createIcon',
@@ -52956,6 +53063,20 @@
 	        width: 16,
 	        height: 16
 	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-people',
+	        path: __webpack_require__(345),
+	        width: 16,
+	        height: 16
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-arrow-right',
+	        path: __webpack_require__(346),
+	        width: 16,
+	        height: 16
+	      });
 	    }
 	  }, {
 	    key: 'setup',
@@ -52976,8 +53097,10 @@
 	      var width = this.el.offsetWidth;
 	      var height = this.el.offsetHeight;
 
-	      var rectW = this.config.rectW;
-	      var rectH = this.config.rectH;
+	      var config = this.config;
+
+	      var rectW = config.rectW;
+	      var rectH = config.rectH;
 
 	      var offset = width / 2 - rectW / 2;
 
@@ -53009,33 +53132,37 @@
 	      var data = this.data;
 
 	      // Callbacks with `this` bound to scope.
+	      var arrowMenuToggle = this.arrowMenuToggle.bind(this);
 	      var elbowLink = this.elbowLink.bind(this);
-	      var nodeToggle = this.nodeToggle.bind(this);
-	      var nodeToggleFill = this.nodeToggleFill.bind(this);
+	      var itemToggle = this.itemToggle.bind(this);
+	      var itemToggleFill = this.itemToggleFill.bind(this);
 
 	      // Defined in the React `props`.
 	      var handleClickLeaf = this.handleClickLeaf.bind(this);
 
 	      // Options from `this.setConfig`.
-	      var duration = this.config.duration;
-	      var rectW = this.config.rectW;
-	      var rectH = this.config.rectH;
+	      var config = this.config;
+	      var duration = config.duration;
+	      var rectW = config.rectW;
+	      var rectH = config.rectH;
 
 	      // Compute tree layout.
 	      var nodes = this.tree.nodes(data);
 	      var links = this.tree.links(nodes);
 
-	      // Loop through nodes.
+	      // Normalize depth.
 	      nodes.forEach(function (d) {
-	        // Normalize depth.
 	        d.y = d.depth * (rectH + 50);
 	      });
+
+	      // =================
+	      // Update the nodes.
+	      // =================
 
 	      // Used in loop.
 	      var i = 0;
 
-	      // Update the nodes.
-	      var allNodes = this.svg.selectAll('.t7-d3-tree-diagram__node').data(nodes, function (d) {
+	      var allNodes = this.svg.selectAll('.t7-d3-tree-diagram__group').data(nodes, function (d) {
 	        // Increment counter.
 	        i++;
 
@@ -53045,16 +53172,35 @@
 	        return d.id;
 	      });
 
-	      // Create elements per node.
-	      var allNodesEnter = allNodes.enter().append('g').attr('class', 't7-d3-tree-diagram__node').attr('transform', function (d) {
+	      // ======================
+	      // Create group per node.
+	      // ======================
+
+	      var nodeGroup = allNodes.enter().append('g');
+
+	      nodeGroup.attr('class', 't7-d3-tree-diagram__group');
+	      nodeGroup.attr('transform', function (d) {
 	        var x = source.x0 || source.x;
 	        var y = source.y0 || source.y;
 
 	        return 'translate(' + x + ',' + y + ')';
 	      });
 
-	      // Add rectangles.
-	      allNodesEnter.append('rect').attr('class', 't7-d3-tree-diagram__rect').attr('width', rectW).attr('height', function (d) {
+	      // ====================
+	      // Add node rectangles.
+	      // ====================
+
+	      var itemRect = nodeGroup.append('rect');
+
+	      // Defined in React `props`.
+	      itemRect.on('click', handleClickLeaf);
+
+	      itemRect.attr('class', 't7-d3-tree-diagram__rect');
+	      itemRect.attr('rx', 4);
+	      itemRect.attr('ry', 4);
+	      itemRect.attr('width', rectW);
+
+	      itemRect.attr('height', function (d) {
 	        var t = d.type;
 
 	        var n = rectH;
@@ -53069,25 +53215,26 @@
 
 	        if (t === 'taxtEntity' || t === 'account') {
 	          if (!d.alertText) {
-	            // TODO.
+	            // TODO: Render alert text.
 	          }
 	        }
 
 	        return n;
-	      }).attr('rx', 4).attr('ry', 4).on('click', handleClickLeaf).on('mouseover', function (d) {
-	        _d32['default'].select(this).classed({
-	          't7-d3-tree-diagram__rect': true,
-	          't7-d3-tree-diagram__rect--hover': true
-	        });
-	      }).on('mouseout', function (d) {
-	        _d32['default'].select(this).classed({
-	          't7-d3-tree-diagram__rect': true,
-	          't7-d3-tree-diagram__rect--hover': false
-	        });
 	      });
 
+	      // ====================
 	      // Add the "type" icon.
-	      allNodesEnter.append('rect').attr('width', 24).attr('height', 24).attr('x', 15).attr('y', 20).attr('class', 't7-d3-tree-diagram__icon-type').attr('fill', function (d) {
+	      // ====================
+
+	      var typeIcon = nodeGroup.append('rect');
+
+	      typeIcon.attr('width', 24);
+	      typeIcon.attr('height', 24);
+	      typeIcon.attr('x', 15);
+	      typeIcon.attr('y', 20);
+	      typeIcon.attr('class', 't7-d3-tree-diagram__icon-type');
+
+	      typeIcon.attr('fill', function (d) {
 	        var t = d.type;
 	        var m = d.managedBy;
 
@@ -53124,8 +53271,19 @@
 	        return fill;
 	      });
 
+	      // ======================
 	      // Add the "status" icon.
-	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 50).attr('y', 90).attr('class', 't7-d3-tree-diagram__icon-status').attr('fill', function (d) {
+	      // ======================
+
+	      var statusIcon = nodeGroup.append('rect');
+
+	      statusIcon.attr('width', 16);
+	      statusIcon.attr('height', 16);
+	      statusIcon.attr('x', 50);
+	      statusIcon.attr('y', 90);
+	      statusIcon.attr('class', 't7-d3-tree-diagram__icon-status');
+
+	      statusIcon.attr('fill', function (d) {
 	        var s = d.status;
 
 	        var fill = 'none';
@@ -53146,14 +53304,28 @@
 	        }
 
 	        return fill;
-	      }).attr('style', function (d) {
+	      });
+
+	      // Hide, if no data.
+	      statusIcon.attr('style', function (d) {
 	        if (!d.status) {
 	          return 'display:none';
 	        }
 	      });
 
+	      // ==========================
 	      // Add the "updated by" icon.
-	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 75).attr('y', 90).attr('class', 't7-d3-tree-diagram__icon-updated-by').attr('fill', function (d) {
+	      // ==========================
+
+	      var updatedIcon = nodeGroup.append('rect');
+
+	      updatedIcon.attr('width', 16);
+	      updatedIcon.attr('height', 16);
+	      updatedIcon.attr('x', 75);
+	      updatedIcon.attr('y', 90);
+	      updatedIcon.attr('class', 't7-d3-tree-diagram__icon-updated-by');
+
+	      updatedIcon.attr('fill', function (d) {
 	        var u = d.updatedBy;
 
 	        var fill = 'none';
@@ -53169,14 +53341,28 @@
 	        }
 
 	        return fill;
-	      }).attr('style', function (d) {
+	      });
+
+	      // Hide, if no data.
+	      updatedIcon.attr('style', function (d) {
 	        if (!d.updatedBy) {
 	          return 'display:none';
 	        }
 	      });
 
+	      // =======================
 	      // Add the "percent" icon.
-	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 100).attr('y', 90).attr('class', 't7-d3-tree-diagram__icon-percent').attr('fill', function (d) {
+	      // =======================
+
+	      var percentIcon = nodeGroup.append('rect');
+
+	      percentIcon.attr('width', 16);
+	      percentIcon.attr('height', 16);
+	      percentIcon.attr('x', 100);
+	      percentIcon.attr('y', 90);
+	      percentIcon.attr('class', 't7-d3-tree-diagram__icon-percent');
+
+	      percentIcon.attr('fill', function (d) {
 	        var p = d.percent;
 
 	        var fill = 'none';
@@ -53187,53 +53373,148 @@
 	        }
 
 	        return fill;
-	      }).attr('style', function (d) {
+	      });
+
+	      // Hide, if no data.
+	      percentIcon.attr('style', function (d) {
 	        if (!d.percent) {
 	          return 'display:none';
 	        }
 	      });
 
-	      // Add node name.
-	      allNodesEnter.append('text').attr('x', 119).attr('y', 98).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__percent').text(function (d) {
+	      // =================
+	      // Add percent text.
+	      // =================
+
+	      var percentText = nodeGroup.append('text');
+
+	      percentText.attr('x', 119);
+	      percentText.attr('y', 98);
+	      percentText.attr('dy', '0.35em');
+	      percentText.attr('text-anchor', 'start');
+	      percentText.attr('class', 't7-d3-tree-diagram__mute');
+
+	      percentText.text(function (d) {
 	        return d.percent;
-	      }).attr('style', function (d) {
+	      });
+
+	      // Hide, if no data.
+	      percentText.attr('style', function (d) {
 	        if (!d.percent) {
 	          return 'display:none';
 	        }
 	      });
 
+	      // =====================
 	      // Add the "+/-" toggle.
-	      allNodesEnter.append('rect').attr('width', 16).attr('height', 16).attr('x', 18).attr('y', 55).attr('rx', 4).attr('ry', 4).attr('class', 't7-d3-tree-diagram__toggle').attr('style', function (d) {
-	        if (!d.children && !d._children) {
-	          return 'display:none';
-	        }
-	      }).attr('fill', function (d) {
-	        return nodeToggleFill(d, this);
-	      }).on('click', function (d) {
-	        nodeToggle(d);
+	      // =====================
+
+	      var toggleIcon = nodeGroup.append('rect');
+
+	      toggleIcon.attr('width', 16);
+	      toggleIcon.attr('height', 16);
+	      toggleIcon.attr('x', 18);
+	      toggleIcon.attr('y', 55);
+	      toggleIcon.attr('rx', 4);
+	      toggleIcon.attr('ry', 4);
+	      toggleIcon.attr('class', 't7-d3-tree-diagram__toggle');
+
+	      toggleIcon.attr('fill', function (d) {
+	        return itemToggleFill(d, this);
+	      });
+
+	      toggleIcon.on('click', function (d) {
+	        itemToggle(d);
 
 	        // `this` means the element itself.
-	        var fill = nodeToggleFill(d, this);
+	        var fill = itemToggleFill(d, this);
 
 	        _d32['default'].select(this).attr('fill', fill);
 	      });
 
+	      // Hide, if no data.
+	      toggleIcon.attr('style', function (d) {
+	        if (!d.children && !d._children) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // ===========================
+	      // Add the "arrow right" icon.
+	      // ===========================
+
+	      var arrowIcon = nodeGroup.append('rect');
+
+	      arrowIcon.append('rect');
+	      arrowIcon.attr('width', 16);
+	      arrowIcon.attr('height', 16);
+	      arrowIcon.attr('x', rectW - 25);
+	      arrowIcon.attr('y', 10);
+	      arrowIcon.attr('rx', 4);
+	      arrowIcon.attr('ry', 4);
+	      arrowIcon.attr('class', 't7-d3-tree-diagram__icon-arrow-right');
+	      arrowIcon.attr('fill', 'url(#t7-d3-tree-diagram__icon-arrow-right)');
+
+	      // Show/Hide menu.
+	      arrowIcon.on('click', function (d) {
+	        arrowMenuToggle(d, this);
+	      });
+
+	      // Hide, if no data.
+	      arrowIcon.attr('style', function (d) {
+	        if (!config.menu[d.type]) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // ==============
 	      // Add node name.
-	      allNodesEnter.append('text').attr('x', 50).attr('y', 30).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__name').text(function (d) {
+	      // ==============
+
+	      var itemName = nodeGroup.append('text');
+
+	      itemName.attr('x', 50);
+	      itemName.attr('y', 30);
+	      itemName.attr('dy', '0.35em');
+	      itemName.attr('text-anchor', 'start');
+	      itemName.attr('class', 't7-d3-tree-diagram__name');
+
+	      itemName.text(function (d) {
 	        return d.name;
 	      });
 
-	      // Add node number (account, tax ID).
-	      allNodesEnter.append('text').attr('x', 50).attr('y', 50).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__description').text(function (d) {
+	      // ==================================
+	      // Add item number (account, tax ID).
+	      // ==================================
+
+	      var itemNumber = nodeGroup.append('text');
+
+	      itemNumber.attr('x', 50);
+	      itemNumber.attr('y', 50);
+	      itemNumber.attr('dy', '0.35em');
+	      itemNumber.attr('text-anchor', 'start');
+	      itemNumber.attr('class', 't7-d3-tree-diagram__mute');
+
+	      itemNumber.text(function (d) {
 	        return d.number;
-	      }).attr('style', function (d) {
+	      });
+
+	      // Hide, if no data.
+	      itemNumber.attr('style', function (d) {
 	        if (!d.number) {
 	          return 'display:none';
 	        }
 	      });
 
+	      // =====================
 	      // Add node description.
-	      allNodesEnter.append('text').attr('x', 50).attr('y', function (d) {
+	      // =====================
+
+	      var itemDesc = nodeGroup.append('text');
+
+	      itemDesc.attr('x', 50);
+
+	      itemDesc.attr('y', function (d) {
 	        var n = 50;
 
 	        if (d.number) {
@@ -53241,7 +53522,13 @@
 	        }
 
 	        return n;
-	      }).attr('dy', '0.35em').attr('text-anchor', 'start').attr('class', 't7-d3-tree-diagram__description').text(function (d) {
+	      });
+
+	      itemDesc.attr('dy', '0.35em');
+	      itemDesc.attr('text-anchor', 'start');
+	      itemDesc.attr('class', 't7-d3-tree-diagram__mute');
+
+	      itemDesc.text(function (d) {
 	        var date = d.date || '';
 	        var mv = d.mv || '';
 
@@ -53258,12 +53545,18 @@
 	        return str;
 	      });
 
+	      // =============================
 	      // Associate links with targets.
+	      // =============================
+
 	      var allLinks = this.svg.selectAll('.t7-d3-tree-diagram__link').data(links, function (d) {
 	        return d.target.id;
 	      });
 
+	      // =============================
 	      // Apply "elbow" style to links.
+	      // =============================
+
 	      allLinks.enter().insert('path', 'g').attr('class', 't7-d3-tree-diagram__link').attr('x', rectW / 2).attr('y', rectH / 2).attr('d', function (d) {
 	        var o = {
 	          x: source.x0 || source.x,
@@ -53328,11 +53621,26 @@
 	        allLinks.exit().remove();
 	      }
 
+	      // ================
 	      // Stash positions.
+	      // ================
+
 	      nodes.forEach(function (d) {
 	        d.x0 = d.x;
 	        d.y0 = d.y;
 	      });
+	    }
+
+	    /*
+	      Called when the React component
+	      is mounted, or has updated data.
+	    */
+	  }, {
+	    key: 'render',
+	    value: function render(data) {
+	      this.data = data;
+	      this.destroy();
+	      this.setup();
 	    }
 	  }]);
 
@@ -62968,6 +63276,12 @@
 
 /***/ },
 /* 346 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjEwMHB4IiBoZWlnaHQ9IjEwMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDMuNC40ICgxNzI0OSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+dDctZDMtdHJlZS1kaWFncmFtX19pY29uLWFycm93LXJpZ2h0PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9InQ3LWQzLXRyZWUtZGlhZ3JhbV9faWNvbi1hcnJvdy1yaWdodCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+CiAgICAgICAgPHBhdGggZD0iTTQ5LjkwMDEsNjYgTDI3LjE5MDI4NTcsMzkgTDM4LjUxNDUwMDEsMzkgTDQ5LjkwMDEsNTIuNTM3MDIzOSBMNjEuNDA1NjgwNSwzOSBMNzMuMTkwMjg1NywzOSBMNDkuOTAwMSw2NiBaIE01MCwwIEMyMi4zODUyMzk1LDAgMCwyMi4zODUyMzk1IDAsNTAgQzAsNzcuNjE0NzYwNSAyMi4zODUyMzk1LDEwMCA1MCwxMDAgQzc3LjYxNDc2MDUsMTAwIDEwMCw3Ny42MTQ3NjA1IDEwMCw1MCBDMTAwLDIyLjM4NTIzOTUgNzcuNjE0NzYwNSwwIDUwLDAgTDUwLDAgWiIgZmlsbD0iIzUzQTdEQiIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAuMDAwMDAwLCA1MC4wMDAwMDApIHJvdGF0ZSgtOTAuMDAwMDAwKSB0cmFuc2xhdGUoLTUwLjAwMDAwMCwgLTUwLjAwMDAwMCkgIj48L3BhdGg+CiAgICA8L2c+Cjwvc3ZnPg=="
+
+/***/ },
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = {
