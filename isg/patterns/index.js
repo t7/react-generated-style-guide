@@ -52690,6 +52690,10 @@
 	    _utils2['default'].log(d);
 	  },
 
+	  handleClickMenu: function handleClickMenu(text, data) {
+	    _utils2['default'].log(text, data);
+	  },
+
 	  // Fake data.
 	  data: __webpack_require__(347)
 	};
@@ -52734,6 +52738,9 @@
 
 	    // Callback for clicking a "leaf".
 	    this.handleClickLeaf = props.handleClickLeaf || function () {};
+
+	    // Callback for clicking menu item.
+	    this.handleClickMenu = props.handleClickMenu || function () {};
 	  }
 
 	  _createClass(Chart, [{
@@ -52849,6 +52856,9 @@
 	  }, {
 	    key: 'arrowMenuToggle',
 	    value: function arrowMenuToggle(d, el) {
+	      // Callback.
+	      var handleClickMenu = this.handleClickMenu.bind(handleClickMenu);
+
 	      var svg = this.svg;
 
 	      var config = this.config;
@@ -52921,6 +52931,10 @@
 	        var g = group.append('g');
 	        g.attr('transform', 'translate(1,' + y + ')');
 	        g.attr('class', 't7-d3-tree-diagram__menu__row__group');
+
+	        g.on('click', function (x) {
+	          handleClickMenu(item.text, d);
+	        });
 
 	        // Add row.
 	        var rect = g.append('rect');
