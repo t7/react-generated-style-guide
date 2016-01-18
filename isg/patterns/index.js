@@ -53164,6 +53164,14 @@
 	      var nodes = this.tree.nodes(data);
 	      var links = this.tree.links(nodes);
 
+	      // Check for existing menu.
+	      var menuGroup = this.svg.select('.t7-d3-tree-diagram__menu__group');
+
+	      // Remove menu, if it exists.
+	      if (menuGroup) {
+	        menuGroup.remove();
+	      }
+
 	      // Normalize depth.
 	      nodes.forEach(function (d) {
 	        d.y = d.depth * (rectH + 50);
