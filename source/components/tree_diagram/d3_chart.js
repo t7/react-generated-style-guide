@@ -15,7 +15,44 @@ export default class Chart {
     this.config = {
       duration: 500,
       rectW: 260,
-      rectH: 130
+      rectH: 130,
+      itemH: 30,
+      menu: {
+        /*
+          NOTE: These keys correspond
+          to each object's `*.type`.
+        */
+        superHouse: [
+          {
+            text: 'Add: Household'
+          },
+          {
+            text: 'View/Edit: Super House Details'
+          }
+        ],
+        household: [
+          {
+            text: 'Add: Tax Entity'
+          },
+          {
+            text: 'View/Edit: Household Details'
+          }
+        ],
+        taxEntity: [
+          {
+            text: 'Add: Single Account'
+          },
+          {
+            text: 'Add: PCR Data Services Accounts'
+          },
+          {
+            text: 'Add: Firm/Office Managed Accounts'
+          },
+          {
+            text: 'View/Edit: Tax Entity Details'
+          }
+        ]
+      }
     }
   }
 
@@ -56,8 +93,10 @@ export default class Chart {
   }
 
   elbowLink (d) {
-    const rectW = this.config.rectW
-    const rectH = this.config.rectH
+    const config = this.config
+
+    const rectW = config.rectW
+    const rectH = config.rectH
 
     const startX = d.source.x + (rectW / 2)
     const startY = d.source.y + (rectH / 2)
@@ -94,7 +133,98 @@ export default class Chart {
     )
   }
 
-  nodeToggle (d) {
+  arrowMenuToggle (d, el) {
+    const svg = this.svg
+
+    const config = this.config
+    const rectW = config.rectW
+
+    const type = d.type
+    const menuData = config.menu[type]
+    const itemH = config.itemH
+    const menuH = menuData ? menuData.length * itemH : 0
+
+    const x = d.x + rectW - 7
+    const y = d.y + 17
+    const transform = 'translate(' + x + ',' + y + ')'
+
+    var group = svg.select('.t7-d3-tree-diagram__menu__group')
+
+    const groupDom = group[0][0]
+    const groupExists = groupDom !== null
+
+    // Set in conditional.
+    var isActive
+
+    // Does arrow menu exist?
+    if (groupExists) {
+      let currentTransform = group.attr('transform')
+
+      isActive = currentTransform === transform
+
+      group.remove()
+    }
+
+    /*
+      If active menu is being toggled closed:
+
+      Exit, don't create a new DOM element.
+    */
+    if (isActive || !menuData) {
+      return
+    }
+
+    // Add group to DOM.
+    group = svg.append('g')
+    group.attr('transform', transform)
+    group.attr('class', 't7-d3-tree-diagram__menu__group')
+
+    // Add menu to DOM.
+    const menu = group.append('rect')
+
+    // Defined in loop.
+    var characterCount = 0
+
+    // Get longest text string.
+    menuData.forEach(function (item, i) {
+      if (item.text.length > characterCount) {
+        characterCount = item.text.length
+      }
+    })
+
+    // Determine menu width.
+    const menuW = characterCount * 7
+
+    // Add menu properties.
+    menu.attr('class', 't7-d3-tree-diagram__menu')
+    menu.attr('width', menuW)
+    menu.attr('height', menuH)
+
+    menuData.forEach(function (item, i) {
+      const y = i * itemH
+
+      // Add row group.
+      const g = group.append('g')
+      g.attr('transform', 'translate(1,' + y + ')')
+      g.attr('class', 't7-d3-tree-diagram__menu__row__group')
+
+      // Add row.
+      const rect = g.append('rect')
+      rect.attr('class', 't7-d3-tree-diagram__menu__row')
+      rect.attr('width', menuW - 2)
+      rect.attr('height', itemH)
+
+      // Add text.
+      const text = g.append('text')
+      text.text(item.text)
+      text.attr('class', 't7-d3-tree-diagram__menu__text')
+      text.attr('x', 10)
+      text.attr('y', itemH / 2)
+      text.attr('dy', '0.35em')
+    })
+  }
+
+  itemToggle (d) {
     if (d.children) {
       d._children = d.children
       d.children = null
@@ -107,7 +237,7 @@ export default class Chart {
     this.update(d, true)
   }
 
-  nodeToggleFill (d, el) {
+  itemToggleFill (d, el) {
     var fill = 'none'
 
     if (d.children) {
@@ -117,16 +247,6 @@ export default class Chart {
     }
 
     return fill
-  }
-
-  /*
-    Called when the React component
-    is mounted, or has updated data.
-  */
-  render (data) {
-    this.data = data
-    this.destroy()
-    this.setup()
   }
 
   createIcon (o) {
@@ -235,6 +355,20 @@ export default class Chart {
       width: 16,
       height: 16
     })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-people',
+      path: require('./images/t7-d3-tree-diagram__icon-people.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-arrow-right',
+      path: require('./images/t7-d3-tree-diagram__icon-arrow-right.svg'),
+      width: 16,
+      height: 16
+    })
   }
 
   setup () {
@@ -254,8 +388,10 @@ export default class Chart {
     const width = this.el.offsetWidth
     const height = this.el.offsetHeight
 
-    const rectW = this.config.rectW
-    const rectH = this.config.rectH
+    const config = this.config
+
+    const rectW = config.rectW
+    const rectH = config.rectH
 
     const offset = (width / 2) - (rectW / 2)
 
@@ -302,35 +438,39 @@ export default class Chart {
     const data = this.data
 
     // Callbacks with `this` bound to scope.
+    const arrowMenuToggle = this.arrowMenuToggle.bind(this)
     const elbowLink = this.elbowLink.bind(this)
-    const nodeToggle = this.nodeToggle.bind(this)
-    const nodeToggleFill = this.nodeToggleFill.bind(this)
+    const itemToggle = this.itemToggle.bind(this)
+    const itemToggleFill = this.itemToggleFill.bind(this)
 
     // Defined in the React `props`.
     const handleClickLeaf = this.handleClickLeaf.bind(this)
 
     // Options from `this.setConfig`.
-    const duration = this.config.duration
-    const rectW = this.config.rectW
-    const rectH = this.config.rectH
+    const config = this.config
+    const duration = config.duration
+    const rectW = config.rectW
+    const rectH = config.rectH
 
     // Compute tree layout.
     const nodes = this.tree.nodes(data)
     const links = this.tree.links(nodes)
 
-    // Loop through nodes.
+    // Normalize depth.
     nodes.forEach(function (d) {
-      // Normalize depth.
       d.y = d.depth * (rectH + 50)
     })
+
+    // =================
+    // Update the nodes.
+    // =================
 
     // Used in loop.
     var i = 0
 
-    // Update the nodes.
     const allNodes = this
       .svg
-      .selectAll('.t7-d3-tree-diagram__node')
+      .selectAll('.t7-d3-tree-diagram__group')
       .data(nodes, function (d) {
         // Increment counter.
         i++
@@ -341,309 +481,386 @@ export default class Chart {
         return d.id
       })
 
-    // Create elements per node.
-    const allNodesEnter =
-      allNodes
-      .enter()
-      .append('g')
-      .attr('class', 't7-d3-tree-diagram__node')
-      .attr('transform', function (d) {
-        const x = source.x0 || source.x
-        const y = source.y0 || source.y
+    // ======================
+    // Create group per node.
+    // ======================
 
-        return 'translate(' + x + ',' + y + ')'
-      })
+    const nodeGroup = allNodes.enter().append('g')
 
-    // Add rectangles.
-    allNodesEnter
-      .append('rect')
-      .attr('class', 't7-d3-tree-diagram__rect')
-      .attr('width', rectW)
-      .attr('height', function (d) {
-        const t = d.type
+    nodeGroup.attr('class', 't7-d3-tree-diagram__group')
+    nodeGroup.attr('transform', function (d) {
+      const x = source.x0 || source.x
+      const y = source.y0 || source.y
 
-        var n = rectH
+      return 'translate(' + x + ',' + y + ')'
+    })
 
-        if (t === 'superHouse') {
-          n = rectH - 40
+    // ====================
+    // Add node rectangles.
+    // ====================
+
+    const itemRect = nodeGroup.append('rect')
+
+    // Defined in React `props`.
+    itemRect.on('click', handleClickLeaf)
+
+    itemRect.attr('class', 't7-d3-tree-diagram__rect')
+    itemRect.attr('rx', 4)
+    itemRect.attr('ry', 4)
+    itemRect.attr('width', rectW)
+
+    itemRect.attr('height', function (d) {
+      const t = d.type
+
+      var n = rectH
+
+      if (t === 'superHouse') {
+        n = rectH - 40
+      }
+
+      if (t === 'household') {
+        n = rectH - 35
+      }
+
+      if (t === 'taxtEntity' || t === 'account') {
+        if (!d.alertText) {
+          // TODO: Render alert text.
         }
+      }
 
-        if (t === 'household') {
-          n = rectH - 35
-        }
+      return n
+    })
 
-        if (t === 'taxtEntity' || t === 'account') {
-          if (!d.alertText) {
-            // TODO.
-          }
-        }
-
-        return n
-      })
-      .attr('rx', 4)
-      .attr('ry', 4)
-      .on('click', handleClickLeaf)
-      .on('mouseover', function (d) {
-        d3.select(this).classed({
-          't7-d3-tree-diagram__rect': true,
-          't7-d3-tree-diagram__rect--hover': true
-        })
-      })
-      .on('mouseout', function (d) {
-        d3.select(this).classed({
-          't7-d3-tree-diagram__rect': true,
-          't7-d3-tree-diagram__rect--hover': false
-        })
-      })
-
+    // ====================
     // Add the "type" icon.
-    allNodesEnter
-      .append('rect')
-      .attr('width', 24)
-      .attr('height', 24)
-      .attr('x', 15)
-      .attr('y', 20)
-      .attr('class', 't7-d3-tree-diagram__icon-type')
-      .attr('fill', function (d) {
-        const t = d.type
-        const m = d.managedBy
+    // ====================
 
-        var fill = 'none'
+    const typeIcon = nodeGroup.append('rect')
 
-        // Super House?
-        if (t === 'superHouse') {
-          fill = 'url(#t7-d3-tree-diagram__icon-superhouse)'
+    typeIcon.attr('width', 24)
+    typeIcon.attr('height', 24)
+    typeIcon.attr('x', 15)
+    typeIcon.attr('y', 20)
+    typeIcon.attr('class', 't7-d3-tree-diagram__icon-type')
+
+    typeIcon.attr('fill', function (d) {
+      const t = d.type
+      const m = d.managedBy
+
+      var fill = 'none'
+
+      // Super House?
+      if (t === 'superHouse') {
+        fill = 'url(#t7-d3-tree-diagram__icon-superhouse)'
+      }
+
+      // Household?
+      if (t === 'household') {
+        fill = 'url(#t7-d3-tree-diagram__icon-household)'
+      }
+
+      // Household?
+      if (t === 'taxEntity') {
+        fill = 'url(#t7-d3-tree-diagram__icon-tax-entity)'
+      }
+
+      // Household?
+      if (t === 'account') {
+        // Managed by PCR?
+        if (m === 'self') {
+          fill = 'url(#t7-d3-tree-diagram__icon-pcr)'
         }
 
-        // Household?
-        if (t === 'household') {
-          fill = 'url(#t7-d3-tree-diagram__icon-household)'
+        // Managed by outside firm?
+        if (m === 'other') {
+          fill = 'url(#t7-d3-tree-diagram__icon-briefcase)'
         }
+      }
 
-        // Household?
-        if (t === 'taxEntity') {
-          fill = 'url(#t7-d3-tree-diagram__icon-tax-entity)'
-        }
+      return fill
+    })
 
-        // Household?
-        if (t === 'account') {
-          // Managed by PCR?
-          if (m === 'self') {
-            fill = 'url(#t7-d3-tree-diagram__icon-pcr)'
-          }
-
-          // Managed by outside firm?
-          if (m === 'other') {
-            fill = 'url(#t7-d3-tree-diagram__icon-briefcase)'
-          }
-        }
-
-        return fill
-      })
-
+    // ======================
     // Add the "status" icon.
-    allNodesEnter
-      .append('rect')
-      .attr('width', 16)
-      .attr('height', 16)
-      .attr('x', 50)
-      .attr('y', 90)
-      .attr('class', 't7-d3-tree-diagram__icon-status')
-      .attr('fill', function (d) {
-        const s = d.status
+    // ======================
 
-        var fill = 'none'
+    const statusIcon = nodeGroup.append('rect')
 
-        // Staus: okay?
-        if (s === 'okay') {
-          fill = 'url(#t7-d3-tree-diagram__icon-check)'
-        }
+    statusIcon.attr('width', 16)
+    statusIcon.attr('height', 16)
+    statusIcon.attr('x', 50)
+    statusIcon.attr('y', 90)
+    statusIcon.attr('class', 't7-d3-tree-diagram__icon-status')
 
-        // Status: problem?
-        if (s === 'problem') {
-          fill = 'url(#t7-d3-tree-diagram__icon-problem)'
-        }
+    statusIcon.attr('fill', function (d) {
+      const s = d.status
 
-        // Status: pending?
-        if (s === 'pending') {
-          fill = 'url(#t7-d3-tree-diagram__icon-time)'
-        }
+      var fill = 'none'
 
-        return fill
-      })
-      .attr('style', function (d) {
-        if (!d.status) {
-          return 'display:none'
-        }
-      })
+      // Staus: okay?
+      if (s === 'okay') {
+        fill = 'url(#t7-d3-tree-diagram__icon-check)'
+      }
 
+      // Status: problem?
+      if (s === 'problem') {
+        fill = 'url(#t7-d3-tree-diagram__icon-problem)'
+      }
+
+      // Status: pending?
+      if (s === 'pending') {
+        fill = 'url(#t7-d3-tree-diagram__icon-time)'
+      }
+
+      return fill
+    })
+
+    // Hide, if no data.
+    statusIcon.attr('style', function (d) {
+      if (!d.status) {
+        return 'display:none'
+      }
+    })
+
+    // ==========================
     // Add the "updated by" icon.
-    allNodesEnter
-      .append('rect')
-      .attr('width', 16)
-      .attr('height', 16)
-      .attr('x', 75)
-      .attr('y', 90)
-      .attr('class', 't7-d3-tree-diagram__icon-updated-by')
-      .attr('fill', function (d) {
-        const u = d.updatedBy
+    // ==========================
 
-        var fill = 'none'
+    const updatedIcon = nodeGroup.append('rect')
 
-        // Updated by: electronic?
-        if (u === 'electronic') {
-          fill = 'url(#t7-d3-tree-diagram__icon-lightning)'
-        }
+    updatedIcon.attr('width', 16)
+    updatedIcon.attr('height', 16)
+    updatedIcon.attr('x', 75)
+    updatedIcon.attr('y', 90)
+    updatedIcon.attr('class', 't7-d3-tree-diagram__icon-updated-by')
 
-        // Updated by: manually?
-        if (u === 'manual') {
-          fill = 'url(#t7-d3-tree-diagram__icon-keyboard)'
-        }
+    updatedIcon.attr('fill', function (d) {
+      const u = d.updatedBy
 
-        return fill
-      })
-      .attr('style', function (d) {
-        if (!d.updatedBy) {
-          return 'display:none'
-        }
-      })
+      var fill = 'none'
 
+      // Updated by: electronic?
+      if (u === 'electronic') {
+        fill = 'url(#t7-d3-tree-diagram__icon-lightning)'
+      }
+
+      // Updated by: manually?
+      if (u === 'manual') {
+        fill = 'url(#t7-d3-tree-diagram__icon-keyboard)'
+      }
+
+      return fill
+    })
+
+    // Hide, if no data.
+    updatedIcon.attr('style', function (d) {
+      if (!d.updatedBy) {
+        return 'display:none'
+      }
+    })
+
+    // =======================
     // Add the "percent" icon.
-    allNodesEnter
-      .append('rect')
-      .attr('width', 16)
-      .attr('height', 16)
-      .attr('x', 100)
-      .attr('y', 90)
-      .attr('class', 't7-d3-tree-diagram__icon-percent')
-      .attr('fill', function (d) {
-        const p = d.percent
+    // =======================
 
-        var fill = 'none'
+    const percentIcon = nodeGroup.append('rect')
 
-        // Percent exists?
-        if (p) {
-          fill = 'url(#t7-d3-tree-diagram__icon-people)'
-        }
+    percentIcon.attr('width', 16)
+    percentIcon.attr('height', 16)
+    percentIcon.attr('x', 100)
+    percentIcon.attr('y', 90)
+    percentIcon.attr('class', 't7-d3-tree-diagram__icon-percent')
 
-        return fill
-      })
-      .attr('style', function (d) {
-        if (!d.percent) {
-          return 'display:none'
-        }
-      })
+    percentIcon.attr('fill', function (d) {
+      const p = d.percent
 
-    // Add node name.
-    allNodesEnter
-      .append('text')
-      .attr('x', 119)
-      .attr('y', 98)
-      .attr('dy', '0.35em')
-      .attr('text-anchor', 'start')
-      .attr('class', 't7-d3-tree-diagram__percent')
-      .text(function (d) {
-        return d.percent
-      })
-      .attr('style', function (d) {
-        if (!d.percent) {
-          return 'display:none'
-        }
-      })
+      var fill = 'none'
 
+      // Percent exists?
+      if (p) {
+        fill = 'url(#t7-d3-tree-diagram__icon-people)'
+      }
+
+      return fill
+    })
+
+    // Hide, if no data.
+    percentIcon.attr('style', function (d) {
+      if (!d.percent) {
+        return 'display:none'
+      }
+    })
+
+    // =================
+    // Add percent text.
+    // =================
+
+    const percentText = nodeGroup.append('text')
+
+    percentText.attr('x', 119)
+    percentText.attr('y', 98)
+    percentText.attr('dy', '0.35em')
+    percentText.attr('text-anchor', 'start')
+    percentText.attr('class', 't7-d3-tree-diagram__mute')
+
+    percentText.text(function (d) {
+      return d.percent
+    })
+
+    // Hide, if no data.
+    percentText.attr('style', function (d) {
+      if (!d.percent) {
+        return 'display:none'
+      }
+    })
+
+    // =====================
     // Add the "+/-" toggle.
-    allNodesEnter
-      .append('rect')
-      .attr('width', 16)
-      .attr('height', 16)
-      .attr('x', 18)
-      .attr('y', 55)
-      .attr('rx', 4)
-      .attr('ry', 4)
-      .attr('class', 't7-d3-tree-diagram__toggle')
-      .attr('style', function (d) {
-        if (!d.children && !d._children) {
-          return 'display:none'
-        }
-      })
-      .attr('fill', function (d) {
-        return nodeToggleFill(d, this)
-      })
-      .on('click', function (d) {
-        nodeToggle(d)
+    // =====================
 
-        // `this` means the element itself.
-        const fill = nodeToggleFill(d, this)
+    const toggleIcon = nodeGroup.append('rect')
 
-        d3.select(this).attr('fill', fill)
-      })
+    toggleIcon.attr('width', 16)
+    toggleIcon.attr('height', 16)
+    toggleIcon.attr('x', 18)
+    toggleIcon.attr('y', 55)
+    toggleIcon.attr('rx', 4)
+    toggleIcon.attr('ry', 4)
+    toggleIcon.attr('class', 't7-d3-tree-diagram__toggle')
 
+    toggleIcon.attr('fill', function (d) {
+      return itemToggleFill(d, this)
+    })
+
+    toggleIcon.on('click', function (d) {
+      itemToggle(d)
+
+      // `this` means the element itself.
+      const fill = itemToggleFill(d, this)
+
+      d3.select(this).attr('fill', fill)
+    })
+
+    // Hide, if no data.
+    toggleIcon.attr('style', function (d) {
+      if (!d.children && !d._children) {
+        return 'display:none'
+      }
+    })
+
+    // ===========================
+    // Add the "arrow right" icon.
+    // ===========================
+
+    const arrowIcon = nodeGroup.append('rect')
+
+    arrowIcon.append('rect')
+    arrowIcon.attr('width', 16)
+    arrowIcon.attr('height', 16)
+    arrowIcon.attr('x', rectW - 25)
+    arrowIcon.attr('y', 10)
+    arrowIcon.attr('rx', 4)
+    arrowIcon.attr('ry', 4)
+    arrowIcon.attr('class', 't7-d3-tree-diagram__icon-arrow-right')
+    arrowIcon.attr('fill', 'url(#t7-d3-tree-diagram__icon-arrow-right)')
+
+    // Show/Hide menu.
+    arrowIcon.on('click', function (d) {
+      arrowMenuToggle(d, this)
+    })
+
+    // Hide, if no data.
+    arrowIcon.attr('style', function (d) {
+      if (!config.menu[d.type]) {
+        return 'display:none'
+      }
+    })
+
+    // ==============
     // Add node name.
-    allNodesEnter
-      .append('text')
-      .attr('x', 50)
-      .attr('y', 30)
-      .attr('dy', '0.35em')
-      .attr('text-anchor', 'start')
-      .attr('class', 't7-d3-tree-diagram__name')
-      .text(function (d) {
-        return d.name
-      })
+    // ==============
 
-    // Add node number (account, tax ID).
-    allNodesEnter
-      .append('text')
-      .attr('x', 50)
-      .attr('y', 50)
-      .attr('dy', '0.35em')
-      .attr('text-anchor', 'start')
-      .attr('class', 't7-d3-tree-diagram__description')
-      .text(function (d) {
-        return d.number
-      })
-      .attr('style', function (d) {
-        if (!d.number) {
-          return 'display:none'
-        }
-      })
+    const itemName = nodeGroup.append('text')
 
+    itemName.attr('x', 50)
+    itemName.attr('y', 30)
+    itemName.attr('dy', '0.35em')
+    itemName.attr('text-anchor', 'start')
+    itemName.attr('class', 't7-d3-tree-diagram__name')
+
+    itemName.text(function (d) {
+      return d.name
+    })
+
+    // ==================================
+    // Add item number (account, tax ID).
+    // ==================================
+
+    const itemNumber = nodeGroup.append('text')
+
+    itemNumber.attr('x', 50)
+    itemNumber.attr('y', 50)
+    itemNumber.attr('dy', '0.35em')
+    itemNumber.attr('text-anchor', 'start')
+    itemNumber.attr('class', 't7-d3-tree-diagram__mute')
+
+    itemNumber.text(function (d) {
+      return d.number
+    })
+
+    // Hide, if no data.
+    itemNumber.attr('style', function (d) {
+      if (!d.number) {
+        return 'display:none'
+      }
+    })
+
+    // =====================
     // Add node description.
-    allNodesEnter
-      .append('text')
-      .attr('x', 50)
-      .attr('y', function (d) {
-        var n = 50
+    // =====================
 
-        if (d.number) {
-          n = 70
-        }
+    const itemDesc = nodeGroup.append('text')
 
-        return n
-      })
-      .attr('dy', '0.35em')
-      .attr('text-anchor', 'start')
-      .attr('class', 't7-d3-tree-diagram__description')
-      .text(function (d) {
-        var date = d.date || ''
-        var mv = d.mv || ''
+    itemDesc.attr('x', 50)
 
-        if (mv) {
-          mv = 'MV ' + mv
-        }
+    itemDesc.attr('y', function (d) {
+      var n = 50
 
-        if (date) {
-          date = 'as of ' + date
-        }
+      if (d.number) {
+        n = 70
+      }
 
-        const str = [
-          mv,
-          date
-        ].join(' ')
+      return n
+    })
 
-        return str
-      })
+    itemDesc.attr('dy', '0.35em')
+    itemDesc.attr('text-anchor', 'start')
+    itemDesc.attr('class', 't7-d3-tree-diagram__mute')
 
+    itemDesc.text(function (d) {
+      var date = d.date || ''
+      var mv = d.mv || ''
+
+      if (mv) {
+        mv = 'MV ' + mv
+      }
+
+      if (date) {
+        date = 'as of ' + date
+      }
+
+      const str = [
+        mv,
+        date
+      ].join(' ')
+
+      return str
+    })
+
+    // =============================
     // Associate links with targets.
+    // =============================
+
     const allLinks = this
       .svg
       .selectAll('.t7-d3-tree-diagram__link')
@@ -651,7 +868,10 @@ export default class Chart {
         return d.target.id
       })
 
+    // =============================
     // Apply "elbow" style to links.
+    // =============================
+
     allLinks
       .enter()
       .insert('path', 'g')
@@ -743,10 +963,23 @@ export default class Chart {
         .remove()
     }
 
+    // ================
     // Stash positions.
+    // ================
+
     nodes.forEach(function (d) {
       d.x0 = d.x
       d.y0 = d.y
     })
+  }
+
+  /*
+    Called when the React component
+    is mounted, or has updated data.
+  */
+  render (data) {
+    this.data = data
+    this.destroy()
+    this.setup()
   }
 }

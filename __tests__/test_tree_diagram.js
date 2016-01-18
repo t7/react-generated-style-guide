@@ -54,7 +54,7 @@ describe('Fieldset', function () {
   const parent = T.findRenderedDOMComponentWithClass(el, 't7-d3-tree-diagram')
 
   // Get tree nodes.
-  const nodes = parent.querySelectorAll('.t7-d3-tree-diagram__node')
+  const nodes = parent.querySelectorAll('.t7-d3-tree-diagram__group')
 
   // ===================
   // Test for existence.

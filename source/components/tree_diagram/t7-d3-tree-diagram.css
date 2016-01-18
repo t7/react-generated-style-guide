@@ -1,6 +1,6 @@
 /*
-D3.js - Tree Diagram.
-================================================================================
+Tree Diagram.
+============================================================
 */
 
 .t7-d3-tree-diagram {
@@ -44,26 +44,20 @@ D3.js - Tree Diagram.
   bottom: 0;
 }
 
-.t7-d3-tree-diagram text {
-  font-family: sans-serif;
+/*
+Tree Diagram: Nodes.
+============================================================
+*/
+
+.t7-d3-tree-diagram__group:hover .t7-d3-tree-diagram__rect {
+  fill: #f3f9ff;
+  stroke: #53a7db;
 }
 
 .t7-d3-tree-diagram__rect {
   fill: #fff;
   stroke: #999;
   stroke-width: 1px;
-}
-
-.t7-d3-tree-diagram__rect--hover {
-  fill: #f3f9ff;
-  stroke: #53a7db;
-}
-
-.t7-d3-tree-diagram__link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1px;
-  /*shape-rendering: crispEdges;*/
 }
 
 .t7-d3-tree-diagram__toggle {
@@ -73,13 +67,59 @@ D3.js - Tree Diagram.
   stroke-width: 1px;
 }
 
+/*
+Tree Diagram: Connector "links".
+============================================================
+*/
+
+.t7-d3-tree-diagram__link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+/*
+Tree Diagram: Text.
+============================================================
+*/
+
+.t7-d3-tree-diagram text {
+  font-family: sans-serif;
+}
+
 .t7-d3-tree-diagram__name {
-    font-size: 12px;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.t7-d3-tree-diagram__percent,
-.t7-d3-tree-diagram__description {
+.t7-d3-tree-diagram__mute {
   fill: #999;
   font-size: 11px;
+}
+
+/*
+Tree Diagram: Arrow menu.
+============================================================
+*/
+
+.t7-d3-tree-diagram__icon-arrow-right {
+  cursor: pointer;
+}
+
+.t7-d3-tree-diagram__menu {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.t7-d3-tree-diagram__menu__row__group {
+  cursor: pointer;
+}
+
+.t7-d3-tree-diagram__menu__row {
+  fill: #fff;
+}
+
+.t7-d3-tree-diagram__menu__row__group:hover .t7-d3-tree-diagram__menu__row {
+  fill: #f3f9ff;
 }
