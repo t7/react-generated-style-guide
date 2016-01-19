@@ -183,8 +183,8 @@ export default class Chart {
     const itemH = config.itemH
     const menuH = menuData ? menuData.length * itemH : 0
 
-    const x = d.x + rectW - 7
-    const y = d.y + 18
+    const x = d.x + rectW + 6
+    const y = d.y + 18 - (menuH / 2)
     const transform = 'translate(' + x + ',' + y + ')'
 
     var group = svg.select('.t7-d3-tree-diagram__menu__group')
@@ -239,12 +239,22 @@ export default class Chart {
     menu.attr('width', menuW)
     menu.attr('height', menuH)
 
+    // Add menu arrow.
+    const menuArrow = group.append('rect')
+
+    menuArrow.attr('width', 16)
+    menuArrow.attr('height', 16)
+    menuArrow.attr('fill', 'url(#t7-d3-tree-diagram__icon-menu-arrow)')
+    menuArrow.attr('x', -14)
+    menuArrow.attr('y', (menuH / 2) - 8)
+
+    // Loop through data, create rows.
     menuData.forEach(function (item, i) {
       const y = i * itemH
 
       // Add row group.
       const g = group.append('g')
-      g.attr('transform', 'translate(1,' + y + ')')
+      g.attr('transform', 'translate(0,' + y + ')')
       g.attr('class', 't7-d3-tree-diagram__menu__row__group')
 
       g.on('click', function (x) {
@@ -254,7 +264,7 @@ export default class Chart {
       // Add row.
       const rect = g.append('rect')
       rect.attr('class', 't7-d3-tree-diagram__menu__row')
-      rect.attr('width', menuW - 1)
+      rect.attr('width', menuW)
       rect.attr('height', itemH)
 
       // Add text.
@@ -316,7 +326,7 @@ export default class Chart {
   }
 
   calcRectHeight (d) {
-    var height = 50
+    var height = 40
 
     if (d.name) {
       height += 30
@@ -420,6 +430,13 @@ export default class Chart {
     this.createIcon({
       id: 't7-d3-tree-diagram__icon-menu',
       path: require('./images/t7-d3-tree-diagram__icon-menu.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-menu-arrow',
+      path: require('./images/t7-d3-tree-diagram__icon-menu-arrow.svg'),
       width: 16,
       height: 16
     })

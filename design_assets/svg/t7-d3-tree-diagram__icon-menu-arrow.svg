@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="112px" height="113px" viewBox="0 0 112 113" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>t7-d3-tree-diagram__icon-menu-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="t7-d3-tree-diagram__icon-menu-arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSLayerGroup" transform="translate(8.000000, 0.000000)" fill="#DDDDDD">
+            <polygon id="Triangle-1" stroke="#999999" stroke-width="7" sketch:type="MSShapeGroup" transform="translate(50.000000, 56.000000) rotate(-90.000000) translate(-50.000000, -56.000000) " points="50 6 100 106 -2.84217094e-14 106 "></polygon>
+            <path d="M96,4 L104,0 L104,113 L96,108 L96,4 Z" id="Rectangle-1" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

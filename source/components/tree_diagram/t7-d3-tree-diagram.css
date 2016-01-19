@@ -107,20 +107,25 @@ Tree Diagram: Arrow menu.
 }
 
 .t7-d3-tree-diagram__menu {
-  fill: #fff;
-  outline: 1px solid #000;
+  stroke: #999;
+  stroke-width: 2px;
+}
+
+.t7-d3-tree-diagram__menu,
+.t7-d3-tree-diagram__menu__row {
+  fill: #ddd;
+}
+
+.t7-d3-tree-diagram__menu__row {
+  shape-rendering: crispEdges;
 }
 
 .t7-d3-tree-diagram__menu__row__group {
   cursor: pointer;
 }
 
-.t7-d3-tree-diagram__menu__row {
-  fill: #fff;
-}
-
 .t7-d3-tree-diagram__menu__row__group:hover .t7-d3-tree-diagram__menu__row {
-  fill: #f3f9ff;
+  fill: #fcfcfc;
 }
 
 .t7-d3-tree-diagram__menu__text {
