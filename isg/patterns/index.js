@@ -52824,26 +52824,56 @@
 	      var rectW = config.rectW;
 	      var rectH = config.rectH;
 
-	      var startX = d.source.x + rectW / 2;
-	      var startY = d.source.y + rectH / 2;
+	      var sourceType = d.source.type;
+	      var targetType = d.target.type;
 
-	      var midY = d.source.y + (d.target.y - d.source.y) * 0.5 + rectH / 2;
+	      var isAccountLink = sourceType === 'taxEntity' && targetType === 'account';
 
-	      var endX = d.target.x + rectW / 2;
-	      var endY = d.target.y + rectH / 2;
+	      // Set in conditional.
+	      var value;
 
-	      var value =
-	      // Move to: X, Y.
-	      'M' + startX + ',' + startY +
+	      // Not account?
+	      if (!isAccountLink) {
+	        var startX = d.source.x + rectW / 2;
+	        var startY = d.source.y + rectH / 2;
 
-	      // Vertical line.
-	      'V' + midY +
+	        var midY = d.source.y + (d.target.y - d.source.y) * 0.5 + rectH / 2;
 
-	      // Horizontal line.
-	      'H' + endX +
+	        var endX = d.target.x + rectW / 2;
+	        var endY = d.target.y + rectH / 2;
 
-	      // Vertical line.
-	      'V' + endY;
+	        value =
+	        // Move to: X, Y.
+	        'M' + startX + ',' + startY +
+
+	        // Vertical line.
+	        'V' + midY +
+
+	        // Horizontal line.
+	        'H' + endX +
+
+	        // Vertical line.
+	        'V' + endY;
+	      }
+
+	      // Is account?
+	      if (isAccountLink) {
+	        var startX = d.source.x + 20;
+	        var startY = d.source.y;
+
+	        var midY = d.target.y + 32;
+	        var endX = d.target.x + 20;
+
+	        value =
+	        // Move to: X, Y.
+	        'M' + startX + ',' + startY +
+
+	        // Vertical line.
+	        'V' + midY +
+
+	        // Horizontal line.
+	        'H' + endX;
+	      }
 
 	      // Expose value.
 	      return value;
@@ -53143,8 +53173,18 @@
 
 	      this.tree = _d32['default'].layout.tree();
 
-	      this.tree.separation(function () {
-	        return 1;
+	      this.tree.separation(function (d) {
+	        var n = 1;
+
+	        if (d.type === 'account') {
+	          n = 0;
+	        }
+
+	        if (d.type === 'taxEntity') {
+	          n = 1.15;
+	        }
+
+	        return n;
 	      });
 
 	      // Set default node size.
@@ -53191,14 +53231,12 @@
 	      // Remove menu, if it exists.
 	      this.svg.select('.t7-d3-tree-diagram__menu__group').remove();
 
-	      // Normalize depth.
+	      // Normalize positions for accounts.
 	      nodes.forEach(function (d) {
 	        var offset = rectH + 50;
 	        var isAccount = d.type === 'account';
 
-	        var haxTaxChildren = d.children && d.children[0].type === 'taxEntity';
-
-	        var hasAccountChildren = d.children && d.children[0].type === 'account';
+	        var hasAccountChildren = !isAccount && d.children && d.children[0].type === 'account';
 
 	        // If not account, apply normal depth.
 	        if (!isAccount) {
@@ -53208,25 +53246,9 @@
 	        // Loop through account children.
 	        if (hasAccountChildren) {
 	          d.children.forEach(function (child, i) {
-	            child.x = d.x + 20;
+	            child.x = d.x + 40;
 	            child.y = d.y + offset + i * offset;
 	          });
-	        }
-
-	        // Loop through tax entity children.
-	        if (haxTaxChildren) {
-	          (function () {
-	            var count = d.children.length;
-	            var isCountEven = count % 2 === 0;
-	            var middle = Math.floor(count / 2);
-
-	            d.children.forEach(function (child, i) {
-	              if (middle === i) {
-	                // TODO.
-	                console.log(middle);
-	              }
-	            });
-	          })();
 	        }
 	      });
 
@@ -53615,14 +53637,17 @@
 	      // =============================
 
 	      allLinks.enter().insert('path', 'g').attr('class', 't7-d3-tree-diagram__link').attr('x', rectW / 2).attr('y', rectH / 2).attr('d', function (d) {
-	        var o = {
-	          x: source.x0 || source.x,
-	          y: source.y0 || source.y
-	        };
-
 	        return elbowLink({
-	          source: o,
-	          target: o
+	          source: {
+	            x: source.x0 || source.x,
+	            y: source.y0 || source.y,
+	            type: d.source.type
+	          },
+	          target: {
+	            x: source.x0 || source.x,
+	            y: source.y0 || source.y,
+	            type: d.target.type
+	          }
 	        });
 	      });
 
@@ -53646,14 +53671,17 @@
 
 	        // Links: closing transition.
 	        allLinks.exit().transition().duration(duration).attr('d', function (d) {
-	          var o = {
-	            x: source.x,
-	            y: source.y
-	          };
-
 	          return elbowLink({
-	            source: o,
-	            target: o
+	            source: {
+	              x: source.x,
+	              y: source.y,
+	              type: d.source.type
+	            },
+	            target: {
+	              x: source.x,
+	              y: source.y,
+	              type: d.target.type
+	            }
 	          });
 	        }).remove();
 	      }
