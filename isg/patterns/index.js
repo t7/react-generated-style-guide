@@ -52749,7 +52749,7 @@
 	      this.config = {
 	        duration: 500,
 	        rectW: 260,
-	        rectH: 150,
+	        rectH: 120,
 	        itemH: 30,
 	        menu: {
 	          /*
@@ -63388,9 +63388,6 @@
 						"type": "taxEntity",
 						"mv": "$X00,000.00",
 						"date": "MM/DD/YY",
-						"status": "okay",
-						"updatedBy": "electronic",
-						"percent": "25%",
 						"children": [
 							{
 								"name": "Name of Account",
@@ -63422,9 +63419,6 @@
 						"type": "taxEntity",
 						"mv": "$X00,000.00",
 						"date": "MM/DD/YY",
-						"status": "okay",
-						"updatedBy": "electronic",
-						"percent": "25%",
 						"children": [
 							{
 								"name": "Name of Account",
@@ -63456,9 +63450,6 @@
 						"type": "taxEntity",
 						"mv": "$X00,000.00",
 						"date": "MM/DD/YY",
-						"status": "okay",
-						"updatedBy": "electronic",
-						"percent": "25%",
 						"children": [
 							{
 								"name": "Name of Account",
@@ -63499,9 +63490,6 @@
 						"type": "taxEntity",
 						"mv": "$X00,000.00",
 						"date": "MM/DD/YY",
-						"status": "okay",
-						"updatedBy": "electronic",
-						"percent": "25%",
 						"children": [
 							{
 								"name": "Name of Account",
@@ -63533,9 +63521,6 @@
 						"type": "taxEntity",
 						"mv": "$X00,000.00",
 						"date": "MM/DD/YY",
-						"status": "okay",
-						"updatedBy": "electronic",
-						"percent": "25%",
 						"children": [
 							{
 								"name": "Name of Account",
