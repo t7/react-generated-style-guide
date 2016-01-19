@@ -107,8 +107,7 @@ Tree Diagram: Arrow menu.
 }
 
 .t7-d3-tree-diagram__menu {
-  stroke: #999;
-  stroke-width: 2px;
+  outline: 1px solid #999;
 }
 
 .t7-d3-tree-diagram__menu,
