@@ -52695,7 +52695,7 @@
 	  },
 
 	  // Fake data.
-	  data: __webpack_require__(347)
+	  data: __webpack_require__(348)
 	};
 
 	// Export.
@@ -52899,8 +52899,8 @@
 	      var itemH = config.itemH;
 	      var menuH = menuData ? menuData.length * itemH : 0;
 
-	      var x = d.x + rectW - 7;
-	      var y = d.y + 18;
+	      var x = d.x + rectW + 6;
+	      var y = d.y + 18 - menuH / 2;
 	      var transform = 'translate(' + x + ',' + y + ')';
 
 	      var group = svg.select('.t7-d3-tree-diagram__menu__group');
@@ -52954,12 +52954,22 @@
 	      menu.attr('width', menuW);
 	      menu.attr('height', menuH);
 
+	      // Add menu arrow.
+	      var menuArrow = group.append('rect');
+
+	      menuArrow.attr('width', 16);
+	      menuArrow.attr('height', 16);
+	      menuArrow.attr('fill', 'url(#t7-d3-tree-diagram__icon-menu-arrow)');
+	      menuArrow.attr('x', -14);
+	      menuArrow.attr('y', menuH / 2 - 8);
+
+	      // Loop through data, create rows.
 	      menuData.forEach(function (item, i) {
 	        var y = i * itemH;
 
 	        // Add row group.
 	        var g = group.append('g');
-	        g.attr('transform', 'translate(1,' + y + ')');
+	        g.attr('transform', 'translate(0,' + y + ')');
 	        g.attr('class', 't7-d3-tree-diagram__menu__row__group');
 
 	        g.on('click', function (x) {
@@ -52969,7 +52979,7 @@
 	        // Add row.
 	        var rect = g.append('rect');
 	        rect.attr('class', 't7-d3-tree-diagram__menu__row');
-	        rect.attr('width', menuW - 1);
+	        rect.attr('width', menuW);
 	        rect.attr('height', itemH);
 
 	        // Add text.
@@ -53130,6 +53140,13 @@
 	      this.createIcon({
 	        id: 't7-d3-tree-diagram__icon-menu',
 	        path: __webpack_require__(346),
+	        width: 16,
+	        height: 16
+	      });
+
+	      this.createIcon({
+	        id: 't7-d3-tree-diagram__icon-menu-arrow',
+	        path: __webpack_require__(347),
 	        width: 16,
 	        height: 16
 	      });
@@ -63369,6 +63386,12 @@
 
 /***/ },
 /* 347 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjExMnB4IiBoZWlnaHQ9IjExM3B4IiB2aWV3Qm94PSIwIDAgMTEyIDExMyIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDMuNC40ICgxNzI0OSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+dDctZDMtdHJlZS1kaWFncmFtX19pY29uLW1lbnUtYXJyb3c8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0idDctZDMtdHJlZS1kaWFncmFtX19pY29uLW1lbnUtYXJyb3ciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPgogICAgICAgIDxnIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDguMDAwMDAwLCAwLjAwMDAwMCkiIGZpbGw9IiNEREREREQiPgogICAgICAgICAgICA8cG9seWdvbiBpZD0iVHJpYW5nbGUtMSIgc3Ryb2tlPSIjOTk5OTk5IiBzdHJva2Utd2lkdGg9IjciIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwLjAwMDAwMCwgNTYuMDAwMDAwKSByb3RhdGUoLTkwLjAwMDAwMCkgdHJhbnNsYXRlKC01MC4wMDAwMDAsIC01Ni4wMDAwMDApICIgcG9pbnRzPSI1MCA2IDEwMCAxMDYgLTIuODQyMTcwOTRlLTE0IDEwNiAiPjwvcG9seWdvbj4KICAgICAgICAgICAgPHBhdGggZD0iTTk2LDQgTDEwNCwwIEwxMDQsMTEzIEw5NiwxMDggTDk2LDQgWiIgaWQ9IlJlY3RhbmdsZS0xIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+
+/***/ },
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = {
