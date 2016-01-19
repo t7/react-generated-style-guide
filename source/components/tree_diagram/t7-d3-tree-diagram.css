@@ -112,7 +112,7 @@ Tree Diagram: Arrow menu.
 
 .t7-d3-tree-diagram__menu,
 .t7-d3-tree-diagram__menu__row {
-  fill: #ddd;
+  fill: #e8eaf0;
 }
 
 .t7-d3-tree-diagram__menu__row {
@@ -124,7 +124,7 @@ Tree Diagram: Arrow menu.
 }
 
 .t7-d3-tree-diagram__menu__row__group:hover .t7-d3-tree-diagram__menu__row {
-  fill: #fcfcfc;
+  fill: #f8f9fc;
 }
 
 .t7-d3-tree-diagram__menu__text {
