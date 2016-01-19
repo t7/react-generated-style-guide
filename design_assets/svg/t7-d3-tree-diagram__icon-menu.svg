@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="106px" height="106px" viewBox="0 0 106 106" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>t7-d3-tree-diagram__icon-menu</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="t7-d3-tree-diagram__icon-menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSLayerGroup" transform="translate(3.000000, 3.000000)">
+            <ellipse id="Oval-5" stroke="#999999" stroke-width="6" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="50" cy="50" rx="50" ry="50"></ellipse>
+            <path d="M26,58 C30.418278,58 34,54.418278 34,50 C34,45.581722 30.418278,42 26,42 C21.581722,42 18,45.581722 18,50 C18,54.418278 21.581722,58 26,58 Z" id="Oval-6" fill="#7AB9E0" sketch:type="MSShapeGroup"></path>
+            <path d="M50,58 C54.418278,58 58,54.418278 58,50 C58,45.581722 54.418278,42 50,42 C45.581722,42 42,45.581722 42,50 C42,54.418278 45.581722,58 50,58 Z" id="Oval-6" fill="#7AB9E0" sketch:type="MSShapeGroup"></path>
+            <path d="M74,58 C78.418278,58 82,54.418278 82,50 C82,45.581722 78.418278,42 74,42 C69.581722,42 66,45.581722 66,50 C66,54.418278 69.581722,58 74,58 Z" id="Oval-6" fill="#7AB9E0" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

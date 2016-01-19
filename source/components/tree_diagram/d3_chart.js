@@ -169,7 +169,7 @@ export default class Chart {
     )
   }
 
-  arrowMenuToggle (d, el) {
+  menuToggle (d, el) {
     // Callback.
     const handleClickMenu = this.handleClickMenu.bind(handleClickMenu)
 
@@ -195,7 +195,7 @@ export default class Chart {
     // Set in conditional.
     var isActive
 
-    // Does arrow menu exist?
+    // Does menu exist?
     if (groupExists) {
       let currentTransform = group.attr('transform')
 
@@ -343,19 +343,15 @@ export default class Chart {
     this.createIcon({
       id: 't7-d3-tree-diagram__icon-plus',
       path: require('./images/t7-d3-tree-diagram__icon-plus.svg'),
-      width: 10,
-      height: 10,
-      x: 3,
-      y: 3
+      width: 16,
+      height: 16
     })
 
     this.createIcon({
       id: 't7-d3-tree-diagram__icon-minus',
       path: require('./images/t7-d3-tree-diagram__icon-minus.svg'),
-      width: 10,
-      height: 10,
-      x: 3,
-      y: 3
+      width: 16,
+      height: 16
     })
 
     this.createIcon({
@@ -401,36 +397,29 @@ export default class Chart {
     })
 
     this.createIcon({
-      id: 't7-d3-tree-diagram__icon-lightning',
-      path: require('./images/t7-d3-tree-diagram__icon-lightning.svg'),
+      id: 't7-d3-tree-diagram__icon-electronic',
+      path: require('./images/t7-d3-tree-diagram__icon-electronic.svg'),
       width: 16,
       height: 16
     })
 
     this.createIcon({
-      id: 't7-d3-tree-diagram__icon-keyboard',
-      path: require('./images/t7-d3-tree-diagram__icon-keyboard.svg'),
+      id: 't7-d3-tree-diagram__icon-manual',
+      path: require('./images/t7-d3-tree-diagram__icon-manual.svg'),
       width: 16,
       height: 16
     })
 
     this.createIcon({
-      id: 't7-d3-tree-diagram__icon-people',
-      path: require('./images/t7-d3-tree-diagram__icon-people.svg'),
+      id: 't7-d3-tree-diagram__icon-partner',
+      path: require('./images/t7-d3-tree-diagram__icon-partner.svg'),
       width: 16,
       height: 16
     })
 
     this.createIcon({
-      id: 't7-d3-tree-diagram__icon-people',
-      path: require('./images/t7-d3-tree-diagram__icon-people.svg'),
-      width: 16,
-      height: 16
-    })
-
-    this.createIcon({
-      id: 't7-d3-tree-diagram__icon-arrow-right',
-      path: require('./images/t7-d3-tree-diagram__icon-arrow-right.svg'),
+      id: 't7-d3-tree-diagram__icon-menu',
+      path: require('./images/t7-d3-tree-diagram__icon-menu.svg'),
       width: 16,
       height: 16
     })
@@ -513,7 +502,7 @@ export default class Chart {
     const data = this.data
 
     // Callbacks with `this` bound to scope.
-    const arrowMenuToggle = this.arrowMenuToggle.bind(this)
+    const menuToggle = this.menuToggle.bind(this)
     const calcRectHeight = this.calcRectHeight.bind(this)
     const elbowLink = this.elbowLink.bind(this)
     const itemToggle = this.itemToggle.bind(this)
@@ -721,12 +710,12 @@ export default class Chart {
 
       // Updated by: electronic?
       if (u === 'electronic') {
-        fill = 'url(#t7-d3-tree-diagram__icon-lightning)'
+        fill = 'url(#t7-d3-tree-diagram__icon-electronic)'
       }
 
       // Updated by: manually?
       if (u === 'manual') {
-        fill = 'url(#t7-d3-tree-diagram__icon-keyboard)'
+        fill = 'url(#t7-d3-tree-diagram__icon-manual)'
       }
 
       return fill
@@ -758,7 +747,7 @@ export default class Chart {
 
       // Percent exists?
       if (p) {
-        fill = 'url(#t7-d3-tree-diagram__icon-people)'
+        fill = 'url(#t7-d3-tree-diagram__icon-partner)'
       }
 
       return fill
@@ -802,8 +791,21 @@ export default class Chart {
 
     toggleIcon.attr('width', 16)
     toggleIcon.attr('height', 16)
-    toggleIcon.attr('x', 18)
-    toggleIcon.attr('y', 55)
+
+    toggleIcon.attr('x', function (d) {
+      var n = (rectW / 2) - 8
+
+      if (d.type === 'taxEntity') {
+        n = 12
+      }
+
+      return n
+    })
+
+    toggleIcon.attr('y', function (d) {
+      return calcRectHeight(d) - 8
+    })
+
     toggleIcon.attr('rx', 4)
     toggleIcon.attr('ry', 4)
     toggleIcon.attr('class', 't7-d3-tree-diagram__toggle')
@@ -828,29 +830,29 @@ export default class Chart {
       }
     })
 
-    // ===========================
-    // Add the "arrow right" icon.
-    // ===========================
+    // ====================
+    // Add the "menu" icon.
+    // ====================
 
-    const arrowIcon = nodeGroup.append('rect')
+    const menuIcon = nodeGroup.append('rect')
 
-    arrowIcon.append('rect')
-    arrowIcon.attr('width', 16)
-    arrowIcon.attr('height', 16)
-    arrowIcon.attr('x', rectW - 25)
-    arrowIcon.attr('y', 10)
-    arrowIcon.attr('rx', 4)
-    arrowIcon.attr('ry', 4)
-    arrowIcon.attr('class', 't7-d3-tree-diagram__icon-arrow-right')
-    arrowIcon.attr('fill', 'url(#t7-d3-tree-diagram__icon-arrow-right)')
+    menuIcon.append('rect')
+    menuIcon.attr('width', 16)
+    menuIcon.attr('height', 16)
+    menuIcon.attr('x', rectW - 25)
+    menuIcon.attr('y', 10)
+    menuIcon.attr('rx', 4)
+    menuIcon.attr('ry', 4)
+    menuIcon.attr('class', 't7-d3-tree-diagram__icon-menu')
+    menuIcon.attr('fill', 'url(#t7-d3-tree-diagram__icon-menu)')
 
     // Show/Hide menu.
-    arrowIcon.on('click', function (d) {
-      arrowMenuToggle(d, this)
+    menuIcon.on('click', function (d) {
+      menuToggle(d, this)
     })
 
     // Hide, if no data.
-    arrowIcon.attr('style', function (d) {
+    menuIcon.attr('style', function (d) {
       if (!config.menu[d.type]) {
         return 'display:none'
       }
