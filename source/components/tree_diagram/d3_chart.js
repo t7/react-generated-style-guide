@@ -574,6 +574,7 @@ export default class Chart {
 
     const nodeGroup = allNodes.enter().append('g')
 
+    nodeGroup.style('opacity', 0)
     nodeGroup.attr('class', 't7-d3-tree-diagram__group')
     nodeGroup.attr('transform', function (d) {
       const x = source.x0 || source.x
@@ -791,6 +792,9 @@ export default class Chart {
 
     toggleIcon.attr('width', 16)
     toggleIcon.attr('height', 16)
+    toggleIcon.attr('rx', 4)
+    toggleIcon.attr('ry', 4)
+    toggleIcon.attr('class', 't7-d3-tree-diagram__toggle')
 
     toggleIcon.attr('x', function (d) {
       var n = (rectW / 2) - 8
@@ -805,10 +809,6 @@ export default class Chart {
     toggleIcon.attr('y', function (d) {
       return calcRectHeight(d) - 8
     })
-
-    toggleIcon.attr('rx', 4)
-    toggleIcon.attr('ry', 4)
-    toggleIcon.attr('class', 't7-d3-tree-diagram__toggle')
 
     toggleIcon.attr('fill', function (d) {
       return itemToggleFill(d, this)
@@ -960,6 +960,7 @@ export default class Chart {
       .attr('class', 't7-d3-tree-diagram__link')
       .attr('x', rectW / 2)
       .attr('y', rectH / 2)
+      .style('opacity', 1)
       .attr('d', function (d) {
         return elbowLink({
           source: {
@@ -984,6 +985,7 @@ export default class Chart {
       allNodes
         .transition()
         .duration(duration)
+        .style('opacity', 1)
         .attr('transform', function (d) {
           return 'translate(' + d.x + ',' + d.y + ')'
         })
@@ -992,6 +994,7 @@ export default class Chart {
       allNodes
         .exit()
         .transition()
+        .style('opacity', 0)
         .duration(duration)
         .attr('transform', function (d) {
           return 'translate(' + source.x + ',' + source.y + ')'
@@ -1002,6 +1005,7 @@ export default class Chart {
       allLinks
         .transition()
         .duration(duration)
+        .style('opacity', 1)
         .attr('d', elbowLink)
 
       // Links: closing transition.
@@ -1009,6 +1013,7 @@ export default class Chart {
         .exit()
         .transition()
         .duration(duration)
+        .style('opacity', 0)
         .attr('d', function (d) {
           return elbowLink({
             source: {
@@ -1033,6 +1038,7 @@ export default class Chart {
     if (!showAnimation) {
       // Nodes: open.
       allNodes
+        .style('opacity', 1)
         .attr('transform', function (d) {
           return 'translate(' + d.x + ',' + d.y + ')'
         })
@@ -1043,7 +1049,9 @@ export default class Chart {
         .remove()
 
       // Links: open.
-      allLinks.attr('d', elbowLink)
+      allLinks
+        .style('opacity', 1)
+        .attr('d', elbowLink)
 
       // Links: closed.
       allLinks
