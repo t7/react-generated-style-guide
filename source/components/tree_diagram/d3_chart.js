@@ -19,7 +19,7 @@ export default class Chart {
     this.config = {
       duration: 500,
       rectW: 260,
-      rectH: 130,
+      rectH: 150,
       itemH: 30,
       menu: {
         /*
@@ -102,27 +102,59 @@ export default class Chart {
     const rectW = config.rectW
     const rectH = config.rectH
 
-    const startX = d.source.x + (rectW / 2)
-    const startY = d.source.y + (rectH / 2)
+    const sourceType = d.source.type
+    const targetType = d.target.type
 
-    const midY =
-    (d.source.y + ((d.target.y - d.source.y) * 0.5)) + (rectH / 2)
+    const isAccountLink =
+      sourceType === 'taxEntity' &&
+      targetType === 'account'
 
-    const endX = (d.target.x + (rectW / 2))
-    const endY = (d.target.y + (rectH / 2))
+    // Set in conditional.
+    var value
 
-    const value =
-      // Move to: X, Y.
-      'M' + startX + ',' + startY +
+    // Not account?
+    if (!isAccountLink) {
+      let startX = d.source.x + (rectW / 2)
+      let startY = d.source.y + (rectH / 2)
 
-      // Vertical line.
-      'V' + midY +
+      let midY =
+      (d.source.y + ((d.target.y - d.source.y) * 0.5)) + (rectH / 2)
 
-      // Horizontal line.
-      'H' + endX +
+      let endX = (d.target.x + (rectW / 2))
+      let endY = (d.target.y + (rectH / 2))
 
-      // Vertical line.
-      'V' + endY
+      value =
+        // Move to: X, Y.
+        'M' + startX + ',' + startY +
+
+        // Vertical line.
+        'V' + midY +
+
+        // Horizontal line.
+        'H' + endX +
+
+        // Vertical line.
+        'V' + endY
+    }
+
+    // Is account?
+    if (isAccountLink) {
+      let startX = d.source.x + 20
+      let startY = d.source.y
+
+      let midY = d.target.y + 32
+      let endX = d.target.x + 20
+
+      value =
+        // Move to: X, Y.
+        'M' + startX + ',' + startY +
+
+        // Vertical line.
+        'V' + midY +
+
+        // Horizontal line.
+        'H' + endX
+    }
 
     // Expose value.
     return value
@@ -152,7 +184,7 @@ export default class Chart {
     const menuH = menuData ? menuData.length * itemH : 0
 
     const x = d.x + rectW - 7
-    const y = d.y + 17
+    const y = d.y + 18
     const transform = 'translate(' + x + ',' + y + ')'
 
     var group = svg.select('.t7-d3-tree-diagram__menu__group')
@@ -283,6 +315,28 @@ export default class Chart {
       .attr('y', y)
   }
 
+  calcRectHeight (d) {
+    var height = 50
+
+    if (d.name) {
+      height += 30
+    }
+
+    if (d.number) {
+      height += 15
+    }
+
+    if (d.mv) {
+      height += 15
+    }
+
+    if (d.status) {
+      height += 25
+    }
+
+    return height
+  }
+
   buildIcons () {
     this.defs = this.root.append('defs')
 
@@ -408,8 +462,18 @@ export default class Chart {
 
     this.tree = d3.layout.tree()
 
-    this.tree.separation(function () {
-      return 1
+    this.tree.separation(function (d) {
+      var n = 1
+
+      if (d.type === 'account') {
+        n = 0
+      }
+
+      if (d.type === 'taxEntity') {
+        n = 1.15
+      }
+
+      return n
     })
 
     // Set default node size.
@@ -450,6 +514,7 @@ export default class Chart {
 
     // Callbacks with `this` bound to scope.
     const arrowMenuToggle = this.arrowMenuToggle.bind(this)
+    const calcRectHeight = this.calcRectHeight.bind(this)
     const elbowLink = this.elbowLink.bind(this)
     const itemToggle = this.itemToggle.bind(this)
     const itemToggleFill = this.itemToggleFill.bind(this)
@@ -467,18 +532,31 @@ export default class Chart {
     const nodes = this.tree.nodes(data)
     const links = this.tree.links(nodes)
 
-    // Check for existing menu.
-    const menuGroup =
-      this.svg.select('.t7-d3-tree-diagram__menu__group')
-
     // Remove menu, if it exists.
-    if (menuGroup) {
-      menuGroup.remove()
-    }
+    this.svg.select('.t7-d3-tree-diagram__menu__group').remove()
 
-    // Normalize depth.
+    // Normalize positions for accounts.
     nodes.forEach(function (d) {
-      d.y = d.depth * (rectH + 50)
+      const offset = rectH + 50
+      const isAccount = d.type === 'account'
+
+      const hasAccountChildren =
+        !isAccount &&
+        d.children &&
+        d.children[0].type === 'account'
+
+      // If not account, apply normal depth.
+      if (!isAccount) {
+        d.y = d.depth * offset
+      }
+
+      // Loop through account children.
+      if (hasAccountChildren) {
+        d.children.forEach(function (child, i) {
+          child.x = d.x + 40
+          child.y = d.y + offset + (i * offset)
+        })
+      }
     })
 
     // =================
@@ -530,25 +608,7 @@ export default class Chart {
     itemRect.attr('width', rectW)
 
     itemRect.attr('height', function (d) {
-      const t = d.type
-
-      var n = rectH
-
-      if (t === 'superHouse') {
-        n = rectH - 40
-      }
-
-      if (t === 'household') {
-        n = rectH - 35
-      }
-
-      if (t === 'taxtEntity' || t === 'account') {
-        if (!d.alertText) {
-          // TODO: Render alert text.
-        }
-      }
-
-      return n
+      return calcRectHeight(d)
     })
 
     // ====================
@@ -899,14 +959,17 @@ export default class Chart {
       .attr('x', rectW / 2)
       .attr('y', rectH / 2)
       .attr('d', function (d) {
-        const o = {
-          x: source.x0 || source.x,
-          y: source.y0 || source.y
-        }
-
         return elbowLink({
-          source: o,
-          target: o
+          source: {
+            x: source.x0 || source.x,
+            y: source.y0 || source.y,
+            type: d.source.type
+          },
+          target: {
+            x: source.x0 || source.x,
+            y: source.y0 || source.y,
+            type: d.target.type
+          }
         })
       })
 
@@ -945,14 +1008,17 @@ export default class Chart {
         .transition()
         .duration(duration)
         .attr('d', function (d) {
-          const o = {
-            x: source.x,
-            y: source.y
-          }
-
           return elbowLink({
-            source: o,
-            target: o
+            source: {
+              x: source.x,
+              y: source.y,
+              type: d.source.type
+            },
+            target: {
+              x: source.x,
+              y: source.y,
+              type: d.target.type
+            }
           })
         })
         .remove()
