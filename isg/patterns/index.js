@@ -53025,7 +53025,7 @@
 	  }, {
 	    key: 'calcRectHeight',
 	    value: function calcRectHeight(d) {
-	      var height = 50;
+	      var height = 40;
 
 	      if (d.name) {
 	        height += 30;
@@ -53264,6 +53264,7 @@
 
 	      var nodeGroup = allNodes.enter().append('g');
 
+	      nodeGroup.style('opacity', 0);
 	      nodeGroup.attr('class', 't7-d3-tree-diagram__group');
 	      nodeGroup.attr('transform', function (d) {
 	        var x = source.x0 || source.x;
@@ -53481,6 +53482,9 @@
 
 	      toggleIcon.attr('width', 16);
 	      toggleIcon.attr('height', 16);
+	      toggleIcon.attr('rx', 4);
+	      toggleIcon.attr('ry', 4);
+	      toggleIcon.attr('class', 't7-d3-tree-diagram__toggle');
 
 	      toggleIcon.attr('x', function (d) {
 	        var n = rectW / 2 - 8;
@@ -53495,10 +53499,6 @@
 	      toggleIcon.attr('y', function (d) {
 	        return calcRectHeight(d) - 8;
 	      });
-
-	      toggleIcon.attr('rx', 4);
-	      toggleIcon.attr('ry', 4);
-	      toggleIcon.attr('class', 't7-d3-tree-diagram__toggle');
 
 	      toggleIcon.attr('fill', function (d) {
 	        return itemToggleFill(d, this);
@@ -53638,7 +53638,7 @@
 	      // Apply "elbow" style to links.
 	      // =============================
 
-	      allLinks.enter().insert('path', 'g').attr('class', 't7-d3-tree-diagram__link').attr('x', rectW / 2).attr('y', rectH / 2).attr('d', function (d) {
+	      allLinks.enter().insert('path', 'g').attr('class', 't7-d3-tree-diagram__link').attr('x', rectW / 2).attr('y', rectH / 2).style('opacity', 1).attr('d', function (d) {
 	        return elbowLink({
 	          source: {
 	            x: source.x0 || source.x,
@@ -53659,20 +53659,20 @@
 
 	      if (showAnimation) {
 	        // Nodes: opening transition.
-	        allNodes.transition().duration(duration).attr('transform', function (d) {
+	        allNodes.transition().duration(duration).style('opacity', 1).attr('transform', function (d) {
 	          return 'translate(' + d.x + ',' + d.y + ')';
 	        });
 
 	        // Nodes: closing transition.
-	        allNodes.exit().transition().duration(duration).attr('transform', function (d) {
+	        allNodes.exit().transition().style('opacity', 0).duration(duration).attr('transform', function (d) {
 	          return 'translate(' + source.x + ',' + source.y + ')';
 	        }).remove();
 
 	        // Links: opening transition.
-	        allLinks.transition().duration(duration).attr('d', elbowLink);
+	        allLinks.transition().duration(duration).style('opacity', 1).attr('d', elbowLink);
 
 	        // Links: closing transition.
-	        allLinks.exit().transition().duration(duration).attr('d', function (d) {
+	        allLinks.exit().transition().duration(duration).style('opacity', 0).attr('d', function (d) {
 	          return elbowLink({
 	            source: {
 	              x: source.x,
@@ -53694,7 +53694,7 @@
 
 	      if (!showAnimation) {
 	        // Nodes: open.
-	        allNodes.attr('transform', function (d) {
+	        allNodes.style('opacity', 1).attr('transform', function (d) {
 	          return 'translate(' + d.x + ',' + d.y + ')';
 	        });
 
@@ -53702,7 +53702,7 @@
 	        allNodes.exit().remove();
 
 	        // Links: open.
-	        allLinks.attr('d', elbowLink);
+	        allLinks.style('opacity', 1).attr('d', elbowLink);
 
 	        // Links: closed.
 	        allLinks.exit().remove();
