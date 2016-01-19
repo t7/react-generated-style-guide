@@ -606,9 +606,6 @@ export default class Chart {
 
     const itemRect = nodeGroup.append('rect')
 
-    // Defined in React `props`.
-    itemRect.on('click', handleClickLeaf)
-
     itemRect.attr('class', 't7-d3-tree-diagram__rect')
     itemRect.attr('rx', 4)
     itemRect.attr('ry', 4)
@@ -667,11 +664,98 @@ export default class Chart {
       return fill
     })
 
+    // ========================
+    // Add a group for content.
+    // ========================
+
+    const contentGroup = nodeGroup.append('g')
+
+    // ==============
+    // Add node name.
+    // ==============
+
+    const itemName = contentGroup.append('text')
+
+    itemName.attr('x', 50)
+    itemName.attr('y', 30)
+    itemName.attr('dy', '0.35em')
+    itemName.attr('text-anchor', 'start')
+    itemName.attr('class', 't7-d3-tree-diagram__name')
+
+    itemName.text(function (d) {
+      return d.name
+    })
+
+    // ==================================
+    // Add item number (account, tax ID).
+    // ==================================
+
+    const itemNumber = contentGroup.append('text')
+
+    itemNumber.attr('x', 50)
+    itemNumber.attr('y', 50)
+    itemNumber.attr('dy', '0.35em')
+    itemNumber.attr('text-anchor', 'start')
+    itemNumber.attr('class', 't7-d3-tree-diagram__mute')
+
+    itemNumber.text(function (d) {
+      return d.number
+    })
+
+    // Hide, if no data.
+    itemNumber.attr('style', function (d) {
+      if (!d.number) {
+        return 'display:none'
+      }
+    })
+
+    // =====================
+    // Add node description.
+    // =====================
+
+    const itemDesc = contentGroup.append('text')
+
+    itemDesc.attr('x', 50)
+
+    itemDesc.attr('y', function (d) {
+      var n = 50
+
+      if (d.number) {
+        n = 70
+      }
+
+      return n
+    })
+
+    itemDesc.attr('dy', '0.35em')
+    itemDesc.attr('text-anchor', 'start')
+    itemDesc.attr('class', 't7-d3-tree-diagram__mute')
+
+    itemDesc.text(function (d) {
+      var date = d.date || ''
+      var mv = d.mv || ''
+
+      if (mv) {
+        mv = 'MV ' + mv
+      }
+
+      if (date) {
+        date = 'as of ' + date
+      }
+
+      const str = [
+        mv,
+        date
+      ].join(' ')
+
+      return str
+    })
+
     // ======================
     // Add the "status" icon.
     // ======================
 
-    const statusIcon = nodeGroup.append('rect')
+    const statusIcon = contentGroup.append('rect')
 
     statusIcon.attr('width', 16)
     statusIcon.attr('height', 16)
@@ -713,7 +797,7 @@ export default class Chart {
     // Add the "updated by" icon.
     // ==========================
 
-    const updatedIcon = nodeGroup.append('rect')
+    const updatedIcon = contentGroup.append('rect')
 
     updatedIcon.attr('width', 16)
     updatedIcon.attr('height', 16)
@@ -750,7 +834,7 @@ export default class Chart {
     // Add the "percent" icon.
     // =======================
 
-    const percentIcon = nodeGroup.append('rect')
+    const percentIcon = contentGroup.append('rect')
 
     percentIcon.attr('width', 16)
     percentIcon.attr('height', 16)
@@ -782,7 +866,7 @@ export default class Chart {
     // Add percent text.
     // =================
 
-    const percentText = nodeGroup.append('text')
+    const percentText = contentGroup.append('text')
 
     percentText.attr('x', 119)
     percentText.attr('y', 98)
@@ -800,6 +884,22 @@ export default class Chart {
         return 'display:none'
       }
     })
+
+    // ===================================
+    // Add invisible rectangle, for click.
+    // ===================================
+
+    const leafRect = nodeGroup.append('rect')
+
+    leafRect.attr('width', rectW)
+    leafRect.attr('opacity', 0)
+
+    leafRect.attr('height', function (d) {
+      return calcRectHeight(d)
+    })
+
+    // Defined in React `props`.
+    leafRect.on('click', handleClickLeaf)
 
     // =====================
     // Add the "+/-" toggle.
@@ -873,87 +973,6 @@ export default class Chart {
       if (!config.menu[d.type]) {
         return 'display:none'
       }
-    })
-
-    // ==============
-    // Add node name.
-    // ==============
-
-    const itemName = nodeGroup.append('text')
-
-    itemName.attr('x', 50)
-    itemName.attr('y', 30)
-    itemName.attr('dy', '0.35em')
-    itemName.attr('text-anchor', 'start')
-    itemName.attr('class', 't7-d3-tree-diagram__name')
-
-    itemName.text(function (d) {
-      return d.name
-    })
-
-    // ==================================
-    // Add item number (account, tax ID).
-    // ==================================
-
-    const itemNumber = nodeGroup.append('text')
-
-    itemNumber.attr('x', 50)
-    itemNumber.attr('y', 50)
-    itemNumber.attr('dy', '0.35em')
-    itemNumber.attr('text-anchor', 'start')
-    itemNumber.attr('class', 't7-d3-tree-diagram__mute')
-
-    itemNumber.text(function (d) {
-      return d.number
-    })
-
-    // Hide, if no data.
-    itemNumber.attr('style', function (d) {
-      if (!d.number) {
-        return 'display:none'
-      }
-    })
-
-    // =====================
-    // Add node description.
-    // =====================
-
-    const itemDesc = nodeGroup.append('text')
-
-    itemDesc.attr('x', 50)
-
-    itemDesc.attr('y', function (d) {
-      var n = 50
-
-      if (d.number) {
-        n = 70
-      }
-
-      return n
-    })
-
-    itemDesc.attr('dy', '0.35em')
-    itemDesc.attr('text-anchor', 'start')
-    itemDesc.attr('class', 't7-d3-tree-diagram__mute')
-
-    itemDesc.text(function (d) {
-      var date = d.date || ''
-      var mv = d.mv || ''
-
-      if (mv) {
-        mv = 'MV ' + mv
-      }
-
-      if (date) {
-        date = 'as of ' + date
-      }
-
-      const str = [
-        mv,
-        date
-      ].join(' ')
-
-      return str
     })
 
     // =============================
