@@ -53296,9 +53296,6 @@
 
 	      var itemRect = nodeGroup.append('rect');
 
-	      // Defined in React `props`.
-	      itemRect.on('click', handleClickLeaf);
-
 	      itemRect.attr('class', 't7-d3-tree-diagram__rect');
 	      itemRect.attr('rx', 4);
 	      itemRect.attr('ry', 4);
@@ -53357,11 +53354,95 @@
 	        return fill;
 	      });
 
+	      // ========================
+	      // Add a group for content.
+	      // ========================
+
+	      var contentGroup = nodeGroup.append('g');
+
+	      // ==============
+	      // Add node name.
+	      // ==============
+
+	      var itemName = contentGroup.append('text');
+
+	      itemName.attr('x', 50);
+	      itemName.attr('y', 30);
+	      itemName.attr('dy', '0.35em');
+	      itemName.attr('text-anchor', 'start');
+	      itemName.attr('class', 't7-d3-tree-diagram__name');
+
+	      itemName.text(function (d) {
+	        return d.name;
+	      });
+
+	      // ==================================
+	      // Add item number (account, tax ID).
+	      // ==================================
+
+	      var itemNumber = contentGroup.append('text');
+
+	      itemNumber.attr('x', 50);
+	      itemNumber.attr('y', 50);
+	      itemNumber.attr('dy', '0.35em');
+	      itemNumber.attr('text-anchor', 'start');
+	      itemNumber.attr('class', 't7-d3-tree-diagram__mute');
+
+	      itemNumber.text(function (d) {
+	        return d.number;
+	      });
+
+	      // Hide, if no data.
+	      itemNumber.attr('style', function (d) {
+	        if (!d.number) {
+	          return 'display:none';
+	        }
+	      });
+
+	      // =====================
+	      // Add node description.
+	      // =====================
+
+	      var itemDesc = contentGroup.append('text');
+
+	      itemDesc.attr('x', 50);
+
+	      itemDesc.attr('y', function (d) {
+	        var n = 50;
+
+	        if (d.number) {
+	          n = 70;
+	        }
+
+	        return n;
+	      });
+
+	      itemDesc.attr('dy', '0.35em');
+	      itemDesc.attr('text-anchor', 'start');
+	      itemDesc.attr('class', 't7-d3-tree-diagram__mute');
+
+	      itemDesc.text(function (d) {
+	        var date = d.date || '';
+	        var mv = d.mv || '';
+
+	        if (mv) {
+	          mv = 'MV ' + mv;
+	        }
+
+	        if (date) {
+	          date = 'as of ' + date;
+	        }
+
+	        var str = [mv, date].join(' ');
+
+	        return str;
+	      });
+
 	      // ======================
 	      // Add the "status" icon.
 	      // ======================
 
-	      var statusIcon = nodeGroup.append('rect');
+	      var statusIcon = contentGroup.append('rect');
 
 	      statusIcon.attr('width', 16);
 	      statusIcon.attr('height', 16);
@@ -53403,7 +53484,7 @@
 	      // Add the "updated by" icon.
 	      // ==========================
 
-	      var updatedIcon = nodeGroup.append('rect');
+	      var updatedIcon = contentGroup.append('rect');
 
 	      updatedIcon.attr('width', 16);
 	      updatedIcon.attr('height', 16);
@@ -53440,7 +53521,7 @@
 	      // Add the "percent" icon.
 	      // =======================
 
-	      var percentIcon = nodeGroup.append('rect');
+	      var percentIcon = contentGroup.append('rect');
 
 	      percentIcon.attr('width', 16);
 	      percentIcon.attr('height', 16);
@@ -53472,7 +53553,7 @@
 	      // Add percent text.
 	      // =================
 
-	      var percentText = nodeGroup.append('text');
+	      var percentText = contentGroup.append('text');
 
 	      percentText.attr('x', 119);
 	      percentText.attr('y', 98);
@@ -53490,6 +53571,22 @@
 	          return 'display:none';
 	        }
 	      });
+
+	      // ===================================
+	      // Add invisible rectangle, for click.
+	      // ===================================
+
+	      var leafRect = nodeGroup.append('rect');
+
+	      leafRect.attr('width', rectW);
+	      leafRect.attr('opacity', 0);
+
+	      leafRect.attr('height', function (d) {
+	        return calcRectHeight(d);
+	      });
+
+	      // Defined in React `props`.
+	      leafRect.on('click', handleClickLeaf);
 
 	      // =====================
 	      // Add the "+/-" toggle.
@@ -53563,84 +53660,6 @@
 	        if (!config.menu[d.type]) {
 	          return 'display:none';
 	        }
-	      });
-
-	      // ==============
-	      // Add node name.
-	      // ==============
-
-	      var itemName = nodeGroup.append('text');
-
-	      itemName.attr('x', 50);
-	      itemName.attr('y', 30);
-	      itemName.attr('dy', '0.35em');
-	      itemName.attr('text-anchor', 'start');
-	      itemName.attr('class', 't7-d3-tree-diagram__name');
-
-	      itemName.text(function (d) {
-	        return d.name;
-	      });
-
-	      // ==================================
-	      // Add item number (account, tax ID).
-	      // ==================================
-
-	      var itemNumber = nodeGroup.append('text');
-
-	      itemNumber.attr('x', 50);
-	      itemNumber.attr('y', 50);
-	      itemNumber.attr('dy', '0.35em');
-	      itemNumber.attr('text-anchor', 'start');
-	      itemNumber.attr('class', 't7-d3-tree-diagram__mute');
-
-	      itemNumber.text(function (d) {
-	        return d.number;
-	      });
-
-	      // Hide, if no data.
-	      itemNumber.attr('style', function (d) {
-	        if (!d.number) {
-	          return 'display:none';
-	        }
-	      });
-
-	      // =====================
-	      // Add node description.
-	      // =====================
-
-	      var itemDesc = nodeGroup.append('text');
-
-	      itemDesc.attr('x', 50);
-
-	      itemDesc.attr('y', function (d) {
-	        var n = 50;
-
-	        if (d.number) {
-	          n = 70;
-	        }
-
-	        return n;
-	      });
-
-	      itemDesc.attr('dy', '0.35em');
-	      itemDesc.attr('text-anchor', 'start');
-	      itemDesc.attr('class', 't7-d3-tree-diagram__mute');
-
-	      itemDesc.text(function (d) {
-	        var date = d.date || '';
-	        var mv = d.mv || '';
-
-	        if (mv) {
-	          mv = 'MV ' + mv;
-	        }
-
-	        if (date) {
-	          date = 'as of ' + date;
-	        }
-
-	        var str = [mv, date].join(' ');
-
-	        return str;
 	      });
 
 	      // =============================
