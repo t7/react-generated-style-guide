@@ -19,7 +19,7 @@ export default class Chart {
     this.config = {
       duration: 500,
       rectW: 260,
-      rectH: 150,
+      rectH: 120,
       itemH: 30,
       menu: {
         /*

@@ -17,9 +17,6 @@
           "type": "taxEntity",
           "mv": "$X00,000.00",
           "date": "MM/DD/YY",
-          "status": "okay",
-          "updatedBy": "electronic",
-          "percent": "25%",
           "children": [
             {
               "name": "Name of Account",
@@ -51,9 +48,6 @@
           "type": "taxEntity",
           "mv": "$X00,000.00",
           "date": "MM/DD/YY",
-          "status": "okay",
-          "updatedBy": "electronic",
-          "percent": "25%",
           "children": [
             {
               "name": "Name of Account",
@@ -85,10 +79,6 @@
           "type": "taxEntity",
           "mv": "$X00,000.00",
           "date": "MM/DD/YY",
-          "date": "MM/DD/YY",
-          "status": "okay",
-          "updatedBy": "electronic",
-          "percent": "25%",
           "children": [
             {
               "name": "Name of Account",
@@ -129,10 +119,6 @@
           "type": "taxEntity",
           "mv": "$X00,000.00",
           "date": "MM/DD/YY",
-          "date": "MM/DD/YY",
-          "status": "okay",
-          "updatedBy": "electronic",
-          "percent": "25%",
           "children": [
             {
               "name": "Name of Account",
@@ -164,10 +150,6 @@
           "type": "taxEntity",
           "mv": "$X00,000.00",
           "date": "MM/DD/YY",
-          "date": "MM/DD/YY",
-          "status": "okay",
-          "updatedBy": "electronic",
-          "percent": "25%",
           "children": [
             {
               "name": "Name of Account",

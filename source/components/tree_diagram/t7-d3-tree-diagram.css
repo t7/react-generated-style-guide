@@ -122,3 +122,8 @@ Tree Diagram: Arrow menu.
 .t7-d3-tree-diagram__menu__row__group:hover .t7-d3-tree-diagram__menu__row {
   fill: #f3f9ff;
 }
+
+.t7-d3-tree-diagram__menu__text {
+  fill: #000;
+  font-size: 13px;
+}
