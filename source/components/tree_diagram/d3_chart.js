@@ -637,6 +637,11 @@ export default class Chart {
 
     const nodeGroup = allNodes.enter().append('g')
 
+    // Add title tooltip.
+    nodeGroup.append('svg:title').text(function (d) {
+      return d.name
+    })
+
     nodeGroup.style('opacity', 0)
 
     nodeGroup.attr('transform', function (d) {
@@ -827,7 +832,13 @@ export default class Chart {
     itemName.attr('class', 't7-d3-tree-diagram__name')
 
     itemName.text(function (d) {
-      return d.name
+      var name = d.name
+
+      if (name.length > 25) {
+        name = name.slice(0, 25).trim() + '…'
+      }
+
+      return name
     })
 
     // ==================================
