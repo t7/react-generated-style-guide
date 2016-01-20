@@ -1058,6 +1058,9 @@ export default class Chart {
 
     const toggleIcon = nodeGroup.append('rect')
 
+    // Add title tooltip.
+    toggleIcon.append('svg:title').text('Expand/Collapse')
+
     toggleIcon.attr('width', 16)
     toggleIcon.attr('height', 16)
     toggleIcon.attr('rx', 4)
@@ -1103,6 +1106,9 @@ export default class Chart {
     // ====================
 
     const menuIcon = nodeGroup.append('rect')
+
+    // Add title tooltip.
+    menuIcon.append('svg:title').text('Options Menu')
 
     menuIcon.append('rect')
     menuIcon.attr('width', 16)
