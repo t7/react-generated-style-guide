@@ -62,7 +62,7 @@
               "managedBy": "self",
               "mv": "$X0,000.00",
               "date": "MM/DD/YY",
-              "status": "okay",
+              "status": "pending",
               "updatedBy": "electronic",
               "percent": "25%",
               "alertText": "Statement overdue in 3 days",
@@ -75,7 +75,7 @@
               "managedBy": "firm",
               "mv": "$X0,000.00",
               "date": "MM/DD/YY",
-              "status": "okay",
+              "status": "pending",
               "updatedBy": "manual",
               "percent": "25%"
             }
@@ -135,7 +135,7 @@
               "managedBy": "self",
               "mv": "$X0,000.00",
               "date": "MM/DD/YY",
-              "status": "okay",
+              "status": "problem",
               "updatedBy": "electronic",
               "percent": "25%",
               "inactive": true

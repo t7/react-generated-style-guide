@@ -425,6 +425,20 @@ export default class Chart {
     })
 
     this.createIcon({
+      id: 't7-d3-tree-diagram__icon-problem',
+      path: require('./images/t7-d3-tree-diagram__icon-problem.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-time',
+      path: require('./images/t7-d3-tree-diagram__icon-time.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
       id: 't7-d3-tree-diagram__icon-electronic',
       path: require('./images/t7-d3-tree-diagram__icon-electronic.svg'),
       width: 16,

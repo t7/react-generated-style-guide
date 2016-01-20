@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>t7-d3-tree-diagram__icon-time</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="t7-d3-tree-diagram__icon-time" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path d="M50,0 C22.3860063,0 0,22.3860063 0,50 C0,77.6139937 22.3860063,100 50,100 C77.6139937,100 100,77.6139937 100,50 C100,22.3860063 77.6139937,0 50,0 Z M50,87 C29.5653785,87 13,70.4344767 13,50 C13,29.5655233 29.5653785,13 50,13 C70.4346215,13 87,29.5655233 87,50 C87,70.4344767 70.4346215,87 50,87 Z M53,18 L53,28 L47,28 L47,18 L53,18 Z M28,47 L28,53 L18,53 L18,47 L28,47 Z M82,47 L82,53 L72,53 L72,47 L82,47 Z M53,72 L53,82 L47,82 L47,72 L53,72 Z M74.7487373,70.5060967 L70.5060967,74.7487373 L45.7573593,50 L50,45.7573593 L74.7487373,70.5060967 Z M74.7487373,29.4939033 L54.2426407,50 L50,45.7573593 L70.5060967,25.2512627 L74.7487373,29.4939033 Z M36.5649712,32.3223305 L32.3223305,36.5649712 L25.2512627,29.4939033 L29.4939033,25.2512627 L36.5649712,32.3223305 Z M36.5649712,67.6776695 L29.4939033,74.7487373 L25.2512627,70.5060967 L32.3223305,63.4350288 L36.5649712,67.6776695 Z" fill="#999999" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>
