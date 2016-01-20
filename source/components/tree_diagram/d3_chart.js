@@ -344,6 +344,10 @@ export default class Chart {
       height += 25
     }
 
+    if (d.alertText) {
+      height += 25
+    }
+
     return height
   }
 
@@ -393,8 +397,22 @@ export default class Chart {
     })
 
     this.createIcon({
-      id: 't7-d3-tree-diagram__icon-briefcase',
-      path: require('./images/t7-d3-tree-diagram__icon-briefcase.svg'),
+      id: 't7-d3-tree-diagram__icon-pcr--inactive',
+      path: require('./images/t7-d3-tree-diagram__icon-pcr--inactive.svg'),
+      width: 24,
+      height: 24
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-firm',
+      path: require('./images/t7-d3-tree-diagram__icon-firm.svg'),
+      width: 24,
+      height: 24
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-firm--inactive',
+      path: require('./images/t7-d3-tree-diagram__icon-firm--inactive.svg'),
       width: 24,
       height: 24
     })
@@ -437,6 +455,20 @@ export default class Chart {
     this.createIcon({
       id: 't7-d3-tree-diagram__icon-menu-arrow',
       path: require('./images/t7-d3-tree-diagram__icon-menu-arrow.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-alert--negative',
+      path: require('./images/t7-d3-tree-diagram__icon-alert--negative.svg'),
+      width: 16,
+      height: 16
+    })
+
+    this.createIcon({
+      id: 't7-d3-tree-diagram__icon-alert--positive',
+      path: require('./images/t7-d3-tree-diagram__icon-alert--positive.svg'),
       width: 16,
       height: 16
     })
@@ -592,12 +624,22 @@ export default class Chart {
     const nodeGroup = allNodes.enter().append('g')
 
     nodeGroup.style('opacity', 0)
-    nodeGroup.attr('class', 't7-d3-tree-diagram__group')
+
     nodeGroup.attr('transform', function (d) {
       const x = source.x0 || source.x
       const y = source.y0 || source.y
 
       return 'translate(' + x + ',' + y + ')'
+    })
+
+    nodeGroup.attr('class', function (d) {
+      var c = ['t7-d3-tree-diagram__group']
+
+      if (d.inactive) {
+        c.push('t7-d3-tree-diagram__group--inactive')
+      }
+
+      return c.join(' ')
     })
 
     // ====================
@@ -606,10 +648,10 @@ export default class Chart {
 
     const itemRect = nodeGroup.append('rect')
 
-    itemRect.attr('class', 't7-d3-tree-diagram__rect')
     itemRect.attr('rx', 4)
     itemRect.attr('ry', 4)
     itemRect.attr('width', rectW)
+    itemRect.attr('class', 't7-d3-tree-diagram__rect')
 
     itemRect.attr('height', function (d) {
       return calcRectHeight(d)
@@ -625,7 +667,6 @@ export default class Chart {
     typeIcon.attr('height', 24)
     typeIcon.attr('x', 15)
     typeIcon.attr('y', 20)
-    typeIcon.attr('class', 't7-d3-tree-diagram__icon-type')
 
     typeIcon.attr('fill', function (d) {
       const t = d.type
@@ -652,16 +693,57 @@ export default class Chart {
       if (t === 'account') {
         // Managed by PCR?
         if (m === 'self') {
-          fill = 'url(#t7-d3-tree-diagram__icon-pcr)'
+          // Inactive?
+          if (d.inactive) {
+            fill = 'url(#t7-d3-tree-diagram__icon-pcr--inactive)'
+          } else {
+            fill = 'url(#t7-d3-tree-diagram__icon-pcr)'
+          }
         }
 
         // Managed by outside firm?
-        if (m === 'other') {
-          fill = 'url(#t7-d3-tree-diagram__icon-briefcase)'
+        if (m === 'firm') {
+          // Inactive?
+          if (d.inactive) {
+            fill = 'url(#t7-d3-tree-diagram__icon-firm--inactive)'
+          } else {
+            fill = 'url(#t7-d3-tree-diagram__icon-firm)'
+          }
         }
       }
 
       return fill
+    })
+
+    // ================
+    // Add alert icons.
+    // ================
+
+    const alertIcon = nodeGroup.append('rect')
+
+    alertIcon.attr('width', 16)
+    alertIcon.attr('height', 16)
+    alertIcon.attr('x', 32)
+    alertIcon.attr('y', 32)
+
+    alertIcon.attr('fill', function (d) {
+      var fill = 'none'
+
+      if (d.alertType === 'positive') {
+        fill = 'url(#t7-d3-tree-diagram__icon-alert--positive)'
+      }
+
+      if (d.alertType === 'negative') {
+        fill = 'url(#t7-d3-tree-diagram__icon-alert--negative)'
+      }
+
+      return fill
+    })
+
+    alertIcon.style('display', function (d) {
+      if (!d.alertType) {
+        return 'none'
+      }
     })
 
     // ========================
@@ -670,13 +752,61 @@ export default class Chart {
 
     const contentGroup = nodeGroup.append('g')
 
+    contentGroup.attr('transform', function (d) {
+      var x = 55
+      var y = 0
+
+      if (d.alertText) {
+        y = 25
+      }
+
+      return 'translate(' + x + ',' + y + ')'
+    })
+
+    // ===============
+    // Add alert text.
+    // ===============
+
+    /*
+      Add directly to `nodeGroup` because `contentGroup`
+      will be used for everything *except* `alertText`.
+    */
+    const alertText = nodeGroup.append('text')
+
+    alertText.attr('x', 55)
+    alertText.attr('y', 30)
+    alertText.attr('dy', '0.35em')
+    alertText.attr('text-anchor', 'start')
+
+    alertText.text(function (d) {
+      return d.alertText
+    })
+
+    alertText.attr('class', function (d) {
+      const isNegative = d.alertType === 'negative'
+
+      var c = 't7-d3-tree-diagram__alert--positive'
+
+      if (isNegative) {
+        c = 't7-d3-tree-diagram__alert--negative'
+      }
+
+      return c
+    })
+
+    // Hide, if no data.
+    alertText.style('display', function (d) {
+      if (!d.alertText) {
+        return 'none'
+      }
+    })
+
     // ==============
     // Add node name.
     // ==============
 
     const itemName = contentGroup.append('text')
 
-    itemName.attr('x', 50)
     itemName.attr('y', 30)
     itemName.attr('dy', '0.35em')
     itemName.attr('text-anchor', 'start')
@@ -692,7 +822,6 @@ export default class Chart {
 
     const itemNumber = contentGroup.append('text')
 
-    itemNumber.attr('x', 50)
     itemNumber.attr('y', 50)
     itemNumber.attr('dy', '0.35em')
     itemNumber.attr('text-anchor', 'start')
@@ -703,9 +832,9 @@ export default class Chart {
     })
 
     // Hide, if no data.
-    itemNumber.attr('style', function (d) {
+    itemNumber.style('display', function (d) {
       if (!d.number) {
-        return 'display:none'
+        return 'none'
       }
     })
 
@@ -714,8 +843,6 @@ export default class Chart {
     // =====================
 
     const itemDesc = contentGroup.append('text')
-
-    itemDesc.attr('x', 50)
 
     itemDesc.attr('y', function (d) {
       var n = 50
@@ -759,7 +886,6 @@ export default class Chart {
 
     statusIcon.attr('width', 16)
     statusIcon.attr('height', 16)
-    statusIcon.attr('x', 50)
     statusIcon.attr('y', 90)
     statusIcon.attr('class', 't7-d3-tree-diagram__icon-status')
 
@@ -787,9 +913,9 @@ export default class Chart {
     })
 
     // Hide, if no data.
-    statusIcon.attr('style', function (d) {
+    statusIcon.style('display', function (d) {
       if (!d.status) {
-        return 'display:none'
+        return 'none'
       }
     })
 
@@ -801,7 +927,7 @@ export default class Chart {
 
     updatedIcon.attr('width', 16)
     updatedIcon.attr('height', 16)
-    updatedIcon.attr('x', 75)
+    updatedIcon.attr('x', 25)
     updatedIcon.attr('y', 90)
     updatedIcon.attr('class', 't7-d3-tree-diagram__icon-updated-by')
 
@@ -824,9 +950,9 @@ export default class Chart {
     })
 
     // Hide, if no data.
-    updatedIcon.attr('style', function (d) {
+    updatedIcon.style('display', function (d) {
       if (!d.updatedBy) {
-        return 'display:none'
+        return 'none'
       }
     })
 
@@ -838,9 +964,9 @@ export default class Chart {
 
     percentIcon.attr('width', 16)
     percentIcon.attr('height', 16)
-    percentIcon.attr('x', 100)
+    percentIcon.attr('x', 50)
     percentIcon.attr('y', 90)
-    percentIcon.attr('class', 't7-d3-tree-diagram__icon-percent')
+    percentIcon.attr('class', 't7-d3-tree-diagram__icon-partner')
 
     percentIcon.attr('fill', function (d) {
       const p = d.percent
@@ -856,9 +982,9 @@ export default class Chart {
     })
 
     // Hide, if no data.
-    percentIcon.attr('style', function (d) {
+    percentIcon.style('display', function (d) {
       if (!d.percent) {
-        return 'display:none'
+        return 'none'
       }
     })
 
@@ -868,7 +994,7 @@ export default class Chart {
 
     const percentText = contentGroup.append('text')
 
-    percentText.attr('x', 119)
+    percentText.attr('x', 69)
     percentText.attr('y', 98)
     percentText.attr('dy', '0.35em')
     percentText.attr('text-anchor', 'start')
@@ -879,9 +1005,9 @@ export default class Chart {
     })
 
     // Hide, if no data.
-    percentText.attr('style', function (d) {
+    percentText.style('display', function (d) {
       if (!d.percent) {
-        return 'display:none'
+        return 'none'
       }
     })
 
@@ -941,9 +1067,9 @@ export default class Chart {
     })
 
     // Hide, if no data.
-    toggleIcon.attr('style', function (d) {
+    toggleIcon.style('display', function (d) {
       if (!d.children && !d._children) {
-        return 'display:none'
+        return 'none'
       }
     })
 
@@ -969,9 +1095,9 @@ export default class Chart {
     })
 
     // Hide, if no data.
-    menuIcon.attr('style', function (d) {
+    menuIcon.style('display', function (d) {
       if (!config.menu[d.type]) {
-        return 'display:none'
+        return 'none'
       }
     })
 
