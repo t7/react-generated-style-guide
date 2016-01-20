@@ -158,7 +158,7 @@ Tree Diagram: Inactive state overrides.
 }
 
 .t7-d3-tree-diagram__group--inactive text {
-  fill: #999 !important;
+  fill: #bbb !important;
 }
 
 .t7-d3-tree-diagram__group--inactive .t7-d3-tree-diagram__icon-status,
