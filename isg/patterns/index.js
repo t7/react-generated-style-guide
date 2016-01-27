@@ -35133,7 +35133,7 @@
 	    // Click handler.
 	  }, {
 	    key: 'handleClick',
-	    value: function handleClick(e, index) {
+	    value: function handleClick(e, index, label) {
 	      var keyPress = e.keyCode;
 	      var keyEnter = keyPress === 13;
 
@@ -35159,6 +35159,15 @@
 	      this.setState({
 	        selected: selected
 	      });
+
+	      // Parent component's click handler.
+	      var handleClick = this.props.handleClick;
+
+	      if (typeof handleClick !== 'function') {
+	        return;
+	      }
+
+	      handleClick(e, selected[index], label);
 	    }
 
 	    // Render method.
@@ -35215,7 +35224,9 @@
 	          key: idHeader,
 	          label: label,
 
-	          handleClick: handleClick
+	          handleClick: function (e, index) {
+	            handleClick(e, index, label);
+	          }
 	        }));
 
 	        // Add the `<dd>`.
@@ -35254,14 +35265,22 @@
 	  children: _react2['default'].PropTypes.node,
 	  id: _react2['default'].PropTypes.string,
 	  multi: _react2['default'].PropTypes.bool,
-	  selected: _react2['default'].PropTypes.object
+	  selected: _react2['default'].PropTypes.object,
+
+	  // Events.
+	  handleClick: _react2['default'].PropTypes.func
 	};
 
 	// Defaults.
 	Accordion.defaultProps = {
 	  children: _fake2['default'].accordion(),
 	  multi: false,
-	  selected: {}
+	  selected: {},
+
+	  // Events.
+	  handleClick: function handleClick(e, isActive, label) {
+	    _utils2['default'].log(e, isActive, label);
+	  }
 	};
 
 	// Export.
@@ -52324,7 +52343,7 @@
 	    // Click handler.
 	  }, {
 	    key: 'handleClick',
-	    value: function handleClick(e, index) {
+	    value: function handleClick(e, index, label) {
 	      var keyPress = e.keyCode;
 	      var keyEnter = keyPress === 13;
 
@@ -52336,6 +52355,15 @@
 	      this.setState({
 	        selected: index
 	      });
+
+	      // Parent component's click handler.
+	      var handleClick = this.props.handleClick;
+
+	      if (typeof handleClick !== 'function') {
+	        return;
+	      }
+
+	      handleClick(e, label);
 	    }
 
 	    // Render method.
@@ -52361,7 +52389,7 @@
 	          'ul',
 	          { role: 'tablist', className: 't7-tabs__list' },
 	          children.map(function (panel, i) {
-	            // Panel label.
+	            // Tab label.
 	            var label = panel.props.label;
 
 	            // For accessibility.
@@ -52380,28 +52408,27 @@
 	              index: i,
 	              key: idTab,
 	              label: label,
-	              handleClick: handleClick
+
+	              handleClick: function (e, index) {
+	                handleClick(e, index, label);
+	              }
 	            });
 	          })
 	        ),
 	        children.map(function (panel, i) {
 	          // For accessibility.
-	          var idPanel = 'tabpanel_' + i + '_' + id;
+	          var idPanel = 'tab_panel_' + i + '_' + id;
 	          var idTab = 'tab_' + i + '_' + id;
-
-	          // Active state.
 	          var isActive = selected === i;
 
 	          // Panel content.
 	          var content = panel.props.children;
 
-	          if (!content) {
+	          if (typeof content === 'string') {
 	            content = _react2['default'].createElement(
 	              'p',
 	              null,
-	              'Tab ',
-	              i + 1,
-	              ' content here.'
+	              content
 	            );
 	          }
 
@@ -52412,7 +52439,7 @@
 	              'aria-labelledby': idTab,
 	              className: 't7-tabs__panel',
 	              id: idPanel,
-	              key: i,
+	              key: idPanel,
 	              role: 'tabpanel'
 	            },
 	            content
@@ -52428,13 +52455,21 @@
 	Tabs.propTypes = {
 	  children: _react2['default'].PropTypes.node,
 	  id: _react2['default'].PropTypes.string,
-	  selected: _react2['default'].PropTypes.number
+	  selected: _react2['default'].PropTypes.number,
+
+	  // Events.
+	  handleClick: _react2['default'].PropTypes.func
 	};
 
 	// Defaults.
 	Tabs.defaultProps = {
 	  children: _fake2['default'].tabs(),
-	  selected: 0
+	  selected: 0,
+
+	  // Events.
+	  handleClick: function handleClick(e, label) {
+	    _utils2['default'].log(e, label);
+	  }
 	};
 
 	// Export.
