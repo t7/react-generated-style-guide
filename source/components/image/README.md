@@ -3,9 +3,19 @@ This component can be used like so.
 ```js
 const alt = '...' // Default: "".
 const border = '#999' // Default: null.
+const href = 'http://example.com/' // Default: null.
 const src = 'photo.jpg' // Default: Placehold.it
+const target = '_blank' // Default: null.
 const width = '200' // Default: null.
 const height = '100' // Defualt: null.
+```
+
+```js
+function handleClick (e) {
+  /*
+    `e` is the event.
+  */
+}
 ```
 
 This component adds a bit of logic to figure out whether it should employ a placeholder from [Placehold.it](http://placehold.it/) or not. Namely, if a `src` is present, it will use that. If not, it will create a dummy image using the `width` and `height` that were passed in. If none are present, it will default to a `200` &times; `100` image.
@@ -21,5 +31,7 @@ To use the component, pass these props.
   src={src}
   width={width}
   height={height}
+
+  handleClick={handleClick}
 />
 ```

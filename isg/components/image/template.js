@@ -8,17 +8,42 @@ class Image extends React.Component {
     super(props)
   }
 
+  // Click handler.
+  handleClick (e) {
+    const keyPress = e.keyCode
+    const keyEnter = keyPress === 13
+
+    // Exit, if not "Enter" key.
+    if (keyPress && !keyEnter) {
+      return
+    }
+
+    // Parent component's click handler.
+    const handleClick = this.props.handleClick
+
+    if (typeof handleClick !== 'function') {
+      return
+    }
+
+    handleClick(e)
+  }
+
   // Render method.
   render () {
     const alt = this.props.alt
+    const href = this.props.href
+    const target = this.props.target
 
-    var height = this.props.height || ''
-    var width = this.props.width || ''
+    var height = this.props.height
+    var width = this.props.width
 
     const numericWidth = parseFloat(width)
     const numericHeight = parseFloat(height)
     const isPercentWidth = !!(numericWidth && width.match('%'))
     const isPercentHeight = !!(numericHeight && height.match('%'))
+
+    // Click event.
+    const handleClick = this.props.handleClick
 
     // Is there a border?
     var border = this.props.border
@@ -45,7 +70,7 @@ class Image extends React.Component {
       numericWidth && isPercentHeight
 
     // Used if mixed types.
-    const error = 'Placeholder <Image/> must use the same unit (%/px) for width and height.'
+    const errorType = 'Placeholder <Image /> must use the same unit (%/px) for width and height.'
 
     if (!isPercentWidth) {
       width = numericWidth
@@ -127,7 +152,7 @@ class Image extends React.Component {
 
       // Mixed types?
       } else if (mixedTypes) {
-        throw new Error(error)
+        throw new Error(errorType)
 
       // Pixel width, pixel height?
       } else if (numericWidth && numericHeight) {
@@ -177,6 +202,23 @@ class Image extends React.Component {
       }
     }
 
+    // Click event?
+    if (handleClick || href) {
+      img = (
+        <a
+          href={href}
+          target={target}
+
+          tabIndex={handleClick && !href ? '0' : null}
+
+          onClick={handleClick}
+          onKeyDown={handleClick}
+        >
+          {img}
+        </a>
+      )
+    }
+
     return img
   }
 }
@@ -185,7 +227,10 @@ class Image extends React.Component {
 Image.propTypes = {
   alt: React.PropTypes.string,
   border: React.PropTypes.string,
+  handleClick: React.PropTypes.func,
+  href: React.PropTypes.string,
   src: React.PropTypes.string,
+  target: React.PropTypes.string,
   width: React.PropTypes.string,
   height: React.PropTypes.string
 }

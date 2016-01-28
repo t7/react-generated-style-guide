@@ -52,6 +52,7 @@ class Tab extends React.Component {
         tabIndex='0'
 
         onClick={handleClick}
+        onKeyDown={handleClick}
       >
         {label}
       </li>

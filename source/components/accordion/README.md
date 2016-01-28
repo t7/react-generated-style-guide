@@ -6,10 +6,20 @@ By default, accordion areas are collapsed. To render an area open, pass an objec
 const selected = {
   0: true
 }
+
+function handleClick (e, isActive, label) {
+  /*
+    `e` is the event.
+
+    `isActive` denotes selected state.
+
+    `label` is the text itself.
+  */
+}
 ```
 
 ```xml
-<Accordion selected={selected}>
+<Accordion selected={selected} handleClick={handleClick}>
   <AccordionPanel label='Item 1'>
     <p>
       Content for "Item 1"

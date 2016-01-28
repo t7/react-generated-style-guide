@@ -8,10 +8,20 @@ const selected = {
   1: true,
   2: true
 }
+
+function handleClick (e, isActive, label) {
+  /*
+    `e` is the event.
+
+    `isActive` denotes selected state.
+
+    `label` is the text itself.
+  */
+}
 ```
 
 ```xml
-<AccordionMulti selected={selected}>
+<AccordionMulti selected={selected} handleClick={handleClick}>
   <AccordionPanel label='Item 1'>
     <p>
       Content for "Item 1"

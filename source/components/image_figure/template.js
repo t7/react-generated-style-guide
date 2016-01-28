@@ -24,6 +24,9 @@ class ImageFigure extends React.Component {
     const src = this.props.src
     const target = this.props.target
 
+    // Click event.
+    const handleClick = this.props.handleClick
+
     var width = this.props.width
     var height = this.props.height
 
@@ -53,41 +56,24 @@ class ImageFigure extends React.Component {
       figcaptionBottom = figcaption
     }
 
-    // Assume no link.
-    var figure = (
+    // Expose the UI.
+    return (
       <figure className='t7-figure'>
         {figcaptionTop}
         <Image
           alt={alt}
           border={border}
+          href={href}
           src={src}
           width={width}
           height={height}
+          target={target}
+
+          handleClick={handleClick}
         />
         {figcaptionBottom}
       </figure>
     )
-
-    // Is there a link?
-    if (href) {
-      figure = (
-        <figure className='t7-figure'>
-          {figcaptionTop}
-          <a href={href} target={target}>
-            <Image
-              alt={alt}
-              border={border}
-              src={src}
-              width={width}
-              height={height}
-            />
-          </a>
-          {figcaptionBottom}
-        </figure>
-      )
-    }
-
-    return figure
   }
 }
 
@@ -97,6 +83,7 @@ ImageFigure.propTypes = {
   border: React.PropTypes.string,
   caption: React.PropTypes.string,
   captionTop: React.PropTypes.bool,
+  handleClick: React.PropTypes.func,
   href: React.PropTypes.string,
   src: React.PropTypes.string,
   target: React.PropTypes.string,

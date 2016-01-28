@@ -71,7 +71,7 @@ class Tabs extends React.Component {
   }
 
   // Click handler.
-  handleClick (e, index) {
+  handleClick (e, index, label) {
     const keyPress = e.keyCode
     const keyEnter = keyPress === 13
 
@@ -83,6 +83,15 @@ class Tabs extends React.Component {
     this.setState({
       selected: index
     })
+
+    // Parent component's click handler.
+    const handleClick = this.props.handleClick
+
+    if (typeof handleClick !== 'function') {
+      return
+    }
+
+    handleClick(e, label)
   }
 
   // Render method.
@@ -124,7 +133,12 @@ class Tabs extends React.Component {
                   index={i}
                   key={idTab}
                   label={label}
-                  handleClick={handleClick}
+
+                  handleClick={
+                    function (e, index) {
+                      handleClick(e, index, label)
+                    }
+                  }
                 />
               )
             })
@@ -171,13 +185,21 @@ class Tabs extends React.Component {
 Tabs.propTypes = {
   children: React.PropTypes.node,
   id: React.PropTypes.string,
-  selected: React.PropTypes.number
+  selected: React.PropTypes.number,
+
+  // Events.
+  handleClick: React.PropTypes.func
 }
 
 // Defaults.
 Tabs.defaultProps = {
   children: fake.tabs(),
-  selected: 0
+  selected: 0,
+
+  // Events.
+  handleClick: function (e, label) {
+    utils.log(e, label)
+  }
 }
 
 // Export.
