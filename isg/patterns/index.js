@@ -51825,6 +51825,9 @@
 	      var src = this.props.src;
 	      var target = this.props.target;
 
+	      // Click event.
+	      var handleClick = this.props.handleClick;
+
 	      var width = this.props.width;
 	      var height = this.props.height;
 
@@ -51854,43 +51857,24 @@
 	        figcaptionBottom = figcaption;
 	      }
 
-	      // Assume no link.
-	      var figure = _react2['default'].createElement(
+	      // Expose the UI.
+	      return _react2['default'].createElement(
 	        'figure',
 	        { className: 't7-figure' },
 	        figcaptionTop,
 	        _react2['default'].createElement(_imageTemplate2['default'], {
 	          alt: alt,
 	          border: border,
+	          href: href,
 	          src: src,
 	          width: width,
-	          height: height
+	          height: height,
+	          target: target,
+
+	          handleClick: handleClick
 	        }),
 	        figcaptionBottom
 	      );
-
-	      // Is there a link?
-	      if (href) {
-	        figure = _react2['default'].createElement(
-	          'figure',
-	          { className: 't7-figure' },
-	          figcaptionTop,
-	          _react2['default'].createElement(
-	            'a',
-	            { href: href, target: target },
-	            _react2['default'].createElement(_imageTemplate2['default'], {
-	              alt: alt,
-	              border: border,
-	              src: src,
-	              width: width,
-	              height: height
-	            })
-	          ),
-	          figcaptionBottom
-	        );
-	      }
-
-	      return figure;
 	    }
 	  }]);
 
@@ -51902,6 +51886,7 @@
 	  border: _react2['default'].PropTypes.string,
 	  caption: _react2['default'].PropTypes.string,
 	  captionTop: _react2['default'].PropTypes.bool,
+	  handleClick: _react2['default'].PropTypes.func,
 	  href: _react2['default'].PropTypes.string,
 	  src: _react2['default'].PropTypes.string,
 	  target: _react2['default'].PropTypes.string,
@@ -51958,12 +51943,36 @@
 
 	  // Validation.
 
-	  // Render method.
+	  // Click handler.
 
 	  _createClass(Image, [{
+	    key: 'handleClick',
+	    value: function handleClick(e) {
+	      var keyPress = e.keyCode;
+	      var keyEnter = keyPress === 13;
+
+	      // Exit, if not "Enter" key.
+	      if (keyPress && !keyEnter) {
+	        return;
+	      }
+
+	      // Parent component's click handler.
+	      var handleClick = this.props.handleClick;
+
+	      if (typeof handleClick !== 'function') {
+	        return;
+	      }
+
+	      handleClick(e);
+	    }
+
+	    // Render method.
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var alt = this.props.alt;
+	      var href = this.props.href;
+	      var target = this.props.target;
 
 	      var height = this.props.height;
 	      var width = this.props.width;
@@ -51972,6 +51981,9 @@
 	      var numericHeight = parseFloat(height);
 	      var isPercentWidth = !!(numericWidth && width.match('%'));
 	      var isPercentHeight = !!(numericHeight && height.match('%'));
+
+	      // Click event.
+	      var handleClick = this.props.handleClick;
 
 	      // Is there a border?
 	      var border = this.props.border;
@@ -51996,7 +52008,7 @@
 	      var mixedTypes = isPercentWidth && numericHeight || numericWidth && isPercentHeight;
 
 	      // Used if mixed types.
-	      var error = 'Placeholder <Image /> must use the same unit (%/px) for width and height.';
+	      var errorType = 'Placeholder <Image /> must use the same unit (%/px) for width and height.';
 
 	      if (!isPercentWidth) {
 	        width = numericWidth;
@@ -52068,7 +52080,7 @@
 
 	            // Mixed types?
 	          } else if (mixedTypes) {
-	              throw new Error(error);
+	              throw new Error(errorType);
 
 	              // Pixel width, pixel height?
 	            } else if (numericWidth && numericHeight) {
@@ -52112,6 +52124,23 @@
 	                    }
 	        }
 
+	      // Click event?
+	      if (handleClick || href) {
+	        img = _react2['default'].createElement(
+	          'a',
+	          {
+	            href: href,
+	            target: target,
+
+	            tabIndex: handleClick && !href ? '0' : null,
+
+	            onClick: handleClick,
+	            onKeyDown: handleClick
+	          },
+	          img
+	        );
+	      }
+
 	      return img;
 	    }
 	  }]);
@@ -52122,7 +52151,10 @@
 	Image.propTypes = {
 	  alt: _react2['default'].PropTypes.string,
 	  border: _react2['default'].PropTypes.string,
+	  handleClick: _react2['default'].PropTypes.func,
+	  href: _react2['default'].PropTypes.string,
 	  src: _react2['default'].PropTypes.string,
+	  target: _react2['default'].PropTypes.string,
 	  width: _react2['default'].PropTypes.string,
 	  height: _react2['default'].PropTypes.string
 	};
