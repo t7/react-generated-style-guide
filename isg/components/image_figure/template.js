@@ -5,7 +5,7 @@ import React from 'react'
 import Image from '../image/template'
 
 // CSS.
-import './t7-figure.css'
+import './isg-figure.css'
 
 // Define class.
 class ImageFigure extends React.Component {
@@ -58,7 +58,7 @@ class ImageFigure extends React.Component {
 
     // Expose the UI.
     return (
-      <figure className='t7-figure'>
+      <figure className='isg-figure'>
         {figcaptionTop}
         <Image
           alt={alt}
