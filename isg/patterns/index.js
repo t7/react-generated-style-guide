@@ -35167,7 +35167,9 @@
 	        return;
 	      }
 
-	      handleClick(e, index, label, selected[index]);
+	      var isActive = selected[index];
+
+	      handleClick(e, index, label, isActive);
 	    }
 
 	    // Render method.
@@ -35273,12 +35275,7 @@
 	Accordion.defaultProps = {
 	  children: _fake2['default'].accordion(),
 	  multi: false,
-	  selected: {},
-
-	  // Events.
-	  handleClick: function handleClick(e, index, label, isActive) {
-	    _utils2['default'].log(e, index, label, isActive);
-	  }
+	  selected: {}
 	};
 
 	// Export.
@@ -35577,9 +35574,6 @@
 	        return;
 	      }
 
-	      var el = e.target;
-	      var box = el.parentNode;
-	      var id = box.id;
 	      var handleClick = this.props.handleClick;
 
 	      this.setState({
@@ -35589,6 +35583,8 @@
 	      if (typeof handleClick !== 'function') {
 	        return;
 	      }
+
+	      var id = this.state.id;
 
 	      handleClick(e, id);
 	    }
@@ -35747,12 +35743,7 @@
 
 	// Prop defaults.
 	Box.defaultProps = {
-	  children: _fake2['default'].box(),
-
-	  // Events.
-	  handleClick: function handleClick(e, id) {
-	    _utils2['default'].log(e, id);
-	  }
+	  children: _fake2['default'].box()
 	};
 
 	// Export.
@@ -48382,12 +48373,6 @@
 
 	__webpack_require__(203);
 
-	// Utility methods.
-
-	var _utils = __webpack_require__(166);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
 	// Define class.
 
 	var DataTableHeader = (function (_React$Component) {
@@ -48487,13 +48472,6 @@
 	  handleSort: _react2['default'].PropTypes.func
 	};
 
-	// Defaults.
-	DataTableHeader.defaultProps = {
-	  handleSort: function handleSort(e, index, sortDirection) {
-	    _utils2['default'].log(e, index, sortDirection);
-	  }
-	};
-
 	// Export.
 	exports['default'] = DataTableHeader;
 	module.exports = exports['default'];
@@ -48526,12 +48504,6 @@
 	// CSS.
 
 	__webpack_require__(203);
-
-	// Utility methods.
-
-	var _utils = __webpack_require__(166);
-
-	var _utils2 = _interopRequireDefault(_utils);
 
 	// UI components.
 
@@ -48699,11 +48671,7 @@
 
 	// Defaults.
 	DataTablePagination.defaultProps = {
-	  pageCurrent: 0,
-
-	  handlePagination: function handlePagination(e, page) {
-	    _utils2['default'].log(e, page);
-	  }
+	  pageCurrent: 0
 	};
 
 	// Export.
@@ -48738,12 +48706,6 @@
 	// CSS.
 
 	__webpack_require__(297);
-
-	// Utility methods.
-
-	var _utils = __webpack_require__(166);
-
-	var _utils2 = _interopRequireDefault(_utils);
 
 	// Define class.
 
@@ -48924,16 +48886,10 @@
 
 	// Prop defaults.
 	Button.defaultProps = {
-	  buttonData: 'Button Data',
 	  disabled: false,
 	  mode: 'default',
 	  text: 'Button Text',
-	  type: 'button',
-
-	  // Events.
-	  handleClick: function handleClick(e, buttonData) {
-	    _utils2['default'].log(e, buttonData);
-	  }
+	  type: 'button'
 	};
 
 	// Export.
@@ -49129,12 +49085,7 @@
 	  }, {
 	    value: '3',
 	    name: 'Tres'
-	  }],
-
-	  // Events.
-	  handleChange: function handleChange(e, value) {
-	    _utils2['default'].log(e, value);
-	  }
+	  }]
 	};
 
 	// Export.
@@ -49442,9 +49393,6 @@
 
 	// Defaults.
 	DropDown.defaultProps = {
-	  handleClick: function handleClick(e, text) {
-	    _utils2['default'].log(e, text);
-	  },
 	  menuAlign: 'left',
 	  text: 'Dropdown Trigger Text',
 	  items: [{
@@ -49522,7 +49470,9 @@
 	        return;
 	      }
 
-	      handleClick(e, this.props.text);
+	      var text = this.props.text;
+
+	      handleClick(e, text);
 	    }
 
 	    // Render method.
@@ -49530,7 +49480,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var href = this.props.href;
-	      var target = this.props.target;
 	      var text = this.props.text;
 
 	      var handleClick = this.handleClick.bind(this);
@@ -49546,9 +49495,9 @@
 	          'a',
 	          {
 	            className: 't7-dropdown__menu__link',
+
 	            href: href,
 	            tabIndex: '0',
-	            target: target,
 
 	            onClick: handleClick,
 	            onKeyDown: handleClick
@@ -49564,7 +49513,6 @@
 
 	DropDownItem.propTypes = {
 	  href: _react2['default'].PropTypes.string,
-	  target: _react2['default'].PropTypes.string,
 	  text: _react2['default'].PropTypes.string,
 	  handleClick: _react2['default'].PropTypes.func
 	};
@@ -50561,12 +50509,7 @@
 
 	// Prop defaults.
 	Checkbox.defaultProps = {
-	  label: 'Individual checkbox label',
-
-	  // Events.
-	  handleChange: function handleChange(e, value, checked) {
-	    _utils2['default'].log(e, value, checked);
-	  }
+	  label: 'Individual checkbox label'
 	};
 
 	// Export.
@@ -50817,12 +50760,7 @@
 
 	// Prop defaults.
 	Input.defaultProps = {
-	  type: 'text',
-
-	  // Events.
-	  handleChange: function handleChange(e, value) {
-	    _utils2['default'].log(e, value);
-	  }
+	  type: 'text'
 	};
 
 	// Export.
@@ -51227,12 +51165,7 @@
 
 	// Prop defaults.
 	Radio.defaultProps = {
-	  label: 'Individual radio label',
-
-	  // Events.
-	  handleChange: function handleChange(e, value, checked) {
-	    _utils2['default'].log(e, value, checked);
-	  }
+	  label: 'Individual radio label'
 	};
 
 	// Export.
@@ -51382,12 +51315,7 @@
 	// Prop defaults.
 	Search.defaultProps = {
 	  buttonText: 'GO',
-	  placeholder: 'Search...',
-
-	  // Events.
-	  handleSubmit: function handleSubmit(e, value) {
-	    _utils2['default'].log(e, value);
-	  }
+	  placeholder: 'Search...'
 	};
 
 	// Export.
@@ -51549,14 +51477,6 @@
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
-	};
-
-	// Prop defaults.
-	Textarea.defaultProps = {
-	  // Events.
-	  handleChange: function handleChange(e, value) {
-	    _utils2['default'].log(e, value);
-	  }
 	};
 
 	// Export.
@@ -51751,12 +51671,7 @@
 
 	  // Control text value.
 	  defaultValue: '',
-	  value: '',
-
-	  // Events.
-	  handleChange: function handleChange(e, value) {
-	    _utils2['default'].log(e, value);
-	  }
+	  value: ''
 	};
 
 	// Export.
@@ -52494,11 +52409,7 @@
 	// Defaults.
 	Tabs.defaultProps = {
 	  children: _fake2['default'].tabs(),
-	  selected: 0,
-
-	  handleClick: function handleClick(e, index, label) {
-	    _utils2['default'].log(e, index, label);
-	  }
+	  selected: 0
 	};
 
 	// Export.
@@ -52747,17 +52658,36 @@
 
 	TreeDiagram.propTypes = {
 	  data: _react2['default'].PropTypes.object,
-	  handleClickLeaf: _react2['default'].PropTypes.func
+	  handleClickNode: _react2['default'].PropTypes.func,
+	  handleClickMenu: _react2['default'].PropTypes.func
 	};
 
 	// Defaults.
 	TreeDiagram.defaultProps = {
-	  handleClickLeaf: function handleClickLeaf(d) {
-	    _utils2['default'].log(d);
-	  },
-
-	  handleClickMenu: function handleClickMenu(text, data) {
-	    _utils2['default'].log(text, data);
+	  menu: {
+	    /*
+	      NOTE: These keys correspond
+	      to each object's `*.type`.
+	    */
+	    superHouse: [{
+	      text: 'Add: Household'
+	    }, {
+	      text: 'View/Edit: Super House Details'
+	    }],
+	    household: [{
+	      text: 'Add: Tax Entity'
+	    }, {
+	      text: 'View/Edit: Household Details'
+	    }],
+	    taxEntity: [{
+	      text: 'Add: Single Account'
+	    }, {
+	      text: 'Add: PCR Data Services Accounts'
+	    }, {
+	      text: 'Add: Firm/Office Managed Accounts'
+	    }, {
+	      text: 'View/Edit: Tax Entity Details'
+	    }]
 	  },
 
 	  // Fake data.
@@ -52799,49 +52729,31 @@
 	    _classCallCheck(this, Chart);
 
 	    this.el = el;
+	    this.props = props;
 	    this.setConfig();
 	    this.bindResize();
 
 	    // Callback for clicking a "leaf".
-	    this.handleClickLeaf = props.handleClickLeaf || function () {};
+	    this.handleClickNode = props.handleClickNode || function () {};
 
 	    // Callback for clicking menu item.
 	    this.handleClickMenu = props.handleClickMenu || function () {};
+
+	    // Callback for expand/collapse.
+	    this.handleClickToggle = props.handleClickToggle || function () {};
 	  }
 
 	  _createClass(Chart, [{
 	    key: 'setConfig',
 	    value: function setConfig() {
+	      var menu = this.props.menu;
+
 	      this.config = {
 	        duration: 500,
 	        rectW: 260,
 	        rectH: 120,
 	        itemH: 30,
-	        menu: {
-	          /*
-	            NOTE: These keys correspond
-	            to each object's `*.type`.
-	          */
-	          superHouse: [{
-	            text: 'Add: Household'
-	          }, {
-	            text: 'View/Edit: Super House Details'
-	          }],
-	          household: [{
-	            text: 'Add: Tax Entity'
-	          }, {
-	            text: 'View/Edit: Household Details'
-	          }],
-	          taxEntity: [{
-	            text: 'Add: Single Account'
-	          }, {
-	            text: 'Add: PCR Data Services Accounts'
-	          }, {
-	            text: 'Add: Firm/Office Managed Accounts'
-	          }, {
-	            text: 'View/Edit: Tax Entity Details'
-	          }]
-	        }
+	        menu: menu
 	      };
 	    }
 	  }, {
@@ -53039,7 +52951,7 @@
 	        g.attr('class', 't7-d3-tree-diagram__menu__row__group');
 
 	        g.on('click', function (x) {
-	          handleClickMenu(item.text, d);
+	          handleClickMenu(d, i, item.text);
 	        });
 
 	        // Add row.
@@ -53070,6 +52982,9 @@
 
 	      // Set `showAnimation` to `true`.
 	      this.update(d, true);
+
+	      // Fire callback.
+	      this.handleClickToggle(d, !!d.children);
 	    }
 	  }, {
 	    key: 'itemToggleFill',
@@ -53334,7 +53249,7 @@
 	      var itemToggleFill = this.itemToggleFill.bind(this);
 
 	      // Defined in the React `props`.
-	      var handleClickLeaf = this.handleClickLeaf.bind(this);
+	      var handleClickNode = this.handleClickNode.bind(this);
 
 	      // Options from `this.setConfig`.
 	      var config = this.config;
@@ -53803,7 +53718,7 @@
 	      });
 
 	      // Defined in React `props`.
-	      leafRect.on('click', handleClickLeaf);
+	      leafRect.on('click', handleClickNode);
 
 	      // =====================
 	      // Add the "+/-" toggle.
