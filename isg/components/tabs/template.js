@@ -91,7 +91,7 @@ class Tabs extends React.Component {
       return
     }
 
-    handleClick(e, label)
+    handleClick(e, index, label)
   }
 
   // Render method.
@@ -134,11 +134,7 @@ class Tabs extends React.Component {
                   key={idTab}
                   label={label}
 
-                  handleClick={
-                    function (e, index) {
-                      handleClick(e, index, label)
-                    }
-                  }
+                  handleClick={handleClick}
                 />
               )
             })
@@ -196,9 +192,8 @@ Tabs.defaultProps = {
   children: fake.tabs(),
   selected: 0,
 
-  // Events.
-  handleClick: function (e, label) {
-    utils.log(e, label)
+  handleClick: function (e, index, label) {
+    utils.log(e, index, label)
   }
 }
 

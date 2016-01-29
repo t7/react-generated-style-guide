@@ -9,13 +9,15 @@ const selected = {
   2: true
 }
 
-function handleClick (e, isActive, label) {
+function handleClick (e, index, label, isActive) {
   /*
     `e` is the event.
 
-    `isActive` denotes selected state.
+    `index` is the numeric position.
 
     `label` is the text itself.
+
+    `isActive` denotes selected state.
   */
 }
 ```

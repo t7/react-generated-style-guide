@@ -75,7 +75,7 @@ class Accordion extends React.Component {
       return
     }
 
-    handleClick(e, selected[index], label)
+    handleClick(e, index, label, selected[index])
   }
 
   // Render method.
@@ -131,11 +131,7 @@ class Accordion extends React.Component {
           key={idHeader}
           label={label}
 
-          handleClick={
-            function (e, index) {
-              handleClick(e, index, label)
-            }
-          }
+          handleClick={handleClick}
         />
       )
 
@@ -186,8 +182,8 @@ Accordion.defaultProps = {
   selected: {},
 
   // Events.
-  handleClick: function (e, isActive, label) {
-    utils.log(e, isActive, label)
+  handleClick: function (e, index, label, isActive) {
+    utils.log(e, index, label, isActive)
   }
 }
 

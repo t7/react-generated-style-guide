@@ -19,13 +19,15 @@ class AccordionHeader extends React.Component {
     }
 
     const handleClick = this.props.handleClick
-    const index = this.props.index
 
     if (typeof handleClick !== 'function') {
       return
     }
 
-    handleClick(e, index)
+    const index = this.props.index
+    const label = this.props.label
+
+    handleClick(e, index, label)
   }
 
   // Render method.
