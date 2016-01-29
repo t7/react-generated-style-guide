@@ -35167,7 +35167,7 @@
 	        return;
 	      }
 
-	      handleClick(e, selected[index], label);
+	      handleClick(e, index, label, selected[index]);
 	    }
 
 	    // Render method.
@@ -35224,9 +35224,7 @@
 	          key: idHeader,
 	          label: label,
 
-	          handleClick: function (e, index) {
-	            handleClick(e, index, label);
-	          }
+	          handleClick: handleClick
 	        }));
 
 	        // Add the `<dd>`.
@@ -35278,8 +35276,8 @@
 	  selected: {},
 
 	  // Events.
-	  handleClick: function handleClick(e, isActive, label) {
-	    _utils2['default'].log(e, isActive, label);
+	  handleClick: function handleClick(e, index, label, isActive) {
+	    _utils2['default'].log(e, index, label, isActive);
 	  }
 	};
 
@@ -35346,13 +35344,15 @@
 	      }
 
 	      var handleClick = this.props.handleClick;
-	      var index = this.props.index;
 
 	      if (typeof handleClick !== 'function') {
 	        return;
 	      }
 
-	      handleClick(e, index);
+	      var index = this.props.index;
+	      var label = this.props.label;
+
+	      handleClick(e, index, label);
 	    }
 
 	    // Render method.
@@ -52395,7 +52395,7 @@
 	        return;
 	      }
 
-	      handleClick(e, label);
+	      handleClick(e, index, label);
 	    }
 
 	    // Render method.
@@ -52441,9 +52441,7 @@
 	              key: idTab,
 	              label: label,
 
-	              handleClick: function (e, index) {
-	                handleClick(e, index, label);
-	              }
+	              handleClick: handleClick
 	            });
 	          })
 	        ),
@@ -52498,9 +52496,8 @@
 	  children: _fake2['default'].tabs(),
 	  selected: 0,
 
-	  // Events.
-	  handleClick: function handleClick(e, label) {
-	    _utils2['default'].log(e, label);
+	  handleClick: function handleClick(e, index, label) {
+	    _utils2['default'].log(e, index, label);
 	  }
 	};
 
@@ -52567,13 +52564,15 @@
 	      }
 
 	      var handleClick = this.props.handleClick;
-	      var index = this.props.index;
 
 	      if (typeof handleClick !== 'function') {
 	        return;
 	      }
 
-	      handleClick(e, index);
+	      var index = this.props.index;
+	      var label = this.props.label;
+
+	      handleClick(e, index, label);
 	    }
 
 	    // Render method.

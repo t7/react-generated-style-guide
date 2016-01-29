@@ -72,19 +72,19 @@ AccordionMulti.defaultProps = {
 
 // Export.
 export default AccordionMulti
-</code></pre><pre data-example-html="accordion_multi" style="display:none;"><code class="lang-html">&lt;dl class="t7-accordion" id="1453944814079_5351889035664499" role="tablist" aria-multiselectable="true"&gt;
-  &lt;dt aria-controls="accordion_panel_0_1453944814079_5351889035664499" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_0_1453944814079_5351889035664499" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 1&lt;/dt&gt;
-  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_0_1453944814079_5351889035664499" class="t7-accordion__panel" id="accordion_panel_0_1453944814079_5351889035664499"
+</code></pre><pre data-example-html="accordion_multi" style="display:none;"><code class="lang-html">&lt;dl class="t7-accordion" id="1454026473564_18191795726306736" role="tablist" aria-multiselectable="true"&gt;
+  &lt;dt aria-controls="accordion_panel_0_1454026473564_18191795726306736" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_0_1454026473564_18191795726306736" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 1&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_0_1454026473564_18191795726306736" class="t7-accordion__panel" id="accordion_panel_0_1454026473564_18191795726306736"
   role="tabpanel"&gt;
     &lt;p&gt;Content for &quot;Item 1&quot;&lt;/p&gt;
   &lt;/dd&gt;
-  &lt;dt aria-controls="accordion_panel_1_1453944814079_5351889035664499" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_1_1453944814079_5351889035664499" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 2&lt;/dt&gt;
-  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_1_1453944814079_5351889035664499" class="t7-accordion__panel" id="accordion_panel_1_1453944814079_5351889035664499"
+  &lt;dt aria-controls="accordion_panel_1_1454026473564_18191795726306736" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_1_1454026473564_18191795726306736" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 2&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_1_1454026473564_18191795726306736" class="t7-accordion__panel" id="accordion_panel_1_1454026473564_18191795726306736"
   role="tabpanel"&gt;
     &lt;p&gt;Content for &quot;Item 2&quot;&lt;/p&gt;
   &lt;/dd&gt;
-  &lt;dt aria-controls="accordion_panel_2_1453944814079_5351889035664499" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_2_1453944814079_5351889035664499" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 3&lt;/dt&gt;
-  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_2_1453944814079_5351889035664499" class="t7-accordion__panel" id="accordion_panel_2_1453944814079_5351889035664499"
+  &lt;dt aria-controls="accordion_panel_2_1454026473564_18191795726306736" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_2_1454026473564_18191795726306736" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 3&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_2_1454026473564_18191795726306736" class="t7-accordion__panel" id="accordion_panel_2_1454026473564_18191795726306736"
   role="tabpanel"&gt;
     &lt;p&gt;Content for &quot;Item 3&quot;&lt;/p&gt;
   &lt;/dd&gt;
@@ -199,7 +199,7 @@ class Accordion extends React.Component {
       return
     }
 
-    handleClick(e, selected[index], label)
+    handleClick(e, index, label, selected[index])
   }
 
   // Render method.
@@ -255,11 +255,7 @@ class Accordion extends React.Component {
           key={idHeader}
           label={label}
 
-          handleClick={
-            function (e, index) {
-              handleClick(e, index, label)
-            }
-          }
+          handleClick={handleClick}
         /&gt;
       )
 
@@ -310,26 +306,26 @@ Accordion.defaultProps = {
   selected: {},
 
   // Events.
-  handleClick: function (e, isActive, label) {
-    utils.log(e, isActive, label)
+  handleClick: function (e, index, label, isActive) {
+    utils.log(e, index, label, isActive)
   }
 }
 
 // Export.
 export default Accordion
-</code></pre><pre data-example-html="accordion" style="display:none;"><code class="lang-html">&lt;dl class="t7-accordion" id="1453944818637_6508598329965025" role="tablist" aria-multiselectable="false"&gt;
-  &lt;dt aria-controls="accordion_panel_0_1453944818637_6508598329965025" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_0_1453944818637_6508598329965025" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 1&lt;/dt&gt;
-  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_0_1453944818637_6508598329965025" class="t7-accordion__panel" id="accordion_panel_0_1453944818637_6508598329965025"
+</code></pre><pre data-example-html="accordion" style="display:none;"><code class="lang-html">&lt;dl class="t7-accordion" id="1454026476342_8036192418076098" role="tablist" aria-multiselectable="false"&gt;
+  &lt;dt aria-controls="accordion_panel_0_1454026476342_8036192418076098" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_0_1454026476342_8036192418076098" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 1&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_0_1454026476342_8036192418076098" class="t7-accordion__panel" id="accordion_panel_0_1454026476342_8036192418076098"
   role="tabpanel"&gt;
     &lt;p&gt;Content for &quot;Item 1&quot;&lt;/p&gt;
   &lt;/dd&gt;
-  &lt;dt aria-controls="accordion_panel_1_1453944818637_6508598329965025" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_1_1453944818637_6508598329965025" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 2&lt;/dt&gt;
-  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_1_1453944818637_6508598329965025" class="t7-accordion__panel" id="accordion_panel_1_1453944818637_6508598329965025"
+  &lt;dt aria-controls="accordion_panel_1_1454026476342_8036192418076098" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_1_1454026476342_8036192418076098" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 2&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_1_1454026476342_8036192418076098" class="t7-accordion__panel" id="accordion_panel_1_1454026476342_8036192418076098"
   role="tabpanel"&gt;
     &lt;p&gt;Content for &quot;Item 2&quot;&lt;/p&gt;
   &lt;/dd&gt;
-  &lt;dt aria-controls="accordion_panel_2_1453944818637_6508598329965025" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_2_1453944818637_6508598329965025" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 3&lt;/dt&gt;
-  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_2_1453944818637_6508598329965025" class="t7-accordion__panel" id="accordion_panel_2_1453944818637_6508598329965025"
+  &lt;dt aria-controls="accordion_panel_2_1454026476342_8036192418076098" aria-expanded="false" aria-selected="false" class="t7-accordion__header" id="accordion_header_2_1454026476342_8036192418076098" role="tab" tabindex="0"&gt;&lt;span aria-hidden="true" class="t7-accordion__header__icon"&gt;&lt;/span&gt; Item 3&lt;/dt&gt;
+  &lt;dd aria-hidden="true" aria-labelledby="accordion_header_2_1454026476342_8036192418076098" class="t7-accordion__panel" id="accordion_panel_2_1454026476342_8036192418076098"
   role="tabpanel"&gt;
     &lt;p&gt;Content for &quot;Item 3&quot;&lt;/p&gt;
   &lt;/dd&gt;
@@ -370,9 +366,9 @@ BoxInfo.defaultProps = {
 
 // Export.
 export default BoxInfo
-</code></pre><pre data-example-html="box_info" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--info t7-box--info--icon" id="1453944821936_7105108045507222"&gt;
+</code></pre><pre data-example-html="box_info" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--info t7-box--info--icon" id="1454026478374_43498157267458737"&gt;
   &lt;p&gt;Something happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1453944821936_7105108045507222" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1454026478374_43498157267458737" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box_negative" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">box negative</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/box_negative">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="box_negative"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-xml">&lt;BoxNegative&gt;
   &lt;p&gt;
@@ -410,9 +406,9 @@ BoxNegative.defaultProps = {
 
 // Export.
 export default BoxNegative
-</code></pre><pre data-example-html="box_negative" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--negative t7-box--negative--icon" id="1453944824426_3291514019947499"&gt;
+</code></pre><pre data-example-html="box_negative" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--negative t7-box--negative--icon" id="1454026480057_954910940490663"&gt;
   &lt;p&gt;Something bad happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1453944824426_3291514019947499" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1454026480057_954910940490663" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box_positive" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">box positive</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/box_positive">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="box_positive"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-xml">&lt;BoxPositive&gt;
   &lt;p&gt;
@@ -450,9 +446,9 @@ BoxWarn.defaultProps = {
 
 // Export.
 export default BoxWarn
-</code></pre><pre data-example-html="box_positive" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--positive t7-box--positive--icon" id="1453944826610_606984247919172"&gt;
+</code></pre><pre data-example-html="box_positive" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--positive t7-box--positive--icon" id="1454026481745_29347251914441586"&gt;
   &lt;p&gt;Something good happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1453944826610_606984247919172" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1454026481745_29347251914441586" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box_warn" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">box warn</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/box_warn">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="box_warn"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-xml">&lt;BoxWarn&gt;
   &lt;p&gt;
@@ -490,9 +486,9 @@ BoxWarn.defaultProps = {
 
 // Export.
 export default BoxWarn
-</code></pre><pre data-example-html="box_warn" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--warn t7-box--warn--icon" id="1453944828880_6835044196341187"&gt;
+</code></pre><pre data-example-html="box_warn" style="display:none;"><code class="lang-html">&lt;div class="t7-box t7-box--warn t7-box--warn--icon" id="1454026483570_42067966400645673"&gt;
   &lt;p&gt;Something &quot;meh&quot; happened, yo.&lt;/p&gt;
-  &lt;a aria-controls="1453944828880_6835044196341187" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
+  &lt;a aria-controls="1454026483570_42067966400645673" aria-label="Close" title="Close" class="t7-box__close" tabindex="0"&gt;Close&lt;/a&gt; 
 &lt;/div&gt;</code></pre></section><section id="box" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">box</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/box">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="box"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-xml">&lt;Box&gt;
   &lt;p&gt;
@@ -721,7 +717,7 @@ Box.defaultProps = {
 
 // Export.
 export default Box
-</code></pre><pre data-example-html="box" style="display:none;"><code class="lang-html">&lt;div class="t7-box" id="1453944830961_08654120867140591"&gt;
+</code></pre><pre data-example-html="box" style="display:none;"><code class="lang-html">&lt;div class="t7-box" id="1454026485213_5678788498044014"&gt;
   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor
     in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 &lt;/div&gt;</code></pre></section><section id="data_table" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">data table</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/data_table">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="data_table"></div><hr/><div><p>This component can be used like so.</p>
@@ -1044,7 +1040,7 @@ DataTable.defaultProps = {
 export default DataTable
 </code></pre><pre data-example-html="data_table" style="display:none;"><code class="lang-html">&lt;div class="t7-data-table__wrapper"&gt;
   &lt;div aria-hidden="false" aria-label="Pagination" class="t7-data-table__pagination"&gt;&lt;span class="t7-data-table__pagination__label"&gt;Page 1 of 3&lt;/span&gt; 
-    &lt;select class="t7-form__select t7-form__select--width-auto" id="1453944834186_07440934563055634" name="1453944834186_07440934563055634"&gt;
+    &lt;select class="t7-form__select t7-form__select--width-auto" id="1454026487827_1311128248926252" name="1454026487827_1311128248926252"&gt;
       &lt;option selected="" value="0"&gt;Page 1&lt;/option&gt;
       &lt;option value="1"&gt;Page 2&lt;/option&gt;
       &lt;option value="2"&gt;Page 3&lt;/option&gt;
@@ -1052,7 +1048,7 @@ export default DataTable
     &lt;button class="t7-form__button t7-form__button--default" disabled="" title="Previous Page" type="button"&gt;Prev&lt;/button&gt;
     &lt;button class="t7-form__button t7-form__button--default" title="Next Page" type="button"&gt;Next&lt;/button&gt;
   &lt;/div&gt;
-  &lt;table id="1453944834185_0759377391077578" class="t7-data-table" role="grid"&gt;
+  &lt;table id="1454026487825_23240222549065948" class="t7-data-table" role="grid"&gt;
     &lt;thead role="rowgroup"&gt;
       &lt;tr&gt;
         &lt;th aria-sort="descending" class="t7-data-table__th t7-data-table__th--sortable" role="columnheader" scope="col" tabindex="0"&gt;Date&lt;/th&gt;
@@ -1064,144 +1060,144 @@ export default DataTable
     &lt;/thead&gt;
     &lt;tbody role="rowgroup"&gt;
       &lt;tr role="row"&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 27, 2016&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 28, 2016&lt;/td&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($4.44)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,995.56&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($33.23)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,966.77&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr role="row"&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 27, 2016&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$64.32&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,031.09&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 26, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$0.21&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,995.77&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($60.50)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,970.59&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 25, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($25.33)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,970.44&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$24.99&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,995.59&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 24, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$75.10&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,045.53&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($29.09)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,966.50&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 23, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($17.71)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,027.82&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$32.93&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,999.43&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 22, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$47.76&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,075.59&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($63.28)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,936.15&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 21, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($72.87)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,002.71&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$70.00&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,006.15&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 20, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$84.46&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,087.18&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($56.88)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,949.26&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 19, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($69.46)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,017.72&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$24.07&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,973.33&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 18, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$51.12&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,068.84&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($83.58)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,889.76&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 17, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($57.60)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,011.24&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$71.79&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,961.55&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 16, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$94.30&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,105.54&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($71.13)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,890.42&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 15, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($87.54)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,018.00&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$45.32&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,935.74&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 14, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$21.27&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,039.26&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($13.99)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,921.75&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 13, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($80.72)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,958.54&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$38.79&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,960.54&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 12, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$69.32&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,027.86&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($21.13)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,939.42&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 11, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($64.00)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$19,963.86&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$81.22&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,020.63&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 10, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$82.95&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,046.81&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
+        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($10.54)&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,010.09&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr role="row"&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 9, 2016&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Lorem ipsum dolor sit amet...&lt;/td&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Withdrawl&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency t7-data-table__td--negative" role="gridcell"&gt;($20.49)&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,026.32&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr role="row"&gt;
-        &lt;td class="t7-data-table__td" role="gridcell"&gt;Jan 8, 2016&lt;/td&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Ut enim ad minim veniam...&lt;/td&gt;
         &lt;td class="t7-data-table__td" role="gridcell"&gt;Deposit&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$48.54&lt;/td&gt;
-        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,074.86&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$27.48&lt;/td&gt;
+        &lt;td class="t7-data-table__td t7-data-table__td--currency" role="gridcell"&gt;$20,037.56&lt;/td&gt;
       &lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
@@ -1501,9 +1497,9 @@ DropDown.defaultProps = {
 
 // Export.
 export default DropDown
-</code></pre><pre data-example-html="dropdown" style="display:none;"><code class="lang-html">&lt;div id="1453944836402_4218695000745356" class="t7-dropdown" data-menu-align="left"&gt;
-  &lt;a id="1453944836402_4218695000745356_trigger" aria-controls="1453944836402_4218695000745356_menu" aria-expanded="false" aria-haspopup="true" tabindex="0" class="t7-dropdown__trigger"&gt;Dropdown Trigger Text&lt;/a&gt; 
-  &lt;ul id="1453944836402_4218695000745356_menu" aria-labelledby="1453944836402_4218695000745356_trigger" aria-expanded="false" aria-hidden="true" role="menu" class="t7-dropdown__menu"&gt;
+</code></pre><pre data-example-html="dropdown" style="display:none;"><code class="lang-html">&lt;div id="1454026489372_8060692776925862" class="t7-dropdown" data-menu-align="left"&gt;
+  &lt;a id="1454026489372_8060692776925862_trigger" aria-controls="1454026489372_8060692776925862_menu" aria-expanded="false" aria-haspopup="true" tabindex="0" class="t7-dropdown__trigger"&gt;Dropdown Trigger Text&lt;/a&gt; 
+  &lt;ul id="1454026489372_8060692776925862_menu" aria-labelledby="1454026489372_8060692776925862_trigger" aria-expanded="false" aria-hidden="true" role="menu" class="t7-dropdown__menu"&gt;
     &lt;li role="menuitem" class="t7-dropdown__menu__item"&gt;
       &lt;a class="t7-dropdown__menu__link" tabindex="0"&gt;Dropdown Item Text #1&lt;/a&gt; 
     &lt;/li&gt;
@@ -1556,7 +1552,7 @@ FieldsetInfo.defaultProps = {
 
 // Export.
 export default FieldsetInfo
-</code></pre><pre data-example-html="fieldset_info" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--info" id="1453944838550_34028567653149366"&gt;
+</code></pre><pre data-example-html="fieldset_info" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--info" id="1454026490981_8154105639550835"&gt;
   &lt;legend title="Fieldset Legend"&gt;Fieldset Legend&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset_negative" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">fieldset negative</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/fieldset_negative">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="fieldset_negative"></div><hr/><div><p>This component can be used like so.</p>
@@ -1604,7 +1600,7 @@ FieldsetNegative.defaultProps = {
 
 // Export.
 export default FieldsetNegative
-</code></pre><pre data-example-html="fieldset_negative" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--negative" id="1453944840631_6979564421344548"&gt;
+</code></pre><pre data-example-html="fieldset_negative" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--negative" id="1454026492628_48724465165287256"&gt;
   &lt;legend title="Fieldset Legend"&gt;Fieldset Legend&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset_positive" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">fieldset positive</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/fieldset_positive">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="fieldset_positive"></div><hr/><div><p>This component can be used like so.</p>
@@ -1652,7 +1648,7 @@ FieldsetPositive.defaultProps = {
 
 // Export.
 export default FieldsetPositive
-</code></pre><pre data-example-html="fieldset_positive" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--positive" id="1453944842766_005539463832974434"&gt;
+</code></pre><pre data-example-html="fieldset_positive" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--positive" id="1454026494316_6269112175796181"&gt;
   &lt;legend title="Fieldset Legend"&gt;Fieldset Legend&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset_warn" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">fieldset warn</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/fieldset_warn">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="fieldset_warn"></div><hr/><div><p>This component can be used like so.</p>
@@ -1700,7 +1696,7 @@ FieldsetWarn.defaultProps = {
 
 // Export.
 export default FieldsetWarn
-</code></pre><pre data-example-html="fieldset_warn" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--warn" id="1453944844996_17502428428269923"&gt;
+</code></pre><pre data-example-html="fieldset_warn" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box t7-box--warn" id="1454026496105_4343155163805932"&gt;
   &lt;legend title="Fieldset Legend"&gt;Fieldset Legend&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="fieldset" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">fieldset</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/fieldset">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="fieldset"></div><hr/><div><p>This component can be used like so.</p>
@@ -1748,7 +1744,7 @@ Fieldset.defaultProps = {
 
 // Export.
 export default Fieldset
-</code></pre><pre data-example-html="fieldset" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box" id="1453944847504_06334271025843918"&gt;
+</code></pre><pre data-example-html="fieldset" style="display:none;"><code class="lang-html">&lt;fieldset class="t7-box" id="1454026497700_19624565495178103"&gt;
   &lt;legend title="Fieldset Legend"&gt;Fieldset Legend&lt;/legend&gt;
   &lt;p&gt;(Form elements would go here.)&lt;/p&gt;
 &lt;/fieldset&gt;</code></pre></section><section id="form_button_examples" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form button examples</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_button_examples">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_button_examples"></div><hr/><div><p>The <code>&lt;Button/&gt;</code> component has several variations, in both <code>size</code> and <code>mode</code>.</p>
@@ -2266,16 +2262,16 @@ CheckboxListInline.defaultProps = {
 export default CheckboxListInline
 </code></pre><pre data-example-html="form_checkbox_list_inline" style="display:none;"><code class="lang-html">&lt;ul class="t7-list-inline"&gt;
   &lt;li&gt;
-    &lt;label for="1453944854174_6820053395349532"&gt;
-      &lt;input class="t7-form__checkbox" id="1453944854174_6820053395349532" name="1453944854174_6820053395349532" type="checkbox" value="Checkbox list inline - label 01" checked="" /&gt;Checkbox list inline - label 01&lt;/label&gt;
+    &lt;label for="1454026502584_8221542765386403"&gt;
+      &lt;input class="t7-form__checkbox" id="1454026502584_8221542765386403" name="1454026502584_8221542765386403" type="checkbox" value="Checkbox list inline - label 01" checked="" /&gt;Checkbox list inline - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944854174_539180284133181"&gt;
-      &lt;input class="t7-form__checkbox" id="1453944854174_539180284133181" name="1453944854174_539180284133181" type="checkbox" value="Checkbox list inline - label 02" /&gt;Checkbox list inline - label 02&lt;/label&gt;
+    &lt;label for="1454026502585_4913831849116832"&gt;
+      &lt;input class="t7-form__checkbox" id="1454026502585_4913831849116832" name="1454026502585_4913831849116832" type="checkbox" value="Checkbox list inline - label 02" /&gt;Checkbox list inline - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944854174_4103233623318374"&gt;
-      &lt;input class="t7-form__checkbox" disabled="" id="1453944854174_4103233623318374" name="1453944854174_4103233623318374" type="checkbox" value="(Checkbox disabled)" /&gt;(Checkbox disabled)&lt;/label&gt;
+    &lt;label for="1454026502585_7856672904454172"&gt;
+      &lt;input class="t7-form__checkbox" disabled="" id="1454026502585_7856672904454172" name="1454026502585_7856672904454172" type="checkbox" value="(Checkbox disabled)" /&gt;(Checkbox disabled)&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_checkbox_list" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form checkbox list</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_checkbox_list">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_checkbox_list"></div><hr/><div><p><strong>Note:</strong> This uses the same props as the <code>&lt;CheckboxListInline/&gt;</code> component, but has a different tag name. Functionally, they are identical other than their layout.</p>
 <pre><code class="lang-xml">&lt;CheckboxList
@@ -2383,16 +2379,16 @@ CheckboxList.defaultProps = {
 export default CheckboxList
 </code></pre><pre data-example-html="form_checkbox_list" style="display:none;"><code class="lang-html">&lt;ul class="t7-list-clean"&gt;
   &lt;li&gt;
-    &lt;label for="1453944856836_27691664174199104"&gt;
-      &lt;input class="t7-form__checkbox" id="1453944856836_27691664174199104" name="1453944856836_27691664174199104" type="checkbox" value="Checkbox list - label 01" checked="" /&gt;Checkbox list - label 01&lt;/label&gt;
+    &lt;label for="1454026504443_32486776635050774"&gt;
+      &lt;input class="t7-form__checkbox" id="1454026504443_32486776635050774" name="1454026504443_32486776635050774" type="checkbox" value="Checkbox list - label 01" checked="" /&gt;Checkbox list - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944856836_8961204055231065"&gt;
-      &lt;input class="t7-form__checkbox" id="1453944856836_8961204055231065" name="1453944856836_8961204055231065" type="checkbox" value="Checkbox list - label 02" /&gt;Checkbox list - label 02&lt;/label&gt;
+    &lt;label for="1454026504443_29329125955700874"&gt;
+      &lt;input class="t7-form__checkbox" id="1454026504443_29329125955700874" name="1454026504443_29329125955700874" type="checkbox" value="Checkbox list - label 02" /&gt;Checkbox list - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944856836_08667933219112456"&gt;
-      &lt;input class="t7-form__checkbox" id="1453944856836_08667933219112456" name="1453944856836_08667933219112456" type="checkbox" value="Checkbox list - label 03" /&gt;Checkbox list - label 03&lt;/label&gt;
+    &lt;label for="1454026504443_09337737667374313"&gt;
+      &lt;input class="t7-form__checkbox" id="1454026504443_09337737667374313" name="1454026504443_09337737667374313" type="checkbox" value="Checkbox list - label 03" /&gt;Checkbox list - label 03&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_checkbox" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form checkbox</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_checkbox">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_checkbox"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-js">// Event callback.
@@ -2562,8 +2558,8 @@ Checkbox.defaultProps = {
 
 // Export.
 export default Checkbox
-</code></pre><pre data-example-html="form_checkbox" style="display:none;"><code class="lang-html">&lt;label for="1453944858864_04413786344230175"&gt;
-  &lt;input class="t7-form__checkbox" id="1453944858864_04413786344230175" name="1453944858864_04413786344230175" type="checkbox" value="Individual checkbox label" /&gt;Individual checkbox label&lt;/label&gt;</code></pre></section><section id="form_input" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form input</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_input">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_input"></div><hr/><div><p>This component can be used like so.</p>
+</code></pre><pre data-example-html="form_checkbox" style="display:none;"><code class="lang-html">&lt;label for="1454026505871_1571256120223552"&gt;
+  &lt;input class="t7-form__checkbox" id="1454026505871_1571256120223552" name="1454026505871_1571256120223552" type="checkbox" value="Individual checkbox label" /&gt;Individual checkbox label&lt;/label&gt;</code></pre></section><section id="form_input" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form input</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_input">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_input"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-js">// Event callback.
 function handleChange (e, value) {
   /*
@@ -2736,7 +2732,7 @@ Input.defaultProps = {
 
 // Export.
 export default Input
-</code></pre><pre data-example-html="form_input" style="display:none;"><code class="lang-html">&lt;input class="t7-form__input" id="1453944860791_8596401561517268" name="1453944860791_8596401561517268" type="text" /&gt;</code></pre></section><section id="form_radio_list_inline" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form radio list inline</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_radio_list_inline">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_radio_list_inline"></div><hr/><div><p>This component can be used like so.</p>
+</code></pre><pre data-example-html="form_input" style="display:none;"><code class="lang-html">&lt;input class="t7-form__input" id="1454026507263_3301326932851225" name="1454026507263_3301326932851225" type="text" /&gt;</code></pre></section><section id="form_radio_list_inline" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form radio list inline</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_radio_list_inline">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_radio_list_inline"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-js">// Event callback.
 function handleChange (e, value, checked) {
   /*
@@ -2829,16 +2825,16 @@ RadioListInline.defaultProps = {
 export default RadioListInline
 </code></pre><pre data-example-html="form_radio_list_inline" style="display:none;"><code class="lang-html">&lt;ul class="t7-list-inline"&gt;
   &lt;li&gt;
-    &lt;label for="1453944863088_6880257045850158"&gt;
-      &lt;input class="t7-form__radio" id="1453944863088_6880257045850158" name="1453944863088_3714197068475187" type="radio" value="Radio list inline - label 01" checked="" /&gt;Radio list inline - label 01&lt;/label&gt;
+    &lt;label for="1454026508941_7466729588340968"&gt;
+      &lt;input class="t7-form__radio" id="1454026508941_7466729588340968" name="1454026508940_9359803611878306" type="radio" value="Radio list inline - label 01" checked="" /&gt;Radio list inline - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944863089_08112296438775957"&gt;
-      &lt;input class="t7-form__radio" id="1453944863089_08112296438775957" name="1453944863088_3714197068475187" type="radio" value="Radio list inline - label 02" /&gt;Radio list inline - label 02&lt;/label&gt;
+    &lt;label for="1454026508941_5071047416422516"&gt;
+      &lt;input class="t7-form__radio" id="1454026508941_5071047416422516" name="1454026508940_9359803611878306" type="radio" value="Radio list inline - label 02" /&gt;Radio list inline - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944863089_7057727840729058"&gt;
-      &lt;input class="t7-form__radio" disabled="" id="1453944863089_7057727840729058" name="1453944863088_3714197068475187" type="radio" value="(Radio disabled)" /&gt;(Radio disabled)&lt;/label&gt;
+    &lt;label for="1454026508941_13434326252900064"&gt;
+      &lt;input class="t7-form__radio" disabled="" id="1454026508941_13434326252900064" name="1454026508940_9359803611878306" type="radio" value="(Radio disabled)" /&gt;(Radio disabled)&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_radio_list" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form radio list</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_radio_list">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_radio_list"></div><hr/><div><p><strong>Note:</strong> This uses the same props as the <code>&lt;RadioListInline/&gt;</code> component, but has a different tag name. Functionally, they are identical other than their layout.</p>
 <pre><code class="lang-xml">&lt;RadioList
@@ -2974,16 +2970,16 @@ RadioList.defaultProps = {
 export default RadioList
 </code></pre><pre data-example-html="form_radio_list" style="display:none;"><code class="lang-html">&lt;ul class="t7-list-clean"&gt;
   &lt;li&gt;
-    &lt;label for="1453944865494_9258882368449122"&gt;
-      &lt;input class="t7-form__radio" id="1453944865494_9258882368449122" name="1453944865494_6187326069921255" type="radio" value="Radio list - label 01" checked="" /&gt;Radio list - label 01&lt;/label&gt;
+    &lt;label for="1454026510813_5355035418178886"&gt;
+      &lt;input class="t7-form__radio" id="1454026510813_5355035418178886" name="1454026510813_11650307103991508" type="radio" value="Radio list - label 01" checked="" /&gt;Radio list - label 01&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944865495_9319750317372382"&gt;
-      &lt;input class="t7-form__radio" id="1453944865495_9319750317372382" name="1453944865494_6187326069921255" type="radio" value="Radio list - label 02" /&gt;Radio list - label 02&lt;/label&gt;
+    &lt;label for="1454026510813_9517949169967324"&gt;
+      &lt;input class="t7-form__radio" id="1454026510813_9517949169967324" name="1454026510813_11650307103991508" type="radio" value="Radio list - label 02" /&gt;Radio list - label 02&lt;/label&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;label for="1453944865496_5126308877952397"&gt;
-      &lt;input class="t7-form__radio" id="1453944865496_5126308877952397" name="1453944865494_6187326069921255" type="radio" value="Radio list - label 03" /&gt;Radio list - label 03&lt;/label&gt;
+    &lt;label for="1454026510814_7808657486457378"&gt;
+      &lt;input class="t7-form__radio" id="1454026510814_7808657486457378" name="1454026510813_11650307103991508" type="radio" value="Radio list - label 03" /&gt;Radio list - label 03&lt;/label&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code></pre></section><section id="form_radio" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form radio</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_radio">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_radio"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-js">// Event callback.
@@ -3153,8 +3149,8 @@ Radio.defaultProps = {
 
 // Export.
 export default Radio
-</code></pre><pre data-example-html="form_radio" style="display:none;"><code class="lang-html">&lt;label for="1453944867903_6354151358827949"&gt;
-  &lt;input class="t7-form__radio" id="1453944867903_6354151358827949" name="1453944867903_6354151358827949" type="radio" value="Individual radio label" /&gt;Individual radio label&lt;/label&gt;</code></pre></section><section id="form_search" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form search</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_search">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_search"></div><hr/><div><p>This component can be used like so.</p>
+</code></pre><pre data-example-html="form_radio" style="display:none;"><code class="lang-html">&lt;label for="1454026512251_9670731504447758"&gt;
+  &lt;input class="t7-form__radio" id="1454026512251_9670731504447758" name="1454026512251_9670731504447758" type="radio" value="Individual radio label" /&gt;Individual radio label&lt;/label&gt;</code></pre></section><section id="form_search" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form search</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_search">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_search"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-js">// Event callback.
 function handleSubmit (e, value) {
   /*
@@ -3278,7 +3274,7 @@ export default Search
     &lt;tbody&gt;
       &lt;tr&gt;
         &lt;td&gt;
-          &lt;input class="t7-form__input" id="1453944870122_2338655674830079" name="1453944870122_2338655674830079" placeholder="Search..." type="search" /&gt;
+          &lt;input class="t7-form__input" id="1454026513765_38222132553346455" name="1454026513765_38222132553346455" placeholder="Search..." type="search" /&gt;
         &lt;/td&gt;
         &lt;td&gt;
           &lt;button class="t7-form__button t7-form__button--primary" type="submit"&gt;GO&lt;/button&gt;
@@ -3507,7 +3503,7 @@ Select.defaultProps = {
 
 // Export.
 export default Select
-</code></pre><pre data-example-html="form_select" style="display:none;"><code class="lang-html">&lt;select class="t7-form__select" id="1453944872124_4873921468388289" name="1453944872124_4873921468388289"&gt;
+</code></pre><pre data-example-html="form_select" style="display:none;"><code class="lang-html">&lt;select class="t7-form__select" id="1454026515173_7585164564661682" name="1454026515173_7585164564661682"&gt;
   &lt;option value=""&gt;Select...&lt;/option&gt;
   &lt;option value="1"&gt;Uno&lt;/option&gt;
   &lt;option value="2"&gt;Dos&lt;/option&gt;
@@ -3673,7 +3669,7 @@ Textarea.defaultProps = {
 
 // Export.
 export default Textarea
-</code></pre><pre data-example-html="form_textarea" style="display:none;"><code class="lang-html">&lt;textarea class="t7-form__textarea" id="1453944874119_01568277832120657" name="1453944874119_01568277832120657"&gt;&lt;/textarea&gt;</code></pre></section><section id="form_textdiv" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form textdiv</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_textdiv">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_textdiv"></div><hr/><div><p><strong>Note:</strong> This uses the same props as <code>&lt;Textarea/&gt;</code>, but has a different tag name.</p>
+</code></pre><pre data-example-html="form_textarea" style="display:none;"><code class="lang-html">&lt;textarea class="t7-form__textarea" id="1454026516614_18884176947176456" name="1454026516614_18884176947176456"&gt;&lt;/textarea&gt;</code></pre></section><section id="form_textdiv" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">form textdiv</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/form_textdiv">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="form_textdiv"></div><hr/><div><p><strong>Note:</strong> This uses the same props as <code>&lt;Textarea/&gt;</code>, but has a different tag name.</p>
 <p>While they are functionally similar, there is quite a bit going on &quot;under the hood&quot; of <code>&lt;Textdiv/&gt;</code>.</p>
 <p>Its output is a <code>&lt;div&gt;</code> with <code>contenteditable=&quot;true&quot;</code>, that converts anything pasted or typed into it to plain text, much like a default HTML <code>&lt;texarea&gt;</code> would.</p>
 <p>The benefit of using a <code>&lt;Textdiv/&gt;</code> component is that it grows with its content, without necessitating a JS grow-by-pixel approach, which is how one might handle a <code>&lt;textarea&gt;</code>.</p>
@@ -3844,7 +3840,7 @@ Textdiv.defaultProps = {
 
 // Export.
 export default Textdiv
-</code></pre><pre data-example-html="form_textdiv" style="display:none;"><code class="lang-html">&lt;div class="t7-form__textarea" contenteditable="true" id="1453944876469_6893498646095395" name="1453944876469_6893498646095395" placeholder=""&gt;&lt;/div&gt;</code></pre></section><section id="image_figure" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">image figure</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/image_figure">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="image_figure"></div><hr/><div><p>This component can be used like so.</p>
+</code></pre><pre data-example-html="form_textdiv" style="display:none;"><code class="lang-html">&lt;div class="t7-form__textarea" contenteditable="true" id="1454026518269_7225419855676591" name="1454026518269_7225419855676591" placeholder=""&gt;&lt;/div&gt;</code></pre></section><section id="image_figure" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">image figure</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/image_figure">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="image_figure"></div><hr/><div><p>This component can be used like so.</p>
 <pre><code class="lang-js">const alt = &#39;...&#39; // Default: &quot;&quot;.
 const border = &#39;#999&#39; // Default: null.
 const caption = &#39;Image Caption Here&#39;
@@ -4538,7 +4534,7 @@ class Tabs extends React.Component {
       return
     }
 
-    handleClick(e, label)
+    handleClick(e, index, label)
   }
 
   // Render method.
@@ -4581,11 +4577,7 @@ class Tabs extends React.Component {
                   key={idTab}
                   label={label}
 
-                  handleClick={
-                    function (e, index) {
-                      handleClick(e, index, label)
-                    }
-                  }
+                  handleClick={handleClick}
                 /&gt;
               )
             })
@@ -4643,27 +4635,26 @@ Tabs.defaultProps = {
   children: fake.tabs(),
   selected: 0,
 
-  // Events.
-  handleClick: function (e, label) {
-    utils.log(e, label)
+  handleClick: function (e, index, label) {
+    utils.log(e, index, label)
   }
 }
 
 // Export.
 export default Tabs
-</code></pre><pre data-example-html="tabs" style="display:none;"><code class="lang-html">&lt;div class="t7-tabs" id="1453944888393_3569129519164562"&gt;
+</code></pre><pre data-example-html="tabs" style="display:none;"><code class="lang-html">&lt;div class="t7-tabs" id="1454026526382_3769907811656594"&gt;
   &lt;ul role="tablist" class="t7-tabs__list"&gt;
-    &lt;li aria-controls="tabpanel_0_1453944888393_3569129519164562" aria-expanded="true" aria-selected="true" class="t7-tabs__item" id="tab_0_1453944888393_3569129519164562" role="tab" tabindex="0"&gt;Tab 1&lt;/li&gt;
-    &lt;li aria-controls="tabpanel_1_1453944888393_3569129519164562" aria-expanded="false" aria-selected="false" class="t7-tabs__item" id="tab_1_1453944888393_3569129519164562" role="tab" tabindex="0"&gt;Tab 2&lt;/li&gt;
-    &lt;li aria-controls="tabpanel_2_1453944888393_3569129519164562" aria-expanded="false" aria-selected="false" class="t7-tabs__item" id="tab_2_1453944888393_3569129519164562" role="tab" tabindex="0"&gt;Tab 3&lt;/li&gt;
+    &lt;li aria-controls="tabpanel_0_1454026526382_3769907811656594" aria-expanded="true" aria-selected="true" class="t7-tabs__item" id="tab_0_1454026526382_3769907811656594" role="tab" tabindex="0"&gt;Tab 1&lt;/li&gt;
+    &lt;li aria-controls="tabpanel_1_1454026526382_3769907811656594" aria-expanded="false" aria-selected="false" class="t7-tabs__item" id="tab_1_1454026526382_3769907811656594" role="tab" tabindex="0"&gt;Tab 2&lt;/li&gt;
+    &lt;li aria-controls="tabpanel_2_1454026526382_3769907811656594" aria-expanded="false" aria-selected="false" class="t7-tabs__item" id="tab_2_1454026526382_3769907811656594" role="tab" tabindex="0"&gt;Tab 3&lt;/li&gt;
   &lt;/ul&gt;
-  &lt;div aria-hidden="false" aria-labelledby="tab_0_1453944888393_3569129519164562" class="t7-tabs__panel" id="tab_panel_0_1453944888393_3569129519164562" role="tabpanel"&gt;
+  &lt;div aria-hidden="false" aria-labelledby="tab_0_1454026526382_3769907811656594" class="t7-tabs__panel" id="tab_panel_0_1454026526382_3769907811656594" role="tabpanel"&gt;
     &lt;p&gt;Tab content for &quot;Tab 1&quot;&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div aria-hidden="true" aria-labelledby="tab_1_1453944888393_3569129519164562" class="t7-tabs__panel" id="tab_panel_1_1453944888393_3569129519164562" role="tabpanel"&gt;
+  &lt;div aria-hidden="true" aria-labelledby="tab_1_1454026526382_3769907811656594" class="t7-tabs__panel" id="tab_panel_1_1454026526382_3769907811656594" role="tabpanel"&gt;
     &lt;p&gt;Tab content for &quot;Tab 2&quot;&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div aria-hidden="true" aria-labelledby="tab_2_1453944888393_3569129519164562" class="t7-tabs__panel" id="tab_panel_2_1453944888393_3569129519164562" role="tabpanel"&gt;
+  &lt;div aria-hidden="true" aria-labelledby="tab_2_1454026526382_3769907811656594" class="t7-tabs__panel" id="tab_panel_2_1454026526382_3769907811656594" role="tabpanel"&gt;
     &lt;p&gt;Tab content for &quot;Tab 3&quot;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre></section><section id="tree_diagram" class="isg-section"><header class="isg-section__header"><span class="isg-float-left isg-capitalize">tree diagram</span><a target="_blank" title="View on GitHub" class="isg-float-right isg-font-normal" href="https://github.com/t7/style-guide-example/tree/master/source/components/tree_diagram">GitHub <span aria-hidden="true">⇒</span></a></header><div class="isg-section__example" data-component="tree_diagram"></div><hr/><div><p>This component is a conduit to D3.js data visualization.</p>
@@ -4783,4 +4774,4 @@ TreeDiagram.defaultProps = {
 
 // Export.
 export default TreeDiagram
-</code></pre><pre data-example-html="tree_diagram" style="display:none;"><code class="lang-html">&lt;div class="t7-d3-tree-diagram"&gt;&lt;/div&gt;</code></pre></section></main><footer class="isg-app__footer" role="contentinfo"><p class="isg-tablet-float-left isg-desktop-float-left"><a href="https://github.com/t7/style-guide-example" target="_blank">View on GitHub</a> — Last build: Jan 27, 2016</p><p class="isg-tablet-float-right isg-desktop-float-right">© 2016 <a href="http://www.tandemseven.com/" target="_blank">TandemSeven</a></p></footer></div></div><script src="../static/js/prism.js"></script><script src="../static/js/button_toggle.js"></script><script src="index.js"></script></body></html>
+</code></pre><pre data-example-html="tree_diagram" style="display:none;"><code class="lang-html">&lt;div class="t7-d3-tree-diagram"&gt;&lt;/div&gt;</code></pre></section></main><footer class="isg-app__footer" role="contentinfo"><p class="isg-tablet-float-left isg-desktop-float-left"><a href="https://github.com/t7/style-guide-example" target="_blank">View on GitHub</a> — Last build: Jan 28, 2016</p><p class="isg-tablet-float-right isg-desktop-float-right">© 2016 <a href="http://www.tandemseven.com/" target="_blank">TandemSeven</a></p></footer></div></div><script src="../static/js/prism.js"></script><script src="../static/js/button_toggle.js"></script><script src="index.js"></script></body></html>
