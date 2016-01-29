@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// Utility methods.
-import utils from '../../utils'
-
 // CSS.
 import './t7-d3-tree-diagram.css'
 
