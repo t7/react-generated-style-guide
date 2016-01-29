@@ -52571,12 +52571,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	// Utility methods.
-
-	var _utils = __webpack_require__(166);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
 	// CSS.
 
 	__webpack_require__(332);
