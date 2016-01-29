@@ -24,13 +24,14 @@ class DropDownItem extends React.Component {
       return
     }
 
-    handleClick(e, this.props.text)
+    const text = this.props.text
+
+    handleClick(e, text)
   }
 
   // Render method.
   render () {
     const href = this.props.href
-    const target = this.props.target
     const text = this.props.text
 
     const handleClick = this.handleClick.bind(this)
@@ -43,9 +44,9 @@ class DropDownItem extends React.Component {
       >
         <a
           className='t7-dropdown__menu__link'
+
           href={href}
           tabIndex='0'
-          target={target}
 
           onClick={handleClick}
           onKeyDown={handleClick}
@@ -61,7 +62,6 @@ class DropDownItem extends React.Component {
 // Validation.
 DropDownItem.propTypes = {
   href: React.PropTypes.string,
-  target: React.PropTypes.string,
   text: React.PropTypes.string,
   handleClick: React.PropTypes.func
 }

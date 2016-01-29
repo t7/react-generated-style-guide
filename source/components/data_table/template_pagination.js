@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import './t7-data-table.css'
 
-// Utility methods.
-import utils from '../../utils'
-
 // UI components.
 import Button from '../form_button/template'
 import Select from '../form_select/template'
@@ -150,11 +147,7 @@ DataTablePagination.propTypes = {
 
 // Defaults.
 DataTablePagination.defaultProps = {
-  pageCurrent: 0,
-
-  handlePagination: function (e, page) {
-    utils.log(e, page)
-  }
+  pageCurrent: 0
 }
 
 // Export.

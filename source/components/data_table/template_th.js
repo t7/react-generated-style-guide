@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import './t7-data-table.css'
 
-// Utility methods.
-import utils from '../../utils'
-
 // Define class.
 class DataTableHeader extends React.Component {
   constructor (props) {
@@ -93,13 +90,6 @@ DataTableHeader.propTypes = {
 
   // Events.
   handleSort: React.PropTypes.func
-}
-
-// Defaults.
-DataTableHeader.defaultProps = {
-  handleSort: function (e, index, sortDirection) {
-    utils.log(e, index, sortDirection)
-  }
 }
 
 // Export.

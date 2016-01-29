@@ -8,9 +8,8 @@ const src = 'photo.jpg' // Default: Placehold.it
 const target = '_blank' // Default: null.
 const width = '200' // Default: null.
 const height = '100' // Defualt: null.
-```
 
-```js
+// Event callback.
 function handleClick (e) {
   /*
     `e` is the event.

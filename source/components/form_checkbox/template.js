@@ -112,12 +112,7 @@ Checkbox.propTypes = {
 
 // Prop defaults.
 Checkbox.defaultProps = {
-  label: 'Individual checkbox label',
-
-  // Events.
-  handleChange: function (e, value, checked) {
-    utils.log(e, value, checked)
-  }
+  label: 'Individual checkbox label'
 }
 
 // Export.

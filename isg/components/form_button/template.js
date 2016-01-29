@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import '../../css/isg-form.css'
 
-// Utility methods.
-import utils from '../../utils'
-
 // Define class.
 class Button extends React.Component {
   constructor (props) {
@@ -16,6 +13,17 @@ class Button extends React.Component {
 
   // Button click.
   handleClick (e) {
+    /*
+      This is here, just in case someone uses a
+      `href` link with `disabled`. In practice,
+      you would want to use a real `<button>`,
+      if there may be a need to disable it.
+    */
+    if (this.props.disabled) {
+      // Cancel click.
+      e.stop()
+    }
+
     const handleClick = this.props.handleClick
 
     if (typeof handleClick !== 'function') {
@@ -34,8 +42,8 @@ class Button extends React.Component {
     const href = this.props.href
     const mode = this.props.mode
     const size = this.props.size
-    const text = this.props.text
     const target = this.props.target
+    const text = this.props.text
     const title = this.props.title
     const type = this.props.type
 
@@ -49,16 +57,23 @@ class Button extends React.Component {
       )
     }
 
-    // Link & Disabled?
-    if (href && disabled) {
+    // Link & type?
+    if (href && type !== 'button') {
       throw new Error(
-        '<Button/> error: Using `href` and `disabled` is not allowed.'
+        '<Button/> error: Using `href` and `type` is not allowed.'
+      )
+    }
+
+    // Target without link?
+    if (target && !href) {
+      throw new Error(
+        '<Button/> error: Using `target` without `href` is not allowed.'
       )
     }
 
     // Default class.
     var className = [
-      'isg-form__button'
+      'rms-form__button'
     ]
 
     /*
@@ -70,13 +85,13 @@ class Button extends React.Component {
     // Small button size.
     if (size === 'small') {
       className.push(
-        'isg-form__button--small'
+        'rms-form__button--small'
       )
 
     // Big button size.
     } else if (size === 'big') {
       className.push(
-        'isg-form__button--big'
+        'rms-form__button--big'
       )
     }
 
@@ -89,31 +104,31 @@ class Button extends React.Component {
     // Button mode: Default.
     if (mode === 'default') {
       className.push(
-        'isg-form__button--default'
+        'rms-form__button--default'
       )
 
     // Button mode: Primary.
     } else if (mode === 'primary') {
       className.push(
-        'isg-form__button--primary'
+        'rms-form__button--primary'
       )
 
     // Button mode: Positive.
     } else if (mode === 'positive') {
       className.push(
-        'isg-form__button--positive'
+        'rms-form__button--positive'
       )
 
     // Button mode: Negative.
     } else if (mode === 'negative') {
       className.push(
-        'isg-form__button--negative'
+        'rms-form__button--negative'
       )
 
     // Button mode: Warn.
     } else if (mode === 'warn') {
       className.push(
-        'isg-form__button--warn'
+        'rms-form__button--warn'
       )
     }
 
@@ -138,6 +153,7 @@ class Button extends React.Component {
       button = (
         <a
           className={className}
+          disabled={disabled}
           href={href}
           target={target}
           title={title}
@@ -171,16 +187,10 @@ Button.propTypes = {
 
 // Prop defaults.
 Button.defaultProps = {
-  buttonData: 'Button Data',
   disabled: false,
   mode: 'default',
   text: 'Button Text',
-  type: 'button',
-
-  // Events.
-  handleClick: function (e, buttonData) {
-    utils.log(e, buttonData)
-  }
+  type: 'button'
 }
 
 // Export.

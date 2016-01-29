@@ -63,17 +63,47 @@ class TreeDiagram extends React.Component {
 // Validation.
 TreeDiagram.propTypes = {
   data: React.PropTypes.object,
-  handleClickLeaf: React.PropTypes.func
+  handleClickNode: React.PropTypes.func,
+  handleClickMenu: React.PropTypes.func
 }
 
 // Defaults.
 TreeDiagram.defaultProps = {
-  handleClickLeaf: function (d) {
-    utils.log(d)
-  },
-
-  handleClickMenu: function (text, data) {
-    utils.log(text, data)
+  menu: {
+    /*
+      NOTE: These keys correspond
+      to each object's `*.type`.
+    */
+    superHouse: [
+      {
+        text: 'Add: Household'
+      },
+      {
+        text: 'View/Edit: Super House Details'
+      }
+    ],
+    household: [
+      {
+        text: 'Add: Tax Entity'
+      },
+      {
+        text: 'View/Edit: Household Details'
+      }
+    ],
+    taxEntity: [
+      {
+        text: 'Add: Single Account'
+      },
+      {
+        text: 'Add: PCR Data Services Accounts'
+      },
+      {
+        text: 'Add: Firm/Office Managed Accounts'
+      },
+      {
+        text: 'View/Edit: Tax Entity Details'
+      }
+    ]
   },
 
   // Fake data.

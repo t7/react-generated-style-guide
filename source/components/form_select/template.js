@@ -147,12 +147,7 @@ Select.defaultProps = {
       value: '3',
       name: 'Tres'
     }
-  ],
-
-  // Events.
-  handleChange: function (e, value) {
-    utils.log(e, value)
-  }
+  ]
 }
 
 // Export.

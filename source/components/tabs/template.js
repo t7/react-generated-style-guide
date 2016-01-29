@@ -190,11 +190,7 @@ Tabs.propTypes = {
 // Defaults.
 Tabs.defaultProps = {
   children: fake.tabs(),
-  selected: 0,
-
-  handleClick: function (e, index, label) {
-    utils.log(e, index, label)
-  }
+  selected: 0
 }
 
 // Export.

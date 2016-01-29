@@ -46,9 +46,6 @@ class Box extends React.Component {
       return
     }
 
-    const el = e.target
-    const box = el.parentNode
-    const id = box.id
     const handleClick = this.props.handleClick
 
     this.setState({
@@ -58,6 +55,8 @@ class Box extends React.Component {
     if (typeof handleClick !== 'function') {
       return
     }
+
+    const id = this.state.id
 
     handleClick(e, id)
   }
@@ -209,12 +208,7 @@ Box.propTypes = {
 
 // Prop defaults.
 Box.defaultProps = {
-  children: fake.box(),
-
-  // Events.
-  handleClick: function (e, id) {
-    utils.log(e, id)
-  }
+  children: fake.box()
 }
 
 // Export.

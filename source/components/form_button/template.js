@@ -4,9 +4,6 @@ import React from 'react'
 // CSS.
 import '../../css/t7-form.css'
 
-// Utility methods.
-import utils from '../../utils'
-
 // Define class.
 class Button extends React.Component {
   constructor (props) {
@@ -190,16 +187,10 @@ Button.propTypes = {
 
 // Prop defaults.
 Button.defaultProps = {
-  buttonData: 'Button Data',
   disabled: false,
   mode: 'default',
   text: 'Button Text',
-  type: 'button',
-
-  // Events.
-  handleClick: function (e, buttonData) {
-    utils.log(e, buttonData)
-  }
+  type: 'button'
 }
 
 // Export.

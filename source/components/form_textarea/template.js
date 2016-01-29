@@ -108,13 +108,5 @@ Textarea.propTypes = {
   handleChange: React.PropTypes.func
 }
 
-// Prop defaults.
-Textarea.defaultProps = {
-  // Events.
-  handleChange: function (e, value) {
-    utils.log(e, value)
-  }
-}
-
 // Export.
 export default Textarea

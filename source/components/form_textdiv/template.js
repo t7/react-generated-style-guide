@@ -141,12 +141,7 @@ Textdiv.defaultProps = {
 
   // Control text value.
   defaultValue: '',
-  value: '',
-
-  // Events.
-  handleChange: function (e, value) {
-    utils.log(e, value)
-  }
+  value: ''
 }
 
 // Export.

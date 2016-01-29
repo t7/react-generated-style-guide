@@ -119,12 +119,7 @@ Input.propTypes = {
 
 // Prop defaults.
 Input.defaultProps = {
-  type: 'text',
-
-  // Events.
-  handleChange: function (e, value) {
-    utils.log(e, value)
-  }
+  type: 'text'
 }
 
 // Export.

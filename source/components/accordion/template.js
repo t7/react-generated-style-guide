@@ -75,7 +75,9 @@ class Accordion extends React.Component {
       return
     }
 
-    handleClick(e, index, label, selected[index])
+    const isActive = selected[index]
+
+    handleClick(e, index, label, isActive)
   }
 
   // Render method.
@@ -179,12 +181,7 @@ Accordion.propTypes = {
 Accordion.defaultProps = {
   children: fake.accordion(),
   multi: false,
-  selected: {},
-
-  // Events.
-  handleClick: function (e, index, label, isActive) {
-    utils.log(e, index, label, isActive)
-  }
+  selected: {}
 }
 
 // Export.

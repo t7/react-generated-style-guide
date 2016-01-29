@@ -112,12 +112,7 @@ Radio.propTypes = {
 
 // Prop defaults.
 Radio.defaultProps = {
-  label: 'Individual radio label',
-
-  // Events.
-  handleChange: function (e, value, checked) {
-    utils.log(e, value, checked)
-  }
+  label: 'Individual radio label'
 }
 
 // Export.

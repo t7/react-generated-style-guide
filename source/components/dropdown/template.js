@@ -246,9 +246,6 @@ DropDown.propTypes = {
 
 // Defaults.
 DropDown.defaultProps = {
-  handleClick: function (e, text) {
-    utils.log(e, text)
-  },
   menuAlign: 'left',
   text: 'Dropdown Trigger Text',
   items: [

@@ -32,8 +32,44 @@ const data = {
     }
   ]
 }
+
+// Event callback: menu click.
+function handleClickMenu (d, index, label) {
+  /*
+    `d` is the D3 data object
+    associated with the node.
+
+    `index` is the numeric position.
+
+    `label` is the text itself.
+  */
+}
+
+// Event callback: node click.
+function handleClickNode (d) {
+  /*
+    `d` is the D3 data object
+    associated with the node.
+  */
+}
+
+// Event callback: expand/collapse toggle.
+function handleClickToggle (d, isActive) {
+  /*
+    `d` is the D3 data object
+    associated with the node.
+
+    `isActive` denotes expand/collapse state.
+  */
+}
 ```
 
 ```xml
-<TreeDiagram data={data} />
+<TreeDiagram
+  data={data}
+
+  handleClickMenu={handleClickMenu}
+  handleClickNode={handleClickNode}
+  handleClickToggle={handleClickToggle}
+/>
 ```

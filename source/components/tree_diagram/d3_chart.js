@@ -3,60 +3,35 @@ import d3 from 'd3'
 export default class Chart {
   constructor (el, props) {
     this.el = el
+    this.props = props
     this.setConfig()
     this.bindResize()
 
     // Callback for clicking a "leaf".
-    this.handleClickLeaf =
-      props.handleClickLeaf || function () {}
+    this.handleClickNode =
+      props.handleClickNode ||
+      function () {}
 
     // Callback for clicking menu item.
     this.handleClickMenu =
-      props.handleClickMenu || function () {}
+      props.handleClickMenu ||
+      function () {}
+
+    // Callback for expand/collapse.
+    this.handleClickToggle =
+      props.handleClickToggle ||
+      function () {}
   }
 
   setConfig () {
+    const menu = this.props.menu
+
     this.config = {
       duration: 500,
       rectW: 260,
       rectH: 120,
       itemH: 30,
-      menu: {
-        /*
-          NOTE: These keys correspond
-          to each object's `*.type`.
-        */
-        superHouse: [
-          {
-            text: 'Add: Household'
-          },
-          {
-            text: 'View/Edit: Super House Details'
-          }
-        ],
-        household: [
-          {
-            text: 'Add: Tax Entity'
-          },
-          {
-            text: 'View/Edit: Household Details'
-          }
-        ],
-        taxEntity: [
-          {
-            text: 'Add: Single Account'
-          },
-          {
-            text: 'Add: PCR Data Services Accounts'
-          },
-          {
-            text: 'Add: Firm/Office Managed Accounts'
-          },
-          {
-            text: 'View/Edit: Tax Entity Details'
-          }
-        ]
-      }
+      menu: menu
     }
   }
 
@@ -258,7 +233,7 @@ export default class Chart {
       g.attr('class', 't7-d3-tree-diagram__menu__row__group')
 
       g.on('click', function (x) {
-        handleClickMenu(item.text, d)
+        handleClickMenu(d, i, item.text)
       })
 
       // Add row.
@@ -288,6 +263,9 @@ export default class Chart {
 
     // Set `showAnimation` to `true`.
     this.update(d, true)
+
+    // Fire callback.
+    this.handleClickToggle(d, !!d.children)
   }
 
   itemToggleFill (d, el) {
@@ -572,7 +550,7 @@ export default class Chart {
     const itemToggleFill = this.itemToggleFill.bind(this)
 
     // Defined in the React `props`.
-    const handleClickLeaf = this.handleClickLeaf.bind(this)
+    const handleClickNode = this.handleClickNode.bind(this)
 
     // Options from `this.setConfig`.
     const config = this.config
@@ -1050,7 +1028,7 @@ export default class Chart {
     })
 
     // Defined in React `props`.
-    leafRect.on('click', handleClickLeaf)
+    leafRect.on('click', handleClickNode)
 
     // =====================
     // Add the "+/-" toggle.

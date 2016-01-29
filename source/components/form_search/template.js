@@ -86,12 +86,7 @@ Search.propTypes = {
 // Prop defaults.
 Search.defaultProps = {
   buttonText: 'GO',
-  placeholder: 'Search...',
-
-  // Events.
-  handleSubmit: function (e, value) {
-    utils.log(e, value)
-  }
+  placeholder: 'Search...'
 }
 
 // Export.
