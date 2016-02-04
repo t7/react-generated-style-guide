@@ -810,7 +810,7 @@ export default class Chart {
     itemName.attr('class', 't7-d3-tree-diagram__name')
 
     itemName.text(function (d) {
-      var name = d.name
+      var name = d.name || ''
 
       if (name.length > 25) {
         name = name.slice(0, 25).trim() + '…'
