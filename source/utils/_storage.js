@@ -30,7 +30,17 @@ const flag = (function () {
 // Cache: Alias to object.
 // =======================
 
-const cache = flag ? window.localStorage : {clear: function () {}}
+const cacheFallback = {
+  clear: function () {
+    for (let k in cache) {
+      if (cache.hasOwnProperty(k) && k !== 'clear') {
+        delete cache[k]
+      }
+    }
+  }
+}
+
+const cache = flag ? window.localStorage : cacheFallback
 
 // =======================
 // Cache: Clear key/value.
@@ -68,6 +78,16 @@ function get (key) {
 // ==============
 
 function set (key, data) {
+  if (
+    key === 'clear' ||
+    key === 'getItem' ||
+    key === 'setItem'
+  ) {
+    throw new Error(
+      'Cannot overwrite method: window.localStorage.' + key
+    )
+  }
+
   if (typeof data === 'object') {
     data = JSON.stringify(data)
   }
