@@ -4,6 +4,7 @@ Tabs group.
 */
 
 .t7-tabs {
+  clear: both;
   margin-bottom: 20px;
 }
 

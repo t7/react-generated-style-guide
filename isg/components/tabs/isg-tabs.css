@@ -4,6 +4,7 @@ Tabs group.
 */
 
 .isg-tabs {
+  clear: both;
   margin-bottom: 20px;
 }
 
