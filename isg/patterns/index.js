@@ -34742,7 +34742,17 @@
 	// Cache: Alias to object.
 	// =======================
 
-	var cache = flag ? window.localStorage : { clear: function clear() {} };
+	var cacheFallback = {
+	  clear: function clear() {
+	    for (var k in cache) {
+	      if (cache.hasOwnProperty(k) && k !== 'clear') {
+	        delete cache[k];
+	      }
+	    }
+	  }
+	};
+
+	var cache = flag ? window.localStorage : cacheFallback;
 
 	// =======================
 	// Cache: Clear key/value.
@@ -34780,6 +34790,10 @@
 	// ==============
 
 	function set(key, data) {
+	  if (key === 'clear' || key === 'getItem' || key === 'setItem') {
+	    throw new Error('Cannot overwrite method: window.localStorage.' + key);
+	  }
+
 	  if (typeof data === 'object') {
 	    data = JSON.stringify(data);
 	  }
@@ -53497,7 +53511,7 @@
 	      itemName.attr('class', 't7-d3-tree-diagram__name');
 
 	      itemName.text(function (d) {
-	        var name = d.name;
+	        var name = d.name || '';
 
 	        if (name.length > 25) {
 	          name = name.slice(0, 25).trim() + '…';
