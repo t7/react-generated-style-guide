@@ -1,37 +1,55 @@
+import accounting from 'accounting'
 import d3 from 'd3'
+import moment from 'moment'
 
 export default class Chart {
   constructor (el, props) {
     this.el = el
     this.props = props
     this.setConfig()
-    this.bindResize()
+    this.bindEvents()
+  }
+
+  bindEvents () {
+    var handleClickNode = this.props.handleClickNode
+    var handleClickMenu = this.props.handleClickMenu
+    var handleClickToggle = this.props.handleClickToggle
+
+    if (typeof handleClickNode !== 'function') {
+      handleClickNode = function () {}
+    }
+
+    if (typeof handleClickMenu !== 'function') {
+      handleClickMenu = function () {}
+    }
+
+    if (typeof handleClickToggle !== 'function') {
+      handleClickToggle = function () {}
+    }
 
     // Callback for clicking a "leaf".
-    this.handleClickNode =
-      props.handleClickNode ||
-      function () {}
+    this.handleClickNode = handleClickNode
 
     // Callback for clicking menu item.
-    this.handleClickMenu =
-      props.handleClickMenu ||
-      function () {}
+    this.handleClickMenu = handleClickMenu
 
     // Callback for expand/collapse.
-    this.handleClickToggle =
-      props.handleClickToggle ||
-      function () {}
+    this.handleClickToggle = handleClickToggle
   }
 
   setConfig () {
+    const duration = this.props.duration
+    const itemH = this.props.itemH
     const menu = this.props.menu
+    const rectH = this.props.rectH
+    const rectW = this.props.rectW
 
     this.config = {
-      duration: 500,
-      rectW: 260,
-      rectH: 120,
-      itemH: 30,
-      menu: menu
+      duration: duration,
+      itemH: itemH,
+      menu: menu,
+      rectH: rectH,
+      rectW: rectW
     }
   }
 
@@ -256,15 +274,21 @@ export default class Chart {
     if (d.children) {
       d._children = d.children
       d.children = null
-    } else {
+    } else if (d._children) {
       d.children = d._children
       d._children = null
     }
 
-    // Set `showAnimation` to `true`.
-    this.update(d, true)
+    // If duration exists.
+    if (this.config.duration) {
+      // Set `showAnimation` to `true`.
+      this.update(d, true)
+    } else {
+      // Set `showAnimation` to `false`.
+      this.update(d, false)
+    }
 
-    // Fire callback.
+   // Fire callback.
     this.handleClickToggle(d, !!d.children)
   }
 
@@ -526,6 +550,9 @@ export default class Chart {
           .on('zoom', setPan)
       )
 
+    // Bind `window` resize.
+    this.bindResize()
+
     // Add images to the `<defs>`.
     this.buildIcons()
 
@@ -559,7 +586,7 @@ export default class Chart {
     const rectH = config.rectH
 
     // Compute tree layout.
-    const nodes = this.tree.nodes(data)
+    const nodes = this.tree.nodes(data).reverse()
     const links = this.tree.links(nodes)
 
     // Remove menu, if it exists.
@@ -863,14 +890,14 @@ export default class Chart {
 
     itemDesc.text(function (d) {
       var date = d.date || ''
-      var mv = d.mv || ''
+      var mv = parseFloat(d.mv) || ''
 
       if (mv) {
-        mv = 'MV ' + mv
+        mv = 'MV ' + accounting.formatMoney(mv)
       }
 
       if (date) {
-        date = 'as of ' + date
+        date = 'as of ' + moment(date).format('MM/DD/YYYY')
       }
 
       const str = [
@@ -1240,13 +1267,32 @@ export default class Chart {
     })
   }
 
+  // Recursively collapse children.
+  collapse (d) {
+    const collapse = this.collapse.bind(this)
+
+    if (d.children) {
+      d.children.forEach(collapse)
+
+      if (d.type === 'taxEntity') {
+        d._children = d.children
+        d.children = null
+      }
+    }
+  }
+
   /*
     Called when the React component
     is mounted, or has updated data.
   */
   render (data) {
+    const collapse = this.collapse.bind(this)
+
+    if (data.children) {
+      data.children.forEach(collapse)
+    }
+
     this.data = data
-    this.destroy()
     this.setup()
   }
 }

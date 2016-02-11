@@ -67,11 +67,13 @@ class Input extends React.Component {
     const defaultValue = this.props.defaultValue
     const value = this.props.value
 
-    var className = 't7-form__input'
+    var className = ['t7-form__input']
 
     if (width === 'auto') {
-      className = 't7-form__input--width-auto'
+      className.push('t7-form__input--width-auto')
     }
+
+    className = className.join(' ')
 
     // Events.
     const handleChange = this.handleChange.bind(this)

@@ -80,3 +80,23 @@ Tab panel.
 .t7-tabs__panel[aria-hidden="true"] {
   display: none;
 }
+
+/*
+Clear floated content.
+*/
+
+.t7-tabs__panel:before,
+.t7-tabs__panel:after {
+  content: ".";
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.t7-tabs__panel:after {
+  clear: both;
+}

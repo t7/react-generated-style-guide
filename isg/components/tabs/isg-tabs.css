@@ -80,3 +80,23 @@ Tab panel.
 .isg-tabs__panel[aria-hidden="true"] {
   display: none;
 }
+
+/*
+Clear floated content.
+*/
+
+.isg-tabs__panel:before,
+.isg-tabs__panel:after {
+  content: ".";
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.isg-tabs__panel:after {
+  clear: both;
+}

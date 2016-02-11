@@ -66,6 +66,19 @@ TreeDiagram.propTypes = {
 
 // Defaults.
 TreeDiagram.defaultProps = {
+  // Animation duration.
+  duration: 0,
+
+  // Base rectangle width.
+  rectW: 280,
+
+  // Base rectangle height.
+  rectH: 120,
+
+  // Menu item height.
+  itemH: 30,
+
+  // Menu data.
   menu: {
     /*
       NOTE: These keys correspond
