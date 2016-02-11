@@ -52675,7 +52675,7 @@
 	// Defaults.
 	TreeDiagram.defaultProps = {
 	  // Animation duration.
-	  duration: 0,
+	  duration: 500,
 
 	  // Base rectangle width.
 	  rectW: 280,
@@ -53252,6 +53252,9 @@
 	        return;
 	      }
 
+	      // Used to generate `d.id` in `update`.
+	      this.counter = 0;
+
 	      var setPan = this.setPan.bind(this);
 
 	      var width = this.el.offsetWidth;
@@ -53294,6 +53297,7 @@
 	      // Add the parent group.
 	      this.svg = this.root.append('g').attr('transform', 'translate(' + offset + ',' + 20 + ')');
 
+	      // Update UI.
 	      this.update(data);
 	    }
 
@@ -53321,7 +53325,7 @@
 	      var rectH = config.rectH;
 
 	      // Compute tree layout.
-	      var nodes = this.tree.nodes(data).reverse();
+	      var nodes = this.tree.nodes(data);
 	      var links = this.tree.links(nodes);
 
 	      // Remove menu, if it exists.
@@ -53352,18 +53356,16 @@
 	      // Update the nodes.
 	      // =================
 
-	      // Used in loop.
-	      var i = 0;
+	      // Get the counter.
+	      var i = this.counter;
 
+	      // Generate ID per node.
 	      var allNodes = this.svg.selectAll('.t7-d3-tree-diagram__group').data(nodes, function (d) {
-	        // Increment counter.
-	        i++;
-
-	        // Assign ID.
-	        d.id = d.id || i;
-
-	        return d.id;
+	        return d.id || (d.id = ++i);
 	      });
+
+	      // Store the counter.
+	      this.counter = i;
 
 	      // ======================
 	      // Create group per node.
