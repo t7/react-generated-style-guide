@@ -50722,11 +50722,13 @@
 	      var defaultValue = this.props.defaultValue;
 	      var value = this.props.value;
 
-	      var className = 't7-form__input';
+	      var className = ['t7-form__input'];
 
 	      if (width === 'auto') {
-	        className = 't7-form__input--width-auto';
+	        className.push('t7-form__input--width-auto');
 	      }
+
+	      className = className.join(' ');
 
 	      // Events.
 	      var handleChange = this.handleChange.bind(this);
@@ -52672,6 +52674,19 @@
 
 	// Defaults.
 	TreeDiagram.defaultProps = {
+	  // Animation duration.
+	  duration: 0,
+
+	  // Base rectangle width.
+	  rectW: 280,
+
+	  // Base rectangle height.
+	  rectH: 120,
+
+	  // Menu item height.
+	  itemH: 30,
+
+	  // Menu data.
 	  menu: {
 	    /*
 	      NOTE: These keys correspond
@@ -52728,9 +52743,17 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+	var _accounting = __webpack_require__(206);
+
+	var _accounting2 = _interopRequireDefault(_accounting);
+
 	var _d3 = __webpack_require__(334);
 
 	var _d32 = _interopRequireDefault(_d3);
+
+	var _moment = __webpack_require__(207);
+
+	var _moment2 = _interopRequireDefault(_moment);
 
 	var Chart = (function () {
 	  function Chart(el, props) {
@@ -52739,29 +52762,52 @@
 	    this.el = el;
 	    this.props = props;
 	    this.setConfig();
-	    this.bindResize();
-
-	    // Callback for clicking a "leaf".
-	    this.handleClickNode = props.handleClickNode || function () {};
-
-	    // Callback for clicking menu item.
-	    this.handleClickMenu = props.handleClickMenu || function () {};
-
-	    // Callback for expand/collapse.
-	    this.handleClickToggle = props.handleClickToggle || function () {};
+	    this.bindEvents();
 	  }
 
 	  _createClass(Chart, [{
+	    key: 'bindEvents',
+	    value: function bindEvents() {
+	      var handleClickNode = this.props.handleClickNode;
+	      var handleClickMenu = this.props.handleClickMenu;
+	      var handleClickToggle = this.props.handleClickToggle;
+
+	      if (typeof handleClickNode !== 'function') {
+	        handleClickNode = function () {};
+	      }
+
+	      if (typeof handleClickMenu !== 'function') {
+	        handleClickMenu = function () {};
+	      }
+
+	      if (typeof handleClickToggle !== 'function') {
+	        handleClickToggle = function () {};
+	      }
+
+	      // Callback for clicking a "leaf".
+	      this.handleClickNode = handleClickNode;
+
+	      // Callback for clicking menu item.
+	      this.handleClickMenu = handleClickMenu;
+
+	      // Callback for expand/collapse.
+	      this.handleClickToggle = handleClickToggle;
+	    }
+	  }, {
 	    key: 'setConfig',
 	    value: function setConfig() {
+	      var duration = this.props.duration;
+	      var itemH = this.props.itemH;
 	      var menu = this.props.menu;
+	      var rectH = this.props.rectH;
+	      var rectW = this.props.rectW;
 
 	      this.config = {
-	        duration: 500,
-	        rectW: 260,
-	        rectH: 120,
-	        itemH: 30,
-	        menu: menu
+	        duration: duration,
+	        itemH: itemH,
+	        menu: menu,
+	        rectH: rectH,
+	        rectW: rectW
 	      };
 	    }
 	  }, {
@@ -52983,13 +53029,19 @@
 	      if (d.children) {
 	        d._children = d.children;
 	        d.children = null;
-	      } else {
+	      } else if (d._children) {
 	        d.children = d._children;
 	        d._children = null;
 	      }
 
-	      // Set `showAnimation` to `true`.
-	      this.update(d, true);
+	      // If duration exists.
+	      if (this.config.duration) {
+	        // Set `showAnimation` to `true`.
+	        this.update(d, true);
+	      } else {
+	        // Set `showAnimation` to `false`.
+	        this.update(d, false);
+	      }
 
 	      // Fire callback.
 	      this.handleClickToggle(d, !!d.children);
@@ -53233,6 +53285,9 @@
 
 	      this.root = _d32['default'].select(this.el).append('svg').attr('width', width).attr('height', height).call(_d32['default'].behavior.zoom().translate([offset, 20]).scaleExtent([0.25, 2]).on('zoom', setPan));
 
+	      // Bind `window` resize.
+	      this.bindResize();
+
 	      // Add images to the `<defs>`.
 	      this.buildIcons();
 
@@ -53266,7 +53321,7 @@
 	      var rectH = config.rectH;
 
 	      // Compute tree layout.
-	      var nodes = this.tree.nodes(data);
+	      var nodes = this.tree.nodes(data).reverse();
 	      var links = this.tree.links(nodes);
 
 	      // Remove menu, if it exists.
@@ -53564,14 +53619,14 @@
 
 	      itemDesc.text(function (d) {
 	        var date = d.date || '';
-	        var mv = d.mv || '';
+	        var mv = parseFloat(d.mv) || '';
 
 	        if (mv) {
-	          mv = 'MV ' + mv;
+	          mv = 'MV ' + _accounting2['default'].formatMoney(mv);
 	        }
 
 	        if (date) {
-	          date = 'as of ' + date;
+	          date = 'as of ' + (0, _moment2['default'])(date).format('MM/DD/YYYY');
 	        }
 
 	        var str = [mv, date].join(' ');
@@ -53900,6 +53955,22 @@
 	      });
 	    }
 
+	    // Recursively collapse children.
+	  }, {
+	    key: 'collapse',
+	    value: function collapse(d) {
+	      var collapse = this.collapse.bind(this);
+
+	      if (d.children) {
+	        d.children.forEach(collapse);
+
+	        if (d.type === 'taxEntity') {
+	          d._children = d.children;
+	          d.children = null;
+	        }
+	      }
+	    }
+
 	    /*
 	      Called when the React component
 	      is mounted, or has updated data.
@@ -53907,8 +53978,13 @@
 	  }, {
 	    key: 'render',
 	    value: function render(data) {
+	      var collapse = this.collapse.bind(this);
+
+	      if (data.children) {
+	        data.children.forEach(collapse);
+	      }
+
 	      this.data = data;
-	      this.destroy();
 	      this.setup();
 	    }
 	  }]);
@@ -63598,24 +63674,24 @@
 	module.exports = {
 		"name": "Name of Super House",
 		"type": "superHouse",
-		"mv": "$X00,000.00",
-		"date": "MM/DD/YY",
+		"mv": "900000.00",
+		"date": "2016-02-10T00:00:00",
 		"alertType": "negative",
 		"children": [
 			{
 				"name": "Name of Household",
 				"number": "1234-5678-90",
 				"type": "household",
-				"mv": "$X00,000.00",
-				"date": "MM/DD/YY",
+				"mv": "900000.00",
+				"date": "2016-02-10T00:00:00",
 				"alertType": "negative",
 				"children": [
 					{
 						"name": "Name of Tax Entity",
 						"number": "1234-5678-90",
 						"type": "taxEntity",
-						"mv": "$X00,000.00",
-						"date": "MM/DD/YY",
+						"mv": "900000.00",
+						"date": "2016-02-10T00:00:00",
 						"alertType": "positive",
 						"children": [
 							{
@@ -63623,8 +63699,8 @@
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "self",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "okay",
 								"updatedBy": "electronic",
 								"percent": "25%"
@@ -63634,8 +63710,8 @@
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "firm",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "okay",
 								"updatedBy": "manual",
 								"percent": "25%",
@@ -63648,8 +63724,8 @@
 						"name": "Name of Tax Entity",
 						"number": "1234-5678-90",
 						"type": "taxEntity",
-						"mv": "$X00,000.00",
-						"date": "MM/DD/YY",
+						"mv": "900000.00",
+						"date": "2016-02-10T00:00:00",
 						"alertType": "negative",
 						"children": [
 							{
@@ -63657,8 +63733,8 @@
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "self",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "pending",
 								"updatedBy": "electronic",
 								"percent": "25%",
@@ -63670,8 +63746,8 @@
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "firm",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "pending",
 								"updatedBy": "manual",
 								"percent": "25%"
@@ -63682,16 +63758,16 @@
 						"name": "Name of Tax Entity",
 						"number": "1234-5678-90",
 						"type": "taxEntity",
-						"mv": "$X00,000.00",
-						"date": "MM/DD/YY",
+						"mv": "900000.00",
+						"date": "2016-02-10T00:00:00",
 						"children": [
 							{
 								"name": "Name of Account",
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "self",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "okay",
 								"updatedBy": "electronic",
 								"percent": "25%"
@@ -63701,8 +63777,8 @@
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "firm",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "okay",
 								"updatedBy": "manual",
 								"percent": "25%"
@@ -63715,23 +63791,23 @@
 				"name": "Name of Household",
 				"number": "1234-5678-90",
 				"type": "household",
-				"mv": "$X00,000.00",
-				"date": "MM/DD/YY",
+				"mv": "900000.00",
+				"date": "2016-02-10T00:00:00",
 				"children": [
 					{
 						"name": "Name of Tax Entity",
 						"number": "1234-5678-90",
 						"type": "taxEntity",
-						"mv": "$X00,000.00",
-						"date": "MM/DD/YY",
+						"mv": "900000.00",
+						"date": "2016-02-10T00:00:00",
 						"children": [
 							{
 								"name": "Name of Account",
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "self",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "problem",
 								"updatedBy": "electronic",
 								"percent": "25%",
@@ -63742,8 +63818,8 @@
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "firm",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "okay",
 								"updatedBy": "manual",
 								"percent": "25%"
@@ -63754,16 +63830,16 @@
 						"name": "Name of Tax Entity",
 						"number": "1234-5678-90",
 						"type": "taxEntity",
-						"mv": "$X00,000.00",
-						"date": "MM/DD/YY",
+						"mv": "900000.00",
+						"date": "2016-02-10T00:00:00",
 						"children": [
 							{
 								"name": "Name of Account",
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "self",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "okay",
 								"updatedBy": "electronic",
 								"percent": "25%"
@@ -63773,8 +63849,8 @@
 								"number": "1234-5678-90",
 								"type": "account",
 								"managedBy": "firm",
-								"mv": "$X0,000.00",
-								"date": "MM/DD/YY",
+								"mv": "90000.00",
+								"date": "2016-02-10T00:00:00",
 								"status": "okay",
 								"updatedBy": "manual",
 								"percent": "25%"
