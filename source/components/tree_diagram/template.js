@@ -67,7 +67,7 @@ TreeDiagram.propTypes = {
 // Defaults.
 TreeDiagram.defaultProps = {
   // Animation duration.
-  duration: 0,
+  duration: 500,
 
   // Base rectangle width.
   rectW: 280,

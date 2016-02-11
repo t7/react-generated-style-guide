@@ -288,7 +288,7 @@ export default class Chart {
       this.update(d, false)
     }
 
-   // Fire callback.
+    // Fire callback.
     this.handleClickToggle(d, !!d.children)
   }
 
@@ -502,6 +502,9 @@ export default class Chart {
       return
     }
 
+    // Used to generate `d.id` in `update`.
+    this.counter = 0
+
     const setPan = this.setPan.bind(this)
 
     const width = this.el.offsetWidth
@@ -561,6 +564,7 @@ export default class Chart {
       .append('g')
       .attr('transform', 'translate(' + offset + ',' + 20 + ')')
 
+    // Update UI.
     this.update(data)
   }
 
@@ -586,7 +590,7 @@ export default class Chart {
     const rectH = config.rectH
 
     // Compute tree layout.
-    const nodes = this.tree.nodes(data).reverse()
+    const nodes = this.tree.nodes(data)
     const links = this.tree.links(nodes)
 
     // Remove menu, if it exists.
@@ -620,21 +624,19 @@ export default class Chart {
     // Update the nodes.
     // =================
 
-    // Used in loop.
-    var i = 0
+    // Get the counter.
+    var i = this.counter
 
+    // Generate ID per node.
     const allNodes = this
       .svg
       .selectAll('.t7-d3-tree-diagram__group')
       .data(nodes, function (d) {
-        // Increment counter.
-        i++
-
-        // Assign ID.
-        d.id = d.id || i
-
-        return d.id
+        return d.id || (d.id = ++i)
       })
+
+    // Store the counter.
+    this.counter = i
 
     // ======================
     // Create group per node.
