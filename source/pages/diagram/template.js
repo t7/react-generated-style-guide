@@ -88,6 +88,8 @@ class Page extends React.Component {
               <b>Note:</b> Click an item to expand/collapse.
             </p>
 
+            <hr />
+
             <TreeDiagram data={data} />
 
           </Grid>

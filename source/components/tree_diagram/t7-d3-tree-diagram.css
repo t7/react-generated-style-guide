@@ -3,18 +3,35 @@ Tree Diagram.
 ============================================================
 */
 
-.t7-d3-tree-diagram {
+.t7-d3-tree-diagram__frame {
   background: #fff;
   border: 1px solid;
   border-color: #ddd;
   border-radius: 4px;
 
   margin-bottom: 20px;
-  /*padding-top: 56.25%;*/
   padding-top: 75%;
   position: relative;
 
   overflow: hidden;
+}
+
+.t7-d3-tree-diagram__frame svg {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+
+  cursor: default;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+
+  width: 100%;
+  height: 100%;
 }
 
 .t7-d3-tree-diagram__loading {
@@ -25,21 +42,6 @@ Tree Diagram.
 
   position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.t7-d3-tree-diagram svg {
-  -moz-user-select: -moz-none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
-
-  cursor: default;
-
-  position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   bottom: 0;

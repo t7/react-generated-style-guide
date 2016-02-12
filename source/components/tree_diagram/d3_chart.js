@@ -11,9 +11,19 @@ export default class Chart {
   }
 
   bindEvents () {
+    var handleClickCollapseAll = this.props.handleClickCollapseAll
+    var handleClickExpandAll = this.props.handleClickExpandAll
     var handleClickNode = this.props.handleClickNode
     var handleClickMenu = this.props.handleClickMenu
     var handleClickToggle = this.props.handleClickToggle
+
+    if (typeof handleClickCollapseAll !== 'function') {
+      handleClickCollapseAll = function () {}
+    }
+
+    if (typeof handleClickExpandAll !== 'function') {
+      handleClickExpandAll = function () {}
+    }
 
     if (typeof handleClickNode !== 'function') {
       handleClickNode = function () {}
@@ -26,6 +36,12 @@ export default class Chart {
     if (typeof handleClickToggle !== 'function') {
       handleClickToggle = function () {}
     }
+
+    // Callback for collapsing all items.
+    this.handleClickCollapseAll = handleClickCollapseAll
+
+    // Callback for expanding all items.
+    this.handleClickExpandAll = handleClickExpandAll
 
     // Callback for clicking a "leaf".
     this.handleClickNode = handleClickNode
@@ -53,33 +69,11 @@ export default class Chart {
     }
   }
 
-  bindResize () {
-    const resize = this.resize.bind(this)
-    window.addEventListener('resize', resize)
-  }
-
-  unbindResize () {
-    const resize = this.resize.bind(this)
-    window.removeEventListener('resize', resize)
-  }
-
-  resize () {
-    const width = this.el.offsetWidth
-    const height = this.el.offsetHeight
-
-    d3
-      .select('svg')
-      .attr('width', width)
-      .attr('height', height)
-  }
-
   /*
     This is called when the React
     component itself is unmounted.
   */
   destroy () {
-    this.unbindResize()
-
     const svg = this.el.querySelector('svg')
 
     if (!svg) {
@@ -279,14 +273,8 @@ export default class Chart {
       d._children = null
     }
 
-    // If duration exists.
-    if (this.config.duration) {
-      // Set `showAnimation` to `true`.
-      this.update(d, true)
-    } else {
-      // Set `showAnimation` to `false`.
-      this.update(d, false)
-    }
+    // Update the UI.
+    this.update(d, !!this.config.duration)
 
     // Fire callback.
     this.handleClickToggle(d, !!d.children)
@@ -508,8 +496,6 @@ export default class Chart {
     const setPan = this.setPan.bind(this)
 
     const width = this.el.offsetWidth
-    const height = this.el.offsetHeight
-
     const config = this.config
 
     const rectW = config.rectW
@@ -542,8 +528,6 @@ export default class Chart {
     this.root = d3
       .select(this.el)
       .append('svg')
-      .attr('width', width)
-      .attr('height', height)
       .call(
         d3
           .behavior
@@ -552,9 +536,6 @@ export default class Chart {
           .scaleExtent([0.25, 2])
           .on('zoom', setPan)
       )
-
-    // Bind `window` resize.
-    this.bindResize()
 
     // Add images to the `<defs>`.
     this.buildIcons()
@@ -1269,17 +1250,67 @@ export default class Chart {
     })
   }
 
+  // Expand all items.
+  expandAll (d) {
+    d = d || this.data.children
+
+    this.expand(this.data)
+    this.update(this.data)
+
+    this.handleClickExpandAll(d)
+  }
+
+  // Collapse all items.
+  collapseAll (d) {
+    d = d || this.data.children
+
+    this.collapse(this.data)
+    this.update(this.data)
+
+    this.handleClickCollapseAll(d)
+  }
+
+  // Recursively expand children.
+  expand (d, type) {
+    const expand = this.expand.bind(this)
+    const children = d._children || d.children
+
+    if (children) {
+      children.forEach(function (d) {
+        expand(d, type)
+      })
+    }
+
+    if (d._children) {
+      d.children = d._children
+      d._children = null
+    }
+
+    if (d._children && type && d.type === type) {
+      d.children = d._children
+      d._children = null
+    }
+  }
+
   // Recursively collapse children.
-  collapse (d) {
+  collapse (d, type) {
     const collapse = this.collapse.bind(this)
+    const children = d.children || d._children
 
-    if (d.children) {
-      d.children.forEach(collapse)
+    if (children) {
+      children.forEach(function (d) {
+        collapse(d)
+      })
+    }
 
-      if (d.type === 'taxEntity') {
-        d._children = d.children
-        d.children = null
-      }
+    if (d.children && !type) {
+      d._children = d.children
+      d.children = null
+    }
+
+    if (d.children && type && d.type === type) {
+      d._children = d.children
+      d.children = null
     }
   }
 
@@ -1289,9 +1320,12 @@ export default class Chart {
   */
   render (data) {
     const collapse = this.collapse.bind(this)
+    const children = data.children || data._children
 
-    if (data.children) {
-      data.children.forEach(collapse)
+    if (children) {
+      children.forEach(function (d) {
+        collapse(d, 'taxEntity')
+      })
     }
 
     this.data = data
