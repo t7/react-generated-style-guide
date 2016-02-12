@@ -52837,6 +52837,10 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
+	var _utils = __webpack_require__(166);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
 	var Chart = (function () {
 	  function Chart(el, props) {
 	    _classCallCheck(this, Chart);
@@ -53322,9 +53326,6 @@
 	        return;
 	      }
 
-	      // Used to generate `d.id` in `update`.
-	      this.counter = 0;
-
 	      var setPan = this.setPan.bind(this);
 
 	      var width = this.el.offsetWidth;
@@ -53421,16 +53422,11 @@
 	      // Update the nodes.
 	      // =================
 
-	      // Get the counter.
-	      var i = this.counter;
-
 	      // Generate ID per node.
 	      var allNodes = this.svg.selectAll('.t7-d3-tree-diagram__group').data(nodes, function (d) {
-	        return d.id || (d.id = ++i);
+	        d.id = d.id || _utils2['default'].unique();
+	        return d.id;
 	      });
-
-	      // Store the counter.
-	      this.counter = i;
 
 	      // ======================
 	      // Create group per node.
