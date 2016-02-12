@@ -1,6 +1,5 @@
 // Dependencies.
 import React from 'react'
-import _ from 'lodash'
 
 // CSS.
 import './t7-d3-tree-diagram.css'
@@ -21,18 +20,14 @@ class TreeDiagram extends React.Component {
 
   // Initial call to D3.
   componentDidMount () {
-    const data = _.cloneDeep(this.props.data)
-
     // Create chart instance.
     this.chart = new Chart(this.refs.el, this.props)
-    this.chart.render(data)
+    this.chart.render(this.props.data)
   }
 
   // Updates the D3 chart.
   componentDidUpdate () {
-    const data = _.cloneDeep(this.props.data)
-
-    this.chart.render(data)
+    this.chart.render(this.props.data)
   }
 
   // Destroys the D3 chart.
@@ -56,10 +51,8 @@ class TreeDiagram extends React.Component {
 
   // Reset the view.
   resetView (e) {
-    const data = _.cloneDeep(this.props.data)
-
     if (this.chart) {
-      this.chart.render(data)
+      this.chart.render(this.props.data)
     }
   }
 

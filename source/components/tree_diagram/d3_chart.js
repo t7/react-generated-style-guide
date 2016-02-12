@@ -1,3 +1,5 @@
+// Dependencies.
+import _ from 'lodash'
 import accounting from 'accounting'
 import d3 from 'd3'
 import moment from 'moment'
@@ -317,10 +319,10 @@ export default class Chart {
   }
 
   calcRectHeight (d) {
-    var height = 40
+    var height = 45
 
     if (d.name) {
-      height += 30
+      height += 25
     }
 
     if (d.number) {
@@ -603,11 +605,14 @@ export default class Chart {
     // Update the nodes.
     // =================
 
-    // Generate ID per node.
     const allNodes = this
       .svg
       .selectAll('.t7-d3-tree-diagram__group')
       .data(nodes, function (d) {
+        // Fallback.
+        d.number = d.number || 'account: N/A'
+
+        // Generate ID per node.
         d.id = d.id || utils.unique()
         return d.id
       })
@@ -757,7 +762,7 @@ export default class Chart {
       var y = 0
 
       if (d.alertText) {
-        y = 25
+        y = 20
       }
 
       return 'translate(' + x + ',' + y + ')'
@@ -822,26 +827,35 @@ export default class Chart {
       return name
     })
 
+    // Hide, if no data.
+    itemName.style('display', function (d) {
+      if (!d.name) {
+        return 'none'
+      }
+    })
+
     // ==================================
     // Add item number (account, tax ID).
     // ==================================
 
     const itemNumber = contentGroup.append('text')
 
-    itemNumber.attr('y', 50)
+    itemNumber.attr('y', function (d) {
+      var n = 30
+
+      if (d.name) {
+        n = 50
+      }
+
+      return n
+    })
+
     itemNumber.attr('dy', '0.35em')
     itemNumber.attr('text-anchor', 'start')
     itemNumber.attr('class', 't7-d3-tree-diagram__mute')
 
     itemNumber.text(function (d) {
       return d.number
-    })
-
-    // Hide, if no data.
-    itemNumber.style('display', function (d) {
-      if (!d.number) {
-        return 'none'
-      }
     })
 
     // =====================
@@ -853,7 +867,7 @@ export default class Chart {
     itemDesc.attr('y', function (d) {
       var n = 50
 
-      if (d.number) {
+      if (d.name) {
         n = 70
       }
 
@@ -865,23 +879,29 @@ export default class Chart {
     itemDesc.attr('class', 't7-d3-tree-diagram__mute')
 
     itemDesc.text(function (d) {
-      var date = d.date || ''
-      var mv = parseFloat(d.mv) || ''
+      if (d.description) {
+        return d.description
+      }
+
+      var date = d.date || new Date().getTime()
+      var mv = parseFloat(d.mv)
 
       if (mv) {
         mv = 'MV ' + accounting.formatMoney(mv)
+      } else {
+        mv = '$0.00'
       }
 
       if (date) {
         date = 'as of ' + moment(date).format('MM/DD/YYYY')
       }
 
-      const str = [
+      d.description = [
         mv,
         date
       ].join(' ')
 
-      return str
+      return d.description
     })
 
     // ======================
@@ -1312,6 +1332,8 @@ export default class Chart {
     is mounted, or has updated data.
   */
   render (data) {
+    data = _.cloneDeep(data)
+
     const collapse = this.collapse.bind(this)
     const children = data.children || data._children
 
