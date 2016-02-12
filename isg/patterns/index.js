@@ -52587,10 +52587,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(179);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	// CSS.
 
 	__webpack_require__(332);
@@ -52630,20 +52626,16 @@
 	  _createClass(TreeDiagram, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var data = _lodash2['default'].cloneDeep(this.props.data);
-
 	      // Create chart instance.
 	      this.chart = new _d3_chart2['default'](this.refs.el, this.props);
-	      this.chart.render(data);
+	      this.chart.render(this.props.data);
 	    }
 
 	    // Updates the D3 chart.
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      var data = _lodash2['default'].cloneDeep(this.props.data);
-
-	      this.chart.render(data);
+	      this.chart.render(this.props.data);
 	    }
 
 	    // Destroys the D3 chart.
@@ -52675,10 +52667,8 @@
 	  }, {
 	    key: 'resetView',
 	    value: function resetView(e) {
-	      var data = _lodash2['default'].cloneDeep(this.props.data);
-
 	      if (this.chart) {
-	        this.chart.render(data);
+	        this.chart.render(this.props.data);
 	      }
 	    }
 
@@ -52813,6 +52803,7 @@
 /* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// Dependencies.
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -52824,6 +52815,10 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var _lodash = __webpack_require__(179);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
 
 	var _accounting = __webpack_require__(206);
 
@@ -53150,10 +53145,10 @@
 	  }, {
 	    key: 'calcRectHeight',
 	    value: function calcRectHeight(d) {
-	      var height = 40;
+	      var height = 45;
 
 	      if (d.name) {
-	        height += 30;
+	        height += 25;
 	      }
 
 	      if (d.number) {
@@ -53422,8 +53417,11 @@
 	      // Update the nodes.
 	      // =================
 
-	      // Generate ID per node.
 	      var allNodes = this.svg.selectAll('.t7-d3-tree-diagram__group').data(nodes, function (d) {
+	        // Fallback.
+	        d.number = d.number || 'account: N/A';
+
+	        // Generate ID per node.
 	        d.id = d.id || _utils2['default'].unique();
 	        return d.id;
 	      });
@@ -53573,7 +53571,7 @@
 	        var y = 0;
 
 	        if (d.alertText) {
-	          y = 25;
+	          y = 20;
 	        }
 
 	        return 'translate(' + x + ',' + y + ')';
@@ -53638,26 +53636,35 @@
 	        return name;
 	      });
 
+	      // Hide, if no data.
+	      itemName.style('display', function (d) {
+	        if (!d.name) {
+	          return 'none';
+	        }
+	      });
+
 	      // ==================================
 	      // Add item number (account, tax ID).
 	      // ==================================
 
 	      var itemNumber = contentGroup.append('text');
 
-	      itemNumber.attr('y', 50);
+	      itemNumber.attr('y', function (d) {
+	        var n = 30;
+
+	        if (d.name) {
+	          n = 50;
+	        }
+
+	        return n;
+	      });
+
 	      itemNumber.attr('dy', '0.35em');
 	      itemNumber.attr('text-anchor', 'start');
 	      itemNumber.attr('class', 't7-d3-tree-diagram__mute');
 
 	      itemNumber.text(function (d) {
 	        return d.number;
-	      });
-
-	      // Hide, if no data.
-	      itemNumber.style('display', function (d) {
-	        if (!d.number) {
-	          return 'none';
-	        }
 	      });
 
 	      // =====================
@@ -53669,7 +53676,7 @@
 	      itemDesc.attr('y', function (d) {
 	        var n = 50;
 
-	        if (d.number) {
+	        if (d.name) {
 	          n = 70;
 	        }
 
@@ -53681,20 +53688,26 @@
 	      itemDesc.attr('class', 't7-d3-tree-diagram__mute');
 
 	      itemDesc.text(function (d) {
-	        var date = d.date || '';
-	        var mv = parseFloat(d.mv) || '';
+	        if (d.description) {
+	          return d.description;
+	        }
+
+	        var date = d.date || new Date().getTime();
+	        var mv = parseFloat(d.mv);
 
 	        if (mv) {
 	          mv = 'MV ' + _accounting2['default'].formatMoney(mv);
+	        } else {
+	          mv = '$0.00';
 	        }
 
 	        if (date) {
 	          date = 'as of ' + (0, _moment2['default'])(date).format('MM/DD/YYYY');
 	        }
 
-	        var str = [mv, date].join(' ');
+	        d.description = [mv, date].join(' ');
 
-	        return str;
+	        return d.description;
 	      });
 
 	      // ======================
@@ -54097,6 +54110,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render(data) {
+	      data = _lodash2['default'].cloneDeep(data);
+
 	      var collapse = this.collapse.bind(this);
 	      var children = data.children || data._children;
 
