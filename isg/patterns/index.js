@@ -52587,6 +52587,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _lodash = __webpack_require__(179);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
 	// CSS.
 
 	__webpack_require__(332);
@@ -52596,6 +52600,16 @@
 	var _d3_chart = __webpack_require__(333);
 
 	var _d3_chart2 = _interopRequireDefault(_d3_chart);
+
+	// UI components.
+
+	var _form_buttonTemplate = __webpack_require__(296);
+
+	var _form_buttonTemplate2 = _interopRequireDefault(_form_buttonTemplate);
+
+	var _list_inlineTemplate = __webpack_require__(308);
+
+	var _list_inlineTemplate2 = _interopRequireDefault(_list_inlineTemplate);
 
 	// Define class.
 
@@ -52616,16 +52630,20 @@
 	  _createClass(TreeDiagram, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var data = _lodash2['default'].cloneDeep(this.props.data);
+
 	      // Create chart instance.
 	      this.chart = new _d3_chart2['default'](this.refs.el, this.props);
-	      this.chart.render(this.props.data);
+	      this.chart.render(data);
 	    }
 
 	    // Updates the D3 chart.
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      this.chart.render(this.props.data);
+	      var data = _lodash2['default'].cloneDeep(this.props.data);
+
+	      this.chart.render(data);
 	    }
 
 	    // Destroys the D3 chart.
@@ -52635,11 +52653,43 @@
 	      this.chart.destroy();
 	    }
 
+	    // Collapse all items.
+	  }, {
+	    key: 'collapseAll',
+	    value: function collapseAll(e) {
+	      if (this.chart) {
+	        this.chart.collapseAll();
+	      }
+	    }
+
+	    // Expand all items.
+	  }, {
+	    key: 'expandAll',
+	    value: function expandAll(e) {
+	      if (this.chart) {
+	        this.chart.expandAll();
+	      }
+	    }
+
+	    // Reset the view.
+	  }, {
+	    key: 'resetView',
+	    value: function resetView(e) {
+	      var data = _lodash2['default'].cloneDeep(this.props.data);
+
+	      if (this.chart) {
+	        this.chart.render(data);
+	      }
+	    }
+
 	    // Render method.
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var data = this.props.data;
+	      var collapseAll = this.collapseAll.bind(this);
+	      var expandAll = this.expandAll.bind(this);
+	      var resetView = this.resetView.bind(this);
 
 	      // Set in conditional.
 	      var loadingMessage;
@@ -52654,11 +52704,43 @@
 
 	      return _react2['default'].createElement(
 	        'div',
-	        {
-	          className: 't7-d3-tree-diagram',
-	          ref: 'el'
-	        },
-	        loadingMessage
+	        { className: 't7-d3-tree-diagram' },
+	        _react2['default'].createElement(
+	          _list_inlineTemplate2['default'],
+	          null,
+	          _react2['default'].createElement(
+	            'li',
+	            null,
+	            _react2['default'].createElement(_form_buttonTemplate2['default'], {
+	              text: 'Expand All',
+	              handleClick: expandAll
+	            })
+	          ),
+	          _react2['default'].createElement(
+	            'li',
+	            null,
+	            _react2['default'].createElement(_form_buttonTemplate2['default'], {
+	              text: 'Collapse All',
+	              handleClick: collapseAll
+	            })
+	          ),
+	          _react2['default'].createElement(
+	            'li',
+	            null,
+	            _react2['default'].createElement(_form_buttonTemplate2['default'], {
+	              text: 'Reset View',
+	              handleClick: resetView
+	            })
+	          )
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          {
+	            className: 't7-d3-tree-diagram__frame',
+	            ref: 'el'
+	          },
+	          loadingMessage
+	        )
 	      );
 	    }
 	  }]);
@@ -52768,9 +52850,19 @@
 	  _createClass(Chart, [{
 	    key: 'bindEvents',
 	    value: function bindEvents() {
+	      var handleClickCollapseAll = this.props.handleClickCollapseAll;
+	      var handleClickExpandAll = this.props.handleClickExpandAll;
 	      var handleClickNode = this.props.handleClickNode;
 	      var handleClickMenu = this.props.handleClickMenu;
 	      var handleClickToggle = this.props.handleClickToggle;
+
+	      if (typeof handleClickCollapseAll !== 'function') {
+	        handleClickCollapseAll = function () {};
+	      }
+
+	      if (typeof handleClickExpandAll !== 'function') {
+	        handleClickExpandAll = function () {};
+	      }
 
 	      if (typeof handleClickNode !== 'function') {
 	        handleClickNode = function () {};
@@ -52783,6 +52875,12 @@
 	      if (typeof handleClickToggle !== 'function') {
 	        handleClickToggle = function () {};
 	      }
+
+	      // Callback for collapsing all items.
+	      this.handleClickCollapseAll = handleClickCollapseAll;
+
+	      // Callback for expanding all items.
+	      this.handleClickExpandAll = handleClickExpandAll;
 
 	      // Callback for clicking a "leaf".
 	      this.handleClickNode = handleClickNode;
@@ -52810,26 +52908,6 @@
 	        rectW: rectW
 	      };
 	    }
-	  }, {
-	    key: 'bindResize',
-	    value: function bindResize() {
-	      var resize = this.resize.bind(this);
-	      window.addEventListener('resize', resize);
-	    }
-	  }, {
-	    key: 'unbindResize',
-	    value: function unbindResize() {
-	      var resize = this.resize.bind(this);
-	      window.removeEventListener('resize', resize);
-	    }
-	  }, {
-	    key: 'resize',
-	    value: function resize() {
-	      var width = this.el.offsetWidth;
-	      var height = this.el.offsetHeight;
-
-	      _d32['default'].select('svg').attr('width', width).attr('height', height);
-	    }
 
 	    /*
 	      This is called when the React
@@ -52838,8 +52916,6 @@
 	  }, {
 	    key: 'destroy',
 	    value: function destroy() {
-	      this.unbindResize();
-
 	      var svg = this.el.querySelector('svg');
 
 	      if (!svg) {
@@ -53034,14 +53110,8 @@
 	        d._children = null;
 	      }
 
-	      // If duration exists.
-	      if (this.config.duration) {
-	        // Set `showAnimation` to `true`.
-	        this.update(d, true);
-	      } else {
-	        // Set `showAnimation` to `false`.
-	        this.update(d, false);
-	      }
+	      // Update the UI.
+	      this.update(d, !!this.config.duration);
 
 	      // Fire callback.
 	      this.handleClickToggle(d, !!d.children);
@@ -53258,8 +53328,6 @@
 	      var setPan = this.setPan.bind(this);
 
 	      var width = this.el.offsetWidth;
-	      var height = this.el.offsetHeight;
-
 	      var config = this.config;
 
 	      var rectW = config.rectW;
@@ -53286,10 +53354,7 @@
 	      // Set default node size.
 	      this.tree.nodeSize([rectW + 20, rectH + 20]);
 
-	      this.root = _d32['default'].select(this.el).append('svg').attr('width', width).attr('height', height).call(_d32['default'].behavior.zoom().translate([offset, 20]).scaleExtent([0.25, 2]).on('zoom', setPan));
-
-	      // Bind `window` resize.
-	      this.bindResize();
+	      this.root = _d32['default'].select(this.el).append('svg').call(_d32['default'].behavior.zoom().translate([offset, 20]).scaleExtent([0.25, 2]).on('zoom', setPan));
 
 	      // Add images to the `<defs>`.
 	      this.buildIcons();
@@ -53957,19 +54022,75 @@
 	      });
 	    }
 
+	    // Expand all items.
+	  }, {
+	    key: 'expandAll',
+	    value: function expandAll(d) {
+	      d = d || this.data.children;
+
+	      this.expand(this.data);
+	      this.update(this.data);
+
+	      this.handleClickExpandAll(d);
+	    }
+
+	    // Collapse all items.
+	  }, {
+	    key: 'collapseAll',
+	    value: function collapseAll(d) {
+	      d = d || this.data.children;
+
+	      this.collapse(this.data);
+	      this.update(this.data);
+
+	      this.handleClickCollapseAll(d);
+	    }
+
+	    // Recursively expand children.
+	  }, {
+	    key: 'expand',
+	    value: function expand(d, type) {
+	      var expand = this.expand.bind(this);
+	      var children = d._children || d.children;
+
+	      if (children) {
+	        children.forEach(function (d) {
+	          expand(d, type);
+	        });
+	      }
+
+	      if (d._children) {
+	        d.children = d._children;
+	        d._children = null;
+	      }
+
+	      if (d._children && type && d.type === type) {
+	        d.children = d._children;
+	        d._children = null;
+	      }
+	    }
+
 	    // Recursively collapse children.
 	  }, {
 	    key: 'collapse',
-	    value: function collapse(d) {
+	    value: function collapse(d, type) {
 	      var collapse = this.collapse.bind(this);
+	      var children = d.children || d._children;
 
-	      if (d.children) {
-	        d.children.forEach(collapse);
+	      if (children) {
+	        children.forEach(function (d) {
+	          collapse(d);
+	        });
+	      }
 
-	        if (d.type === 'taxEntity') {
-	          d._children = d.children;
-	          d.children = null;
-	        }
+	      if (d.children && !type) {
+	        d._children = d.children;
+	        d.children = null;
+	      }
+
+	      if (d.children && type && d.type === type) {
+	        d._children = d.children;
+	        d.children = null;
 	      }
 	    }
 
@@ -53981,9 +54102,12 @@
 	    key: 'render',
 	    value: function render(data) {
 	      var collapse = this.collapse.bind(this);
+	      var children = data.children || data._children;
 
-	      if (data.children) {
-	        data.children.forEach(collapse);
+	      if (children) {
+	        children.forEach(function (d) {
+	          collapse(d, 'taxEntity');
+	        });
 	      }
 
 	      this.data = data;
