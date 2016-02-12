@@ -1,6 +1,7 @@
 import accounting from 'accounting'
 import d3 from 'd3'
 import moment from 'moment'
+import utils from '../../utils'
 
 export default class Chart {
   constructor (el, props) {
@@ -490,9 +491,6 @@ export default class Chart {
       return
     }
 
-    // Used to generate `d.id` in `update`.
-    this.counter = 0
-
     const setPan = this.setPan.bind(this)
 
     const width = this.el.offsetWidth
@@ -605,19 +603,14 @@ export default class Chart {
     // Update the nodes.
     // =================
 
-    // Get the counter.
-    var i = this.counter
-
     // Generate ID per node.
     const allNodes = this
       .svg
       .selectAll('.t7-d3-tree-diagram__group')
       .data(nodes, function (d) {
-        return d.id || (d.id = ++i)
+        d.id = d.id || utils.unique()
+        return d.id
       })
-
-    // Store the counter.
-    this.counter = i
 
     // ======================
     // Create group per node.
