@@ -96,7 +96,11 @@ class Select extends React.Component {
       >
         {
           options.map(function (o, i) {
-            const value = o.value || o.id
+            const value =
+              utils.exists(o.value)
+              ? o.value
+              : o.id
+
             const name = o.name
 
             return (
