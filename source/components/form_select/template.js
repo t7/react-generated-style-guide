@@ -96,7 +96,7 @@ class Select extends React.Component {
       >
         {
           options.map(function (o, i) {
-            const value = o.value
+            const value = o.value || o.id
             const name = o.name
 
             return (
@@ -120,9 +120,17 @@ Select.propTypes = {
   required: React.PropTypes.bool,
   width: React.PropTypes.string,
 
-  // Control selected state.
-  defaultValue: React.PropTypes.string,
-  value: React.PropTypes.string,
+  // Default value.
+  defaultValue: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
+
+  // Forced value.
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
 
   // Events.
   handleChange: React.PropTypes.func
