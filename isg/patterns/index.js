@@ -50514,7 +50514,9 @@
 	  label: _react2['default'].PropTypes.string,
 	  name: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
-	  value: _react2['default'].PropTypes.string,
+
+	  // Alphanumeric.
+	  value: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
 
 	  // Control checked state.
 	  defaultChecked: _react2['default'].PropTypes.bool,
@@ -50769,9 +50771,11 @@
 	  type: _react2['default'].PropTypes.string,
 	  width: _react2['default'].PropTypes.string,
 
-	  // Control text value.
-	  defaultValue: _react2['default'].PropTypes.string,
-	  value: _react2['default'].PropTypes.string,
+	  // Default value.
+	  defaultValue: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+
+	  // Forced value.
+	  value: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
@@ -51172,7 +51176,9 @@
 	  label: _react2['default'].PropTypes.string,
 	  name: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
-	  value: _react2['default'].PropTypes.string,
+
+	  // Alphanumeric.
+	  value: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
 
 	  // Control checked state.
 	  defaultChecked: _react2['default'].PropTypes.bool,
@@ -51490,9 +51496,11 @@
 	  placeholder: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
 
-	  // Control text value.
-	  defaultValue: _react2['default'].PropTypes.string,
-	  value: _react2['default'].PropTypes.string,
+	  // Default value.
+	  defaultValue: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+
+	  // Forced value.
+	  value: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
@@ -51676,9 +51684,11 @@
 	  placeholder: _react2['default'].PropTypes.string,
 	  required: _react2['default'].PropTypes.bool,
 
-	  // Control text value.
-	  defaultValue: _react2['default'].PropTypes.string,
-	  value: _react2['default'].PropTypes.string,
+	  // Default value.
+	  defaultValue: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+
+	  // Forced value.
+	  value: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
