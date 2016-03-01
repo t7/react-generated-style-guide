@@ -49051,7 +49051,8 @@
 	          onChange: handleChange
 	        },
 	        options.map(function (o, i) {
-	          var value = o.value;
+	          var value = _utils2['default'].exists(o.value) ? o.value : o.id;
+
 	          var name = o.name;
 
 	          return _react2['default'].createElement(
@@ -49077,9 +49078,11 @@
 	  required: _react2['default'].PropTypes.bool,
 	  width: _react2['default'].PropTypes.string,
 
-	  // Control selected state.
-	  defaultValue: _react2['default'].PropTypes.string,
-	  value: _react2['default'].PropTypes.string,
+	  // Default value.
+	  defaultValue: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+
+	  // Forced value.
+	  value: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
 
 	  // Events.
 	  handleChange: _react2['default'].PropTypes.func
