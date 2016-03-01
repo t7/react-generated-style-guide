@@ -100,7 +100,12 @@ Checkbox.propTypes = {
   label: React.PropTypes.string,
   name: React.PropTypes.string,
   required: React.PropTypes.bool,
-  value: React.PropTypes.string,
+
+  // Alphanumeric.
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
 
   // Control checked state.
   defaultChecked: React.PropTypes.bool,

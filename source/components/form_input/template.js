@@ -111,9 +111,17 @@ Input.propTypes = {
   type: React.PropTypes.string,
   width: React.PropTypes.string,
 
-  // Control text value.
-  defaultValue: React.PropTypes.string,
-  value: React.PropTypes.string,
+  // Default value.
+  defaultValue: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
+
+  // Forced value.
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
 
   // Events.
   handleChange: React.PropTypes.func
