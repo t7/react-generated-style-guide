@@ -52754,7 +52754,8 @@
 	TreeDiagram.propTypes = {
 	  data: _react2['default'].PropTypes.object,
 	  handleClickNode: _react2['default'].PropTypes.func,
-	  handleClickMenu: _react2['default'].PropTypes.func
+	  handleClickMenu: _react2['default'].PropTypes.func,
+	  hideMenuIcons: _react2['default'].PropTypes.bool
 	};
 
 	// Defaults.
@@ -52770,6 +52771,9 @@
 
 	  // Menu item height.
 	  itemH: 30,
+
+	  // Hide menus?
+	  hideMenuIcons: false,
 
 	  // Menu data.
 	  menu: {
@@ -53945,9 +53949,12 @@
 	        menuToggle(d, this);
 	      });
 
+	      // Flag to hide menus.
+	      var hideMenuIcons = this.props.hideMenuIcons;
+
 	      // Hide, if no data.
 	      menuIcon.style('display', function (d) {
-	        if (!config.menu[d.type]) {
+	        if (!config.menu[d.type] || hideMenuIcons) {
 	          return 'none';
 	        }
 	      });
