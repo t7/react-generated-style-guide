@@ -1126,9 +1126,12 @@ export default class Chart {
       menuToggle(d, this)
     })
 
+    // Flag to hide menus.
+    const hideMenuIcons = this.props.hideMenuIcons
+
     // Hide, if no data.
     menuIcon.style('display', function (d) {
-      if (!config.menu[d.type]) {
+      if (!config.menu[d.type] || hideMenuIcons) {
         return 'none'
       }
     })

@@ -111,7 +111,8 @@ class TreeDiagram extends React.Component {
 TreeDiagram.propTypes = {
   data: React.PropTypes.object,
   handleClickNode: React.PropTypes.func,
-  handleClickMenu: React.PropTypes.func
+  handleClickMenu: React.PropTypes.func,
+  hideMenuIcons: React.PropTypes.bool
 }
 
 // Defaults.
@@ -127,6 +128,9 @@ TreeDiagram.defaultProps = {
 
   // Menu item height.
   itemH: 30,
+
+  // Hide menus?
+  hideMenuIcons: false,
 
   // Menu data.
   menu: {
