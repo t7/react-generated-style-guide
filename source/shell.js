@@ -16,12 +16,12 @@ class Shell extends React.Component {
         name='viewport'
         content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1'
       />
-      <link rel='stylesheet' href='build.css' />
+      <link rel='stylesheet' href='./build.css' />
       <title></title>
       </head>
       <body>
         <div id='app' dangerouslySetInnerHTML={{__html: this.props.markup}} />
-        <script src='build.js' />
+        <script src='./build.js' />
       </body>
       </html>
     )
