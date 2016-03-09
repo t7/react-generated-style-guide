@@ -1,5 +1,5 @@
 // Helper for console.log
-export default function () {
+function log () {
   const localhost = window.location.hostname === 'localhost'
   const isValid = localhost && window.console && window.console.log
 
@@ -9,3 +9,6 @@ export default function () {
     })
   }
 }
+
+// Expose function.
+export default log

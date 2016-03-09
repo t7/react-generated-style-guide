@@ -1,7 +1,7 @@
 // Utility methods.
 import utils from './index'
 
-export default function (e) {
+function convertContentEditable (e) {
   const el = e.target
 
   // Check <tag> name.
@@ -47,3 +47,6 @@ export default function (e) {
     el.innerHTML = value
   }
 }
+
+// Expose function.
+export default convertContentEditable

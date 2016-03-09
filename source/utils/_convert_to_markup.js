@@ -3,7 +3,8 @@
   value back from an API, and before inserting the
   text into the `contenteditable` area on a page.
 */
-export default function (value) {
+
+function convertToMarkup (value) {
   value = value.trim()
   value = value.replace(/>/g, '&gt;')
   value = value.replace(/</g, '&lt;')
@@ -14,3 +15,6 @@ export default function (value) {
 
   return value
 }
+
+// Expose function.
+export default convertToMarkup

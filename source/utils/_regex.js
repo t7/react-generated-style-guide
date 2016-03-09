@@ -1,5 +1,5 @@
 // Helper for regular expressions.
-export default function (x) {
+function regex (x) {
   // Escape the string.
   function esc (str) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
@@ -33,3 +33,6 @@ export default function (x) {
   // Expose value.
   return value
 }
+
+// Expose function.
+export default regex

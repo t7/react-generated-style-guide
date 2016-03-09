@@ -1,8 +1,11 @@
 // Helper for page navigation.
-export default function (path) {
+function navigate (path) {
   if (path === '/') {
     path = ''
   }
 
   window.location.hash = '/' + path
 }
+
+// Expose function.
+export default navigate

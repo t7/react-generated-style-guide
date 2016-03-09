@@ -1,5 +1,5 @@
 // Set the page `<title>`.
-export default function (props) {
+function title (props) {
   // Fallback site title.
   const suffix = 'ACME Corp.'
 
@@ -18,3 +18,6 @@ export default function (props) {
   // Set title.
   document.title = title
 }
+
+// Expose function.
+export default title

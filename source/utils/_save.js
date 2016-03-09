@@ -3,7 +3,7 @@
   file, when perusing a large JSON object via console.log
   would be too time consuming and/or laborious. Enjoy! :)
 */
-export default function (data, filename) {
+function save (data, filename) {
   // File blob.
   const Blob = window.Blob
 
@@ -70,3 +70,6 @@ export default function (data, filename) {
   a.dataset.downloadurl = [type, a.download, a.href].join(':')
   a.dispatchEvent(e)
 }
+
+// Expose function.
+export default save

@@ -2,7 +2,8 @@
   You would call this when a user pastes from
   the clipboard into a `contenteditable` area.
 */
-export default function (e) {
+
+function convertOnPaste (e) {
   // Prevent paste.
   e.preventDefault()
 
@@ -71,3 +72,6 @@ export default function (e) {
     document.execCommand('insertText', false, value)
   }
 }
+
+// Expose function.
+export default convertOnPaste

@@ -1,5 +1,5 @@
 // Returns 1 day, in milliseconds.
-export default function (offset) {
+function today (offset) {
   const isValid = !isNaN(offset)
 
   var day = new Date().getTime()
@@ -10,3 +10,6 @@ export default function (offset) {
 
   return day
 }
+
+// Expose function.
+export default today

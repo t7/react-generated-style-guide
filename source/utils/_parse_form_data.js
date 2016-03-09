@@ -7,7 +7,7 @@
 import _ from 'lodash'
 import utils from '../utils'
 
-export default function (form) {
+function parseFormData (form) {
   // Get the key/values.
   const str = 'input, select, textarea, [contenteditable="true"]'
   const list = form.querySelectorAll(str)
@@ -57,3 +57,6 @@ export default function (form) {
   // Send back object.
   return data
 }
+
+// Expose function.
+export default parseFormData

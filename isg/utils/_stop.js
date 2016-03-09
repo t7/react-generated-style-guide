@@ -1,5 +1,8 @@
 // Helper to cancel events.
-export default function (e) {
+function stop (e) {
   e.preventDefault()
   e.stopPropagation()
 }
+
+// Expose function.
+export default stop

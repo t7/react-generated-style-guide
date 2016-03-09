@@ -107,9 +107,12 @@ function remove (key) {
 // Export object.
 // ==============
 
-export default {
+const storage = {
   clear: clear,
   get: get,
   remove: remove,
   set: set
 }
+
+// Expose methods.
+export default storage

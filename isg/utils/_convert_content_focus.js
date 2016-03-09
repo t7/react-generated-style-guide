@@ -1,4 +1,5 @@
-export default function (e) {
+// Convert text, when "content editable" is focused.
+function convertContentFocus (e) {
   const el = e.target
 
   // Get placeholder.
@@ -16,3 +17,6 @@ export default function (e) {
     el.innerHTML = ''
   }
 }
+
+// Expose function.
+export default convertContentFocus

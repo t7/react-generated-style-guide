@@ -2,7 +2,8 @@
   You would call this after getting an element's
   `.innerHTML` value, while the user is typing.
 */
-export default function (value) {
+
+function convertToText (value) {
   // Convert `&amp` to `&`.
   value = value.replace(/&amp/gi, '&')
 
@@ -53,3 +54,6 @@ export default function (value) {
 
   return value
 }
+
+// Expose function.
+export default convertToText

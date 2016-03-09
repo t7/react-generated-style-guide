@@ -1,5 +1,5 @@
 // Helper for returning a unique string.
-export default function () {
+function unique () {
   var x = new Date().getTime()
   x = x + '_'
   x = x + Math.random()
@@ -7,3 +7,6 @@ export default function () {
 
   return x
 }
+
+// Expose function.
+export default unique

@@ -2,10 +2,13 @@
 import marked from 'marked'
 
 // Convert Markdown to HTML.
-export default function (str) {
+function markdown (str) {
   return {
     __html: marked(str, {
       sanitize: true
     })
   }
 }
+
+// Expose function.
+export default markdown

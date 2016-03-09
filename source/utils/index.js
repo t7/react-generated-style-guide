@@ -20,8 +20,8 @@ import today from './_today'
 import trim from './_trim'
 import unique from './_unique'
 
-// Export object.
-export default {
+// Bundle up methods.
+const utils = {
   alphanumeric: alphanumeric,
   convertContentEditable: convertContentEditable,
   convertContentFocus: convertContentFocus,
@@ -43,3 +43,6 @@ export default {
   trim: trim,
   unique: unique
 }
+
+// Expose object.
+export default utils

@@ -1,5 +1,5 @@
 // Faux `placeholder="…"` handler.
-export default function (e) {
+function placeholder (e) {
   const el = e.target
 
   // Get placeholder.
@@ -17,3 +17,6 @@ export default function (e) {
     el.innerHTML = ''
   }
 }
+
+// Expose function.
+export default placeholder
