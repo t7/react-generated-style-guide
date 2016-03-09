@@ -39,9 +39,6 @@ class Header extends React.Component {
                 <Link to='/profile'>Profile</Link>
               </li>
               <li>
-                <Link to='/diagram'>Diagram</Link>
-              </li>
-              <li>
                 <a href='./isg/intro/'>ISG</a>
               </li>
             </ListSeparator>
