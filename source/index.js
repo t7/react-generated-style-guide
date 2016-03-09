@@ -1,7 +1,7 @@
 // Dependencies.
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route } from 'react-router'
+import { Router, Route, hashHistory } from 'react-router'
 
 // Un-scoped CSS.
 import './css/reset.css'
@@ -9,24 +9,17 @@ import './css/global.css'
 
 // Pages.
 import Accounts from './pages/accounts/template'
-import Diagram from './pages/diagram/template'
 import Profile from './pages/profile/template'
 import NotFound from './pages/404/template'
 
 // Routes template.
 const template = (
-<Router>
+<Router history={hashHistory}>
 
 <Route
 path='/'
 component={Accounts}
 title='Bank Accounts'
-/>
-
-<Route
-path='/diagram'
-component={Diagram}
-title='Tree Diagram'
 />
 
 <Route
