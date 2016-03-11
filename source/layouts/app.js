@@ -4,7 +4,7 @@ import React from 'react'
 // CSS.
 import './t7-app.css'
 
-// App Components.
+// UI components.
 import Wrapper from './app_wrapper'
 import Header from './app_header'
 import Main from './app_main'
