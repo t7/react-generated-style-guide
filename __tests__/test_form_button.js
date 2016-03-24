@@ -2,11 +2,7 @@
 describe
 expect
 it
-jest
 */
-
-// Disable auto mocking.
-jest.autoMockOff()
 
 // Dependencies.
 const React = require('react')
@@ -59,7 +55,7 @@ describe('Button', function () {
   // Test disabled state.
   // ====================
 
-  it('has correct text', function () {
+  it('has correct state', function () {
     const x = button.disabled
 
     expect(x).toBe(true)

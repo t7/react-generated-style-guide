@@ -2,11 +2,7 @@
 describe
 expect
 it
-jest
 */
-
-// Disable auto mocking.
-jest.autoMockOff()
 
 // Dependencies.
 const React = require('react')

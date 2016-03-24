@@ -56,6 +56,7 @@ class Input extends React.Component {
     // Props driven.
     const autofocus = this.props.autofocus
     const disabled = this.props.disabled
+    const maxlength = this.props.maxlength
     const name = this.props.name || id
     const placeholder = this.props.placeholder
     const required = this.props.required
@@ -84,6 +85,7 @@ class Input extends React.Component {
         className={className}
         disabled={disabled}
         id={id}
+        maxLength={maxlength}
         name={name}
         placeholder={placeholder}
         required={required}
@@ -104,6 +106,7 @@ Input.propTypes = {
   autofocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
+  maxlength: React.PropTypes.string,
   name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   required: React.PropTypes.bool,

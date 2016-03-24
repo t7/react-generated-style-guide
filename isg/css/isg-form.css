@@ -21,9 +21,9 @@ Form element "reset."
   -webkit-appearance: none;
 
   /* Adjust background display. */
+  background: none;
   background-clip: padding-box;
 
-  background: none;
   border: 0;
   border-radius: 0;
   margin: 0;
@@ -50,7 +50,7 @@ Form element "reset."
 }
 
 /* For Firefox. */
-@-moz-document url-prefix() {
+@-moz-document url-prefix("") {
   .isg-form__button:invalid,
   .isg-form__input:invalid,
   .isg-form__select:invalid,
@@ -188,7 +188,7 @@ Select drop-down.
 }
 
 /* For Firefox. */
-@-moz-document url-prefix() {
+@-moz-document url-prefix("") {
   .isg-form__select,
   .isg-form__select[size="0"],
   .isg-form__select[size="1"] {
@@ -222,7 +222,7 @@ Button.
   styles if this is applied to a link `<a>`.
 */
 .isg-form__button[class],
-.isg-form__button[class]:hover{
+.isg-form__button[class]:hover {
   color: #fff;
 }
 

@@ -13,6 +13,7 @@ function handleChange (e, value) {
 const autofocus = true // Default: false.
 const disabled = true // Default: false.
 const id = '...' // Ensured unique, if blank.
+const maxlength = '4' // Default: null
 const name = '...' // Uses id, if blank.
 const placeholder = '...' // Default: null.
 const required = true // Default: false.
@@ -34,6 +35,7 @@ To use the component, pass these props.
   autofocus={autofocus}
   disabled={disabled}
   id={id}
+  maxlength={maxlength}
   name={name}
   placeholder={placeholder}
   required={required}
