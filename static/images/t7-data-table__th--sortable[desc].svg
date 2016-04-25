@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64px" height="100px" viewBox="0 0 64 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>t7-data-table__th--sortable[desc]</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="t7-data-table__th--sortable[desc]" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSLayerGroup">
+            <path d="M33,64 L64,100 L0,100 L33,64 Z" id="arrow_down" fill="#999999" sketch:type="MSShapeGroup" transform="translate(32.000000, 82.000000) scale(1, -1) translate(-32.000000, -82.000000) "></path>
+            <path d="M33,0 L64,36 L0,36 L33,0 Z" id="arrow_up" fill="#000000" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

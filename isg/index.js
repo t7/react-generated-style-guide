@@ -44,60 +44,32 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*
-	  This file exists to pull in CSS in a "CSS Modules"
-	  way. It should be kept in sync with the various CSS
-	  files that `./isg/pages/*` make use of.
-
-	  This is necessary because they are flat-file compiled,
-	  so their CSS isn't built by Webpack as it would be
-	  in a typical hot-compiled JS "app" approach.
-	*/
-
-	// Layout.
 	'use strict';
 
-	__webpack_require__(1);
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./layouts/isg-app.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	// Grid.
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components_misc/unsemantic/grid.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	__webpack_require__(2);
-
-	// Global CSS.
 
 	__webpack_require__(3);
 
 	__webpack_require__(4);
 
-	// Code highlighting.
-
 	__webpack_require__(5);
 
-	// Style guide CSS.
-
-	__webpack_require__(6);
-
-	// Pilfered from "source".
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./css/isg-form.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	__webpack_require__(7);
 
 	__webpack_require__(8);
 
-	// Component level CSS.
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/image_figure/isg-figure.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	__webpack_require__(9);
-
-	__webpack_require__(10);
-
-	__webpack_require__(11);
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/list_inline/isg-list-inline.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 /***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
+/* 1 */,
 /* 2 */
 /***/ function(module, exports) {
 
@@ -122,12 +94,7 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
+/* 6 */,
 /* 7 */
 /***/ function(module, exports) {
 
@@ -135,24 +102,6 @@
 
 /***/ },
 /* 8 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 11 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
